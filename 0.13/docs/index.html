@@ -2642,13 +2642,13 @@ Maybe, Either, etc.) to Functor of a list.</p>
             </div>
 
             <pre><code class="hljs javascript"><span class="hljs-keyword">var</span> as = [[<span class="hljs-number">1</span>], [<span class="hljs-number">3</span>, <span class="hljs-number">4</span>]];
-    R.commute(R.of, as); <span class="hljs-comment">//=&gt; [[1, 3], [1, 4]]</span>
+R.commute(R.of, as); <span class="hljs-comment">//=&gt; [[1, 3], [1, 4]]</span>
 
-    <span class="hljs-keyword">var</span> bs = [[<span class="hljs-number">1</span>, <span class="hljs-number">2</span>], [<span class="hljs-number">3</span>]];
-    R.commute(R.of, bs); <span class="hljs-comment">//=&gt; [[1, 3], [2, 3]]</span>
+<span class="hljs-keyword">var</span> bs = [[<span class="hljs-number">1</span>, <span class="hljs-number">2</span>], [<span class="hljs-number">3</span>]];
+R.commute(R.of, bs); <span class="hljs-comment">//=&gt; [[1, 3], [2, 3]]</span>
 
-    <span class="hljs-keyword">var</span> cs = [[<span class="hljs-number">1</span>, <span class="hljs-number">2</span>], [<span class="hljs-number">3</span>, <span class="hljs-number">4</span>]];
-    R.commute(R.of, cs); <span class="hljs-comment">//=&gt; [[1, 3], [2, 3], [1, 4], [2, 4]]</span></code></pre>
+<span class="hljs-keyword">var</span> cs = [[<span class="hljs-number">1</span>, <span class="hljs-number">2</span>], [<span class="hljs-number">3</span>, <span class="hljs-number">4</span>]];
+R.commute(R.of, cs); <span class="hljs-comment">//=&gt; [[1, 3], [2, 3], [1, 4], [2, 4]]</span></code></pre>
         </section>
         <section class="card" id="commuteMap">
             <h2>
@@ -2703,14 +2703,14 @@ Maybe, Either, etc.) to Functor of a list.</p>
             </div>
 
             <pre><code class="hljs javascript"><span class="hljs-keyword">var</span> plus10map = R.map(<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(x)</span> </span>{ <span class="hljs-keyword">return</span> x + <span class="hljs-number">10</span>; });
-    <span class="hljs-keyword">var</span> as = [[<span class="hljs-number">1</span>], [<span class="hljs-number">3</span>, <span class="hljs-number">4</span>]];
-    R.commuteMap(R.map(<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(x)</span> </span>{ <span class="hljs-keyword">return</span> x + <span class="hljs-number">10</span>; }), R.of, as); <span class="hljs-comment">//=&gt; [[11, 13], [11, 14]]</span>
+<span class="hljs-keyword">var</span> as = [[<span class="hljs-number">1</span>], [<span class="hljs-number">3</span>, <span class="hljs-number">4</span>]];
+R.commuteMap(R.map(<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(x)</span> </span>{ <span class="hljs-keyword">return</span> x + <span class="hljs-number">10</span>; }), R.of, as); <span class="hljs-comment">//=&gt; [[11, 13], [11, 14]]</span>
 
-    <span class="hljs-keyword">var</span> bs = [[<span class="hljs-number">1</span>, <span class="hljs-number">2</span>], [<span class="hljs-number">3</span>]];
-    R.commuteMap(plus10map, R.of, bs); <span class="hljs-comment">//=&gt; [[11, 13], [12, 13]]</span>
+<span class="hljs-keyword">var</span> bs = [[<span class="hljs-number">1</span>, <span class="hljs-number">2</span>], [<span class="hljs-number">3</span>]];
+R.commuteMap(plus10map, R.of, bs); <span class="hljs-comment">//=&gt; [[11, 13], [12, 13]]</span>
 
-    <span class="hljs-keyword">var</span> cs = [[<span class="hljs-number">1</span>, <span class="hljs-number">2</span>], [<span class="hljs-number">3</span>, <span class="hljs-number">4</span>]];
-    R.commuteMap(plus10map, R.of, cs); <span class="hljs-comment">//=&gt; [[11, 13], [12, 13], [11, 14], [12, 14]]</span></code></pre>
+<span class="hljs-keyword">var</span> cs = [[<span class="hljs-number">1</span>, <span class="hljs-number">2</span>], [<span class="hljs-number">3</span>, <span class="hljs-number">4</span>]];
+R.commuteMap(plus10map, R.of, cs); <span class="hljs-comment">//=&gt; [[11, 13], [12, 13], [11, 14], [12, 14]]</span></code></pre>
         </section>
         <section class="card" id="comparator">
             <h2>
@@ -3205,8 +3205,8 @@ equality predicate for <code>x</code>.</p>
 
 
             <pre><code class="hljs javascript"><span class="hljs-keyword">var</span> xs = [{x: <span class="hljs-number">12</span>}, {x: <span class="hljs-number">11</span>}, {x: <span class="hljs-number">10</span>}];
-    R.containsWith(<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(a, b)</span> </span>{ <span class="hljs-keyword">return</span> a.x === b.x; }, {x: <span class="hljs-number">10</span>}, xs); <span class="hljs-comment">//=&gt; true</span>
-    R.containsWith(<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(a, b)</span> </span>{ <span class="hljs-keyword">return</span> a.x === b.x; }, {x: <span class="hljs-number">1</span>}, xs); <span class="hljs-comment">//=&gt; false</span></code></pre>
+R.containsWith(<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(a, b)</span> </span>{ <span class="hljs-keyword">return</span> a.x === b.x; }, {x: <span class="hljs-number">10</span>}, xs); <span class="hljs-comment">//=&gt; true</span>
+R.containsWith(<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(a, b)</span> </span>{ <span class="hljs-keyword">return</span> a.x === b.x; }, {x: <span class="hljs-number">1</span>}, xs); <span class="hljs-comment">//=&gt; false</span></code></pre>
         </section>
         <section class="card" id="converge">
             <h2>
@@ -4953,23 +4953,23 @@ on each element, and grouping the results according to values returned.</p>
             </div>
 
             <pre><code class="hljs javascript"><span class="hljs-keyword">var</span> byGrade = R.groupBy(<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(student)</span> </span>{
- <span class="hljs-keyword">var</span> score = student.score;
- <span class="hljs-keyword">return</span> score &lt; <span class="hljs-number">65</span> ? <span class="hljs-string">'F'</span> :
-        score &lt; <span class="hljs-number">70</span> ? <span class="hljs-string">'D'</span> :
-        score &lt; <span class="hljs-number">80</span> ? <span class="hljs-string">'C'</span> :
-        score &lt; <span class="hljs-number">90</span> ? <span class="hljs-string">'B'</span> : <span class="hljs-string">'A'</span>;
-    });
-    <span class="hljs-keyword">var</span> students = [{name: <span class="hljs-string">'Abby'</span>, score: <span class="hljs-number">84</span>},
-               {name: <span class="hljs-string">'Eddy'</span>, score: <span class="hljs-number">58</span>},
-               <span class="hljs-comment">// ...</span>
-               {name: <span class="hljs-string">'Jack'</span>, score: <span class="hljs-number">69</span>}];
-    byGrade(students);
-    <span class="hljs-comment">// {</span>
-    <span class="hljs-comment">//   'A': [{name: 'Dianne', score: 99}],</span>
-    <span class="hljs-comment">//   'B': [{name: 'Abby', score: 84}]</span>
-    <span class="hljs-comment">//   // ...,</span>
-    <span class="hljs-comment">//   'F': [{name: 'Eddy', score: 58}]</span>
-    <span class="hljs-comment">// }</span></code></pre>
+  <span class="hljs-keyword">var</span> score = student.score;
+  <span class="hljs-keyword">return</span> score &lt; <span class="hljs-number">65</span> ? <span class="hljs-string">'F'</span> :
+         score &lt; <span class="hljs-number">70</span> ? <span class="hljs-string">'D'</span> :
+         score &lt; <span class="hljs-number">80</span> ? <span class="hljs-string">'C'</span> :
+         score &lt; <span class="hljs-number">90</span> ? <span class="hljs-string">'B'</span> : <span class="hljs-string">'A'</span>;
+});
+<span class="hljs-keyword">var</span> students = [{name: <span class="hljs-string">'Abby'</span>, score: <span class="hljs-number">84</span>},
+                {name: <span class="hljs-string">'Eddy'</span>, score: <span class="hljs-number">58</span>},
+                <span class="hljs-comment">// ...</span>
+                {name: <span class="hljs-string">'Jack'</span>, score: <span class="hljs-number">69</span>}];
+byGrade(students);
+<span class="hljs-comment">// {</span>
+<span class="hljs-comment">//   'A': [{name: 'Dianne', score: 99}],</span>
+<span class="hljs-comment">//   'B': [{name: 'Abby', score: 84}]</span>
+<span class="hljs-comment">//   // ...,</span>
+<span class="hljs-comment">//   'F': [{name: 'Eddy', score: 58}]</span>
+<span class="hljs-comment">// }</span></code></pre>
         </section>
         <section class="card" id="gt">
             <h2>
@@ -6058,8 +6058,8 @@ R.isEmpty(<span class="hljs-literal">null</span>); <span class="hljs-comment">//
 
 
             <pre><code class="hljs javascript">R.isNaN(<span class="hljs-literal">NaN</span>);        <span class="hljs-comment">//=&gt; true</span>
-    R.isNaN(<span class="hljs-literal">undefined</span>);  <span class="hljs-comment">//=&gt; false</span>
-    R.isNaN({});         <span class="hljs-comment">//=&gt; false</span></code></pre>
+R.isNaN(<span class="hljs-literal">undefined</span>);  <span class="hljs-comment">//=&gt; false</span>
+R.isNaN({});         <span class="hljs-comment">//=&gt; false</span></code></pre>
         </section>
         <section class="card" id="isNil">
             <h2>
@@ -6097,9 +6097,9 @@ R.isEmpty(<span class="hljs-literal">null</span>); <span class="hljs-comment">//
 
 
             <pre><code class="hljs javascript">R.isNil(<span class="hljs-literal">null</span>); <span class="hljs-comment">//=&gt; true</span>
-    R.isNil(<span class="hljs-literal">undefined</span>); <span class="hljs-comment">//=&gt; true</span>
-    R.isNil(<span class="hljs-number">0</span>); <span class="hljs-comment">//=&gt; false</span>
-    R.isNil([]); <span class="hljs-comment">//=&gt; false</span></code></pre>
+R.isNil(<span class="hljs-literal">undefined</span>); <span class="hljs-comment">//=&gt; true</span>
+R.isNil(<span class="hljs-number">0</span>); <span class="hljs-comment">//=&gt; false</span>
+R.isNil([]); <span class="hljs-comment">//=&gt; false</span></code></pre>
         </section>
         <section class="card" id="isSet">
             <h2>
@@ -6439,27 +6439,27 @@ on the specified (<code>get</code>) property, which is then <code>set</code> bef
 
 
             <pre><code class="hljs javascript"><span class="hljs-keyword">var</span> headLens = R.lens(
- <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">get</span><span class="hljs-params">(arr)</span> </span>{ <span class="hljs-keyword">return</span> arr[<span class="hljs-number">0</span>]; },
- <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">set</span><span class="hljs-params">(val, arr)</span> </span>{ <span class="hljs-keyword">return</span> [val].concat(arr.slice(<span class="hljs-number">1</span>)); }
-    );
-    headLens([<span class="hljs-number">10</span>, <span class="hljs-number">20</span>, <span class="hljs-number">30</span>, <span class="hljs-number">40</span>]); <span class="hljs-comment">//=&gt; 10</span>
-    headLens.set(<span class="hljs-string">'mu'</span>, [<span class="hljs-number">10</span>, <span class="hljs-number">20</span>, <span class="hljs-number">30</span>, <span class="hljs-number">40</span>]); <span class="hljs-comment">//=&gt; ['mu', 20, 30, 40]</span>
-    headLens.map(<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(x)</span> </span>{ <span class="hljs-keyword">return</span> x + <span class="hljs-number">1</span>; }, [<span class="hljs-number">10</span>, <span class="hljs-number">20</span>, <span class="hljs-number">30</span>, <span class="hljs-number">40</span>]); <span class="hljs-comment">//=&gt; [11, 20, 30, 40]</span>
+  <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">get</span><span class="hljs-params">(arr)</span> </span>{ <span class="hljs-keyword">return</span> arr[<span class="hljs-number">0</span>]; },
+  <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">set</span><span class="hljs-params">(val, arr)</span> </span>{ <span class="hljs-keyword">return</span> [val].concat(arr.slice(<span class="hljs-number">1</span>)); }
+);
+headLens([<span class="hljs-number">10</span>, <span class="hljs-number">20</span>, <span class="hljs-number">30</span>, <span class="hljs-number">40</span>]); <span class="hljs-comment">//=&gt; 10</span>
+headLens.set(<span class="hljs-string">'mu'</span>, [<span class="hljs-number">10</span>, <span class="hljs-number">20</span>, <span class="hljs-number">30</span>, <span class="hljs-number">40</span>]); <span class="hljs-comment">//=&gt; ['mu', 20, 30, 40]</span>
+headLens.map(<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(x)</span> </span>{ <span class="hljs-keyword">return</span> x + <span class="hljs-number">1</span>; }, [<span class="hljs-number">10</span>, <span class="hljs-number">20</span>, <span class="hljs-number">30</span>, <span class="hljs-number">40</span>]); <span class="hljs-comment">//=&gt; [11, 20, 30, 40]</span>
 
-    <span class="hljs-keyword">var</span> phraseLens = R.lens(
- <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">get</span><span class="hljs-params">(obj)</span> </span>{ <span class="hljs-keyword">return</span> obj.phrase; },
- <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">set</span><span class="hljs-params">(val, obj)</span> </span>{
-   <span class="hljs-keyword">var</span> out = R.clone(obj);
-   out.phrase = val;
-   <span class="hljs-keyword">return</span> out;
- }
-    );
-    <span class="hljs-keyword">var</span> obj1 = { phrase: <span class="hljs-string">'Absolute filth . . . and I LOVED it!'</span>};
-    <span class="hljs-keyword">var</span> obj2 = { phrase: <span class="hljs-string">"What's all this, then?"</span>};
-    phraseLens(obj1); <span class="hljs-comment">// =&gt; 'Absolute filth . . . and I LOVED it!'</span>
-    phraseLens(obj2); <span class="hljs-comment">// =&gt; "What's all this, then?"</span>
-    phraseLens.set(<span class="hljs-string">'Ooh Betty'</span>, obj1); <span class="hljs-comment">//=&gt; { phrase: 'Ooh Betty'}</span>
-    phraseLens.map(R.toUpper, obj2); <span class="hljs-comment">//=&gt; { phrase: "WHAT'S ALL THIS, THEN?"}</span></code></pre>
+<span class="hljs-keyword">var</span> phraseLens = R.lens(
+  <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">get</span><span class="hljs-params">(obj)</span> </span>{ <span class="hljs-keyword">return</span> obj.phrase; },
+  <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">set</span><span class="hljs-params">(val, obj)</span> </span>{
+    <span class="hljs-keyword">var</span> out = R.clone(obj);
+    out.phrase = val;
+    <span class="hljs-keyword">return</span> out;
+  }
+);
+<span class="hljs-keyword">var</span> obj1 = { phrase: <span class="hljs-string">'Absolute filth . . . and I LOVED it!'</span>};
+<span class="hljs-keyword">var</span> obj2 = { phrase: <span class="hljs-string">"What's all this, then?"</span>};
+phraseLens(obj1); <span class="hljs-comment">// =&gt; 'Absolute filth . . . and I LOVED it!'</span>
+phraseLens(obj2); <span class="hljs-comment">// =&gt; "What's all this, then?"</span>
+phraseLens.set(<span class="hljs-string">'Ooh Betty'</span>, obj1); <span class="hljs-comment">//=&gt; { phrase: 'Ooh Betty'}</span>
+phraseLens.map(R.toUpper, obj2); <span class="hljs-comment">//=&gt; { phrase: "WHAT'S ALL THIS, THEN?"}</span></code></pre>
         </section>
         <section class="card" id="lensOn">
             <h2>
@@ -6507,12 +6507,12 @@ on the specified (<code>get</code>) property, which is then <code>set</code> bef
             </div>
 
             <pre><code class="hljs javascript"><span class="hljs-keyword">var</span> xo = {x: <span class="hljs-number">1</span>};
-    <span class="hljs-keyword">var</span> xoLens = R.lensOn(xo,
-                     <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">get</span><span class="hljs-params">(o)</span> </span>{ <span class="hljs-keyword">return</span> o.x; },
-                     <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">set</span><span class="hljs-params">(v)</span> </span>{ <span class="hljs-keyword">return</span> {x: v}; });
-    xoLens(); <span class="hljs-comment">//=&gt; 1</span>
-    xoLens.set(<span class="hljs-number">1000</span>); <span class="hljs-comment">//=&gt; {x: 1000}</span>
-    xoLens.map(R.add(<span class="hljs-number">1</span>)); <span class="hljs-comment">//=&gt; {x: 2}</span></code></pre>
+<span class="hljs-keyword">var</span> xoLens = R.lensOn(xo,
+                      <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">get</span><span class="hljs-params">(o)</span> </span>{ <span class="hljs-keyword">return</span> o.x; },
+                      <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">set</span><span class="hljs-params">(v)</span> </span>{ <span class="hljs-keyword">return</span> {x: v}; });
+xoLens(); <span class="hljs-comment">//=&gt; 1</span>
+xoLens.set(<span class="hljs-number">1000</span>); <span class="hljs-comment">//=&gt; {x: 1000}</span>
+xoLens.map(R.add(<span class="hljs-number">1</span>)); <span class="hljs-comment">//=&gt; {x: 2}</span></code></pre>
         </section>
         <section class="card" id="lift">
             <h2>
@@ -6554,14 +6554,14 @@ other Functor.</p>
             </div>
 
             <pre><code class="hljs javascript"><span class="hljs-keyword">var</span> madd3 = R.lift(R.curry(<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(a, b, c)</span> </span>{
- <span class="hljs-keyword">return</span> a + b + c;
-    }));
-    madd3([<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>], [<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>], [<span class="hljs-number">1</span>]); <span class="hljs-comment">//=&gt; [3, 4, 5, 4, 5, 6, 5, 6, 7]</span>
+  <span class="hljs-keyword">return</span> a + b + c;
+}));
+madd3([<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>], [<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>], [<span class="hljs-number">1</span>]); <span class="hljs-comment">//=&gt; [3, 4, 5, 4, 5, 6, 5, 6, 7]</span>
 
-    <span class="hljs-keyword">var</span> madd5 = R.lift(R.curry(<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(a, b, c, d, e)</span> </span>{
- <span class="hljs-keyword">return</span> a + b + c + d + e;
-    }));
-    madd5([<span class="hljs-number">1</span>,<span class="hljs-number">2</span>], [<span class="hljs-number">3</span>], [<span class="hljs-number">4</span>, <span class="hljs-number">5</span>], [<span class="hljs-number">6</span>], [<span class="hljs-number">7</span>, <span class="hljs-number">8</span>]); <span class="hljs-comment">//=&gt; [21, 22, 22, 23, 22, 23, 23, 24]</span></code></pre>
+<span class="hljs-keyword">var</span> madd5 = R.lift(R.curry(<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(a, b, c, d, e)</span> </span>{
+  <span class="hljs-keyword">return</span> a + b + c + d + e;
+}));
+madd5([<span class="hljs-number">1</span>,<span class="hljs-number">2</span>], [<span class="hljs-number">3</span>], [<span class="hljs-number">4</span>, <span class="hljs-number">5</span>], [<span class="hljs-number">6</span>], [<span class="hljs-number">7</span>, <span class="hljs-number">8</span>]); <span class="hljs-comment">//=&gt; [21, 22, 22, 23, 22, 23, 23, 24]</span></code></pre>
         </section>
         <section class="card" id="liftN">
             <h2>
@@ -6603,9 +6603,9 @@ lists (or other Functors).</p>
             </div>
 
             <pre><code class="hljs javascript"><span class="hljs-keyword">var</span> madd3 = R.liftN(<span class="hljs-number">3</span>, R.curryN(<span class="hljs-number">3</span>, <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span> </span>{
- <span class="hljs-keyword">return</span> R.reduce(R.add, <span class="hljs-number">0</span>, <span class="hljs-built_in">arguments</span>);
-    }));
-    madd3([<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>], [<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>], [<span class="hljs-number">1</span>]); <span class="hljs-comment">//=&gt; [3, 4, 5, 4, 5, 6, 5, 6, 7]</span></code></pre>
+  <span class="hljs-keyword">return</span> R.reduce(R.add, <span class="hljs-number">0</span>, <span class="hljs-built_in">arguments</span>);
+}));
+madd3([<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>], [<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>], [<span class="hljs-number">1</span>]); <span class="hljs-comment">//=&gt; [3, 4, 5, 4, 5, 6, 5, 6, 7]</span></code></pre>
         </section>
         <section class="card" id="lt">
             <h2>
@@ -7724,9 +7724,10 @@ passed false-y value, and <code>false</code> when passed a truth-y one.</p>
 </div>
 
 
-            <pre><code class="hljs javascript">R.and(<span class="hljs-literal">false</span>, <span class="hljs-literal">true</span>); <span class="hljs-comment">//=&gt; true</span>
-R.and(<span class="hljs-number">0</span>, []); <span class="hljs-comment">//=&gt; []</span>
-R.and(<span class="hljs-literal">null</span>, <span class="hljs-string">''</span>); =&gt; <span class="hljs-literal">false</span></code></pre>
+            <pre><code class="hljs javascript">R.not(<span class="hljs-literal">true</span>); <span class="hljs-comment">//=&gt; false</span>
+R.not(<span class="hljs-literal">false</span>); <span class="hljs-comment">//=&gt; true</span>
+R.not(<span class="hljs-number">0</span>); =&gt; <span class="hljs-literal">true</span>
+R.not(<span class="hljs-number">1</span>); =&gt; <span class="hljs-literal">false</span></code></pre>
         </section>
         <section class="card" id="nth">
             <h2>
@@ -8303,11 +8304,11 @@ according to strict equality (&#39;===&#39;). Most likely used to filter a list:
 
 
             <pre><code class="hljs javascript"><span class="hljs-keyword">var</span> user1 = { address: { zipCode: <span class="hljs-number">90210</span> } };
-    <span class="hljs-keyword">var</span> user2 = { address: { zipCode: <span class="hljs-number">55555</span> } };
-    <span class="hljs-keyword">var</span> user3 = { name: <span class="hljs-string">'Bob'</span> };
-    <span class="hljs-keyword">var</span> users = [ user1, user2, user3 ];
-    <span class="hljs-keyword">var</span> isFamous = R.pathEq([<span class="hljs-string">'address'</span>, <span class="hljs-string">'zipCode'</span>], <span class="hljs-number">90210</span>);
-    R.filter(isFamous, users); <span class="hljs-comment">//=&gt; [ user1 ]</span></code></pre>
+<span class="hljs-keyword">var</span> user2 = { address: { zipCode: <span class="hljs-number">55555</span> } };
+<span class="hljs-keyword">var</span> user3 = { name: <span class="hljs-string">'Bob'</span> };
+<span class="hljs-keyword">var</span> users = [ user1, user2, user3 ];
+<span class="hljs-keyword">var</span> isFamous = R.pathEq([<span class="hljs-string">'address'</span>, <span class="hljs-string">'zipCode'</span>], <span class="hljs-number">90210</span>);
+R.filter(isFamous, users); <span class="hljs-comment">//=&gt; [ user1 ]</span></code></pre>
         </section>
         <section class="card" id="pick">
             <h2>
