@@ -22,7 +22,7 @@ R.filter(function(x) { return x > 10; }, [10, 20, 3, 100, 33, 1]);
                 title: 'reduce',
                 body: function() {
                     /*
-R.reduce(function(acc, x) { return acc + x; }, [10, 20, 30, 40]);
+R.reduce(function(acc, x) { return acc + x; }, 0, [10, 20, 30, 40]);
                      */
                 }
             },
@@ -30,7 +30,7 @@ R.reduce(function(acc, x) { return acc + x; }, [10, 20, 30, 40]);
                 title: 'reduceRight',
                 body: function() {
                     /*
-R.reduceRight(function(acc, x) { return acc + x; }, ['s', 'd', 'r', 'a', 'w', 'k', 'c', 'a', 'b']);
+R.reduceRight(function(acc, x) { return acc + x; }, '', ['s', 'd', 'r', 'a', 'w', 'k', 'c', 'a', 'b']);
                      */
                 }
             }
