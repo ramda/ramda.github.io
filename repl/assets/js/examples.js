@@ -33,6 +33,23 @@ R.reduce(function(acc, x) { return acc + x; }, 0, [10, 20, 30, 40]);
 R.reduceRight(function(acc, x) { return acc + x; }, '', ['s', 'd', 'r', 'a', 'w', 'k', 'c', 'a', 'b']);
                      */
                 }
+            },
+            {
+                title: 'transduce',
+                body: function() {
+                    /*
+var priceOrZero = R.compose(R.defaultTo(0), R.prop('price'));
+var purchases = [
+  {price: 30},
+  {price: 0},
+  {notPrice: 'cow'},
+  {price: 10},
+  {price: 6},
+  {}
+];
+R.transduce(R.map(priceOrZero), R.add, 0, purchases);
+                     */ 
+                }
             }
         ],
         functions: [
