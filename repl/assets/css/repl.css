@@ -54,4 +54,9 @@ body.dark, body.dark h1 {
     background-color: #000000;
     color: #ffffff;
 }
-
+.urltext {
+    border: none;
+    font-size: 15px;
+    vertical-align: middle;
+    margin-left: 6px;
+}

@@ -36,7 +36,6 @@
       var rx = /^\d+\.\d+(\.\d+)?$/;
       var version = 'latest';
       location.search.substr(1).split('&').forEach(function(pair) {
-        debugger;
         var ps = pair.split('=');
         if (ps[0] === 'v') {
           if (rx.test(ps[1])) {
@@ -128,7 +127,10 @@
 <div class="container theme-showcase">
 
 <div class="page-header">
-    <h1>Ramda REPL <button class="btn btn-danger" type="reset">Reset</button></h1>
+    <h1>Ramda REPL 
+      <button class="btn btn-danger" type="reset">Reset</button>
+      <button id="mkurl" class="btn">Make Short URL:</button><input id="urlout" type="text" class="urltext" />
+    </h1>
 </div>
 <div class="row">
     <div class="col-sm-12">
@@ -168,6 +170,7 @@
 <script src="assets/js/repl.js"></script>
 <!-- load examples -->
 <script src="assets/js/examples.js"></script>
+<script src="assets/js/bitly.js"></script>
 
 </body>
 </html>
