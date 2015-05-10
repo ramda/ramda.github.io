@@ -1,0 +1,31 @@
+#!/usr/bin/env node
+
+var fs = require('fs');
+var request = require('request');
+var tar = require('tar');
+var zlib = require('zlib');
+var _h = require('./_helpers');
+
+fs.exists(_h.outDir, function(exists) {
+  if (!exists) {
+    fs.mkdirSync(_h.outDir);
+  }
+});
+
+request.get(_h.opts)
+.on('response', function(res) {
+  var tags = '';
+  res.on('data', function(data) {
+    tags += data;
+  });
+  res.on('end', function() {
+    request.get(_h.fetchOpts(tags))
+    .on('error', function(err) {
+      console.error('GET tarball failed:', err);
+    })
+    .pipe(zlib.createGunzip())
+    .pipe(tar.Extract(_h.outDir))
+  });
+}).on('error', function(e) {
+  console.error('GET tags failed:', e);
+});
