@@ -1,0 +1,19 @@
+{
+  "tags": {
+    "allowUnknownTags": true
+  },
+  "source": {
+    "includePattern": "ramda.js$"
+  },
+  "plugins": [],
+  "templates": {
+    "cleverLinks": false,
+    "monospaceLinks": false,
+    "default": {
+      "outputSourceFiles": true
+    }
+  },
+  "opts": {
+    "template": "lib/doc/jsdoc-template"
+  }
+}

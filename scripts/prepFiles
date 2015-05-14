@@ -1,0 +1,16 @@
+#!/usr/bin/env node
+
+var _h = require('./_helpers');
+var fs = require('fs');
+var out = _h.outDir;
+var R = require('ramda');
+
+fs.readdir(out, function(_, nodes) {
+  var dir = out + '/' + R.find(R.match(/^ramda-ramda-/), nodes);
+  fs.createReadStream(dir + '/dist/ramda.js')
+    .pipe(fs.createWriteStream(out + '/ramda.js'));
+  fs.createReadStream(dir + '/package.json')
+    .pipe(fs.createWriteStream(out + '/package.json'));
+  fs.createReadStream(dir + '/README.md')
+    .pipe(fs.createWriteStream(out + '/README.md'));
+});
