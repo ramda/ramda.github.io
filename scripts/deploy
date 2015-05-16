@@ -13,6 +13,7 @@ fs.mkdirSync(vdir + '/docs/dist');
 ncp('node_modules/bootstrap/fonts', vdir + '/fonts');
 fs.createReadStream(tmp + '/ramda.js').pipe(fs.createWriteStream(vdir + '/docs/dist/ramda.js'));
 fs.createReadStream('./lib/doc/main.js').pipe(fs.createWriteStream(vdir + '/docs/main.js'));
+ncp(vdir + '/docs', 'docs');
 
 function getTplStream(data) {
   var stream = new Readable({encoding: 'utf-8'});
@@ -27,4 +28,3 @@ function fillTpl(tpl, path) {
 }
 
 getTplStream(fillTpl(redirTpl, vdir + '/index.html')).pipe(fs.createWriteStream('./index.html'));
-getTplStream(fillTpl(redirTpl, '../' + vdir + '/docs/index.html')).pipe(fs.createWriteStream('./docs/index.html'));
