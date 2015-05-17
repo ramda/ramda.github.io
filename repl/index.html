@@ -44,7 +44,8 @@
         }
       });
       r.id = 'r';
-      r.setAttribute('src', '//cdn.jsdelivr.net/ramda/' + version + '/ramda.min.js');
+      var protocol = location.protocol === 'file:' ? 'https:' : location.protocol;
+      r.setAttribute('src', protocol + '//cdn.jsdelivr.net/ramda/' + version + '/ramda.min.js');
       document.head.appendChild(r);
     }());
     </script>

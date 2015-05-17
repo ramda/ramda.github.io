@@ -120,7 +120,7 @@
             var source = ProjectWriter.write(res, options);
 
             try {
-                evalElement.textContent = ('global', eval)(source);
+                evalElement.textContent = R.toString(('global', eval)(source));
             } catch(ex) {
                 hasError = true;
                 errorElement.textContent = ex;
