@@ -91,7 +91,7 @@ pipeEx([2, 3, 4, 5]);
                 body: function() {
                     /*
 var sum = function() { 
-    return R.foldl(function(acc, x) { return acc + x; }, 0, arguments);
+    return R.reduce(function(acc, x) { return acc + x; }, 0, arguments);
 };
 var useWithEx = R.useWith(
     sum,
