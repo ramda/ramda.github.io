@@ -11941,7 +11941,7 @@ value (in <code>R.eq</code> terms) as accessing that property of the spec.</p>
             </div>
 
             <pre><code class="hljs javascript"><span class="hljs-comment">// pred :: Object -&gt; Boolean</span>
-<span class="hljs-keyword">var</span> pred = R.where({a: <span class="hljs-number">1</span>, b: <span class="hljs-number">2</span>});
+<span class="hljs-keyword">var</span> pred = R.whereEq({a: <span class="hljs-number">1</span>, b: <span class="hljs-number">2</span>});
 
 pred({a: <span class="hljs-number">1</span>});              <span class="hljs-comment">//=&gt; false</span>
 pred({a: <span class="hljs-number">1</span>, b: <span class="hljs-number">2</span>});        <span class="hljs-comment">//=&gt; true</span>
