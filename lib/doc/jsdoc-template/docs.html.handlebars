@@ -95,7 +95,10 @@
 
             {{#if see}}
             <div class="see">
-                See also <a href="#{{see}}">{{see}}</a>.
+                See also
+                {{#each see}}
+                <a href="#{{this}}">{{this}}</a>{{#unless @last}},{{else}}.{{/unless}}
+                {{/each}}
             </div>
             {{/if}}
 
