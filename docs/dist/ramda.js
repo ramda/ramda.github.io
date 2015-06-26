@@ -6364,7 +6364,7 @@
      *
      *      var plus10map = R.map(function(x) { return x + 10; });
      *      var as = [[1], [3, 4]];
-     *      R.commuteMap(R.map(function(x) { return x + 10; }), R.of, as); //=> [[11, 13], [11, 14]]
+     *      R.commuteMap(plus10map, R.of, as); //=> [[11, 13], [11, 14]]
      *
      *      var bs = [[1, 2], [3]];
      *      R.commuteMap(plus10map, R.of, bs); //=> [[11, 13], [12, 13]]
