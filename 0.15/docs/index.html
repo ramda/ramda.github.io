@@ -11,14 +11,14 @@
         <div class="navbar-header">
             <a class="navbar-brand" href="/">
                 <strong>Ramda</strong>
-                <span class="version">v0.15.0</span>
+                <span class="version">v0.15.1</span>
             </a>
         </div>
         <div class="navbar-left">
             <ul class="nav navbar-nav">
                 <li><a href="..">Home</a></li>
                 <li class="active"><a href="#">Documentation</a></li>
-                <li><a href="/repl?v=0.15.0">Try Ramda</a></li>
+                <li><a href="/repl?v=0.15.1">Try Ramda</a></li>
                 <li><a href="https://github.com/ramda/ramda">GitHub</a></li>
             </ul>
         </div>
@@ -414,6 +414,20 @@
                     empty
                     <span data-category="Function" class="label label-category pull-right"
                     >Function</span>
+                </a>
+            </li>
+            <li class="func" data-name="eq" data-category="Relation">
+                <a href="#eq">
+                    eq
+                    <span data-category="Relation" class="label label-category pull-right"
+                    >Relation</span>
+                </a>
+            </li>
+            <li class="func" data-name="eqDeep" data-category="Relation">
+                <a href="#eqDeep">
+                    eqDeep
+                    <span data-category="Relation" class="label label-category pull-right"
+                    >Relation</span>
                 </a>
             </li>
             <li class="func" data-name="eqProps" data-category="Object">
@@ -1487,6 +1501,13 @@
                     >Relation</span>
                 </a>
             </li>
+            <li class="func" data-name="uniq" data-category="List">
+                <a href="#uniq">
+                    uniq
+                    <span data-category="List" class="label label-category pull-right"
+                    >List</span>
+                </a>
+            </li>
             <li class="func" data-name="uniqWith" data-category="List">
                 <a href="#uniqWith">
                     uniqWith
@@ -1759,7 +1780,8 @@ index replaced with the result of the function application.</p>
 </div>
 
             <div class="see">
-                See also <a href="#update">update</a>.
+                See also
+                <a href="#update">update</a>.
             </div>
 
             <pre><code class="hljs javascript">R.adjust(R.add(<span class="hljs-number">10</span>), <span class="hljs-number">1</span>, [<span class="hljs-number">0</span>, <span class="hljs-number">1</span>, <span class="hljs-number">2</span>]);     <span class="hljs-comment">//=&gt; [0, 11, 2]</span>
@@ -1809,7 +1831,8 @@ that don&#39;t.</p>
 </div>
 
             <div class="see">
-                See also <a href="#transduce">transduce</a>.
+                See also
+                <a href="#transduce">transduce</a>.
             </div>
 
             <pre><code class="hljs javascript"><span class="hljs-keyword">var</span> lessThan2 = R.flip(R.lt)(<span class="hljs-number">2</span>);
@@ -1996,7 +2019,8 @@ otherwise.</p>
 </div>
 
             <div class="see">
-                See also <a href="#transduce">transduce</a>.
+                See also
+                <a href="#transduce">transduce</a>.
             </div>
 
             <pre><code class="hljs javascript"><span class="hljs-keyword">var</span> lessThan0 = R.flip(R.lt)(<span class="hljs-number">0</span>);
@@ -2486,7 +2510,8 @@ Note: <code>R.bind</code> does not provide the additional argument-binding capab
 </div>
 
             <div class="see">
-                See also <a href="#partial">partial</a>.
+                See also
+                <a href="#partial">partial</a>.
             </div>
 
         </section>
@@ -2690,7 +2715,7 @@ objects[<span class="hljs-number">0</span>] === objectsClone[<span class="hljs-n
             <div>
                 <button class="sig btn btn-link" data-collapser="#__details-commute">
                     <span class="caret rotated"></span>
-                    (x → [x]) → [[*]…]
+                    Functor f =&gt; (x → f x) → [f a] → f [a]
                 </button>
             </div>
 
@@ -2705,34 +2730,30 @@ objects[<span class="hljs-number">0</span>] === objectsClone[<span class="hljs-n
                     <li class="list-group-item">
                         <span class="type">Array</span>
                         <span class="name">list</span>
-                        <span class="description"><p>An Array (or other Functor) of Arrays (or other Functors)</p>
+                        <span class="description"><p>An array of functors of the same type</p>
 </span>
                     </li>
                 </ul>
                 <div class="panel-body">
                     <span class="returns">Returns</span>
-                    <span class="type">Array</span>
+                    <span class="type">*</span>
                     <span class="description"></span>
                 </div>
             </div>
 
             <div class="description"><p>Turns a list of Functors into a Functor of a list.</p>
-<p>Note: <code>commute</code> may be more useful to convert a list of non-Array Functors (e.g.
-Maybe, Either, etc.) to Functor of a list.</p>
 </div>
 
             <div class="see">
-                See also <a href="#commuteMap">commuteMap</a>.
+                See also
+                <a href="#commuteMap">commuteMap</a>.
             </div>
 
-            <pre><code class="hljs javascript"><span class="hljs-keyword">var</span> <span class="hljs-keyword">as</span> = [[<span class="hljs-number">1</span>], [<span class="hljs-number">3</span>, <span class="hljs-number">4</span>]];
-R.commute(R.of, <span class="hljs-keyword">as</span>); <span class="hljs-comment">//=&gt; [[1, 3], [1, 4]]</span>
-
-<span class="hljs-keyword">var</span> bs = [[<span class="hljs-number">1</span>, <span class="hljs-number">2</span>], [<span class="hljs-number">3</span>]];
-R.commute(R.of, bs); <span class="hljs-comment">//=&gt; [[1, 3], [2, 3]]</span>
-
-<span class="hljs-keyword">var</span> cs = [[<span class="hljs-number">1</span>, <span class="hljs-number">2</span>], [<span class="hljs-number">3</span>, <span class="hljs-number">4</span>]];
-R.commute(R.of, cs); <span class="hljs-comment">//=&gt; [[1, 3], [2, 3], [1, 4], [2, 4]]</span></code></pre>
+            <pre><code class="hljs javascript">R.commute(R.of, [[<span class="hljs-number">1</span>], [<span class="hljs-number">2</span>, <span class="hljs-number">3</span>]]);   <span class="hljs-comment">//=&gt; [[1, 2], [1, 3]]</span>
+R.commute(R.of, [[<span class="hljs-number">1</span>, <span class="hljs-number">2</span>], [<span class="hljs-number">3</span>]]);   <span class="hljs-comment">//=&gt; [[1, 3], [2, 3]]</span>
+R.commute(R.of, [[<span class="hljs-number">1</span>], [<span class="hljs-number">2</span>], [<span class="hljs-number">3</span>]]); <span class="hljs-comment">//=&gt; [[1, 2, 3]]</span>
+R.commute(Maybe.of, [Just(<span class="hljs-number">1</span>), Just(<span class="hljs-number">2</span>), Just(<span class="hljs-number">3</span>)]);   <span class="hljs-comment">//=&gt; Just([1, 2, 3])</span>
+R.commute(Maybe.of, [Just(<span class="hljs-number">1</span>), Just(<span class="hljs-number">2</span>), Nothing()]); <span class="hljs-comment">//=&gt; Nothing()</span></code></pre>
         </section>
         <section class="card" id="commuteMap">
             <h2>
@@ -2744,7 +2765,7 @@ R.commute(R.of, cs); <span class="hljs-comment">//=&gt; [[1, 3], [2, 3], [1, 4],
             <div>
                 <button class="sig btn btn-link" data-collapser="#__details-commuteMap">
                     <span class="caret rotated"></span>
-                    (a → (b → c)) → (x → [x]) → [[*]…]
+                    Functor f =&gt; (f a → f b) → (x → f x) → [f a] → f [b]
                 </button>
             </div>
 
@@ -2765,36 +2786,31 @@ R.commute(R.of, cs); <span class="hljs-comment">//=&gt; [[1, 3], [2, 3], [1, 4],
                     <li class="list-group-item">
                         <span class="type">Array</span>
                         <span class="name">list</span>
-                        <span class="description"><p>An Array (or other Functor) of Arrays (or other Functors)</p>
+                        <span class="description"><p>An array of functors of the same type</p>
 </span>
                     </li>
                 </ul>
                 <div class="panel-body">
                     <span class="returns">Returns</span>
-                    <span class="type">Array</span>
+                    <span class="type">*</span>
                     <span class="description"></span>
                 </div>
             </div>
 
             <div class="description"><p>Turns a list of Functors into a Functor of a list, applying
 a mapping function to the elements of the list along the way.</p>
-<p>Note: <code>commuteMap</code> may be more useful to convert a list of non-Array Functors (e.g.
-Maybe, Either, etc.) to Functor of a list.</p>
 </div>
 
             <div class="see">
-                See also <a href="#commute">commute</a>.
+                See also
+                <a href="#commute">commute</a>.
             </div>
 
-            <pre><code class="hljs javascript"><span class="hljs-keyword">var</span> plus10map = R.map(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">x</span>) </span>{ <span class="hljs-keyword">return</span> x + <span class="hljs-number">10</span>; });
-<span class="hljs-keyword">var</span> <span class="hljs-keyword">as</span> = [[<span class="hljs-number">1</span>], [<span class="hljs-number">3</span>, <span class="hljs-number">4</span>]];
-R.commuteMap(R.map(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">x</span>) </span>{ <span class="hljs-keyword">return</span> x + <span class="hljs-number">10</span>; }), R.of, <span class="hljs-keyword">as</span>); <span class="hljs-comment">//=&gt; [[11, 13], [11, 14]]</span>
-
-<span class="hljs-keyword">var</span> bs = [[<span class="hljs-number">1</span>, <span class="hljs-number">2</span>], [<span class="hljs-number">3</span>]];
-R.commuteMap(plus10map, R.of, bs); <span class="hljs-comment">//=&gt; [[11, 13], [12, 13]]</span>
-
-<span class="hljs-keyword">var</span> cs = [[<span class="hljs-number">1</span>, <span class="hljs-number">2</span>], [<span class="hljs-number">3</span>, <span class="hljs-number">4</span>]];
-R.commuteMap(plus10map, R.of, cs); <span class="hljs-comment">//=&gt; [[11, 13], [12, 13], [11, 14], [12, 14]]</span></code></pre>
+            <pre><code class="hljs javascript">R.commuteMap(R.map(R.add(<span class="hljs-number">10</span>)), R.of, [[<span class="hljs-number">1</span>], [<span class="hljs-number">2</span>, <span class="hljs-number">3</span>]]);   <span class="hljs-comment">//=&gt; [[11, 12], [11, 13]]</span>
+R.commuteMap(R.map(R.add(<span class="hljs-number">10</span>)), R.of, [[<span class="hljs-number">1</span>, <span class="hljs-number">2</span>], [<span class="hljs-number">3</span>]]);   <span class="hljs-comment">//=&gt; [[11, 13], [12, 13]]</span>
+R.commuteMap(R.map(R.add(<span class="hljs-number">10</span>)), R.of, [[<span class="hljs-number">1</span>], [<span class="hljs-number">2</span>], [<span class="hljs-number">3</span>]]); <span class="hljs-comment">//=&gt; [[11, 12, 13]]</span>
+R.commuteMap(R.map(R.add(<span class="hljs-number">10</span>)), Maybe.of, [Just(<span class="hljs-number">1</span>), Just(<span class="hljs-number">2</span>), Just(<span class="hljs-number">3</span>)]);   <span class="hljs-comment">//=&gt; Just([11, 12, 13])</span>
+R.commuteMap(R.map(R.add(<span class="hljs-number">10</span>)), Maybe.of, [Just(<span class="hljs-number">1</span>), Just(<span class="hljs-number">2</span>), Nothing()]); <span class="hljs-comment">//=&gt; Nothing()</span></code></pre>
         </section>
         <section class="card" id="comparator">
             <h2>
@@ -2976,7 +2992,8 @@ will be invoked in order from right to left.</p>
 </div>
 
             <div class="see">
-                See also <a href="#lens">lens</a>.
+                See also
+                <a href="#lens">lens</a>.
             </div>
 
             <pre><code class="hljs javascript"><span class="hljs-keyword">var</span> headLens = R.lensIndex(<span class="hljs-number">0</span>);
@@ -3548,7 +3565,8 @@ the following are equivalent:</p>
 </div>
 
             <div class="see">
-                See also <a href="#curryN">curryN</a>.
+                See also
+                <a href="#curryN">curryN</a>.
             </div>
 
             <pre><code class="hljs javascript"><span class="hljs-keyword">var</span> addFourNumbers = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">a, b, c, d</span>) </span>{
@@ -3623,7 +3641,8 @@ the following are equivalent:</p>
 </div>
 
             <div class="see">
-                See also <a href="#curry">curry</a>.
+                See also
+                <a href="#curry">curry</a>.
             </div>
 
             <pre><code class="hljs javascript"><span class="hljs-keyword">var</span> addFourNumbers = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
@@ -3759,7 +3778,8 @@ defaultTo42(<span class="hljs-string">'Ramda'</span>);  <span class="hljs-commen
 </div>
 
             <div class="see">
-                See also <a href="#differenceWith">differenceWith</a>.
+                See also
+                <a href="#differenceWith">differenceWith</a>.
             </div>
 
             <pre><code class="hljs javascript">R.difference([<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>,<span class="hljs-number">4</span>], [<span class="hljs-number">7</span>,<span class="hljs-number">6</span>,<span class="hljs-number">5</span>,<span class="hljs-number">4</span>,<span class="hljs-number">3</span>]); <span class="hljs-comment">//=&gt; [1,2]</span>
@@ -3814,7 +3834,8 @@ elements.</p>
 </div>
 
             <div class="see">
-                See also <a href="#difference">difference</a>.
+                See also
+                <a href="#difference">difference</a>.
             </div>
 
             <pre><code class="hljs javascript"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">cmp</span>(<span class="hljs-params">x, y</span>) </span>{ <span class="hljs-keyword">return</span> x.a === y.a; }
@@ -4001,10 +4022,21 @@ reciprocal(<span class="hljs-number">4</span>);   <span class="hljs-comment">//=
 </div>
 
             <div class="see">
-                See also <a href="#transduce">transduce</a>.
+                See also
+                <a href="#transduce
+
+Dispatches to its second argument&#x27;s &#x60;slice&#x60; method if present. As a
+result, one may replace &#x60;[a]&#x60; with &#x60;String&#x60; in the type signature.">transduce
+
+Dispatches to its second argument&#x27;s &#x60;slice&#x60; method if present. As a
+result, one may replace &#x60;[a]&#x60; with &#x60;String&#x60; in the type signature.</a>.
             </div>
 
-            <pre><code class="hljs javascript">R.drop(<span class="hljs-number">3</span>, [<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>,<span class="hljs-number">4</span>,<span class="hljs-number">5</span>,<span class="hljs-number">6</span>,<span class="hljs-number">7</span>]); <span class="hljs-comment">//=&gt; [4,5,6,7]</span></code></pre>
+            <pre><code class="hljs javascript">R.drop(<span class="hljs-number">1</span>, [<span class="hljs-string">'foo'</span>, <span class="hljs-string">'bar'</span>, <span class="hljs-string">'baz'</span>]); <span class="hljs-comment">//=&gt; ['bar', 'baz']</span>
+R.drop(<span class="hljs-number">2</span>, [<span class="hljs-string">'foo'</span>, <span class="hljs-string">'bar'</span>, <span class="hljs-string">'baz'</span>]); <span class="hljs-comment">//=&gt; ['baz']</span>
+R.drop(<span class="hljs-number">3</span>, [<span class="hljs-string">'foo'</span>, <span class="hljs-string">'bar'</span>, <span class="hljs-string">'baz'</span>]); <span class="hljs-comment">//=&gt; []</span>
+R.drop(<span class="hljs-number">4</span>, [<span class="hljs-string">'foo'</span>, <span class="hljs-string">'bar'</span>, <span class="hljs-string">'baz'</span>]); <span class="hljs-comment">//=&gt; []</span>
+R.drop(<span class="hljs-number">3</span>, <span class="hljs-string">'ramda'</span>);               <span class="hljs-comment">//=&gt; 'da'</span></code></pre>
         </section>
         <section class="card" id="dropRepeats">
             <h2>
@@ -4043,7 +4075,8 @@ reciprocal(<span class="hljs-number">4</span>);   <span class="hljs-comment">//=
 </div>
 
             <div class="see">
-                See also <a href="#transduce">transduce</a>.
+                See also
+                <a href="#transduce">transduce</a>.
             </div>
 
             <pre><code class="hljs javascript">R.dropRepeats([<span class="hljs-number">1</span>, <span class="hljs-number">1</span>, <span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>, <span class="hljs-number">4</span>, <span class="hljs-number">2</span>, <span class="hljs-number">2</span>]); <span class="hljs-comment">//=&gt; [1, 2, 3, 4, 2]</span></code></pre>
@@ -4092,7 +4125,8 @@ The first element in a series of equal element is the one being preserved.</p>
 </div>
 
             <div class="see">
-                See also <a href="#transduce">transduce</a>.
+                See also
+                <a href="#transduce">transduce</a>.
             </div>
 
             <pre><code class="hljs javascript"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">lengthEq</span>(<span class="hljs-params">x, y</span>) </span>{ <span class="hljs-keyword">return</span> <span class="hljs-built_in">Math</span>.abs(x) === <span class="hljs-built_in">Math</span>.abs(y); };
@@ -4143,7 +4177,8 @@ to the supplied predicate function, skipping elements while the predicate functi
 </div>
 
             <div class="see">
-                See also <a href="#transduce">transduce</a>.
+                See also
+                <a href="#transduce">transduce</a>.
             </div>
 
             <pre><code class="hljs javascript"><span class="hljs-keyword">var</span> lteTwo = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">x</span>) </span>{
@@ -4234,6 +4269,119 @@ Fantasy-land Monoid spec. In that case, this function will return the result of 
 
 
             <pre><code class="hljs javascript">R.empty([<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>,<span class="hljs-number">4</span>,<span class="hljs-number">5</span>]); <span class="hljs-comment">//=&gt; []</span></code></pre>
+        </section>
+        <section class="card" id="eq">
+            <h2>
+                <a tabindex="2" class="name" href="#eq">eq</a>
+                <span class="label label-category pull-right">Relation</span>
+            </h2>
+
+            <div class="deprecated">
+                Deprecated since v0.15.0
+            </div>
+
+            <div>
+                <button class="sig btn btn-link" data-collapser="#__details-eq">
+                    <span class="caret rotated"></span>
+                    a → a → Boolean
+                </button>
+            </div>
+
+            <div class="details collapse panel panel-default" id="__details-eq">
+                <ul class="list-group">
+                    <li class="list-group-item">
+                        <span class="type">*</span>
+                        <span class="name">a</span>
+                        <span class="description"></span>
+                    </li>
+                    <li class="list-group-item">
+                        <span class="type">*</span>
+                        <span class="name">b</span>
+                        <span class="description"></span>
+                    </li>
+                </ul>
+                <div class="panel-body">
+                    <span class="returns">Returns</span>
+                    <span class="type">Boolean</span>
+                    <span class="description"></span>
+                </div>
+            </div>
+
+            <div class="description"><p>Tests if two items are equal.  Equality is strict here, meaning reference equality for objects and
+non-coercing equality for primitives.</p>
+<p>Has <code>Object.is</code> semantics: <code>NaN</code> is considered equal to <code>NaN</code>; <code>0</code> and <code>-0</code>
+are not considered equal.</p>
+</div>
+
+            <div class="see">
+                See also
+                <a href="#identical">identical</a>.
+            </div>
+
+            <pre><code class="hljs javascript"><span class="hljs-keyword">var</span> o = {};
+R.eq(o, o); <span class="hljs-comment">//=&gt; true</span>
+R.eq(o, {}); <span class="hljs-comment">//=&gt; false</span>
+R.eq(<span class="hljs-number">1</span>, <span class="hljs-number">1</span>); <span class="hljs-comment">//=&gt; true</span>
+R.eq(<span class="hljs-number">1</span>, <span class="hljs-string">'1'</span>); <span class="hljs-comment">//=&gt; false</span>
+R.eq(<span class="hljs-number">0</span>, -<span class="hljs-number">0</span>); <span class="hljs-comment">//=&gt; false</span>
+R.eq(<span class="hljs-literal">NaN</span>, <span class="hljs-literal">NaN</span>); <span class="hljs-comment">//=&gt; true</span></code></pre>
+        </section>
+        <section class="card" id="eqDeep">
+            <h2>
+                <a tabindex="2" class="name" href="#eqDeep">eqDeep</a>
+                <span class="label label-category pull-right">Relation</span>
+            </h2>
+
+            <div class="deprecated">
+                Deprecated since v0.15.0
+            </div>
+
+            <div>
+                <button class="sig btn btn-link" data-collapser="#__details-eqDeep">
+                    <span class="caret rotated"></span>
+                    a → b → Boolean
+                </button>
+            </div>
+
+            <div class="details collapse panel panel-default" id="__details-eqDeep">
+                <ul class="list-group">
+                    <li class="list-group-item">
+                        <span class="type">*</span>
+                        <span class="name">a</span>
+                        <span class="description"></span>
+                    </li>
+                    <li class="list-group-item">
+                        <span class="type">*</span>
+                        <span class="name">b</span>
+                        <span class="description"></span>
+                    </li>
+                </ul>
+                <div class="panel-body">
+                    <span class="returns">Returns</span>
+                    <span class="type">Boolean</span>
+                    <span class="description"></span>
+                </div>
+            </div>
+
+            <div class="description"><p>Performs a deep test on whether two items are equal.
+Equality implies the two items are semmatically equivalent.
+Cyclic structures are handled as expected</p>
+</div>
+
+            <div class="see">
+                See also
+                <a href="#equals">equals</a>.
+            </div>
+
+            <pre><code class="hljs javascript"><span class="hljs-keyword">var</span> o = {};
+R.eqDeep(o, o); <span class="hljs-comment">//=&gt; true</span>
+R.eqDeep(o, {}); <span class="hljs-comment">//=&gt; true</span>
+R.eqDeep(<span class="hljs-number">1</span>, <span class="hljs-number">1</span>); <span class="hljs-comment">//=&gt; true</span>
+R.eqDeep(<span class="hljs-number">1</span>, <span class="hljs-string">'1'</span>); <span class="hljs-comment">//=&gt; false</span>
+
+<span class="hljs-keyword">var</span> a = {}; a.v = a;
+<span class="hljs-keyword">var</span> b = {}; b.v = b;
+R.eqDeep(a, b); <span class="hljs-comment">//=&gt; true</span></code></pre>
         </section>
         <section class="card" id="eqProps">
             <h2>
@@ -4415,7 +4563,8 @@ R.evolve(transformations, tomato); <span class="hljs-comment">//=&gt; {firstName
 </div>
 
             <div class="see">
-                See also <a href="#always">always</a>.
+                See also
+                <a href="#always">always</a>.
             </div>
 
             <pre><code class="hljs javascript">R.F(); <span class="hljs-comment">//=&gt; false</span></code></pre>
@@ -4466,7 +4615,8 @@ The predicate function is passed one argument: <em>(value)</em>.</p>
 </div>
 
             <div class="see">
-                See also <a href="#transduce">transduce</a>.
+                See also
+                <a href="#transduce">transduce</a>.
             </div>
 
             <pre><code class="hljs javascript"><span class="hljs-keyword">var</span> isEven = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">n</span>) </span>{
@@ -4519,7 +4669,8 @@ function is passed three arguments: <em>(value, index, list)</em>.</p>
 </div>
 
             <div class="see">
-                See also <a href="#addIndex">addIndex</a>.
+                See also
+                <a href="#addIndex">addIndex</a>.
             </div>
 
             <pre><code class="hljs javascript"><span class="hljs-keyword">var</span> lastTwo = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">val, idx, list</span>) </span>{
@@ -4571,7 +4722,8 @@ element matches.</p>
 </div>
 
             <div class="see">
-                See also <a href="#transduce">transduce</a>.
+                See also
+                <a href="#transduce">transduce</a>.
             </div>
 
             <pre><code class="hljs javascript"><span class="hljs-keyword">var</span> xs = [{a: <span class="hljs-number">1</span>}, {a: <span class="hljs-number">2</span>}, {a: <span class="hljs-number">3</span>}];
@@ -4622,7 +4774,8 @@ if no element matches.</p>
 </div>
 
             <div class="see">
-                See also <a href="#transduce">transduce</a>.
+                See also
+                <a href="#transduce">transduce</a>.
             </div>
 
             <pre><code class="hljs javascript"><span class="hljs-keyword">var</span> xs = [{a: <span class="hljs-number">1</span>}, {a: <span class="hljs-number">2</span>}, {a: <span class="hljs-number">3</span>}];
@@ -4673,7 +4826,8 @@ element matches.</p>
 </div>
 
             <div class="see">
-                See also <a href="#transduce">transduce</a>.
+                See also
+                <a href="#transduce">transduce</a>.
             </div>
 
             <pre><code class="hljs javascript"><span class="hljs-keyword">var</span> xs = [{a: <span class="hljs-number">1</span>, b: <span class="hljs-number">0</span>}, {a:<span class="hljs-number">1</span>, b: <span class="hljs-number">1</span>}];
@@ -4724,7 +4878,8 @@ desired one.</p>
 </div>
 
             <div class="see">
-                See also <a href="#transduce">transduce</a>.
+                See also
+                <a href="#transduce">transduce</a>.
             </div>
 
             <pre><code class="hljs javascript"><span class="hljs-keyword">var</span> xs = [{a: <span class="hljs-number">1</span>, b: <span class="hljs-number">0</span>}, {a:<span class="hljs-number">1</span>, b: <span class="hljs-number">1</span>}];
@@ -4920,7 +5075,8 @@ array. In some libraries this function is named <code>each</code>.</p>
 </div>
 
             <div class="see">
-                See also <a href="#addIndex">addIndex</a>.
+                See also
+                <a href="#addIndex">addIndex</a>.
             </div>
 
             <pre><code class="hljs javascript"><span class="hljs-comment">// Note that having access to the original `list` allows for</span>
@@ -5094,7 +5250,8 @@ on each element, and grouping the results according to values returned.</p>
 </div>
 
             <div class="see">
-                See also <a href="#transduce">transduce</a>.
+                See also
+                <a href="#transduce">transduce</a>.
             </div>
 
             <pre><code class="hljs javascript"><span class="hljs-keyword">var</span> byGrade = R.groupBy(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">student</span>) </span>{
@@ -5757,7 +5914,8 @@ is not destructive</em>: it returns a copy of the list with the changes.
 </div>
 
             <div class="see">
-                See also <a href="#intersectionWith">intersectionWith</a>.
+                See also
+                <a href="#intersectionWith">intersectionWith</a>.
             </div>
 
             <pre><code class="hljs javascript">R.intersection([<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>,<span class="hljs-number">4</span>], [<span class="hljs-number">7</span>,<span class="hljs-number">6</span>,<span class="hljs-number">5</span>,<span class="hljs-number">4</span>,<span class="hljs-number">3</span>]); <span class="hljs-comment">//=&gt; [4, 3]</span></code></pre>
@@ -5813,7 +5971,8 @@ elements.</p>
 </div>
 
             <div class="see">
-                See also <a href="#intersection">intersection</a>.
+                See also
+                <a href="#intersection">intersection</a>.
             </div>
 
             <pre><code class="hljs javascript"><span class="hljs-keyword">var</span> buffaloSpringfield = [
@@ -6263,10 +6422,13 @@ R.isArrayLike({<span class="hljs-number">0</span>: <span class="hljs-string">'ze
 </div>
 
 
-            <pre><code class="hljs javascript">R.isEmpty([<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>]); <span class="hljs-comment">//=&gt; false</span>
-R.isEmpty([]); <span class="hljs-comment">//=&gt; true</span>
-R.isEmpty(<span class="hljs-string">''</span>); <span class="hljs-comment">//=&gt; true</span>
-R.isEmpty(<span class="hljs-literal">null</span>); <span class="hljs-comment">//=&gt; false</span></code></pre>
+            <pre><code class="hljs javascript">R.isEmpty([<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>]);   <span class="hljs-comment">//=&gt; false</span>
+R.isEmpty([]);          <span class="hljs-comment">//=&gt; true</span>
+R.isEmpty(<span class="hljs-string">''</span>);          <span class="hljs-comment">//=&gt; true</span>
+R.isEmpty(<span class="hljs-literal">null</span>);        <span class="hljs-comment">//=&gt; false</span>
+R.isEmpty(R.keys({}));  <span class="hljs-comment">//=&gt; true</span>
+R.isEmpty({});          <span class="hljs-comment">//=&gt; false ({} does not have a length property)</span>
+R.isEmpty({length: <span class="hljs-number">0</span>}); <span class="hljs-comment">//=&gt; true</span></code></pre>
         </section>
         <section class="card" id="isNil">
             <h2>
@@ -6705,7 +6867,8 @@ phraseLens.map(R.toUpper, obj2); <span class="hljs-comment">//=&gt; { phrase: "W
 </div>
 
             <div class="see">
-                See also <a href="#lens">lens</a>.
+                See also
+                <a href="#lens">lens</a>.
             </div>
 
             <pre><code class="hljs javascript"><span class="hljs-keyword">var</span> headLens = R.lensIndex(<span class="hljs-number">0</span>);
@@ -6761,7 +6924,8 @@ phraseLens.map(R.toUpper, obj2); <span class="hljs-comment">//=&gt; { phrase: "W
 </div>
 
             <div class="see">
-                See also <a href="#lens">lens</a>.
+                See also
+                <a href="#lens">lens</a>.
             </div>
 
             <pre><code class="hljs javascript"><span class="hljs-keyword">var</span> xo = {x: <span class="hljs-number">1</span>};
@@ -6808,7 +6972,8 @@ xoLens.map(R.add(<span class="hljs-number">1</span>)); <span class="hljs-comment
 </div>
 
             <div class="see">
-                See also <a href="#lens">lens</a>.
+                See also
+                <a href="#lens">lens</a>.
             </div>
 
             <pre><code class="hljs javascript"><span class="hljs-keyword">var</span> phraseLens = R.lensProp(<span class="hljs-string">'phrase'</span>);
@@ -6855,7 +7020,8 @@ other Functor.</p>
 </div>
 
             <div class="see">
-                See also <a href="#liftN">liftN</a>.
+                See also
+                <a href="#liftN">liftN</a>.
             </div>
 
             <pre><code class="hljs javascript"><span class="hljs-keyword">var</span> madd3 = R.lift(R.curry(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">a, b, c</span>) </span>{
@@ -6904,7 +7070,8 @@ lists (or other Functors).</p>
 </div>
 
             <div class="see">
-                See also <a href="#lift">lift</a>.
+                See also
+                <a href="#lift">lift</a>.
             </div>
 
             <pre><code class="hljs javascript"><span class="hljs-keyword">var</span> madd3 = R.liftN(<span class="hljs-number">3</span>, R.curryN(<span class="hljs-number">3</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
@@ -7048,7 +7215,8 @@ native <code>Array.prototype.map</code> method. For more details on this behavio
 </div>
 
             <div class="see">
-                See also <a href="#transduce">transduce</a>.
+                See also
+                <a href="#transduce">transduce</a>.
             </div>
 
             <pre><code class="hljs javascript"><span class="hljs-keyword">var</span> double = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">x</span>) </span>{
@@ -7223,7 +7391,8 @@ the native <code>Array.prototype.map</code> method. For more details on this beh
 </div>
 
             <div class="see">
-                See also <a href="#addIndex">addIndex</a>.
+                See also
+                <a href="#addIndex">addIndex</a>.
             </div>
 
             <pre><code class="hljs javascript"><span class="hljs-keyword">var</span> squareEnds = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">elt, idx, list</span>) </span>{
@@ -7379,7 +7548,8 @@ R.mapObjIndexed(prependKeyAndDouble, values); <span class="hljs-comment">//=&gt;
 </div>
 
             <div class="see">
-                See also <a href="#invoker">invoker</a>.
+                See also
+                <a href="#invoker">invoker</a>.
             </div>
 
             <pre><code class="hljs javascript">R.match(<span class="hljs-regexp">/([a-z]a)/g</span>, <span class="hljs-string">'bananas'</span>); <span class="hljs-comment">//=&gt; ['ba', 'na', 'na']</span></code></pre>
@@ -7428,7 +7598,8 @@ when the modulus is zero or negative.</p>
 </div>
 
             <div class="see">
-                See also <a href="#moduloBy">moduloBy</a>.
+                See also
+                <a href="#moduloBy">moduloBy</a>.
             </div>
 
             <pre><code class="hljs javascript">R.mathMod(-<span class="hljs-number">17</span>, <span class="hljs-number">5</span>);  <span class="hljs-comment">//=&gt; 3</span>
@@ -7482,7 +7653,8 @@ seventeenMod(<span class="hljs-number">10</span>); <span class="hljs-comment">//
 </div>
 
             <div class="see">
-                See also <a href="#maxBy">maxBy</a>.
+                See also
+                <a href="#maxBy">maxBy</a>.
             </div>
 
             <pre><code class="hljs javascript">R.max([<span class="hljs-number">7</span>, <span class="hljs-number">3</span>, <span class="hljs-number">9</span>, <span class="hljs-number">2</span>, <span class="hljs-number">4</span>, <span class="hljs-number">9</span>, <span class="hljs-number">3</span>]); <span class="hljs-comment">//=&gt; 9</span></code></pre>
@@ -7529,7 +7701,8 @@ Note that this will return undefined if supplied an empty list.</p>
 </div>
 
             <div class="see">
-                See also <a href="#max">max</a>.
+                See also
+                <a href="#max">max</a>.
             </div>
 
             <pre><code class="hljs javascript"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">cmp</span>(<span class="hljs-params">obj</span>) </span>{ <span class="hljs-keyword">return</span> obj.x; }
@@ -7694,8 +7867,8 @@ count; <span class="hljs-comment">//=&gt; 1</span></code></pre>
                 </div>
             </div>
 
-            <div class="description"><p>Create a new object with the own properties of a
-merged with the own properties of object b.
+            <div class="description"><p>Create a new object with the own properties of <code>a</code>
+merged with the own properties of object <code>b</code>.
 This function will <em>not</em> mutate passed-in objects.</p>
 </div>
 
@@ -7741,7 +7914,8 @@ resetToDefault({x: <span class="hljs-number">5</span>, y: <span class="hljs-numb
 </div>
 
             <div class="see">
-                See also <a href="#reduce">reduce</a>.
+                See also
+                <a href="#reduce">reduce</a>.
             </div>
 
             <pre><code class="hljs javascript">R.mergeAll([{foo:<span class="hljs-number">1</span>},{bar:<span class="hljs-number">2</span>},{baz:<span class="hljs-number">3</span>}]); <span class="hljs-comment">//=&gt; {foo:1,bar:2,baz:3}</span>
@@ -7782,7 +7956,8 @@ R.mergeAll([{foo:<span class="hljs-number">1</span>},{foo:<span class="hljs-numb
 </div>
 
             <div class="see">
-                See also <a href="#minBy">minBy</a>.
+                See also
+                <a href="#minBy">minBy</a>.
             </div>
 
             <pre><code class="hljs javascript">R.min([<span class="hljs-number">7</span>, <span class="hljs-number">3</span>, <span class="hljs-number">9</span>, <span class="hljs-number">2</span>, <span class="hljs-number">4</span>, <span class="hljs-number">9</span>, <span class="hljs-number">3</span>]); <span class="hljs-comment">//=&gt; 2</span></code></pre>
@@ -7829,7 +8004,8 @@ Note that this will return undefined if supplied an empty list.</p>
 </div>
 
             <div class="see">
-                See also <a href="#min">min</a>.
+                See also
+                <a href="#min">min</a>.
             </div>
 
             <pre><code class="hljs javascript"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">cmp</span>(<span class="hljs-params">obj</span>) </span>{ <span class="hljs-keyword">return</span> obj.x; }
@@ -7879,7 +8055,8 @@ modulo. For mathematical modulo see <code>mathMod</code></p>
 </div>
 
             <div class="see">
-                See also <a href="#mathMod">mathMod</a>.
+                See also
+                <a href="#mathMod">mathMod</a>.
             </div>
 
             <pre><code class="hljs javascript">R.modulo(<span class="hljs-number">17</span>, <span class="hljs-number">3</span>); <span class="hljs-comment">//=&gt; 2</span>
@@ -8108,7 +8285,8 @@ passed false-y value, and <code>false</code> when passed a truth-y one.</p>
 </div>
 
             <div class="see">
-                See also <a href="#complement">complement</a>.
+                See also
+                <a href="#complement">complement</a>.
             </div>
 
             <pre><code class="hljs javascript">R.not(<span class="hljs-literal">true</span>); <span class="hljs-comment">//=&gt; false</span>
@@ -8784,7 +8962,8 @@ R.pick([<span class="hljs-string">'a'</span>, <span class="hljs-string">'e'</spa
 </div>
 
             <div class="see">
-                See also <a href="#pick">pick</a>.
+                See also
+                <a href="#pick">pick</a>.
             </div>
 
             <pre><code class="hljs javascript">R.pickAll([<span class="hljs-string">'a'</span>, <span class="hljs-string">'d'</span>], {a: <span class="hljs-number">1</span>, b: <span class="hljs-number">2</span>, c: <span class="hljs-number">3</span>, d: <span class="hljs-number">4</span>}); <span class="hljs-comment">//=&gt; {a: 1, d: 4}</span>
@@ -8834,7 +9013,8 @@ satisfy the supplied predicate.</p>
 </div>
 
             <div class="see">
-                See also <a href="#pick">pick</a>.
+                See also
+                <a href="#pick">pick</a>.
             </div>
 
             <pre><code class="hljs javascript"><span class="hljs-keyword">var</span> isUpperCase = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">val, key</span>) </span>{ <span class="hljs-keyword">return</span> key.toUpperCase() === key; }
@@ -8930,7 +9110,8 @@ each of the functions provided is executed in order from left to right.</p>
 </div>
 
             <div class="see">
-                See also <a href="#lens">lens</a>.
+                See also
+                <a href="#lens">lens</a>.
             </div>
 
             <pre><code class="hljs javascript"><span class="hljs-keyword">var</span> headLens = R.lensIndex(<span class="hljs-number">0</span>);
@@ -9121,7 +9302,8 @@ list.</p>
 </div>
 
             <div class="see">
-                See also <a href="#reduce">reduce</a>.
+                See also
+                <a href="#reduce">reduce</a>.
             </div>
 
             <pre><code class="hljs javascript">R.product([<span class="hljs-number">2</span>,<span class="hljs-number">4</span>,<span class="hljs-number">6</span>,<span class="hljs-number">8</span>,<span class="hljs-number">100</span>,<span class="hljs-number">1</span>]); <span class="hljs-comment">//=&gt; 38400</span></code></pre>
@@ -9472,7 +9654,8 @@ the native <code>Array.prototype.reduce</code> method. For more details on this 
 </div>
 
             <div class="see">
-                See also <a href="#reduced">reduced</a>.
+                See also
+                <a href="#reduced">reduced</a>.
             </div>
 
             <pre><code class="hljs javascript"><span class="hljs-keyword">var</span> numbers = [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>];
@@ -9523,7 +9706,9 @@ reduceRight, or reduceRightIndexed.</p>
 </div>
 
             <div class="see">
-                See also <a href="#reduce,transduce">reduce,transduce</a>.
+                See also
+                <a href="#reduce">reduce</a>,
+                <a href="#transduce">transduce</a>.
             </div>
 
             <pre><code class="hljs javascript">R.reduce(
@@ -9587,7 +9772,8 @@ see:
 </div>
 
             <div class="see">
-                See also <a href="#addIndex">addIndex</a>.
+                See also
+                <a href="#addIndex">addIndex</a>.
             </div>
 
             <pre><code class="hljs javascript"><span class="hljs-keyword">var</span> letters = [<span class="hljs-string">'a'</span>, <span class="hljs-string">'b'</span>, <span class="hljs-string">'c'</span>];
@@ -9717,7 +9903,8 @@ see:
 </div>
 
             <div class="see">
-                See also <a href="#addIndex">addIndex</a>.
+                See also
+                <a href="#addIndex">addIndex</a>.
             </div>
 
             <pre><code class="hljs javascript"><span class="hljs-keyword">var</span> letters = [<span class="hljs-string">'a'</span>, <span class="hljs-string">'b'</span>, <span class="hljs-string">'c'</span>];
@@ -9771,7 +9958,8 @@ function returns falsy. The predicate function is passed one argument: <em>(valu
 </div>
 
             <div class="see">
-                See also <a href="#transduce">transduce</a>.
+                See also
+                <a href="#transduce">transduce</a>.
             </div>
 
             <pre><code class="hljs javascript"><span class="hljs-keyword">var</span> isOdd = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">n</span>) </span>{
@@ -9824,7 +10012,8 @@ function is passed three arguments: <em>(value, index, list)</em>.</p>
 </div>
 
             <div class="see">
-                See also <a href="#addIndex">addIndex</a>.
+                See also
+                <a href="#addIndex">addIndex</a>.
             </div>
 
             <pre><code class="hljs javascript"><span class="hljs-keyword">var</span> lastTwo = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">val, idx, list</span>) </span>{
@@ -10122,11 +10311,16 @@ R.reverse([]);         <span class="hljs-comment">//=&gt; []</span></code></pre>
 
             <div class="description"><p>Returns a list containing the elements of <code>xs</code> from <code>fromIndex</code> (inclusive)
 to <code>toIndex</code> (exclusive).</p>
+<p>Dispatches to its third argument&#39;s <code>slice</code> method if present. As a
+result, one may replace <code>[a]</code> with <code>String</code> in the type signature.</p>
 </div>
 
 
-            <pre><code class="hljs javascript"><span class="hljs-keyword">var</span> xs = R.range(<span class="hljs-number">0</span>, <span class="hljs-number">10</span>);
-R.slice(<span class="hljs-number">2</span>, <span class="hljs-number">5</span>)(xs); <span class="hljs-comment">//=&gt; [2, 3, 4]</span></code></pre>
+            <pre><code class="hljs javascript">R.slice(<span class="hljs-number">1</span>, <span class="hljs-number">3</span>, [<span class="hljs-string">'a'</span>, <span class="hljs-string">'b'</span>, <span class="hljs-string">'c'</span>, <span class="hljs-string">'d'</span>]);        <span class="hljs-comment">//=&gt; ['b', 'c']</span>
+R.slice(<span class="hljs-number">1</span>, <span class="hljs-literal">Infinity</span>, [<span class="hljs-string">'a'</span>, <span class="hljs-string">'b'</span>, <span class="hljs-string">'c'</span>, <span class="hljs-string">'d'</span>]); <span class="hljs-comment">//=&gt; ['b', 'c', 'd']</span>
+R.slice(<span class="hljs-number">0</span>, -<span class="hljs-number">1</span>, [<span class="hljs-string">'a'</span>, <span class="hljs-string">'b'</span>, <span class="hljs-string">'c'</span>, <span class="hljs-string">'d'</span>]);       <span class="hljs-comment">//=&gt; ['a', 'b', 'c']</span>
+R.slice(-<span class="hljs-number">3</span>, -<span class="hljs-number">1</span>, [<span class="hljs-string">'a'</span>, <span class="hljs-string">'b'</span>, <span class="hljs-string">'c'</span>, <span class="hljs-string">'d'</span>]);      <span class="hljs-comment">//=&gt; ['b', 'c']</span>
+R.slice(<span class="hljs-number">0</span>, <span class="hljs-number">3</span>, <span class="hljs-string">'ramda'</span>);                     <span class="hljs-comment">//=&gt; 'ram'</span></code></pre>
         </section>
         <section class="card" id="sort">
             <h2>
@@ -10184,7 +10378,7 @@ R.sort(diff, [<span class="hljs-number">4</span>,<span class="hljs-number">2</sp
             <div>
                 <button class="sig btn btn-link" data-collapser="#__details-sortBy">
                     <span class="caret rotated"></span>
-                    (a → String) → [a] → [a]
+                    Ord b =&gt; (a → b) → [a] → [a]
                 </button>
             </div>
 
@@ -10193,8 +10387,7 @@ R.sort(diff, [<span class="hljs-number">4</span>,<span class="hljs-number">2</sp
                     <li class="list-group-item">
                         <span class="type">function</span>
                         <span class="name">fn</span>
-                        <span class="description"><p>The function mapping <code>list</code> items to keys.</p>
-</span>
+                        <span class="description"></span>
                     </li>
                     <li class="list-group-item">
                         <span class="type">Array</span>
@@ -10211,7 +10404,7 @@ R.sort(diff, [<span class="hljs-number">4</span>,<span class="hljs-number">2</sp
                 </div>
             </div>
 
-            <div class="description"><p>Sorts the list according to a key generated by the supplied function.</p>
+            <div class="description"><p>Sorts the list according to the supplied function.</p>
 </div>
 
 
@@ -10423,7 +10616,8 @@ R.split(<span class="hljs-string">'.'</span>, <span class="hljs-string">'a.b.c.x
 </div>
 
             <div class="see">
-                See also <a href="#slice">slice</a>.
+                See also
+                <a href="#slice">slice</a>.
             </div>
 
             <pre><code class="hljs javascript">R.substring(<span class="hljs-number">2</span>, <span class="hljs-number">5</span>, <span class="hljs-string">'abcdefghijklm'</span>); <span class="hljs-comment">//=&gt; 'cde'</span></code></pre>
@@ -10602,7 +10796,8 @@ complementaryAngle(<span class="hljs-number">72</span>); <span class="hljs-comme
 </div>
 
             <div class="see">
-                See also <a href="#reduce">reduce</a>.
+                See also
+                <a href="#reduce">reduce</a>.
             </div>
 
             <pre><code class="hljs javascript">R.sum([<span class="hljs-number">2</span>,<span class="hljs-number">4</span>,<span class="hljs-number">6</span>,<span class="hljs-number">8</span>,<span class="hljs-number">100</span>,<span class="hljs-number">1</span>]); <span class="hljs-comment">//=&gt; 121</span></code></pre>
@@ -10636,7 +10831,8 @@ complementaryAngle(<span class="hljs-number">72</span>); <span class="hljs-comme
 </div>
 
             <div class="see">
-                See also <a href="#always">always</a>.
+                See also
+                <a href="#always">always</a>.
             </div>
 
             <pre><code class="hljs javascript">R.T(); <span class="hljs-comment">//=&gt; true</span></code></pre>
@@ -10722,16 +10918,35 @@ If <code>n &gt; list.length</code>, returns a list of <code>list.length</code> e
 </div>
 
             <div class="see">
-                See also <a href="#transduce">transduce</a>.
+                See also
+                <a href="#transduce
+
+Dispatches to its second argument&#x27;s &#x60;slice&#x60; method if present. As a
+result, one may replace &#x60;[a]&#x60; with &#x60;String&#x60; in the type signature.">transduce
+
+Dispatches to its second argument&#x27;s &#x60;slice&#x60; method if present. As a
+result, one may replace &#x60;[a]&#x60; with &#x60;String&#x60; in the type signature.</a>.
             </div>
 
-            <pre><code class="hljs javascript">R.take(<span class="hljs-number">3</span>,[<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>,<span class="hljs-number">4</span>,<span class="hljs-number">5</span>]); <span class="hljs-comment">//=&gt; [1,2,3]</span>
+            <pre><code class="hljs javascript">R.take(<span class="hljs-number">1</span>, [<span class="hljs-string">'foo'</span>, <span class="hljs-string">'bar'</span>, <span class="hljs-string">'baz'</span>]); <span class="hljs-comment">//=&gt; ['foo']</span>
+R.take(<span class="hljs-number">2</span>, [<span class="hljs-string">'foo'</span>, <span class="hljs-string">'bar'</span>, <span class="hljs-string">'baz'</span>]); <span class="hljs-comment">//=&gt; ['foo', 'bar']</span>
+R.take(<span class="hljs-number">3</span>, [<span class="hljs-string">'foo'</span>, <span class="hljs-string">'bar'</span>, <span class="hljs-string">'baz'</span>]); <span class="hljs-comment">//=&gt; ['foo', 'bar', 'baz']</span>
+R.take(<span class="hljs-number">4</span>, [<span class="hljs-string">'foo'</span>, <span class="hljs-string">'bar'</span>, <span class="hljs-string">'baz'</span>]); <span class="hljs-comment">//=&gt; ['foo', 'bar', 'baz']</span>
+R.take(<span class="hljs-number">3</span>, <span class="hljs-string">'ramda'</span>);               <span class="hljs-comment">//=&gt; 'ram'</span>
 
-<span class="hljs-keyword">var</span> members= [ <span class="hljs-string">"Paul Desmond"</span>,<span class="hljs-string">"Bob Bates"</span>,<span class="hljs-string">"Joe Dodge"</span>,<span class="hljs-string">"Ron Crotty"</span>,<span class="hljs-string">"Lloyd Davis"</span>,<span class="hljs-string">"Joe Morello"</span>,<span class="hljs-string">"Norman Bates"</span>,
-               <span class="hljs-string">"Eugene Wright"</span>,<span class="hljs-string">"Gerry Mulligan"</span>,<span class="hljs-string">"Jack Six"</span>,<span class="hljs-string">"Alan Dawson"</span>,<span class="hljs-string">"Darius Brubeck"</span>,<span class="hljs-string">"Chris Brubeck"</span>,
-               <span class="hljs-string">"Dan Brubeck"</span>,<span class="hljs-string">"Bobby Militello"</span>,<span class="hljs-string">"Michael Moore"</span>,<span class="hljs-string">"Randy Jones"</span>];
-<span class="hljs-keyword">var</span> takeFive = R.take(<span class="hljs-number">5</span>);
-takeFive(members); <span class="hljs-comment">//=&gt; ["Paul Desmond","Bob Bates","Joe Dodge","Ron Crotty","Lloyd Davis"]</span></code></pre>
+<span class="hljs-keyword">var</span> personnel = [
+  <span class="hljs-string">'Dave Brubeck'</span>,
+  <span class="hljs-string">'Paul Desmond'</span>,
+  <span class="hljs-string">'Eugene Wright'</span>,
+  <span class="hljs-string">'Joe Morello'</span>,
+  <span class="hljs-string">'Gerry Mulligan'</span>,
+  <span class="hljs-string">'Bob Bates'</span>,
+  <span class="hljs-string">'Joe Dodge'</span>,
+  <span class="hljs-string">'Ron Crotty'</span>
+];
+
+takeFive(personnel);
+<span class="hljs-comment">//=&gt; ['Dave Brubeck', 'Paul Desmond', 'Eugene Wright', 'Joe Morello', 'Gerry Mulligan']</span></code></pre>
         </section>
         <section class="card" id="takeWhile">
             <h2>
@@ -10778,7 +10993,8 @@ function is passed one argument: <em>(value)</em>.</p>
 </div>
 
             <div class="see">
-                See also <a href="#transduce">transduce</a>.
+                See also
+                <a href="#transduce">transduce</a>.
             </div>
 
             <pre><code class="hljs javascript"><span class="hljs-keyword">var</span> isNotFour = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">x</span>) </span>{
@@ -11201,7 +11417,10 @@ The init function can be used to provide an initial accumulator, but is ignored 
 </div>
 
             <div class="see">
-                See also <a href="#reduce,reduced,into">reduce,reduced,into</a>.
+                See also
+                <a href="#reduce">reduce</a>,
+                <a href="#reduced">reduced</a>,
+                <a href="#into">into</a>.
             </div>
 
             <pre><code class="hljs javascript"><span class="hljs-keyword">var</span> numbers = [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>];
@@ -11332,7 +11551,8 @@ which takes an array. R.unapply is the inverse of R.apply.</p>
 </div>
 
             <div class="see">
-                See also <a href="#apply">apply</a>.
+                See also
+                <a href="#apply">apply</a>.
             </div>
 
             <pre><code class="hljs javascript">R.unapply(<span class="hljs-built_in">JSON</span>.stringify)(<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>); <span class="hljs-comment">//=&gt; '[1,2,3]'</span></code></pre>
@@ -11426,7 +11646,8 @@ takesOneArg(<span class="hljs-number">1</span>, <span class="hljs-number">2</spa
 </div>
 
             <div class="see">
-                See also <a href="#curry">curry</a>.
+                See also
+                <a href="#curry">curry</a>.
             </div>
 
             <pre><code class="hljs javascript"><span class="hljs-keyword">var</span> addFour = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">a</span>) </span>{
@@ -11586,13 +11807,54 @@ determined according to the value returned by applying the supplied predicate to
 </div>
 
             <div class="see">
-                See also <a href="#union">union</a>.
+                See also
+                <a href="#union">union</a>.
             </div>
 
             <pre><code class="hljs javascript"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">cmp</span>(<span class="hljs-params">x, y</span>) </span>{ <span class="hljs-keyword">return</span> x.a === y.a; }
 <span class="hljs-keyword">var</span> l1 = [{a: <span class="hljs-number">1</span>}, {a: <span class="hljs-number">2</span>}];
 <span class="hljs-keyword">var</span> l2 = [{a: <span class="hljs-number">1</span>}, {a: <span class="hljs-number">4</span>}];
 R.unionWith(cmp, l1, l2); <span class="hljs-comment">//=&gt; [{a: 1}, {a: 2}, {a: 4}]</span></code></pre>
+        </section>
+        <section class="card" id="uniq">
+            <h2>
+                <a tabindex="2" class="name" href="#uniq">uniq</a>
+                <span class="label label-category pull-right">List</span>
+            </h2>
+
+
+            <div>
+                <button class="sig btn btn-link" data-collapser="#__details-uniq">
+                    <span class="caret rotated"></span>
+                    [a] → [a]
+                </button>
+            </div>
+
+            <div class="details collapse panel panel-default" id="__details-uniq">
+                <ul class="list-group">
+                    <li class="list-group-item">
+                        <span class="type">Array</span>
+                        <span class="name">list</span>
+                        <span class="description"><p>The array to consider.</p>
+</span>
+                    </li>
+                </ul>
+                <div class="panel-body">
+                    <span class="returns">Returns</span>
+                    <span class="type">Array</span>
+                    <span class="description"><p>The list of unique items.</p>
+</span>
+                </div>
+            </div>
+
+            <div class="description"><p>Returns a new list containing only one copy of each element in the original list.
+<code>R.equals</code> is used to determine equality.</p>
+</div>
+
+
+            <pre><code class="hljs javascript">R.uniq([<span class="hljs-number">1</span>, <span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">1</span>]); <span class="hljs-comment">//=&gt; [1, 2]</span>
+R.uniq([<span class="hljs-number">1</span>, <span class="hljs-string">'1'</span>]);     <span class="hljs-comment">//=&gt; [1, '1']</span>
+R.uniq([[<span class="hljs-number">42</span>], [<span class="hljs-number">42</span>]]); <span class="hljs-comment">//=&gt; [[42]]</span></code></pre>
         </section>
         <section class="card" id="uniqWith">
             <h2>
@@ -11730,7 +11992,8 @@ provided index replaced with the given value.</p>
 </div>
 
             <div class="see">
-                See also <a href="#adjust">adjust</a>.
+                See also
+                <a href="#adjust">adjust</a>.
             </div>
 
             <pre><code class="hljs javascript">R.update(<span class="hljs-number">1</span>, <span class="hljs-number">11</span>, [<span class="hljs-number">0</span>, <span class="hljs-number">1</span>, <span class="hljs-number">2</span>]);     <span class="hljs-comment">//=&gt; [0, 11, 2]</span>
@@ -12009,7 +12272,8 @@ value (in <code>R.equals</code> terms) as accessing that property of the spec.</
 </div>
 
             <div class="see">
-                See also <a href="#where">where</a>.
+                See also
+                <a href="#where">where</a>.
             </div>
 
             <pre><code class="hljs javascript"><span class="hljs-comment">// pred :: Object -&gt; Boolean</span>
@@ -12266,7 +12530,7 @@ R.zipWith(f, [<span class="hljs-number">1</span>, <span class="hljs-number">2</s
         </section>
     </main>
     <script>
-        var DOC_DATA = [{"name":"__","category":"Function"},{"name":"add","category":"Math"},{"name":"addIndex","category":"Function"},{"name":"adjust","category":"List"},{"name":"all","category":"List"},{"name":"allPass","category":"Logic"},{"name":"always","category":"Function"},{"name":"and","category":"Logic"},{"name":"any","category":"List"},{"name":"anyPass","category":"Logic"},{"name":"ap","category":"Function"},{"name":"aperture","category":"List"},{"name":"append","category":"List"},{"name":"apply","category":"Function"},{"name":"arity","category":"Function"},{"name":"assoc","category":"Object"},{"name":"assocPath","category":"Object"},{"name":"binary","category":"Function"},{"name":"bind","category":"Function"},{"name":"both","category":"Logic"},{"name":"call","category":"Function"},{"name":"chain","category":"List"},{"name":"clone","category":"Object"},{"name":"commute","category":"List"},{"name":"commuteMap","category":"List"},{"name":"comparator","category":"Function"},{"name":"complement","category":"Logic"},{"name":"compose","category":"Function"},{"name":"composeL","category":"Function"},{"name":"composeP","category":"Function"},{"name":"concat","category":"List"},{"name":"cond","category":"Logic"},{"name":"construct","category":"Function"},{"name":"constructN","category":"Function"},{"name":"contains","category":"List"},{"name":"containsWith","category":"List"},{"name":"converge","category":"Function"},{"name":"countBy","category":"Relation"},{"name":"createMapEntry","category":"Object"},{"name":"curry","category":"Function"},{"name":"curryN","category":"Function"},{"name":"dec","category":"Math"},{"name":"defaultTo","category":"Logic"},{"name":"difference","category":"Relation"},{"name":"differenceWith","category":"Relation"},{"name":"dissoc","category":"Object"},{"name":"dissocPath","category":"Object"},{"name":"divide","category":"Math"},{"name":"drop","category":"List"},{"name":"dropRepeats","category":"List"},{"name":"dropRepeatsWith","category":"List"},{"name":"dropWhile","category":"List"},{"name":"either","category":"Logic"},{"name":"empty","category":"Function"},{"name":"eqProps","category":"Object"},{"name":"equals","category":"Relation"},{"name":"evolve","category":"Object"},{"name":"F","category":"Function"},{"name":"filter","category":"List"},{"name":"filterIndexed","category":"List"},{"name":"find","category":"List"},{"name":"findIndex","category":"List"},{"name":"findLast","category":"List"},{"name":"findLastIndex","category":"List"},{"name":"flatten","category":"List"},{"name":"flip","category":"Function"},{"name":"forEach","category":"List"},{"name":"forEachIndexed","category":"List"},{"name":"fromPairs","category":"List"},{"name":"functions","category":"Object"},{"name":"functionsIn","category":"Object"},{"name":"groupBy","category":"List"},{"name":"gt","category":"Math"},{"name":"gte","category":"Math"},{"name":"has","category":"Object"},{"name":"hasIn","category":"Object"},{"name":"head","category":"List"},{"name":"identical","category":"Relation"},{"name":"identity","category":"Function"},{"name":"ifElse","category":"Logic"},{"name":"inc","category":"Math"},{"name":"indexOf","category":"List"},{"name":"init","category":"List"},{"name":"insert","category":"List"},{"name":"insertAll","category":"List"},{"name":"intersection","category":"Relation"},{"name":"intersectionWith","category":"Relation"},{"name":"intersperse","category":"List"},{"name":"into","category":"List"},{"name":"invert","category":"Object"},{"name":"invertObj","category":"Object"},{"name":"invoke","category":"Object"},{"name":"invoker","category":"Function"},{"name":"is","category":"Type"},{"name":"isArrayLike","category":"Type"},{"name":"isEmpty","category":"Logic"},{"name":"isNil","category":"Type"},{"name":"isSet","category":"List"},{"name":"join","category":"List"},{"name":"keys","category":"Object"},{"name":"keysIn","category":"Object"},{"name":"last","category":"List"},{"name":"lastIndexOf","category":"List"},{"name":"length","category":"List"},{"name":"lens","category":"Object"},{"name":"lensIndex","category":"List"},{"name":"lensOn","category":"Object"},{"name":"lensProp","category":"Object"},{"name":"lift","category":"Function"},{"name":"liftN","category":"Function"},{"name":"lt","category":"Math"},{"name":"lte","category":"Math"},{"name":"map","category":"List"},{"name":"mapAccum","category":"List"},{"name":"mapAccumRight","category":"List"},{"name":"mapIndexed","category":"List"},{"name":"mapObj","category":"Object"},{"name":"mapObjIndexed","category":"Object"},{"name":"match","category":"String"},{"name":"mathMod","category":"Math"},{"name":"max","category":"Math"},{"name":"maxBy","category":"Math"},{"name":"mean","category":"Math"},{"name":"median","category":"Math"},{"name":"memoize","category":"Function"},{"name":"merge","category":"Object"},{"name":"mergeAll","category":"List"},{"name":"min","category":"Math"},{"name":"minBy","category":"Math"},{"name":"modulo","category":"Math"},{"name":"multiply","category":"Math"},{"name":"nAry","category":"Function"},{"name":"negate","category":"Math"},{"name":"none","category":"List"},{"name":"not","category":"Logic"},{"name":"nth","category":"List"},{"name":"nthArg","category":"Function"},{"name":"nthChar","category":"String"},{"name":"nthCharCode","category":"String"},{"name":"of","category":"Function"},{"name":"omit","category":"Object"},{"name":"once","category":"Function"},{"name":"or","category":"Logic"},{"name":"partial","category":"Function"},{"name":"partialRight","category":"Function"},{"name":"partition","category":"List"},{"name":"path","category":"Object"},{"name":"pathEq","category":"Relation"},{"name":"pick","category":"Object"},{"name":"pickAll","category":"Object"},{"name":"pickBy","category":"Object"},{"name":"pipe","category":"Function"},{"name":"pipeL","category":"Function"},{"name":"pipeP","category":"Function"},{"name":"pluck","category":"List"},{"name":"prepend","category":"List"},{"name":"product","category":"Math"},{"name":"project","category":"Object"},{"name":"prop","category":"Object"},{"name":"propEq","category":"Relation"},{"name":"propOr","category":"Object"},{"name":"props","category":"Object"},{"name":"range","category":"List"},{"name":"reduce","category":"List"},{"name":"reduced","category":"List"},{"name":"reduceIndexed","category":"List"},{"name":"reduceRight","category":"List"},{"name":"reduceRightIndexed","category":"List"},{"name":"reject","category":"List"},{"name":"rejectIndexed","category":"List"},{"name":"remove","category":"List"},{"name":"repeat","category":"List"},{"name":"replace","category":"String"},{"name":"reverse","category":"List"},{"name":"scan","category":"List"},{"name":"slice","category":"List"},{"name":"sort","category":"List"},{"name":"sortBy","category":"Relation"},{"name":"split","category":"String"},{"name":"strIndexOf","category":"String"},{"name":"strLastIndexOf","category":"String"},{"name":"substring","category":"String"},{"name":"substringFrom","category":"String"},{"name":"substringTo","category":"String"},{"name":"subtract","category":"Math"},{"name":"sum","category":"Math"},{"name":"T","category":"Function"},{"name":"tail","category":"List"},{"name":"take","category":"List"},{"name":"takeWhile","category":"List"},{"name":"tap","category":"Function"},{"name":"test","category":"String"},{"name":"times","category":"List"},{"name":"toLower","category":"String"},{"name":"toPairs","category":"Object"},{"name":"toPairsIn","category":"Object"},{"name":"toString","category":"String"},{"name":"toUpper","category":"String"},{"name":"transduce","category":"List"},{"name":"trim","category":"String"},{"name":"type","category":"Type"},{"name":"unapply","category":"Function"},{"name":"unary","category":"Function"},{"name":"uncurryN","category":"Function"},{"name":"unfold","category":"List"},{"name":"union","category":"Relation"},{"name":"unionWith","category":"Relation"},{"name":"uniqWith","category":"List"},{"name":"unnest","category":"List"},{"name":"update","category":"List"},{"name":"useWith","category":"Function"},{"name":"values","category":"Object"},{"name":"valuesIn","category":"Object"},{"name":"where","category":"Object"},{"name":"whereEq","category":"Object"},{"name":"wrap","category":"Function"},{"name":"xprod","category":"List"},{"name":"zip","category":"List"},{"name":"zipObj","category":"List"},{"name":"zipWith","category":"List"}];
+        var DOC_DATA = [{"name":"__","category":"Function"},{"name":"add","category":"Math"},{"name":"addIndex","category":"Function"},{"name":"adjust","category":"List"},{"name":"all","category":"List"},{"name":"allPass","category":"Logic"},{"name":"always","category":"Function"},{"name":"and","category":"Logic"},{"name":"any","category":"List"},{"name":"anyPass","category":"Logic"},{"name":"ap","category":"Function"},{"name":"aperture","category":"List"},{"name":"append","category":"List"},{"name":"apply","category":"Function"},{"name":"arity","category":"Function"},{"name":"assoc","category":"Object"},{"name":"assocPath","category":"Object"},{"name":"binary","category":"Function"},{"name":"bind","category":"Function"},{"name":"both","category":"Logic"},{"name":"call","category":"Function"},{"name":"chain","category":"List"},{"name":"clone","category":"Object"},{"name":"commute","category":"List"},{"name":"commuteMap","category":"List"},{"name":"comparator","category":"Function"},{"name":"complement","category":"Logic"},{"name":"compose","category":"Function"},{"name":"composeL","category":"Function"},{"name":"composeP","category":"Function"},{"name":"concat","category":"List"},{"name":"cond","category":"Logic"},{"name":"construct","category":"Function"},{"name":"constructN","category":"Function"},{"name":"contains","category":"List"},{"name":"containsWith","category":"List"},{"name":"converge","category":"Function"},{"name":"countBy","category":"Relation"},{"name":"createMapEntry","category":"Object"},{"name":"curry","category":"Function"},{"name":"curryN","category":"Function"},{"name":"dec","category":"Math"},{"name":"defaultTo","category":"Logic"},{"name":"difference","category":"Relation"},{"name":"differenceWith","category":"Relation"},{"name":"dissoc","category":"Object"},{"name":"dissocPath","category":"Object"},{"name":"divide","category":"Math"},{"name":"drop","category":"List"},{"name":"dropRepeats","category":"List"},{"name":"dropRepeatsWith","category":"List"},{"name":"dropWhile","category":"List"},{"name":"either","category":"Logic"},{"name":"empty","category":"Function"},{"name":"eq","category":"Relation"},{"name":"eqDeep","category":"Relation"},{"name":"eqProps","category":"Object"},{"name":"equals","category":"Relation"},{"name":"evolve","category":"Object"},{"name":"F","category":"Function"},{"name":"filter","category":"List"},{"name":"filterIndexed","category":"List"},{"name":"find","category":"List"},{"name":"findIndex","category":"List"},{"name":"findLast","category":"List"},{"name":"findLastIndex","category":"List"},{"name":"flatten","category":"List"},{"name":"flip","category":"Function"},{"name":"forEach","category":"List"},{"name":"forEachIndexed","category":"List"},{"name":"fromPairs","category":"List"},{"name":"functions","category":"Object"},{"name":"functionsIn","category":"Object"},{"name":"groupBy","category":"List"},{"name":"gt","category":"Math"},{"name":"gte","category":"Math"},{"name":"has","category":"Object"},{"name":"hasIn","category":"Object"},{"name":"head","category":"List"},{"name":"identical","category":"Relation"},{"name":"identity","category":"Function"},{"name":"ifElse","category":"Logic"},{"name":"inc","category":"Math"},{"name":"indexOf","category":"List"},{"name":"init","category":"List"},{"name":"insert","category":"List"},{"name":"insertAll","category":"List"},{"name":"intersection","category":"Relation"},{"name":"intersectionWith","category":"Relation"},{"name":"intersperse","category":"List"},{"name":"into","category":"List"},{"name":"invert","category":"Object"},{"name":"invertObj","category":"Object"},{"name":"invoke","category":"Object"},{"name":"invoker","category":"Function"},{"name":"is","category":"Type"},{"name":"isArrayLike","category":"Type"},{"name":"isEmpty","category":"Logic"},{"name":"isNil","category":"Type"},{"name":"isSet","category":"List"},{"name":"join","category":"List"},{"name":"keys","category":"Object"},{"name":"keysIn","category":"Object"},{"name":"last","category":"List"},{"name":"lastIndexOf","category":"List"},{"name":"length","category":"List"},{"name":"lens","category":"Object"},{"name":"lensIndex","category":"List"},{"name":"lensOn","category":"Object"},{"name":"lensProp","category":"Object"},{"name":"lift","category":"Function"},{"name":"liftN","category":"Function"},{"name":"lt","category":"Math"},{"name":"lte","category":"Math"},{"name":"map","category":"List"},{"name":"mapAccum","category":"List"},{"name":"mapAccumRight","category":"List"},{"name":"mapIndexed","category":"List"},{"name":"mapObj","category":"Object"},{"name":"mapObjIndexed","category":"Object"},{"name":"match","category":"String"},{"name":"mathMod","category":"Math"},{"name":"max","category":"Math"},{"name":"maxBy","category":"Math"},{"name":"mean","category":"Math"},{"name":"median","category":"Math"},{"name":"memoize","category":"Function"},{"name":"merge","category":"Object"},{"name":"mergeAll","category":"List"},{"name":"min","category":"Math"},{"name":"minBy","category":"Math"},{"name":"modulo","category":"Math"},{"name":"multiply","category":"Math"},{"name":"nAry","category":"Function"},{"name":"negate","category":"Math"},{"name":"none","category":"List"},{"name":"not","category":"Logic"},{"name":"nth","category":"List"},{"name":"nthArg","category":"Function"},{"name":"nthChar","category":"String"},{"name":"nthCharCode","category":"String"},{"name":"of","category":"Function"},{"name":"omit","category":"Object"},{"name":"once","category":"Function"},{"name":"or","category":"Logic"},{"name":"partial","category":"Function"},{"name":"partialRight","category":"Function"},{"name":"partition","category":"List"},{"name":"path","category":"Object"},{"name":"pathEq","category":"Relation"},{"name":"pick","category":"Object"},{"name":"pickAll","category":"Object"},{"name":"pickBy","category":"Object"},{"name":"pipe","category":"Function"},{"name":"pipeL","category":"Function"},{"name":"pipeP","category":"Function"},{"name":"pluck","category":"List"},{"name":"prepend","category":"List"},{"name":"product","category":"Math"},{"name":"project","category":"Object"},{"name":"prop","category":"Object"},{"name":"propEq","category":"Relation"},{"name":"propOr","category":"Object"},{"name":"props","category":"Object"},{"name":"range","category":"List"},{"name":"reduce","category":"List"},{"name":"reduced","category":"List"},{"name":"reduceIndexed","category":"List"},{"name":"reduceRight","category":"List"},{"name":"reduceRightIndexed","category":"List"},{"name":"reject","category":"List"},{"name":"rejectIndexed","category":"List"},{"name":"remove","category":"List"},{"name":"repeat","category":"List"},{"name":"replace","category":"String"},{"name":"reverse","category":"List"},{"name":"scan","category":"List"},{"name":"slice","category":"List"},{"name":"sort","category":"List"},{"name":"sortBy","category":"Relation"},{"name":"split","category":"String"},{"name":"strIndexOf","category":"String"},{"name":"strLastIndexOf","category":"String"},{"name":"substring","category":"String"},{"name":"substringFrom","category":"String"},{"name":"substringTo","category":"String"},{"name":"subtract","category":"Math"},{"name":"sum","category":"Math"},{"name":"T","category":"Function"},{"name":"tail","category":"List"},{"name":"take","category":"List"},{"name":"takeWhile","category":"List"},{"name":"tap","category":"Function"},{"name":"test","category":"String"},{"name":"times","category":"List"},{"name":"toLower","category":"String"},{"name":"toPairs","category":"Object"},{"name":"toPairsIn","category":"Object"},{"name":"toString","category":"String"},{"name":"toUpper","category":"String"},{"name":"transduce","category":"List"},{"name":"trim","category":"String"},{"name":"type","category":"Type"},{"name":"unapply","category":"Function"},{"name":"unary","category":"Function"},{"name":"uncurryN","category":"Function"},{"name":"unfold","category":"List"},{"name":"union","category":"Relation"},{"name":"unionWith","category":"Relation"},{"name":"uniq","category":"List"},{"name":"uniqWith","category":"List"},{"name":"unnest","category":"List"},{"name":"update","category":"List"},{"name":"useWith","category":"Function"},{"name":"values","category":"Object"},{"name":"valuesIn","category":"Object"},{"name":"where","category":"Object"},{"name":"whereEq","category":"Object"},{"name":"wrap","category":"Function"},{"name":"xprod","category":"List"},{"name":"zip","category":"List"},{"name":"zipObj","category":"List"},{"name":"zipWith","category":"List"}];
     </script>
     <script src="dist/ramda.js"></script>
     <script src="main.js"></script>
