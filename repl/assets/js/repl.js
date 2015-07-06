@@ -99,7 +99,7 @@
         var url = location.href;
         var project = new traceur.semantics.symbols.Project(url);
         var name = 'repl';
-        var contents = input.getValue();
+        var contents = input.getValue().replace(/^\s*[{][\s\S]*[}]\s*$/, '($&)');
         if (history.replaceState)
             history.replaceState(null, document.title,
                 '#' + encodeURIComponent(contents));
