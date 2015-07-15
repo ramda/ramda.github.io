@@ -2516,7 +2516,7 @@
      * @func
      * @memberOf R
      * @category Object
-     * @typedef Lens s a = Functor f => (a -> f a) -> s -> f s
+     * @typedefn Lens s a = Functor f => (a -> f a) -> s -> f s
      * @sig Lens s a -> (a -> a) -> s -> s
      * @param {Lens} lens
      * @param {*} v
@@ -2971,7 +2971,7 @@
      * @func
      * @memberOf R
      * @category Object
-     * @typedef Lens s a = Functor f => (a -> f a) -> s -> f s
+     * @typedefn Lens s a = Functor f => (a -> f a) -> s -> f s
      * @sig Lens s a -> a -> s -> s
      * @param {Lens} lens
      * @param {*} v
@@ -3537,7 +3537,7 @@
      * @func
      * @memberOf R
      * @category Object
-     * @typedef Lens s a = Functor f => (a -> f a) -> s -> f s
+     * @typedefn Lens s a = Functor f => (a -> f a) -> s -> f s
      * @sig Lens s a -> s -> a
      * @param {Lens} lens
      * @param {*} x
@@ -6374,7 +6374,7 @@
      * @func
      * @memberOf R
      * @category Object
-     * @typedef Lens s a = Functor f => (a -> f a) -> s -> f s
+     * @typedefn Lens s a = Functor f => (a -> f a) -> s -> f s
      * @sig (s -> a) -> ((a, s) -> s) -> Lens s a
      * @param {Function} getter
      * @param {Function} setter
@@ -6404,7 +6404,7 @@
      * @func
      * @memberOf R
      * @category Object
-     * @typedef Lens s a = Functor f => (a -> f a) -> s -> f s
+     * @typedefn Lens s a = Functor f => (a -> f a) -> s -> f s
      * @sig Number -> Lens s a
      * @param {Number} n
      * @return {Lens}
@@ -6427,7 +6427,7 @@
      * @func
      * @memberOf R
      * @category Object
-     * @typedef Lens s a = Functor f => (a -> f a) -> s -> f s
+     * @typedefn Lens s a = Functor f => (a -> f a) -> s -> f s
      * @sig String -> Lens s a
      * @param {String} k
      * @return {Lens}
