@@ -2466,7 +2466,6 @@ parameters. Any extraneous parameters will not be passed to the supplied functio
 </div>
 
 
-
             <pre><code class="hljs javascript"><span class="hljs-keyword">var</span> takesThreeArgs = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">a, b, c</span>) </span>{
   <span class="hljs-keyword">return</span> [a, b, c];
 };
@@ -2693,7 +2692,6 @@ Fantasy-land Chain spec, and will work with types that implement that spec.
 </div>
 
 
-
             <pre><code class="hljs javascript"><span class="hljs-keyword">var</span> duplicate = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">n</span>) </span>{
   <span class="hljs-keyword">return</span> [n, n];
 };
@@ -2895,7 +2893,6 @@ R.commuteMap(R.map(R.add(<span class="hljs-number">10</span>)), Maybe.of, [Just(
 
             <div class="description"><p>Makes a comparator function out of a function that reports whether the first element is less than the second.</p>
 </div>
-
 
 
             <pre><code class="hljs javascript"><span class="hljs-keyword">var</span> cmp = R.comparator(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">a, b</span>) </span>{
@@ -3480,7 +3477,6 @@ function will invoke the first function, <code>after</code>, passing as its argu
 results of invoking the subsequent functions with whatever arguments are passed to
 the new function.</p>
 </div>
-
 
 
             <pre><code class="hljs javascript"><span class="hljs-keyword">var</span> add = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">a, b</span>) </span>{ <span class="hljs-keyword">return</span> a + b; };
@@ -5123,7 +5119,6 @@ order is reversed.</p>
 </div>
 
 
-
             <pre><code class="hljs javascript"><span class="hljs-keyword">var</span> mergeThree = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">a, b, c</span>) </span>{
   <span class="hljs-keyword">return</span> ([]).concat(a, b, c);
 };
@@ -5181,7 +5176,6 @@ the native <code>Array.prototype.forEach</code> method. For more details on this
 <p>Also note that, unlike <code>Array.prototype.forEach</code>, Ramda&#39;s <code>forEach</code> returns the original
 array. In some libraries this function is named <code>each</code>.</p>
 </div>
-
 
 
             <pre><code class="hljs javascript"><span class="hljs-keyword">var</span> printXPlusFive = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">x</span>) </span>{ <span class="hljs-built_in">console</span>.log(x + <span class="hljs-number">5</span>); };
@@ -5605,7 +5599,6 @@ pointHas(<span class="hljs-string">'z'</span>);  <span class="hljs-comment">//=&
             <div class="description"><p>Returns whether or not an object or its prototype chain has
 a property with the specified name</p>
 </div>
-
 
 
             <pre><code class="hljs javascript"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">Rectangle</span>(<span class="hljs-params">width, height</span>) </span>{
@@ -6858,7 +6851,6 @@ consistent across different JS platforms.</p>
 </div>
 
 
-
             <pre><code class="hljs javascript"><span class="hljs-keyword">var</span> F = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{ <span class="hljs-keyword">this</span>.x = <span class="hljs-string">'X'</span>; };
 F.prototype.y = <span class="hljs-string">'Y'</span>;
 <span class="hljs-keyword">var</span> f = <span class="hljs-keyword">new</span> F();
@@ -7051,7 +7043,6 @@ the value of the focus; the setter &quot;sets&quot; the value of the focus. The 
 should not mutate the data structure.</p>
 </div>
 
-
             <div class="see">
                 See also
                 <a href="#view">view</a>,
@@ -7101,8 +7092,6 @@ R.over(xLens, R.negate, {x: <span class="hljs-number">1</span>, y: <span class="
 
             <div class="description"><p>Returns a lens whose focus is the specified index.</p>
 </div>
-
-
             <div class="see">
                 See also
                 <a href="#view">view</a>,
@@ -7150,7 +7139,6 @@ R.over(headLens, R.toUpper, [<span class="hljs-string">'a'</span>, <span class="
 
             <div class="description"><p>Returns a lens whose focus is the specified property.</p>
 </div>
-
 
             <div class="see">
                 See also
@@ -8390,7 +8378,6 @@ parameters. Any extraneous parameters will not be passed to the supplied functio
 </div>
 
 
-
             <pre><code class="hljs javascript"><span class="hljs-keyword">var</span> takesTwoArgs = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">a, b</span>) </span>{
   <span class="hljs-keyword">return</span> [a, b];
 };
@@ -8866,7 +8853,6 @@ invoked.</p>
 </div>
 
 
-
             <pre><code class="hljs javascript"><span class="hljs-keyword">var</span> addOneOnce = R.once(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">x</span>)</span>{ <span class="hljs-keyword">return</span> x + <span class="hljs-number">1</span>; });
 addOneOnce(<span class="hljs-number">10</span>); <span class="hljs-comment">//=&gt; 11</span>
 addOneOnce(addOneOnce(<span class="hljs-number">50</span>)); <span class="hljs-comment">//=&gt; 11</span></code></pre>
@@ -8973,7 +8959,6 @@ R.or(<span class="hljs-literal">null</span>, <span class="hljs-string">''</span>
 focused by the given lens to the given value.</p>
 </div>
 
-
             <div class="see">
                 See also
                 <a href="#prop">prop</a>,
@@ -9030,7 +9015,6 @@ R.over(headLens, R.toUpper, [<span class="hljs-string">'foo'</span>, <span class
 when invoked, calls the original function with all of the values prepended to the
 original function&#39;s arguments list. In some libraries this function is named <code>applyLeft</code>.</p>
 </div>
-
 
 
             <pre><code class="hljs javascript"><span class="hljs-keyword">var</span> multiply = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">a, b</span>) </span>{ <span class="hljs-keyword">return</span> a * b; };
@@ -9091,7 +9075,6 @@ function&#39;s arguments list.</p>
 <p>Note that <code>partialRight</code> is the opposite of <code>partial</code>: <code>partialRight</code> fills <code>fn</code>&#39;s arguments
 from the right to the left.  In some libraries this function is named <code>applyRight</code>.</p>
 </div>
-
 
 
             <pre><code class="hljs javascript"><span class="hljs-keyword">var</span> greet = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">salutation, title, firstName, lastName</span>) </span>{
@@ -10703,7 +10686,6 @@ R.reverse([]);         <span class="hljs-comment">//=&gt; []</span></code></pre>
 focused by the given lens to the given value.</p>
 </div>
 
-
             <div class="see">
                 See also
                 <a href="#prop">prop</a>,
@@ -10816,7 +10798,6 @@ R.slice(<span class="hljs-number">0</span>, <span class="hljs-number">3</span>, 
 time and return a negative number if the first value is smaller, a positive number if it&#39;s larger, and zero
 if they are equal.  Please note that this is a <strong>copy</strong> of the list.  It does not modify the original.</p>
 </div>
-
 
 
             <pre><code class="hljs javascript"><span class="hljs-keyword">var</span> diff = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">a, b</span>) </span>{ <span class="hljs-keyword">return</span> a - b; };
@@ -11466,7 +11447,6 @@ R.takeWhile(isNotFour, [<span class="hljs-number">1</span>, <span class="hljs-nu
 </div>
 
 
-
             <pre><code class="hljs javascript"><span class="hljs-keyword">var</span> sayX = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">x</span>) </span>{ <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'x is '</span> + x); };
 R.tap(sayX, <span class="hljs-number">100</span>); <span class="hljs-comment">//=&gt; 100</span>
 <span class="hljs-comment">//-&gt; 'x is 100'</span></code></pre>
@@ -11703,7 +11683,6 @@ The object&#39;s own properties and prototype properties are used.
 Note that the order of the output array is not guaranteed to be
 consistent across different JS platforms.</p>
 </div>
-
 
 
             <pre><code class="hljs javascript"><span class="hljs-keyword">var</span> F = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{ <span class="hljs-keyword">this</span>.x = <span class="hljs-string">'X'</span>; };
@@ -12081,7 +12060,6 @@ parameter. Any extraneous parameters will not be passed to the supplied function
 </div>
 
 
-
             <pre><code class="hljs javascript"><span class="hljs-keyword">var</span> takesTwoArgs = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">a, b</span>) </span>{
   <span class="hljs-keyword">return</span> [a, b];
 };
@@ -12203,7 +12181,6 @@ to stop iteration or an array of length 2 containing the value to add to the res
 list and the seed to be used in the next call to the iterator function.</p>
 <p>The iterator function receives one argument: <em>(seed)</em>.</p>
 </div>
-
 
 
             <pre><code class="hljs javascript"><span class="hljs-keyword">var</span> f = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">n</span>) </span>{ <span class="hljs-keyword">return</span> n &gt; <span class="hljs-number">50</span> ? <span class="hljs-literal">false</span> : [-n, n + <span class="hljs-number">10</span>] };
@@ -12461,7 +12438,6 @@ the first item if two items compare equal based on the predicate.</p>
 </div>
 
 
-
             <pre><code class="hljs javascript"><span class="hljs-keyword">var</span> strEq = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">a, b</span>) </span>{ <span class="hljs-keyword">return</span> <span class="hljs-built_in">String</span>(a) === <span class="hljs-built_in">String</span>(b); };
 R.uniqWith(strEq)([<span class="hljs-number">1</span>, <span class="hljs-string">'1'</span>, <span class="hljs-number">2</span>, <span class="hljs-number">1</span>]); <span class="hljs-comment">//=&gt; [1, 2]</span>
 R.uniqWith(strEq)([{}, {}]);       <span class="hljs-comment">//=&gt; [{}]</span>
@@ -12625,7 +12601,6 @@ pass an identity function so that the new function reports the correct arity.</p
 </div>
 
 
-
             <pre><code class="hljs javascript"><span class="hljs-keyword">var</span> double = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">y</span>) </span>{ <span class="hljs-keyword">return</span> y * <span class="hljs-number">2</span>; };
 <span class="hljs-keyword">var</span> square = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">x</span>) </span>{ <span class="hljs-keyword">return</span> x * x; };
 <span class="hljs-keyword">var</span> add = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">a, b</span>) </span>{ <span class="hljs-keyword">return</span> a + b; };
@@ -12736,7 +12711,6 @@ consistent across different JS platforms.</p>
 </div>
 
 
-
             <pre><code class="hljs javascript"><span class="hljs-keyword">var</span> F = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{ <span class="hljs-keyword">this</span>.x = <span class="hljs-string">'X'</span>; };
 F.prototype.y = <span class="hljs-string">'Y'</span>;
 <span class="hljs-keyword">var</span> f = <span class="hljs-keyword">new</span> F();
@@ -12782,7 +12756,6 @@ R.valuesIn(f); <span class="hljs-comment">//=&gt; ['X', 'Y']</span></code></pre>
             <div class="description"><p>Returns a &quot;view&quot; of the given data structure, determined by the given lens.
 The lens&#39;s focus determines which portion of the data structure is visible.</p>
 </div>
-
 
             <div class="see">
                 See also
@@ -13173,7 +13146,6 @@ truncated to the length of the shorter of the two input lists.</p>
 </div>
 
 
-
             <pre><code class="hljs javascript"><span class="hljs-keyword">var</span> f = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">x, y</span>) </span>{
   <span class="hljs-comment">// ...</span>
 };
@@ -13182,7 +13154,9 @@ R.zipWith(f, [<span class="hljs-number">1</span>, <span class="hljs-number">2</s
         </section>
     </main>
     <script>
-        var DOC_DATA = [{"name":"__","category":"Function"},{"name":"add","category":"Math"},{"name":"addIndex","category":"Function"},{"name":"adjust","category":"List"},{"name":"all","category":"List"},{"name":"allPass","category":"Logic"},{"name":"always","category":"Function"},{"name":"and","category":"Logic"},{"name":"any","category":"List"},{"name":"anyPass","category":"Logic"},{"name":"ap","category":"Function"},{"name":"aperture","category":"List"},{"name":"append","category":"List"},{"name":"apply","category":"Function"},{"name":"assoc","category":"Object"},{"name":"assocPath","category":"Object"},{"name":"binary","category":"Function"},{"name":"bind","category":"Function"},{"name":"both","category":"Logic"},{"name":"call","category":"Function"},{"name":"chain","category":"List"},{"name":"clone","category":"Object"},{"name":"commute","category":"List"},{"name":"commuteMap","category":"List"},{"name":"comparator","category":"Function"},{"name":"complement","category":"Logic"},{"name":"compose","category":"Function"},{"name":"composeK","category":"Function"},{"name":"composeP","category":"Function"},{"name":"concat","category":"List"},{"name":"cond","category":"Logic"},{"name":"construct","category":"Function"},{"name":"constructN","category":"Function"},{"name":"contains","category":"List"},{"name":"containsWith","category":"List"},{"name":"converge","category":"Function"},{"name":"countBy","category":"Relation"},{"name":"createMapEntry","category":"Object"},{"name":"curry","category":"Function"},{"name":"curryN","category":"Function"},{"name":"dec","category":"Math"},{"name":"defaultTo","category":"Logic"},{"name":"difference","category":"Relation"},{"name":"differenceWith","category":"Relation"},{"name":"dissoc","category":"Object"},{"name":"dissocPath","category":"Object"},{"name":"divide","category":"Math"},{"name":"drop","category":"List"},{"name":"dropLast","category":"List"},{"name":"dropLastWhile","category":"List"},{"name":"dropRepeats","category":"List"},{"name":"dropRepeatsWith","category":"List"},{"name":"dropWhile","category":"List"},{"name":"either","category":"Logic"},{"name":"empty","category":"Function"},{"name":"eqProps","category":"Object"},{"name":"equals","category":"Relation"},{"name":"evolve","category":"Object"},{"name":"F","category":"Function"},{"name":"filter","category":"List"},{"name":"find","category":"List"},{"name":"findIndex","category":"List"},{"name":"findLast","category":"List"},{"name":"findLastIndex","category":"List"},{"name":"flatten","category":"List"},{"name":"flip","category":"Function"},{"name":"forEach","category":"List"},{"name":"fromPairs","category":"List"},{"name":"functions","category":"Object"},{"name":"functionsIn","category":"Object"},{"name":"groupBy","category":"List"},{"name":"gt","category":"Relation"},{"name":"gte","category":"Relation"},{"name":"has","category":"Object"},{"name":"hasIn","category":"Object"},{"name":"head","category":"List"},{"name":"identical","category":"Relation"},{"name":"identity","category":"Function"},{"name":"ifElse","category":"Logic"},{"name":"inc","category":"Math"},{"name":"indexOf","category":"List"},{"name":"init","category":"List"},{"name":"insert","category":"List"},{"name":"insertAll","category":"List"},{"name":"intersection","category":"Relation"},{"name":"intersectionWith","category":"Relation"},{"name":"intersperse","category":"List"},{"name":"into","category":"List"},{"name":"invert","category":"Object"},{"name":"invertObj","category":"Object"},{"name":"invoker","category":"Function"},{"name":"is","category":"Type"},{"name":"isArrayLike","category":"Type"},{"name":"isEmpty","category":"Logic"},{"name":"isNil","category":"Type"},{"name":"isSet","category":"List"},{"name":"join","category":"List"},{"name":"keys","category":"Object"},{"name":"keysIn","category":"Object"},{"name":"last","category":"List"},{"name":"lastIndexOf","category":"List"},{"name":"length","category":"List"},{"name":"lens","category":"Object"},{"name":"lensIndex","category":"Object"},{"name":"lensProp","category":"Object"},{"name":"lift","category":"Function"},{"name":"liftN","category":"Function"},{"name":"lt","category":"Relation"},{"name":"lte","category":"Relation"},{"name":"map","category":"List"},{"name":"mapAccum","category":"List"},{"name":"mapAccumRight","category":"List"},{"name":"mapObj","category":"Object"},{"name":"mapObjIndexed","category":"Object"},{"name":"match","category":"String"},{"name":"mathMod","category":"Math"},{"name":"max","category":"Relation"},{"name":"maxBy","category":"Relation"},{"name":"mean","category":"Math"},{"name":"median","category":"Math"},{"name":"memoize","category":"Function"},{"name":"merge","category":"Object"},{"name":"mergeAll","category":"List"},{"name":"min","category":"Relation"},{"name":"minBy","category":"Relation"},{"name":"modulo","category":"Math"},{"name":"multiply","category":"Math"},{"name":"nAry","category":"Function"},{"name":"negate","category":"Math"},{"name":"none","category":"List"},{"name":"not","category":"Logic"},{"name":"nth","category":"List"},{"name":"nthArg","category":"Function"},{"name":"nthChar","category":"String"},{"name":"nthCharCode","category":"String"},{"name":"of","category":"Function"},{"name":"omit","category":"Object"},{"name":"once","category":"Function"},{"name":"or","category":"Logic"},{"name":"over","category":"Object"},{"name":"partial","category":"Function"},{"name":"partialRight","category":"Function"},{"name":"partition","category":"List"},{"name":"path","category":"Object"},{"name":"pathEq","category":"Relation"},{"name":"pick","category":"Object"},{"name":"pickAll","category":"Object"},{"name":"pickBy","category":"Object"},{"name":"pipe","category":"Function"},{"name":"pipeK","category":"Function"},{"name":"pipeP","category":"Function"},{"name":"pluck","category":"List"},{"name":"prepend","category":"List"},{"name":"product","category":"Math"},{"name":"project","category":"Object"},{"name":"prop","category":"Object"},{"name":"propEq","category":"Relation"},{"name":"propIs","category":"Type"},{"name":"propOr","category":"Object"},{"name":"props","category":"Object"},{"name":"propSatisfies","category":"Logic"},{"name":"range","category":"List"},{"name":"reduce","category":"List"},{"name":"reduced","category":"List"},{"name":"reduceRight","category":"List"},{"name":"reject","category":"List"},{"name":"remove","category":"List"},{"name":"repeat","category":"List"},{"name":"replace","category":"String"},{"name":"reverse","category":"List"},{"name":"scan","category":"List"},{"name":"set","category":"Object"},{"name":"slice","category":"List"},{"name":"sort","category":"List"},{"name":"sortBy","category":"Relation"},{"name":"split","category":"String"},{"name":"splitEvery","category":"List"},{"name":"subtract","category":"Math"},{"name":"sum","category":"Math"},{"name":"T","category":"Function"},{"name":"tail","category":"List"},{"name":"take","category":"List"},{"name":"takeLast","category":"List"},{"name":"takeLastWhile","category":"List"},{"name":"takeWhile","category":"List"},{"name":"tap","category":"Function"},{"name":"test","category":"String"},{"name":"times","category":"List"},{"name":"toLower","category":"String"},{"name":"toPairs","category":"Object"},{"name":"toPairsIn","category":"Object"},{"name":"toString","category":"String"},{"name":"toUpper","category":"String"},{"name":"transduce","category":"List"},{"name":"trim","category":"String"},{"name":"type","category":"Type"},{"name":"unapply","category":"Function"},{"name":"unary","category":"Function"},{"name":"uncurryN","category":"Function"},{"name":"unfold","category":"List"},{"name":"union","category":"Relation"},{"name":"unionWith","category":"Relation"},{"name":"uniq","category":"List"},{"name":"uniqBy","category":"List"},{"name":"uniqWith","category":"List"},{"name":"unnest","category":"List"},{"name":"update","category":"List"},{"name":"useWith","category":"Function"},{"name":"values","category":"Object"},{"name":"valuesIn","category":"Object"},{"name":"view","category":"Object"},{"name":"where","category":"Object"},{"name":"whereEq","category":"Object"},{"name":"wrap","category":"Function"},{"name":"xprod","category":"List"},{"name":"zip","category":"List"},{"name":"zipObj","category":"List"},{"name":"zipWith","category":"List"}];
+        var DOC_DATA = [{"name":"__","category":"Function"},{"name":"add","category":"Math"},{"name":"addIndex","category":"Function"},{"name":"adjust","category":"List"},{"name":"all","category":"List"},{"name":"allPass","category":"Logic"},{"name":"always","category":"Function"},{"name":"and","category":"Logic"},{"name":"any","category":"List"},{"name":"anyPass","category":"Logic"},{"name":"ap","category":"Function"},{"name":"aperture","category":"List"},{"name":"append","category":"List"},{"name":"apply","category":"Function"},{"name":"assoc","category":"Object"},{"name":"assocPath","category":"Object"},{"name":"binary","category":"Function"},{"name":"bind","category":"Function"},{"name":"both","category":"Logic"},{"name":"call","category":"Function"},{"name":"chain","category":"List"},{"name":"clone","category":"Object"},{"name":"commute","category":"List"},{"name":"commuteMap","category":"List"},{"name":"comparator","category":"Function"},{"name":"complement","category":"Logic"},{"name":"compose","category":"Function"},{"name":"composeK","category":"Function"},{"name":"composeP","category":"Function"},{"name":"concat","category":"List"},{"name":"cond","category":"Logic"},{"name":"construct","category":"Function"},{"name":"constructN","category":"Function"},{"name":"contains","category":"List"},{"name":"containsWith","category":"List"},{"name":"converge","category":"Function"},{"name":"countBy","category":"Relation"},{"name":"createMapEntry","category":"Object"},{"name":"curry","category":"Function"},{"name":"curryN","category":"Function"},{"name":"dec","category":"Math"},{"name":"defaultTo","category":"Logic"},{"name":"difference","category":"Relation"},{"name":"differenceWith","category":"Relation"},{"name":"dissoc","category":"Object"},{"name":"dissocPath","category":"Object"},{"name":"divide","category":"Math"},{"name":"drop","category":"List"},{"name":"dropLast","category":"List"},{"name":"dropLastWhile","category":"List"},{"name":"dropRepeats","category":"List"},{"name":"dropRepeatsWith","category":"List"},{"name":"dropWhile","category":"List"},{"name":"either","category":"Logic"},{"name":"empty","category":"Function"},{"name":"eqProps","category":"Object"},{"name":"equals","category":"Relation"},{"name":"evolve","category":"Object"},{"name":"F","category":"Function"},{"name":"filter","category":"List"},{"name":"find","category":"List"},{"name":"findIndex","category":"List"},{"name":"findLast","category":"List"},{"name":"findLastIndex","category":"List"},{"name":"flatten","category":"List"},{"name":"flip","category":"Function"},{"name":"forEach","category":"List"},{"name":"fromPairs","category":"List"},{"name":"functions","category":"Object"},{"name":"functionsIn","category":"Object"},{"name":"groupBy","category":"List"},{"name":"gt","category":"Relation"},{"name":"gte","category":"Relation"},{"name":"has","category":"Object"},{"name":"hasIn","category":"Object"},{"name":"head","category":"List"},{"name":"identical","category":"Relation"},{"name":"identity","category":"Function"},{"name":"ifElse","category":"Logic"},{"name":"inc","category":"Math"},{"name":"indexOf","category":"List"},{"name":"init","category":"List"},{"name":"insert","category":"List"},{"name":"insertAll","category":"List"},{"name":"intersection","category":"Relation"},{"name":"intersectionWith","category":"Relation"},{"name":"intersperse","category":"List"},{"name":"into","category":"List"},{"name":"invert","category":"Object"},{"name":"invertObj","category":"Object"},{"name":"invoker","category":"Function"},{"name":"is","category":"Type"},{"name":"isArrayLike","category":"Type"},{"name":"isEmpty","category":"Logic"},{"name":"isNil","category":"Type"},{"name":"isSet","category":"List"},{"name":"join","category":"List"},{"name":"keys","category":"Object"},{"name":"keysIn","category":"Object"},{"name":"last","category":"List"},{"name":"lastIndexOf","category":"List"},{"name":"length","category":"List"},{"name":"lens","category":"Object"},{"name":"lensIndex","category":"Object"},{"name":"lensProp","category":"Object"},{"name":"lift","category":"
+Function"},{"name":"liftN","category":"Function"},{"name":"lt","category":"Relation"},{"name":"lte","category":"Relation"},{"name":"map","category":"List"},{"name":"mapAccum","category":"List"},{"name":"mapAccumRight","category":"List"},{"name":"mapObj","category":"Object"},{"name":"mapObjIndexed","category":"Object"},{"name":"match","category":"String"},{"name":"mathMod","category":"Math"},{"name":"max","category":"Relation"},{"name":"maxBy","category":"Relation"},{"name":"mean","category":"Math"},{"name":"median","category":"Math"},{"name":"memoize","category":"Function"},{"name":"merge","category":"Object"},{"name":"mergeAll","category":"List"},{"name":"min","category":"Relation"},{"name":"minBy","category":"Relation"},{"name":"modulo","category":"Math"},{"name":"multiply","category":"Math"},{"name":"nAry","category":"Function"},{"name":"negate","category":"Math"},{"name":"none","category":"List"},{"name":"not","category":"Logic"},{"name":"nth","category":"List"},{"name":"nthArg","category":"Function"},{"name":"nthChar","category":"String"},{"name":"nthCharCode","category":"String"},{"name":"of","category":"Function"},{"name":"omit","category":"Object"},{"name":"once","category":"Function"},{"name":"or","category":"Logic"},{"name":"over","category":"Object"},{"name":"partial","category":"Function"},{"name":"partialRight","category":"Function"},{"name":"partition","category":"List"},{"name":"path","category":"Object"},{"name":"pathEq","category":"Relation"},{"name":"pick","category":"Object"},{"name":"pickAll","category":"Object"},{"name":"pickBy","category":"Object"},{"name":"pipe","category":"Function"},{"name":"pipeK","category":"Function"},{"name":"pipeP","category":"Function"},{"name":"pluck","category":"List"},{"name":"prepend","category":"List"},{"name":"product","category":"Math"},{"name":"project","category":"Object"},{"name":"prop","category":"Object"},{"name":"propEq","category":"Relation"},{"name":"propIs","category":"Type"},{"name":"propOr","category":"Object"},{"name":"props","category":"Object"},{"name":"propSatisfies","category":"Logic"},{"name":"range","category":"List"},{"name":"reduce","category":"List"},{"name":"reduced","category":"List"},{"name":"reduceRight","category":"List"},{"name":"reject","category":"List"},{"name":"remove","category":"List"},{"name":"repeat","category":"List"},{"name":"replace","category":"String"},{"name":"reverse","category":"List"},{"name":"scan","category":"List"},{"name":"set","category":"Object"},{"name":"slice","category":"List"},{"name":"sort","category":"List"},{"name":"sortBy","category":"Relation"},{"name":"split","category":"String"},{"name":"splitEvery","category":"List"},{"name":"subtract","category":"Math"},{"name":"sum","category":"Math"},{"name":"T","category":"Function"},{"name":"tail","category":"List"},{"name":"take","category":"List"},{"name":"takeLast","category":"List"},{"name":"takeLastWhile","category":"List"},{"name":"takeWhile","category":"List"},{"name":"tap","category":"Function"},{"name":"test","category":"String"},{"name":"times","category":"List"},{"name":"toLower","category":"String"},{"name":"toPairs","category":"Object"},{"name":"toPairsIn","category":"Object"},{"name":"toString","category":"String"},{"name":"toUpper","category":"String"},{"name":"transduce","category":"List"},{"name":"trim","category":"String"},{"name":"type","category":"Type"},{"name":"unapply","category":"Function"},{"name":"unary","category":"Function"},{"name":"uncurryN","category":"Function"},{"name":"unfold","category":"List"},{"name":"union","category":"Relation"},{"name":"unionWith","category":"Relation"},{"name":"uniq","category":"List"},{"name":"uniqBy","category":"List"},{"name":"uniqWith","category":"List"},{"name":"unnest","category":"List"},{"name":"update","category":"List"},{"name":"useWith","category":"Function"},{"name":"values","category":"Object"},{"name":"valuesIn","category":"Object"},{"name":"view","category":"Object"},{"name":"where","category":"Object"},{"name":"whereEq","category":"Object"},{"name":"wrap","category":"Function"},{"name":"xprod","
+category":"List"},{"name":"zip","category":"List"},{"name":"zipObj","category":"List"},{"name":"zipWith","category":"List"}];
     </script>
     <script src="dist/ramda.js"></script>
     <script src="main.js"></script>
