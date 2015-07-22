@@ -38,7 +38,7 @@ var R = require('ramda');
 Or use any individual functions via
 
 ```javascript
-var map = require('ramda')/src/map;
+var map = require('ramda/src/map');
 ```
 
 Note that internal dependencies will be resolved for you here.
