@@ -74,8 +74,7 @@ const descriptions = R.pluck('description');
 const lineItemTotals = R.map(item => item.quantity * item.price);
 
 // invoiceTotal :: [LineItem] -> Number
-const invoiceTotal = reduce((total, item) => total + item.price * item.quantity,
-0)
+const invoiceTotal = reduce((total, item) => total + item.price * item.quantity, 0)
 
 // inexpensive :: [LineItem] -> [LineItem]
 const inexpensive = R.filter(item => item.price < 10.00);
