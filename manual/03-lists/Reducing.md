@@ -1,1 +1,5 @@
-# Transforming lists to single values: `reduce`, `find`, `nth`, `all/any`
+Transforming lists to single values
+===================================
+
+
+TOOD: `reduce`, `find`, `nth`, `all/any`

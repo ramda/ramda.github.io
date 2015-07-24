@@ -20,11 +20,11 @@ contents of user objects beyond recognition.  Ramda helps by guaranteeing that
 its functions never mutate any input data.  We consider the implications of this
 in [Immutability of user data][im].
 
-Another core functional programming concern is for functions to be referentially
-transparent[^1]. While Ramda, does not try to enforce this for you, its
-functions themselves have no side-effects, and very few Ramda functions are
-written with side-effects in mind.  We investigate this more fully in [Avoiding
-side-effects][ns].
+Another core functional programming concern is for functions to be
+[referentially transparent][rt].  While Ramda, does not try to enforce this for
+you, its functions themselves have no side-effects, and very few Ramda functions
+are written with side-effects in mind.  We investigate this more fully in
+[Avoiding side-effects][ns].
 
 In [Composing functions][co] we hit the core of Ramda's strength: how to chain
 together multiple functions to make increasingly sophisticated systems out of
@@ -43,7 +43,6 @@ programming workflow.
 
 
 
-  [^1]: https://en.wikipedia.org/wiki/Referential_transparency_%28computer_science%29
 
   [02]: ../02-functions
   [09]: ../09-advanced
@@ -52,4 +51,5 @@ programming workflow.
   [di]: Dispatching.md
   [im]: Immutability.md
   [ns]: NoSideEffects.md
+  [rt]: https://en.wikipedia.org/wiki/Referential_transparency_%28computer_science%29
   [sf]: SmallFunctions.md

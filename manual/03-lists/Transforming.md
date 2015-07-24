@@ -1,1 +1,4 @@
-# List to list transformations: `map`, `pluck`, `filter`, `aperture`, `uniq`, `zip`, `partition`
+List to list transformations
+============================
+
+TODO: `map`, `pluck`, `filter`, `aperture`, `uniq`, `zip`, `partition`

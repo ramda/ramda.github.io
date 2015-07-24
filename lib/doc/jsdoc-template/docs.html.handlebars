@@ -96,6 +96,15 @@
 
             <div class="description">{{{description}}}</div>
 
+            {{#if aka}}
+            <div class="aka">
+                Known in other languages or libraries as
+                {{#each aka}}
+                {{#unless @first}}{{#unless @last}}{{else}} or{{/unless}}{{/unless}}<code>{{this}}</code>{{#unless @last}},{{else}}.{{/unless}}
+                {{/each}}
+            </div>
+            {{/if}}
+
             {{#if see}}
             <div class="see">
                 See also

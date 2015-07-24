@@ -1,1 +1,4 @@
-# Slicing and dicing lists: `take`, `drop`, `append`, `prepend`, `concat`
+Slicing and dicing lists
+========================
+
+TODO: `take`, `drop`, `append`, `prepend`, `concat`
