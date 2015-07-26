@@ -36,7 +36,7 @@
     <body>
         
         
-    <div class="book" data-level="1.2" data-basepath=".." data-revision="Fri Jul 24 2015 01:43:08 GMT-0400 (EDT)">
+    <div class="book" data-level="1.2" data-basepath=".." data-revision="Sun Jul 26 2015 13:12:44 GMT-0400 (Eastern Daylight Time)">
     
 
 <div class="book-summary">
@@ -1051,7 +1051,128 @@
                     <section class="normal" id="section-">
                     
                         <h1 id="immutability">Immutability</h1>
-<p>TODO</p>
+<p>Often in Javascript we pair field accessors and field mutators for our
+data structures.  We might see</p>
+<pre><code class="lang-js">person.setName(<span class="hljs-string">&apos;Fred&apos;</span>);
+person.getName(); <span class="hljs-comment">//=&gt; &quot;Fred&quot;</span>
+</code></pre>
+<p>This is done in many different ways.  Of course fields themselves are
+most commonly both readable and writable:</p>
+<pre><code class="lang-js">person.name = <span class="hljs-string">&apos;Fred&apos;</span>;
+person.name; <span class="hljs-comment">//=&gt; &quot;Fred&quot;</span>
+</code></pre>
+<p>And there are more convoluted means involving <code>Object.defineProperty</code>.
+In each of these techniques, there is a straightforward pairing.  Those
+things you can <em>read</em> from an object, you can also <em>write</em> to it.</p>
+<p>In functional programming, such mutable state is considered extremely
+dangerous, making programs hard to reason about, difficult to debug,
+and almost impossible to grow correctly into large, consistent systems.</p>
+<p>Ramda helps avoid this by refusing to ever mutate input data.  We have
+equivalents of the accessors above:</p>
+<pre><code class="lang-js"><span class="hljs-keyword">var</span> getName = R.prop(<span class="hljs-string">&apos;name&apos;</span>);
+getName(person); <span class="hljs-comment">//=&gt; &quot;Fred&quot;</span>
+<span class="hljs-comment">// or </span>
+R.prop(<span class="hljs-string">&apos;name&apos;</span>, person); <span class="hljs-comment">//=&gt; &quot;Fred&quot;</span>
+</code></pre>
+<p>But the closest equivalents we have to mutators are functions like 
+<code>assoc</code>.  And they&apos;re not all that close.  <code>assoc</code> creates a copy of
+your object with a new value associated with a field name:</p>
+<pre><code class="lang-js"><span class="hljs-keyword">var</span> barney = {name: <span class="hljs-string">&quot;Barney&quot;</span>, age: <span class="hljs-number">27</span>}
+<span class="hljs-keyword">var</span> fred = {name: <span class="hljs-string">&quot;Fred&quot;</span>, age: <span class="hljs-number">29</span>}
+barney.bestFriend = fred;
+fred.bestFriend = barney;
+
+<span class="hljs-keyword">var</span> fred2 = R.assoc(<span class="hljs-string">&apos;age&apos;</span>, <span class="hljs-number">30</span>, fred);
+
+fred2.age; <span class="hljs-comment">//=&gt; 30</span>
+fred.age; <span class="hljs-comment">//&gt; 29</span>
+fred2.bestFriend === barney; <span class="hljs-comment">//=&gt; true</span>
+</code></pre>
+<p>Note that <code>assoc</code> retuns a new object, but note also the last line; the
+returned structure shares as much of its internals with the original as
+possible.  This is not a deep clone of the original object.</p>
+<p>This is true across all of Ramda.  Nothing you pass to Ramda will be 
+altered.  If a function acts like a mutator, it instead creates a copy
+of the structure with the changes applied:</p>
+<p>For example, the native <code>sort</code> and <code>reverse</code> methods on<code>Array.prototype</code>, 
+mutate the underlying object.  Ramda&apos;s equivalents just return new lists:</p>
+<pre><code class="lang-js"><span class="hljs-keyword">var</span> a1 = [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>];
+<span class="hljs-keyword">var</span> b1 = a1.reverse(); <span class="hljs-comment">//=&gt; [3, 2, 1]</span>
+a1; <span class="hljs-comment">//=&gt; [3, 2, 1]</span>
+
+<span class="hljs-keyword">var</span> a2 = [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>];
+<span class="hljs-keyword">var</span> b2 = R.reverse(a2); <span class="hljs-comment">//=&gt; [3, 2, 1]</span>
+a2; <span class="hljs-comment">//=&gt; [1, 2, 3]</span>
+
+<span class="hljs-comment">// and similarly for `sort`</span>
+</code></pre>
+<p>We won&apos;t discuss in depth all the reasons that immutability is desirable.
+That&apos;s easily available <a href="https://www.google.com/search?q=Immutability+fp" target="_blank">on the web</a>.  But there are many important
+reasons having to do with how well anyone can understand our code, how
+well it stands up to parallelization, how many fewer ways in which it can
+actually fail.</p>
+<p>We also will not talk about how you might make more of our own data
+immutable (although in <a href="../10-others/Immutable.html">Chapter 10</a>, we do discuss how Ramda will
+integrate with some immutable data libraries but not others.)  But we do
+want to stress that <em>none</em> of Ramda&apos;s functions mutate user data.</p>
+<p>For those used to functional programming, we should point out that this 
+is not done through deeply recursive algorithms.  We have plenty of 
+internal mutation.  But at our function boundaries, everything can be 
+seen as immutable.</p>
+<p>The basic point is simple: Don&apos;t expect Ramda to mutate your data for
+you:</p>
+<pre><code class="lang-js"><span class="hljs-keyword">var</span> numbers = [<span class="hljs-number">8</span>, <span class="hljs-number">6</span>, <span class="hljs-number">7</span>, <span class="hljs-number">5</span>, <span class="hljs-number">3</span>, <span class="hljs-number">0</span>];
+<span class="hljs-keyword">var</span> jenny = R.append(<span class="hljs-number">9</span>, numbers);
+numbers; <span class="hljs-comment">//=&gt; [8, 6, 7, 5, 3, 0]</span>
+jenny; <span class="hljs-comment">//=&gt; [8, 6, 7, 5, 3, 0, 9]</span>
+</code></pre>
+<p>Ramda does not take any special pains to prevent you from mutating
+your own data when using its functions.  For intance you could build 
+up an ouput object by continually mutating the accumulator passed to
+<a href="http://ramdajs.com/docs/#reduce" target="_blank"><code>reduce</code></a>.  Ramda would not prevent you:</p>
+<pre><code class="lang-js"><span class="hljs-keyword">var</span> states = [
+    {symbol: <span class="hljs-string">&apos;CT&apos;</span>, name: <span class="hljs-string">&apos;Connecticut&apos;</span>, pop: <span class="hljs-number">3574097</span>},
+    {symbol: <span class="hljs-string">&apos;ME&apos;</span>, name: <span class="hljs-string">&apos;Maine&apos;</span>, pop: <span class="hljs-number">1328361</span>},
+    {symbol: <span class="hljs-string">&apos;MA&apos;</span>, name: <span class="hljs-string">&apos;Massachusetts&apos;</span>, pop: <span class="hljs-number">6547629</span>},
+    {symbol: <span class="hljs-string">&apos;NH&apos;</span>, name: <span class="hljs-string">&apos;New Hampshire&apos;</span>, pop: <span class="hljs-number">1316470</span>},
+    {symbol: <span class="hljs-string">&apos;RI&apos;</span>, name: <span class="hljs-string">&apos;Rhode Island&apos;</span>, pop: <span class="hljs-number">1052567</span>},
+    {symbol: <span class="hljs-string">&apos;VT&apos;</span>, name: <span class="hljs-string">&apos;Vermont&apos;</span>, pop: <span class="hljs-number">623741</span>},
+];
+
+<span class="hljs-keyword">var</span> notSmall = (state) =&gt; state.pop &gt;= <span class="hljs-number">2000000</span>;
+
+R.reduce((accum, state) =&gt; {
+    <span class="hljs-keyword">if</span> (notSmall(state)) {
+        accum[state.symbol] = state.pop;
+    }
+    <span class="hljs-keyword">return</span> accum;
+}, {}, states); <span class="hljs-comment">//=&gt; {&quot;CT&quot;: 3574097, &quot;MA&quot;: 6547629}</span>
+</code></pre>
+<p>Notice the continual mutation of the accumulator in this sample.  This
+is not in any way prohibited by Ramda.  But it is perhaps not the most
+idiomatic way to use Ramda.  The <code>assoc</code> we used earlier would cover 
+the same case without introducing such continual mutation:</p>
+<pre><code class="lang-js">R.reduce((accum, state) =&gt; notSmall(state) ? 
+                           R.assoc(state.symbol, state.pop, accum) : 
+                           accum,
+{}, states),  <span class="hljs-comment">//=&gt; {&quot;CT&quot;: 3574097, &quot;MA&quot;: 6547629}</span>
+</code></pre>
+<p>And, unless it caused performance concerns, many Ramda users would
+prefer to do this by piping the data through a few simpler 
+transformations:</p>
+<pre><code class="lang-js">R.pipe(
+    R.filter(notSmall), 
+    R.map((state) =&gt; [state.symbol, state.pop]), 
+    R.fromPairs
+)(states) <span class="hljs-comment">//=&gt; {&quot;CT&quot;: 3574097, &quot;MA&quot;: 6547629}</span>
+</code></pre>
+<p>In the section on <a href="../09-advanced/Tranducres.md">Transducers</a> we&apos;ll examine how to make such
+multi-step transformations more efficient.  But for many users, for
+most cases, such code as listed above is ideal, as it&apos;s cleanly
+readable, involves no mutation, and is performant enough.</p>
+<p>Finally, in a later section, we&apos;ll look at <a href="../09-advanced/Lenses.html">Lenses</a>, a powerful
+tool that will allow you to abstract many common data access and
+pseudo-mutation functions provided by Ramda into a single framework.</p>
 
                     
                     </section>
