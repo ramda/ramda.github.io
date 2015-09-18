@@ -6,15 +6,15 @@
                 title: "map",
                 body: function () {
                     /*
-R.map(function(x) { return x + 1; }, [10, 20, 30]);
+R.map(x => x + 1, [10, 20, 30]);
                      */
                 }
             },
             {
                 title: 'filter',
                 body: function() {
-                    /*                  
-R.filter(function(x) { return x > 10; }, [10, 20, 3, 100, 33, 1]);
+                    /*
+R.filter(x => x > 10, [10, 20, 3, 100, 33, 1]);
                      */
                 }
             },
@@ -22,7 +22,7 @@ R.filter(function(x) { return x > 10; }, [10, 20, 3, 100, 33, 1]);
                 title: 'reduce',
                 body: function() {
                     /*
-R.reduce(function(acc, x) { return acc + x; }, 0, [10, 20, 30, 40]);
+R.reduce((acc, x) => acc + x, 0, [10, 20, 30, 40]);
                      */
                 }
             },
@@ -30,7 +30,7 @@ R.reduce(function(acc, x) { return acc + x; }, 0, [10, 20, 30, 40]);
                 title: 'reduceRight',
                 body: function() {
                     /*
-R.reduceRight(function(acc, x) { return acc + x; }, '', ['s', 'd', 'r', 'a', 'w', 'k', 'c', 'a', 'b']);
+R.reduceRight((acc, x) => acc + x, '', ['s', 'd', 'r', 'a', 'w', 'k', 'c', 'a', 'b']);
                      */
                 }
             },
@@ -48,7 +48,7 @@ var purchases = [
   {}
 ];
 R.transduce(R.map(priceOrZero), R.add, 0, purchases);
-                     */ 
+                     */
                 }
             }
         ],
@@ -57,7 +57,7 @@ R.transduce(R.map(priceOrZero), R.add, 0, purchases);
                 title: "curry",
                 body: function () {
                     /*
-var f = R.curry(function(a, b, c) { return b + (a * c); });
+var f = R.curry((a, b, c) => b + a * c);
 f(2)(3)(4);
                     */
                 }
@@ -67,8 +67,8 @@ f(2)(3)(4);
                 body: function () {
                     /*
 var composeEx = R.compose(
-            R.map(function(x) { return x * x; }),
-            R.filter(function(x) { return x > 4; })
+            R.map(x => x * x),
+            R.filter(x => x > 4)
             );
 composeEx([2, 3, 4, 5]);
                      */
@@ -79,8 +79,8 @@ composeEx([2, 3, 4, 5]);
                 body: function () {
                     /*
 var pipeEx = R.pipe(
-            R.map(function(x) { return x * x; }),
-            R.filter(function(x) { return x > 4; })
+            R.map(x => x * x),
+            R.filter(x => x > 4)
             );
 pipeEx([2, 3, 4, 5]);
                      */
@@ -90,13 +90,12 @@ pipeEx([2, 3, 4, 5]);
                 title: 'useWith',
                 body: function() {
                     /*
-var sum = function() { 
-    return R.reduce(function(acc, x) { return acc + x; }, 0, arguments);
-};
+var sum = () => R.reduce((acc, x) => acc + x, 0, arguments);
+
 var useWithEx = R.useWith(
     sum,
-    function(y) { return y * 2; },
-    function(x) { return x * x; }
+    y => y * 2,
+    x => x * x
 );
 useWithEx(2, 3, 4);
                      */
@@ -106,9 +105,9 @@ useWithEx(2, 3, 4);
                 title: 'converge',
                 body: function() {
                     /*
-var add = function(a, b) { return a + b; };
-var multiply = function(a, b) { return a * b; };
-var subtract = function(a, b) { return a - b; };
+var add = (a, b) => a + b;
+var multiply = (a, b) => a * b;
+var subtract = (a, b) => a - b;
 var convergeEx = R.converge(multiply, add, subtract)
 convergeEx(2, 4);
                      */
