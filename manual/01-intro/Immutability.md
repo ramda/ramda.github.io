@@ -17,7 +17,7 @@ person.name = 'Fred';
 person.name; //=> "Fred"
 ```
 
-And there are more convoluted means involving `Object.defineProperty`.
+And there are more convoluted means involving [`Object.defineProperty`][dp].
 In each of these techniques, there is a straightforward pairing.  Those
 things you can _read_ from an object, you can also _write_ to it.
 
@@ -36,8 +36,8 @@ R.prop('name', person); //=> "Fred"
 ```
 
 But the closest equivalents we have to mutators are functions like 
-`assoc`.  And they're not all that close.  `assoc` creates a copy of
-your object with a new value associated with a field name:
+[`assoc`][as].  And they're not all that close.  `assoc` creates a
+copy of your object with a new value associated with a field name:
 
 ```js
 var barney = {name: "Barney", age: 27}
@@ -60,8 +60,9 @@ This is true across all of Ramda.  Nothing you pass to Ramda will be
 altered.  If a function acts like a mutator, it instead creates a copy
 of the structure with the changes applied:
 
-For example, the native `sort` and `reverse` methods on`Array.prototype`, 
-mutate the underlying object.  Ramda's equivalents just return new lists:
+For example, the native [`sort`][so] and [`reverse`][rv] methods on
+[`Array.prototype`][ap] mutate the underlying object.  Ramda's
+equivalent [`reverse`][rs] function just return new lists:
 
 ```js
 var a1 = [1, 2, 3];
@@ -71,9 +72,9 @@ a1; //=> [3, 2, 1]
 var a2 = [1, 2, 3];
 var b2 = R.reverse(a2); //=> [3, 2, 1]
 a2; //=> [1, 2, 3]
-
-// and similarly for `sort`
 ```
+
+And there's similar behavior for Ramda's [`sort`][st] function.
 
 We won't discuss in depth all the reasons that immutability is desirable.
 That's easily available [on the web][go].  But there are many important
@@ -103,7 +104,7 @@ jenny; //=> [8, 6, 7, 5, 3, 0, 9]
 
 Ramda does not take any special pains to prevent you from mutating
 your own data when using its functions.  For intance you could build 
-up an ouput object by continually mutating the accumulator passed to
+up an output object by continually mutating the accumulator passed to
 [`reduce`][re].  Ramda would not prevent you:
 
 ```js
@@ -145,7 +146,7 @@ transformations:
 ```js
 R.pipe(
     R.filter(notSmall), 
-    R.map((state) => [state.symbol, state.pop]), 
+    R.props(['symbol', 'pop']),
     R.fromPairs
 )(states) //=> {"CT": 3574097, "MA": 6547629}
 ```
@@ -160,9 +161,15 @@ tool that will allow you to abstract many common data access and
 pseudo-mutation functions provided by Ramda into a single framework.
 
 
-
+  [ap]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array
+  [as]: http://ramdajs.com/docs/#assoc
+  [dp]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/defineProperty
   [go]: https://www.google.com/search?q=Immutability+fp
   [im]: ../10-others/Immutable.md
   [le]: ../09-advanced/Lenses.md
   [re]: http://ramdajs.com/docs/#reduce
-  [tr]: ../09-advanced/Tranducres.md
+  [rs]: http://ramdajs.com/docs/#reverse
+  [rv]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/reverse
+  [so]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort
+  [st]: http://ramdajs.com/docs/#sort
+  [tr]: ../09-advanced/Tranducers.md
