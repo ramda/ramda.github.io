@@ -14,3 +14,24 @@
     background: mix(@brand-primary, #fff, 25%);
     color: @brand-primary;
 }
+
+.params .toggle-params {
+    font-size: 60%;
+    text-transform: uppercase;
+}
+
+.params[data-expanded="false"] > .toggle-params::before {
+    content: "Expand ";
+}
+
+.params[data-expanded="true"] > .toggle-params::before {
+    content: "Collapse ";
+}
+
+.params[data-expanded="false"] > .details {
+    display: none;
+}
+
+.params[data-expanded="true"] > .details {
+    display: block;
+}
