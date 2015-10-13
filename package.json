@@ -2,53 +2,19 @@
   "name": "ramda.github.io",
   "version": "0.0.0",
   "description": "Ramda website",
-  "main": "index.html",
-  "directories": {
-    "doc": "docs"
-  },
+  "private": true,
   "repository": {
     "type": "git",
-    "url": "git://github.com/ramda/ramda.github.io"
+    "url": "git://github.com/ramda/ramda.github.io.git"
   },
-  "keywords": [
-    "ramda"
-  ],
-  "author": "",
   "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/ramda/ramda.github.io/issues"
-  },
-  "homepage": "http://ramdajs.com",
-  "scripts": {
-    "api": "grunt docs",
-    "clean": "rimraf tmp && rimraf out",
-    "predocs": "npm run clean && npm run fetch",
-    "docs": "npm run api && npm run manual",
-    "postdocs": "scripts/deploy",
-    "premanual": "rimraf out/manual",
-    "manual": "node node_modules/gitbook-cli/bin/gitbook build manual",
-    "postmanual": "cp -r manual/_book out/manual",
-    "fetch": "scripts/fetch",
-    "postfetch": "scripts/prepFiles"
-  },
   "devDependencies": {
-    "bootstrap": "~3.3.1",
-    "gitbook-cli": "~0.3.4",
-    "grunt": "~0.4.5",
-    "grunt-cli": "~0.1.13",
-    "grunt-contrib-copy": "^0.7.0",
-    "grunt-contrib-less": "^1.0.0",
-    "grunt-contrib-watch": "^0.6.1",
-    "grunt-express": "^1.4.1",
-    "grunt-jsdoc": "^0.6.1",
-    "grunt-open": "^0.2.3",
-    "handlebars": "^2.0.0",
-    "highlight.js": "^8.4.0",
-    "marked": "^0.3.2",
-    "ncp": "2.x.x",
-    "ramda": "0.13.0",
-    "request": "2.x.x",
-    "rimraf": "2.x.x",
-    "tar": "2.x.x"
+    "bootstrap": "3.3.x",
+    "gitbook-cli": "0.3.x",
+    "handlebars": "2.x.x",
+    "highlight.js": "8.x.x",
+    "jsdoc": "3.3.x",
+    "less": "2.5.x",
+    "marked": "0.3.x"
   }
 }
