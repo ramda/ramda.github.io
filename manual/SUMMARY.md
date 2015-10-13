@@ -1,7 +1,7 @@
 * [Core features in Ramda](01-intro/README.md)
     * [Small functions on common structures](01-intro/SmallFunctions.md)
     * [Immutability of user data](01-intro/Immutability.md)
-    * [Avoiding side-effects](01-intro/NoSideEffects.md)
+    * [Referential Integrity](01-intro/ReferentialIntegrity.md)
     * [Composing functions](01-intro/Composition.md)
     * [Currying everywhere](01-intro/Currying.md)
     * [Dispatching](01-intro/Dispatching.md)

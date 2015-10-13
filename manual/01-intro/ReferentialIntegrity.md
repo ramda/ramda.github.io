@@ -1,4 +1,0 @@
-Avoiding side-effects
-=====================
-
-TODO
