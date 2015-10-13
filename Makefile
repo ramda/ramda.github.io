@@ -54,6 +54,10 @@ $(VERSION)/style.css: $(LESS_FILES)
 	mkdir -p '$(@D)'
 	$(LESS) less/ramda.less >'$@'
 
+docs/%: $(VERSION)/docs/%
+	mkdir -p '$(@D)'
+	cp '$<' '$@'
+
 .PHONY: index.html
 index.html: check-version
 	echo '<!DOCTYPE html><html><head><link rel="canonical" href="http://ramdajs.com/$(VERSION)/index.html" /><script>window.location = "$(VERSION)/index.html" + window.location.hash;</script></head><body></body></html>' >'$@'
