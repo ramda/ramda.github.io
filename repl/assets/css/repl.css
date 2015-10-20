@@ -60,3 +60,15 @@ body.dark, body.dark h1 {
     vertical-align: middle;
     margin-left: 6px;
 }
+
+.panel-primary {
+    border: none;
+}
+
+.panel-heading {
+    border-radius: 5px 5px 0 0;
+}
+
+.panel-primary .panel-body {
+    padding: 0;
+}
