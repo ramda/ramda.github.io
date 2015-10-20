@@ -70,5 +70,5 @@ body.dark, body.dark h1 {
 }
 
 .panel-primary .panel-body {
-    padding: 0 !important;
+    padding: 0;
 }
