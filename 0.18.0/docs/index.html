@@ -1856,9 +1856,9 @@ that don&#39;t.</p>
 
             <div class="see">
                 See also
-                <a href="#transduce">transduce</a>,
                 <a href="#any">any</a>,
-                <a href="#none">none</a>.
+                <a href="#none">none</a>,
+                <a href="#transduce">transduce</a>.
             </div>
 
             <pre><code class="hljs javascript"><span class="hljs-keyword">var</span> lessThan2 = R.flip(R.lt)(<span class="hljs-number">2</span>);
@@ -2111,9 +2111,9 @@ otherwise.</p>
 
             <div class="see">
                 See also
-                <a href="#transduce">transduce</a>,
                 <a href="#all">all</a>,
-                <a href="#none">none</a>.
+                <a href="#none">none</a>,
+                <a href="#transduce">transduce</a>.
             </div>
 
             <pre><code class="hljs javascript"><span class="hljs-keyword">var</span> lessThan0 = R.flip(R.lt)(<span class="hljs-number">0</span>);
@@ -4254,8 +4254,8 @@ transducer/transformer (or object with a <code>drop</code> method).</p>
 
             <div class="see">
                 See also
-                <a href="#transduce">transduce</a>,
-                <a href="#take">take</a>.
+                <a href="#take">take</a>,
+                <a href="#transduce">transduce</a>.
             </div>
 
             <pre><code class="hljs javascript">R.drop(<span class="hljs-number">1</span>, [<span class="hljs-string">'foo'</span>, <span class="hljs-string">'bar'</span>, <span class="hljs-string">'baz'</span>]); <span class="hljs-comment">//=&gt; ['bar', 'baz']</span>
@@ -4529,8 +4529,8 @@ to the supplied predicate function, skipping elements while the predicate functi
 
             <div class="see">
                 See also
-                <a href="#transduce">transduce</a>,
-                <a href="#takeWhile">takeWhile</a>.
+                <a href="#takeWhile">takeWhile</a>,
+                <a href="#transduce">transduce</a>.
             </div>
 
             <pre><code class="hljs javascript"><span class="hljs-keyword">var</span> lteTwo = x =&gt; x &lt;= <span class="hljs-number">2</span>;
@@ -4950,8 +4950,8 @@ The predicate function is passed one argument: <em>(value)</em>.</p>
 
             <div class="see">
                 See also
-                <a href="#transduce">transduce</a>,
-                <a href="#reject">reject</a>.
+                <a href="#reject">reject</a>,
+                <a href="#transduce">transduce</a>.
             </div>
 
             <pre><code class="hljs javascript"><span class="hljs-keyword">var</span> isEven = n =&gt; n % <span class="hljs-number">2</span> === <span class="hljs-number">0</span>;
@@ -7593,16 +7593,13 @@ native <code>Array.prototype.map</code> method. For more details on this behavio
 <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map#Description">https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map#Description</a></p>
 <p>Dispatches to the <code>map</code> method of the second argument, if present.</p>
 <p>Acts as a transducer if a transformer is given in list position.</p>
+<p>Map treats also treats functions as functors and will compose them together.</p>
 </div>
 
 
             <div class="see">
                 See also
-                <a href="#transduce
-
-Map treats also treats functions as functors and will compose them together.">transduce
-
-Map treats also treats functions as functors and will compose them together.</a>.
+                <a href="#transduce">transduce</a>.
             </div>
 
             <pre><code class="hljs javascript"><span class="hljs-keyword">var</span> double = x =&gt; x * <span class="hljs-number">2</span>;
@@ -10441,17 +10438,13 @@ shortcut the iteration.</p>
 <p>Note: <code>R.reduce</code> does not skip deleted or unassigned indices (sparse arrays), unlike
 the native <code>Array.prototype.reduce</code> method. For more details on this behavior, see:
 <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/reduce#Description">https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/reduce#Description</a></p>
+<p>Dispatches to the <code>reduce</code> method of the third argument, if present.</p>
 </div>
 
 
             <div class="see">
                 See also
-                <a href="#reduced
-
-Dispatches to the &#x60;reduce&#x60; method of the third argument">reduced
-
-Dispatches to the &#x60;reduce&#x60; method of the third argument</a>,
-                <a href="#if present.">if present.</a>.
+                <a href="#reduced">reduced</a>.
             </div>
 
             <pre><code class="hljs javascript"><span class="hljs-keyword">var</span> numbers = [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>];
@@ -10626,8 +10619,8 @@ function returns falsy. The predicate function is passed one argument: <em>(valu
 
             <div class="see">
                 See also
-                <a href="#transduce">transduce</a>,
-                <a href="#filter">filter</a>.
+                <a href="#filter">filter</a>,
+                <a href="#transduce">transduce</a>.
             </div>
 
             <pre><code class="hljs javascript"><span class="hljs-keyword">var</span> isOdd = (n) =&gt; n % <span class="hljs-number">2</span> === <span class="hljs-number">1</span>;
@@ -11663,8 +11656,8 @@ function is passed one argument: <em>(value)</em>.</p>
 
             <div class="see">
                 See also
-                <a href="#transduce">transduce</a>,
-                <a href="#dropWhile">dropWhile</a>.
+                <a href="#dropWhile">dropWhile</a>,
+                <a href="#transduce">transduce</a>.
             </div>
 
             <pre><code class="hljs javascript"><span class="hljs-keyword">var</span> isNotFour = x =&gt; x !== <span class="hljs-number">4</span>;
