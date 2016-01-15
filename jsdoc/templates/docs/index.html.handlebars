@@ -68,33 +68,41 @@
             </div>
             {{/if}}
 
-            {{#if sig}}
-            <div>
-                <button class="sig btn btn-link" data-collapser="#__details-{{name}}">
-                    <span class="caret rotated"></span>
-                    {{sig}}
-                </button>
+            {{#each sigs}}
+            <div><code>{{this}}</code></div>
+            {{/each}}
+
+            {{#each typedefns}}
+            <div><code>{{this}}</code></div>
+            {{/each}}
+
+            {{#if returns.type}}
+            <div class="params" data-expanded="false">
+                <a href="#expand" class="toggle-params">Parameters</a>
+                <div class="details panel panel-default">
+                    <ul class="list-group">
+                        {{#each params}}
+                        <li class="list-group-item">
+                            <span class="type">{{type}}</span>
+                            <span class="name">{{name}}</span>
+                            <span class="description">{{{description}}}</span>
+                        </li>
+                        {{/each}}
+                    </ul>
+                    <div class="panel-body">
+                        {{#with returns}}
+                        <span class="returns">Returns</span>
+                        <span class="type">{{type}}</span>
+                        <span class="description">{{{description}}}</span>
+                        {{/with}}
+                    </div>
+                </div>
             </div>
             {{/if}}
 
-            <div class="details collapse panel panel-default" id="__details-{{name}}">
-                <ul class="list-group">
-                    {{#each params}}
-                    <li class="list-group-item">
-                        <span class="type">{{type}}</span>
-                        <span class="name">{{name}}</span>
-                        <span class="description">{{{description}}}</span>
-                    </li>
-                    {{/each}}
-                </ul>
-                <div class="panel-body">
-                    {{#with returns}}
-                    <span class="returns">Returns</span>
-                    <span class="type">{{type}}</span>
-                    <span class="description">{{{description}}}</span>
-                    {{/with}}
-                </div>
-            </div>
+            {{#if since}}
+            <p><small>Added in {{since}}</small></p>
+            {{/if}}
 
             <div class="description">{{{description}}}</div>
 

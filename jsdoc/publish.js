@@ -13,13 +13,26 @@ if (!Object.prototype.hasOwnProperty.call(process.env, 'VERSION')) {
 var VERSION = process.env.VERSION;
 
 
-var valueForTitle = function(title, xs) {
+var headOr = function(x, xs) {
+  return xs.length === 0 ? x : xs[0];
+};
+
+var chain = function(f, xs) {
+  var result = [];
+  for (var idx = 0; idx < xs.length; idx += 1) {
+    result = result.concat(f(xs[idx]));
+  }
+  return result;
+};
+
+var valuesForTitle = function(title, xs) {
+  var result = [];
   for (var idx = 0; idx < xs.length; idx += 1) {
     if (xs[idx].title === title) {
-      return xs[idx].value;
+      result.push(xs[idx].value);
     }
   }
-  return '';
+  return result;
 };
 
 var prettifySig = function(s) {
@@ -45,8 +58,8 @@ var simplifySee = function(xs) {
 
 var simplifyData = function(d) {
   return {
-    aka: valueForTitle('aka', d.tags) === '' ? [] : valueForTitle('aka', d.tags).split(/,\s*/),
-    category: valueForTitle('category', d.tags),
+    aka: chain(function(s) { return s.split(/,\s*/); }, valuesForTitle('aka', d.tags)),
+    category: headOr('', valuesForTitle('category', d.tags)),
     deprecated: d.deprecated == null ? '' : d.deprecated,
     description: d.description == null ? '' : marked(d.description),
     example: d.examples == null ? [] : prettifyCode(d.examples),
@@ -75,7 +88,9 @@ var simplifyData = function(d) {
           '',
     },
     see: d.see == null ? [] : simplifySee(d.see),
-    sig: prettifySig(valueForTitle('sig', d.tags)),
+    sigs: valuesForTitle('sig', d.tags).map(prettifySig),
+    since: d.since == null ? '' : d.since,
+    typedefns: valuesForTitle('typedefn', d.tags).map(prettifySig),
   };
 };
 
