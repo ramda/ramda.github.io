@@ -90,6 +90,23 @@
     }
   }
 
+  // https://goo.gl/Zbejtc
+  function fixedEncodeURIComponent (str) {
+    return encodeURIComponent(str).replace(/[!'()*]/g, function(c) {
+      return '%' + c.charCodeAt(0).toString(16);
+    });
+  }
+
+  function tryInREPL(event) {
+    if (!event.target.matches('.try-repl')) {
+      return;
+    }
+    var code = event.target.nextElementSibling.textContent;
+    var encoded = fixedEncodeURIComponent(code);
+    location.assign(location.origin + '/try/#?code=' + encoded);
+  }
+
+
   var nameFilter = document.getElementById('name-filter');
   var funcs = toArray(document.querySelectorAll('.toc .func'));
   filterToc();
@@ -98,6 +115,7 @@
   nameFilter.addEventListener('input', filterToc, false);
   nameFilter.addEventListener('keypress', keypress, false);
   nameFilter.addEventListener('enter', gotoFirst);
+  document.body.addEventListener('click', tryInREPL);
 
   document.body.addEventListener('click', function(event) {
     if (event.target.className.split(' ').indexOf('toggle-params') >= 0) {
