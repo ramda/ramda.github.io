@@ -6,7 +6,7 @@ const apiUrl = 'https://www.googleapis.com/urlshortener/v1/url?' +
     'key=AIzaSyDhbAvT5JqkxFPkoeezJp19-S_mAJudxyk';
 
 const req = {
-    longUrl: 'http://ramdajs.com/try/'
+    longUrl: 'http://ramdajs.com/repl/'
 };
 
 const makeShortUrlBtn = document.getElementById('mkurl');

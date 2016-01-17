@@ -20,7 +20,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 var apiUrl = 'https://www.googleapis.com/urlshortener/v1/url?' + 'key=AIzaSyDhbAvT5JqkxFPkoeezJp19-S_mAJudxyk';
 
 var req = {
-    longUrl: 'http://ramdajs.com/try/'
+    longUrl: 'http://ramdajs.com/repl/'
 };
 
 var makeShortUrlBtn = document.getElementById('mkurl');
