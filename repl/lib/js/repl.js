@@ -3,6 +3,7 @@ const stage0 = require('babel-preset-stage-0');
 import debounce from 'debounce';
 import queryString from 'query-string';
 import reporter from './logger';
+import resetBtn from './reset';
 import googl from './googl';
 const babel = require('babel-core');
 
@@ -56,6 +57,7 @@ const compile = function compile() {
 
 reporter.main();
 
+resetBtn();
 
 googl();
 
