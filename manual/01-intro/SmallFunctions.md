@@ -6,7 +6,7 @@ Small functions on common structures
 
 Functional programming is best paired with a few consistent data structures.
 The largest set of Ramda's functions operate on _lists_.  We'll discuss lists
-in much more detail in [Chapter 2][02], but at the moment, we can just think
+in much more detail in [Chapter 3][03], but at the moment, we can just think
 about simple dense arrays.  Let's start with this data:
 
 ```js
@@ -124,6 +124,6 @@ types.  These common interfaces is how functional systems are pieced together.
 
 
 
-  [02]: ../02-lists
+  [03]: ../03-lists
   [co]: Composition.md
   [si]: ../README.md#a-note-on-signatures
