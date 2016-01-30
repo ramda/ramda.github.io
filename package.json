@@ -13,8 +13,12 @@
     "gitbook-cli": "0.3.x",
     "handlebars": "2.x.x",
     "highlight.js": "8.x.x",
+    "http-server": "0.8.x",
     "jsdoc": "3.3.x",
     "less": "2.5.x",
     "marked": "0.3.x"
+  },
+  "scripts": {
+    "server": "http-server"
   }
 }
