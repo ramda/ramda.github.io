@@ -9,3 +9,5 @@ const lift3 = ramdaFantasy.lift3;
 const Maybe = ramdaFantasy.Maybe;
 const Tuple = ramdaFantasy.Tuple;
 const Reader = ramdaFantasy.Reader;
+
+R.map(k => window[k] = R[k], R.keys(R))
