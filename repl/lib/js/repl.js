@@ -3,6 +3,7 @@ const stage0 = require('babel-preset-stage-0');
 import debounce from 'debounce';
 import queryString from 'query-string';
 import reporter from './logger';
+import resetBtn from './reset';
 import googl from './googl';
 const babel = require('babel-core');
 
@@ -31,31 +32,36 @@ const setUrlPath = function(code) {
 
 const evalSource = R.compose(R.toString, eval);
 
+const ramdaStr = `const {${R.keys(R).join(',')}} = R;`;
+
 const compile = function compile() {
 
     let transformed;
-    const code = getSource();
-    setUrlPath(code);
+    const code = `${ramdaStr} \n${getSource()}`;
+
+    setUrlPath(getSource()); 
     clearOuput();
 
     try {
         transformed = babel.transform(code, {
             filename: 'ramda',
             "presets": [
-               es2015,
+                es2015,
                 stage0
             ]
         });
 
         evalElement.textContent = evalSource(transformed.code).replace('"use strict"', '');
     } catch (err) {
-        printError(err.message);
-        throw err;
+        printError(err.message.replace(ramdaStr, '').replace(/(?=\d).*(?=\|)/g, function(a) {
+            return Number(a.trim()) - 1;
+        }));
     }
 };
 
 reporter.main();
 
+resetBtn();
 
 googl();
 
