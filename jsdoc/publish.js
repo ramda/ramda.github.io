@@ -123,4 +123,8 @@ exports.publish = function(data, opts) {
   render('jsdoc/templates/docs/index.html.handlebars',
          path.resolve(opts.destination, 'docs/index.html'),
          context);
+
+  render('repl/index.html.handlebars',
+         path.resolve('./repl/index.html'),
+         context); 
 };
