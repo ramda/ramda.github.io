@@ -127,4 +127,9 @@
     }
   }, false);
 
+  // back-button hack
+  window.addEventListener('hashchange', function() {
+    location.href = location.href;
+  }, false);
+
 }.call(this));
