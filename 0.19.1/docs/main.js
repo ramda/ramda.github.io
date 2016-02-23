@@ -117,6 +117,11 @@
   nameFilter.addEventListener('enter', gotoFirst);
   document.body.addEventListener('click', tryInREPL);
 
+  document.body.addEventListener('keyup', function(event) {
+    if (191 == event.which)
+      document.getElementById('name-filter').focus()
+  });
+
   document.body.addEventListener('click', function(event) {
     if (event.target.className.split(' ').indexOf('toggle-params') >= 0) {
       var expanded = event.target.parentNode.getAttribute('data-expanded');
