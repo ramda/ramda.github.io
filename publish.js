@@ -90,7 +90,7 @@ var simplifyData = function(d) {
 };
 
 exports.publish = function(data, opts) {
-  var templateFile = 'jsdoc/templates/docs/index.html.handlebars'
+  var templateFile = path.resolve(opts.destination, 'index.html.handlebars')
 
   var templateContent = fs.readFileSync(templateFile, {encoding: 'utf8'})
 
