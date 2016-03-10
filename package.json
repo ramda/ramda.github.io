@@ -19,6 +19,7 @@
     "marked": "0.3.x"
   },
   "scripts": {
+    "jsdoc": "jsdoc --destination ./docs --template . ./docs/dist/ramda.js",
     "server": "http-server"
   }
 }
