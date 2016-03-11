@@ -120,7 +120,7 @@ exports.publish = function(data, opts) {
          path.resolve(opts.destination, 'index.html'),
          context);
 
-  render('jsdoc/templates/docs/index.html.handlebars',
+  render('docs/index.html.handlebars',
          path.resolve(opts.destination, 'docs/index.html'),
          context);
 
