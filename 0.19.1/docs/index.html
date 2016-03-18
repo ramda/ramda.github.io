@@ -7739,9 +7739,9 @@ return a tuple <em>[acc, value]</em>.</p>
             </div>
 
 	    <pre><button class="try-repl">Try in REPL</button><code class="hljs javascript"><span class="hljs-keyword">var</span> digits = [<span class="hljs-string">'1'</span>, <span class="hljs-string">'2'</span>, <span class="hljs-string">'3'</span>, <span class="hljs-string">'4'</span>];
-<span class="hljs-keyword">var</span> append = (a, b) =&gt; [a + b, a + b];
+<span class="hljs-keyword">var</span> appender = (a, b) =&gt; [a + b, a + b];
 
-R.mapAccum(append, <span class="hljs-number">0</span>, digits); <span class="hljs-comment">//=&gt; ['01234', ['01', '012', '0123', '01234']]</span></code></pre>
+R.mapAccum(appender, <span class="hljs-number">0</span>, digits); <span class="hljs-comment">//=&gt; ['01234', ['01', '012', '0123', '01234']]</span></code></pre>
         </section>
         <section class="card" id="mapAccumRight">
             <h2>
