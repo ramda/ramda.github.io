@@ -33,6 +33,37 @@
     <link rel="stylesheet" href="lib/css/repl.css">
     <link rel="stylesheet" href="lib/css/terminal.css">
 
+    <script>
+    (function() {
+
+      function loadRepl() {
+        var main = document.createElement('script');
+        main.src = 'lib/js/main.js';
+        var bundle = document.createElement('script');
+        bundle.src = 'lib/js/bundle.js';
+        document.body.appendChild(main);
+        document.body.appendChild(bundle);
+      }
+
+      var r = document.createElement('script');
+      r.onload = loadRepl;
+
+      var rx = /^\d+\.\d+(\.\d+)?$/;
+      var version = 'latest';
+      location.search.substr(1).split('&').forEach(function(pair) {
+        var ps = pair.split('=');
+        if (ps[0] === 'v') {
+          if (rx.test(ps[1])) {
+            version = ps[1];
+          }
+        }
+      });
+      r.id = 'r';
+      var protocol = location.protocol === 'file:' ? 'https:' : location.protocol;
+      r.setAttribute('src', protocol + '//wzrd.in/standalone/ramda@'+ version);
+      document.head.appendChild(r);
+    }());
+    </script>
 
 </head>
 
@@ -102,14 +133,11 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.6.0/addon/hint/show-hint.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.6.0/addon/hint/javascript-hint.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.6.0/mode/javascript/javascript.min.js"></script>
-    <script src="//wzrd.in/standalone/ramda@latest"></script>
     <script src="//wzrd.in/standalone/sanctuary@latest"></script>
     <script src="//wzrd.in/standalone/ramda-fantasy@latest"></script>
     <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
     <script src="https://netdna.bootstrapcdn.com/bootstrap/3.0.2/js/bootstrap.min.js"></script>
 
-    <script src="lib/js/main.js"></script>
-    <script src="lib/js/bundle.js"></script>
 </body>
 
 </html>
