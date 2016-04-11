@@ -1,6 +1,6 @@
 {
   "name": "ramda.github.io",
-  "version": "0.0.0",
+  "version": "0.19.1",
   "description": "Ramda website",
   "private": true,
   "repository": {
@@ -19,6 +19,7 @@
     "marked": "0.3.x"
   },
   "scripts": {
+    "jsdoc": "jsdoc --destination ./docs --template . ./docs/dist/ramda.js",
     "server": "http-server"
   }
 }

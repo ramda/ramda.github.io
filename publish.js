@@ -6,12 +6,7 @@ var hljs = require('highlight.js');
 var helper = require('jsdoc/util/templateHelper');
 var marked = require('marked');
 
-
-if (!Object.prototype.hasOwnProperty.call(process.env, 'VERSION')) {
-  throw new Error('No environment variable named "VERSION"');
-}
-var VERSION = process.env.VERSION;
-
+var version = require('./package.json').version;
 
 var headOr = function(x, xs) {
   return xs.length === 0 ? x : xs[0];
@@ -94,37 +89,26 @@ var simplifyData = function(d) {
   };
 };
 
-var readFile = function(filename) {
-  return fs.readFileSync(filename, {encoding: 'utf8'});
-};
-
-var render = function(templateFile, outputFile, context) {
-  fs.writeFileSync(outputFile,
-                   handlebars.compile(readFile(templateFile))(context),
-                   {encoding: 'utf8'});
-};
-
 exports.publish = function(data, opts) {
+  var templateFile = path.resolve(opts.destination, 'index.html.handlebars')
+
+  var templateContent = fs.readFileSync(templateFile, {encoding: 'utf8'})
+
+  var docs = helper.prune(data)()
+    .order('name, version, since')
+    .filter({kind: ['function', 'constant']})
+    .get()
+    .filter(function(x) { return x.access !== 'private' })
+    .map(simplifyData)
+
   var context = {
-    docs: helper.prune(data)()
-          .order('name, version, since')
-          .filter({kind: ['function', 'constant']})
-          .get()
-          .filter(function(x) { return x.access !== 'private'; })
-          .map(simplifyData),
-    readme: new handlebars.SafeString(marked(readFile(VERSION + '/tmp/README.md'))),
-    version: require('../' + VERSION + '/tmp/package.json').version,
-  };
+    docs: docs,
+    version: version
+  }
 
-  render('jsdoc/templates/index.html.handlebars',
-         path.resolve(opts.destination, 'index.html'),
-         context);
+  var outputContent = handlebars.compile(templateContent)(context)
 
-  render('docs/index.html.handlebars',
-         path.resolve(opts.destination, 'docs/index.html'),
-         context);
+  var outputFile = path.resolve(opts.destination, 'index.html')
 
-  render('repl/index.html.handlebars',
-         path.resolve('./repl/index.html'),
-         context); 
-};
+  fs.writeFileSync(outputFile, outputContent, {encoding: 'utf8'});
+}
