@@ -83,7 +83,12 @@
                     <ul class="list-group">
                         {{#each params}}
                         <li class="list-group-item">
-                            <span class="type">{{type}}</span>
+                            <span class="type">
+                                {{#each type}}
+                                {{this}}
+                                {{#unless @last}} | {{/unless}}
+                                {{/each}}
+                            </span>
                             <span class="name">{{name}}</span>
                             <span class="description">{{{description}}}</span>
                         </li>
