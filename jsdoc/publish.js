@@ -126,5 +126,10 @@ exports.publish = function(data, opts) {
 
   render('repl/index.html.handlebars',
          path.resolve('./repl/index.html'),
-         context); 
+         context);
+
+  render('cookbook/index.html.handlebars',
+         path.resolve('./cookbook/index.html'),
+         context);
+
 };

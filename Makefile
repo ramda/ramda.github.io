@@ -1,6 +1,7 @@
 GITBOOK = node_modules/.bin/gitbook
 JSDOC = node_modules/.bin/jsdoc
 LESS = node_modules/.bin/lessc
+MARKDOWN = node_modules/.bin/markdown-html
 
 JSDOC_FILES := $(shell find jsdoc -type f | sort)
 LESS_FILES := $(shell find less -name '*.less' | sort)
@@ -21,6 +22,7 @@ all: \
 	$(VERSION)/fonts/glyphicons-halflings-regular.woff \
 	$(VERSION)/fonts/glyphicons-halflings-regular.woff2 \
 	$(VERSION)/style.css \
+	$(VERSION)/cookbook/index.html \
 	gitbook \
 	docs/dist/ramda.js \
 	docs/index.html \
@@ -36,7 +38,7 @@ $(VERSION)/docs/dist/ramda.js:
 	mkdir -p '$(@D)'
 	curl --silent 'https://raw.githubusercontent.com/ramda/ramda/v$(VERSION)/dist/ramda.js' >'$@'
 
-$(VERSION)/docs/index.html $(VERSION)/index.html: $(JSDOC_FILES)
+$(VERSION)/docs/index.html $(VERSION)/index.html $(VERSION)/cookbook/index.html: $(JSDOC_FILES)
 	VERSION='$(VERSION)' $(JSDOC) \
 	  --destination '$(VERSION)' \
 	  --template '$(<D)' \
@@ -53,11 +55,15 @@ $(VERSION)/fonts/%: node_modules/bootstrap/fonts/%
 $(VERSION)/style.css: $(LESS_FILES)
 	mkdir -p '$(@D)'
 	$(LESS) less/ramda.less >'$@'
+	
+# $(VERSION)/cookbook/index.html: cookbook/index.html
+# 	mkdir -p '$(@D)'
+# 	cp '$<' '$@'
 
 docs/%: $(VERSION)/docs/%
 	mkdir -p '$(@D)'
 	cp '$<' '$@'
-
+	
 .PHONY: index.html
 index.html: check-version
 	echo '<!DOCTYPE html><html><head><link rel="canonical" href="http://ramdajs.com/$(VERSION)/index.html" /><script>window.location = "$(VERSION)/index.html" + window.location.hash;</script></head><body></body></html>' >'$@'
