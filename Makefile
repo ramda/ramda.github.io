@@ -55,10 +55,6 @@ $(VERSION)/fonts/%: node_modules/bootstrap/fonts/%
 $(VERSION)/style.css: $(LESS_FILES)
 	mkdir -p '$(@D)'
 	$(LESS) less/ramda.less >'$@'
-	
-# $(VERSION)/cookbook/index.html: cookbook/index.html
-# 	mkdir -p '$(@D)'
-# 	cp '$<' '$@'
 
 docs/%: $(VERSION)/docs/%
 	mkdir -p '$(@D)'
