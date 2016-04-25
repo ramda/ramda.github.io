@@ -5,7 +5,7 @@ MARKDOWN = node_modules/.bin/markdown-html
 
 JSDOC_FILES := $(shell find jsdoc -type f | sort)
 LESS_FILES := $(shell find less -name '*.less' | sort)
-
+EXAMPLE_FILES := $(shell find examples -name '*.js' | sort)
 
 .PHONY: all
 all: \
@@ -22,13 +22,15 @@ all: \
 	$(VERSION)/fonts/glyphicons-halflings-regular.woff \
 	$(VERSION)/fonts/glyphicons-halflings-regular.woff2 \
 	$(VERSION)/style.css \
-	$(VERSION)/cookbook/index.html \
+	$(VERSION)/examples/index.html \
 	gitbook \
 	docs/dist/ramda.js \
 	docs/index.html \
 	docs/main.js \
 	index.html \
 	style.css \
+	examples/index.html \
+	samplecode \
 
 $(VERSION)/tmp/%:
 	mkdir -p '$(@D)'
@@ -38,7 +40,7 @@ $(VERSION)/docs/dist/ramda.js:
 	mkdir -p '$(@D)'
 	curl --silent 'https://raw.githubusercontent.com/ramda/ramda/v$(VERSION)/dist/ramda.js' >'$@'
 
-$(VERSION)/docs/index.html $(VERSION)/index.html $(VERSION)/cookbook/index.html: $(JSDOC_FILES)
+$(VERSION)/docs/index.html $(VERSION)/index.html $(VERSION)/examples/index.html: $(JSDOC_FILES)
 	VERSION='$(VERSION)' $(JSDOC) \
 	  --destination '$(VERSION)' \
 	  --template '$(<D)' \
@@ -59,6 +61,14 @@ $(VERSION)/style.css: $(LESS_FILES)
 docs/%: $(VERSION)/docs/%
 	mkdir -p '$(@D)'
 	cp '$<' '$@'
+
+examples/%: $(VERSION)/examples/%
+	mkdir -p '$(<D)'
+	cp -R '$@' '$<'	
+	
+samplecode: 
+	mkdir -p $(VERSION)/examples/code
+	cp $(EXAMPLE_FILES) $(VERSION)/examples/code
 	
 .PHONY: index.html
 index.html: check-version

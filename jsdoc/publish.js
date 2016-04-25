@@ -98,11 +98,17 @@ var readFile = function(filename) {
   return fs.readFileSync(filename, {encoding: 'utf8'});
 };
 
-var render = function(templateFile, outputFile, context) {
+var render = function (templateFile, outputFile, context) {
   fs.writeFileSync(outputFile,
                    handlebars.compile(readFile(templateFile))(context),
                    {encoding: 'utf8'});
 };
+
+handlebars.registerHelper('filename', function (filename) {
+  var readableName = filename.split('-').join(' ').replace(/\.[^/.]+$/, "");
+  
+  return new handlebars.SafeString(readableName);
+});
 
 exports.publish = function(data, opts) {
   var context = {
@@ -114,6 +120,7 @@ exports.publish = function(data, opts) {
           .map(simplifyData),
     readme: new handlebars.SafeString(marked(readFile(VERSION + '/tmp/README.md'))),
     version: require('../' + VERSION + '/tmp/package.json').version,
+    files: fs.readdirSync('examples/code'),
   };
 
   render('jsdoc/templates/index.html.handlebars',
@@ -128,8 +135,8 @@ exports.publish = function(data, opts) {
          path.resolve('./repl/index.html'),
          context);
 
-  render('cookbook/index.html.handlebars',
-         path.resolve('./cookbook/index.html'),
+  render('examples/index.html.handlebars',
+         path.resolve('./examples/index.html'),
          context);
 
 };
