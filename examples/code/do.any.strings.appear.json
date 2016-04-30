@@ -1,1 +1,0 @@
-{"title":"Do any of these strings appear in another list?","description":null,"source":"let R = require('ramda');\n\n//    overlaps :: [a] -> [a] -> Boolean\nconst overlaps = R.pipe(R.intersection, R.complement(R.isEmpty));\nprocess.argv // ['node', 'script.js', '-v']\noverlaps(['-v', '--verbose'], process.argv)\n"}

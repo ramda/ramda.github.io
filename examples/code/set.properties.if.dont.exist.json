@@ -1,1 +1,0 @@
-{"title":"Set properties only if they don't exist","description":"Useful for passing defaults, similar to lodash's _.defaults.","source":"let R = require('ramda');\n\n//  defaults :: Object -> Object -> Object\nvar defaults = R.flip(R.merge);\n\n// process.env.SECRET overwrites deadbeef if it exists\ndefaults(process.env, {\n  SECRET: 'deadbeef'\n});\n"}

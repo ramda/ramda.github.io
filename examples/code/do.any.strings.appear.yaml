@@ -1,10 +1,9 @@
-  title: Do any of these strings appear in another list?
-  description: 
-  source: |
-        let R = require('ramda');
-
-        //    overlaps :: [a] -> [a] -> Boolean
-        const overlaps = R.pipe(R.intersection, R.complement(R.isEmpty));
-        process.argv // ['node', 'script.js', '-v']
-        overlaps(['-v', '--verbose'], process.argv)
+title: Do any of these strings appear in another list?
+description: 
+source: |
+      "let R = require('ramda');
+      //    overlaps :: [a] -> [a] -> Boolean
+      const overlaps = R.pipe(R.intersection, R.complement(R.isEmpty));
+      process.argv // ['node', 'script.js', '-v']
+      overlaps(['-v', '--verbose'], process.argv)"
         

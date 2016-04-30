@@ -1,1 +1,0 @@
-{"title":"Map keys of an object","description":null,"source":"let R = require('ramda');\n\n//    mapKeys :: (String -> String) -> Object -> Object\nconst mapKeys = R.curry((fn, obj) =>\n  R.fromPairs(R.map(R.adjust(fn, 0), R.toPairs(obj))));\nmapKeys(R.toUpper, { a: 1, b: 2, c: 3 });\n"}

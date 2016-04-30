@@ -1,10 +1,10 @@
-  title:Convert object to array
-  description: 
-  source: |
-        let R = require('ramda');
+title: Convert object to array
+description: 
+source: |
+      let R = require('ramda');
 
-        // convert :: {a} -> [{ word :: String, count :: a }]
-        const convert = R.compose(R.map(R.zipObj(['word', 'count'])), R.toPairs);
+      // convert :: {a} -> [{ word :: String, count :: a }]
+      const convert = R.compose(R.map(R.zipObj(['word', 'count'])), R.toPairs);
         
-        convert({I: 2, it: 4, that: 1});
-        
+      convert({I: 2, it: 4, that: 1});
+      

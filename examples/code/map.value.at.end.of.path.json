@@ -1,1 +1,0 @@
-{"title":"Map over the value at the end of a path","description":null,"source":"let R = require('ramda');\n\n// :: [String] -> (a -> b) -> {k: a} -> {k: b}\nconst mapPath = R.curry((path, f, obj) =>\n  R.assocPath(path, f(R.path(path, obj)), obj)\n);\n\nmapPath(['a', 'b', 'c'], R.inc, {a: {b: {c: 3}}});\n"}

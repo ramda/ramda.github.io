@@ -32,7 +32,9 @@ all: \
 	style.css \
 	examples/index.html \
 	yaml \
-	samplecode \
+	
+.PHONY: clean
+clean: $(VERSION)/clean
 	
 $(VERSION)/clean:
 	rm -r $(VERSION)/*
@@ -70,16 +72,13 @@ docs/%: $(VERSION)/docs/%
 examples/%: $(VERSION)/examples/%
 	mkdir -p '$(<D)'
 	cp -R '$@' '$<'	
-	
-samplecode:
-	mkdir -p $(VERSION)/examples/code
-	cp $(EXAMPLE_FILES) $(VERSION)/examples/code
 
 yaml: $(YAML_FILES)
-	for f in $(YAML_FILES); do\
-		$(YAML) $$f -s; \
-	done
-	
+	mkdir -p $(VERSION)/examples/code
+	-@for file in $(YAML_FILES); do \
+			$(YAML) $$file > $(VERSION)/$${file%yaml}json; \
+    done
+
 .PHONY: index.html
 index.html: check-version
 	echo '<!DOCTYPE html><html><head><link rel="canonical" href="http://ramdajs.com/$(VERSION)/index.html" /><script>window.location = "$(VERSION)/index.html" + window.location.hash;</script></head><body></body></html>' >'$@'

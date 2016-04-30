@@ -1,1 +1,0 @@
-{"title":"Apply a list of functions in a specific order into a list of values","description":null,"source":"let R = require('ramda');\n\nconst {red, green, blue} = require('chalk');\nconst disco = R.pipe(R.zipWith(R.call, [ red, green, blue ]), R.join(' '));\nconsole.log(disco([ 'foo', 'bar', 'xyz' ]));\n"}
