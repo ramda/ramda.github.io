@@ -31,7 +31,7 @@
   <main class="container-fluid">
     <ul>
       {{#each files}}
-      <li class='text-capitalize' data-file="code/{{.}}">{{filename .}}</li>
+      <li class='text-capitalize' data-file="code/{{@key}}.json">{{title}}</li>
       {{/each}}
     </ul>    
     <div id='tonic'></div>
@@ -51,7 +51,7 @@
                     url: filename,
                     dataType: 'text'
                 }).done(function(file){
-                    notebook.setSource(file);
+                    notebook.setSource(JSON.parse(file).source);
                 });         
             });
         })();

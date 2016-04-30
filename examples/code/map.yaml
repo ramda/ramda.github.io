@@ -1,8 +1,8 @@
-  title: Pick by Index
+  title: Map
   description: This is a description
   source: |
         let R = require('ramda');
-
-        // :: [Number] -> [a] -> [a]
-        var pickIndexes = R.compose(R.values, R.pickAll);
-        pickIndexes([0, 2], ['a', 'b', 'c']);
+        
+        const mapKeys = R.curry((fn, obj) =>
+           R.fromPairs(R.map(R.adjust(fn, 0), R.toPairs(obj))));
+           mapKeys(R.toUpper, { a: 1, b: 2, c: 3 });

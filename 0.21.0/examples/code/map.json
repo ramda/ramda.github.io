@@ -1,1 +1,1 @@
-{"title":"Pick by Index","description":"This is a description","source":"let R = require('ramda');\n\n// :: [Number] -> [a] -> [a]\nvar pickIndexes = R.compose(R.values, R.pickAll);\npickIndexes([0, 2], ['a', 'b', 'c']);\n"}
+{"title":"Map","description":"This is a description","source":"let R = require('ramda');\n\nconst mapKeys = R.curry((fn, obj) =>\n   R.fromPairs(R.map(R.adjust(fn, 0), R.toPairs(obj))));\n   mapKeys(R.toUpper, { a: 1, b: 2, c: 3 });\n"}

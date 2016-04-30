@@ -30,15 +30,9 @@
   </header>
   <main class="container-fluid">
     <ul>
-      <li class='text-capitalize' data-file="code/map-keys-of-an-object.js">map keys of an object</li>
-      <li class='text-capitalize' data-file="code/map.json">map</li>
-      <li class='text-capitalize' data-file="code/map.yaml">map</li>
-      <li class='text-capitalize' data-file="code/pick-list-values-by-index.js">pick list values by index</li>
-      <li class='text-capitalize' data-file="code/pick-list.json">pick list</li>
-      <li class='text-capitalize' data-file="code/pick-list.yaml">pick list</li>
-      <li class='text-capitalize' data-file="code/test.json">test</li>
-      <li class='text-capitalize' data-file="code/test.yaml">test</li>
-      <li class='text-capitalize' data-file="code/xyz.json">xyz</li>
+      <li class='text-capitalize' data-file="code/map.json">Map</li>
+      <li class='text-capitalize' data-file="code/pick-list.json">Pick by Index</li>
+      <li class='text-capitalize' data-file="code/test.json">Test</li>
     </ul>    
     <div id='tonic'></div>
 </body>
@@ -57,7 +51,7 @@
                     url: filename,
                     dataType: 'text'
                 }).done(function(file){
-                    notebook.setSource(file);
+                    notebook.setSource(JSON.parse(file).source);
                 });         
             });
         })();

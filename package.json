@@ -22,5 +22,8 @@
   "scripts": {
     "jsdoc": "jsdoc --destination ./docs --template . ./docs/dist/ramda.js",
     "server": "http-server"
+  },
+  "dependencies": {
+    "require-dir-all": "^0.4.9"
   }
 }

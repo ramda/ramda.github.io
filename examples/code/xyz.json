@@ -1,1 +1,0 @@
-{"title":"Pick by Index","tags":["a","b"],"description":"This is a description","source":"let R = require('ramda');\n\n// :: [Number] -> [a] -> [a]\nvar pickIndexes = R.compose(R.values, R.pickAll);\npickIndexes([0, 2], ['a', 'b', 'c']);\n"}
