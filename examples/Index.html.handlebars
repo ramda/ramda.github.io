@@ -1,6 +1,5 @@
 <!DOCTYPE html>
-<html class="home-page">
-
+<html class="docs-page">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -10,6 +9,7 @@
 </head>
 
 <body>
+  <input type="checkbox" id="open-nav" />
   <header class="navbar navbar-fixed-top navbar-inverse container-fluid">
     <div class="navbar-header">
       <label class="open-nav" for="open-nav"></label>
@@ -28,15 +28,18 @@
       </ul>
     </div>
   </header>
+  <aside class="sidebar no-filter container-fluid">
+        <ul class="nav nav-pills nav-stacked">
+            {{#each files}}
+            <li class='text-capitalize' data-file="code/{{@key}}.json">{{title}}</li> 
+            {{/each}}
+        </ul>
+    </aside>
   <main class="container-fluid">
-    <ul>
-      {{#each files}}
-      <li class='text-capitalize' data-file="code/{{@key}}.json">{{title}}</li>
-      {{/each}}
-    </ul>
     <h1 class='title'></h1>
     <div class='snippet'></div>    
     <div id='tonic'></div>
+  </main>
 </body>
 <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
 <script>

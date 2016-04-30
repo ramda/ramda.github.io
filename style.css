@@ -6876,6 +6876,9 @@ html.docs-page #open-nav:checked ~ main {
   border-right: 1px solid #ccc;
   font-family: Menlo, Monaco, Consolas, "Courier New", monospace;
 }
+.sidebar.no-filter {
+  padding-top: 20px;
+}
 .sidebar .filter {
   width: 100%;
   margin: 15px 0;

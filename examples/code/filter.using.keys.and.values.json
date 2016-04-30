@@ -1,0 +1,1 @@
+{"title":"Filter an object using keys as well as values","description":null,"source":"let R = require('ramda');\n\nconst filterWithKeys = (pred, obj) => R.pipe(\n  R.toPairs, \n  R.filter(R.apply(pred)), \n  R.fromPairs\n)(obj);\n\nfilterWithKeys(\n  (key, val) => key.length === val, \n  {red: 3, blue: 5, green: 5, yellow: 2}\n);\n"}

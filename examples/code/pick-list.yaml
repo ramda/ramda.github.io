@@ -1,5 +1,5 @@
-  title: Pick by Index
-  description: This is a description
+  title: Pick List Values by Index
+  description: "This example shows you how to specify multiple indexes of an array to retrieve multiple values from the array." 
   source: |
         let R = require('ramda');
 

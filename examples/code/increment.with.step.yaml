@@ -1,0 +1,15 @@
+  title: Create an incrementing or decrementing range of numbers with a step
+  description: 
+  source: |
+        let R = require('ramda');
+
+        const rangeStep = (start, step, stop) => R.map(
+          n => start + step * n,
+          R.range(0, (1 + (stop - start) / step) >>> 0)
+        );
+        
+        rangeStep(1, 1, 4);   // [1, 2, 3, 4]
+        rangeStep(2, 2, 8);   // [2, 4, 6, 8]
+        rangeStep(0, 3, 10);  // [0, 3, 6, 9]
+        rangeStep(3, -2, -3); // [3, 1, -1, -3]
+        

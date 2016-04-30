@@ -1,0 +1,1 @@
+{"title":"Convert a list of property-lists (with header) into a list of objects","description":null,"source":"let R = require('ramda');\n\nconst tsv = [\n  ['name',  'age', 'drink'], \n  ['john',   23,   'wine'], \n  ['maggie', 45,   'water']\n];\ncompose(apply(lift(zipObj)), splitAt(1))(tsv);\n"}

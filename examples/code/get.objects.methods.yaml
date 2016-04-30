@@ -1,0 +1,15 @@
+  title: Get an object's method names
+  description: 
+  source: |
+        let R = require('ramda');
+
+        //  methodNames :: Object -> [String]
+        var methodNames = R.compose(R.keys, R.pickBy(R.is(Function)));
+        
+        var obj = {
+          foo: true,
+          bar: function() {},
+          baz: function() {},
+        };
+        
+        methodNames(obj);

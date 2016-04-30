@@ -33,6 +33,9 @@ all: \
 	examples/index.html \
 	yaml \
 	samplecode \
+	
+$(VERSION)/clean:
+	rm -r $(VERSION)/*
 
 $(VERSION)/tmp/%:
 	mkdir -p '$(@D)'

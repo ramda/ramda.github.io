@@ -105,12 +105,6 @@ var render = function (templateFile, outputFile, context) {
     { encoding: 'utf8' });
 };
 
-handlebars.registerHelper('filename', function (filename) {
-  var readableName = filename.split('-').join(' ').replace(/\.[^/.]+$/, "");
-
-  return new handlebars.SafeString(readableName);
-});
-
 exports.publish = function (data, opts) {
   var context = {
     docs: helper.prune(data)()

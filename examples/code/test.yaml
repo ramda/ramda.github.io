@@ -1,5 +1,0 @@
-  title: Test  
-  tags: ['a', 'b']
-  description: This is a description
-  source: |
-        let R = require('ramda');       
