@@ -1,11 +1,12 @@
 GITBOOK = node_modules/.bin/gitbook
 JSDOC = node_modules/.bin/jsdoc
 LESS = node_modules/.bin/lessc
-MARKDOWN = node_modules/.bin/markdown-html
+YAML = node_modules/.bin/yaml2json
 
 JSDOC_FILES := $(shell find jsdoc -type f | sort)
 LESS_FILES := $(shell find less -name '*.less' | sort)
-EXAMPLE_FILES := $(shell find examples -name '*.js' | sort)
+EXAMPLE_FILES := $(shell find examples -name '*.json' | sort)
+YAML_FILES := $(shell find examples -name '*.yaml' | sort)
 
 .PHONY: all
 all: \
@@ -30,6 +31,7 @@ all: \
 	index.html \
 	style.css \
 	examples/index.html \
+	yaml \
 	samplecode \
 
 $(VERSION)/tmp/%:
@@ -66,9 +68,14 @@ examples/%: $(VERSION)/examples/%
 	mkdir -p '$(<D)'
 	cp -R '$@' '$<'	
 	
-samplecode: 
+samplecode:
 	mkdir -p $(VERSION)/examples/code
 	cp $(EXAMPLE_FILES) $(VERSION)/examples/code
+
+yaml: $(YAML_FILES)
+	for f in $(YAML_FILES); do\
+		$(YAML) $$f -s; \
+	done
 	
 .PHONY: index.html
 index.html: check-version
