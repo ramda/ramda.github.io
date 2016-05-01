@@ -1,1 +1,1 @@
-{"title":"Map Keys To Objects","name":"Map keys to objects","description":null,"source":"let R = require('ramda');\n\nconst mapKeys = R.curry((fn, obj) =>\n   R.fromPairs(R.map(R.adjust(fn, 0), R.toPairs(obj))));\n   mapKeys(R.toUpper, { a: 1, b: 2, c: 3 });\n"}
+{"title":"Map Keys To Objects","name":"Map keys to objects","description":null,"source":"let R = require('ramda');\n\nconst mapKeys = R.curry((fn, obj) =>\n    R.fromPairs(R.map(R.adjust(fn, 0), R.toPairs(obj))));\n    mapKeys(R.toUpper, { a: 1, b: 2, c: 3 });\n"}
