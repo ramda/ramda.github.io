@@ -1,4 +1,5 @@
   title: Use ramda-fantasy Future to wrap AJAX
+  name: ramda-fantasy wrap AJAX
   description:  
   source: |
         var Future = require('ramda-fantasy').Future;

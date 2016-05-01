@@ -1,1 +1,1 @@
-{"title":"Convert object to array","description":null,"source":"let R = require('ramda');\n\n// convert :: {a} -> [{ word :: String, count :: a }]\nconst convert = R.compose(R.map(R.zipObj(['word', 'count'])), R.toPairs);\n  \nconvert({I: 2, it: 4, that: 1});\n"}
+{"title":"Convert object to array","name":"Convert object to array","description":null,"source":"let R = require('ramda');\n\n// convert :: {a} -> [{ word :: String, count :: a }]\nconst convert = R.compose(R.map(R.zipObj(['word', 'count'])), R.toPairs);\n\nconvert({I: 2, it: 4, that: 1});\n"}

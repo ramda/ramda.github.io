@@ -1,4 +1,5 @@
 title: Rename keys of an object
+name: Rename keys
 description: 
 source: |
       let R = require('ramda');
@@ -19,7 +20,7 @@ source: |
           return acc;
         }, {}, R.keys(obj));
       });
-       
+      
       const input = { firstName: 'Elisia', age: 22, type: 'human' }
 
       renameKeys({ firstName: 'name', type: 'kind', foo: 'bar' })(input)  

@@ -1,4 +1,5 @@
   title: Derivative of R.props for deep fields
+  name: R.props for deep fields
   description:  
   source: |
         let R = require('ramda');

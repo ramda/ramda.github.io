@@ -13,6 +13,7 @@ all: \
 	check-version \
 	$(VERSION)/tmp/README.md \
 	$(VERSION)/tmp/package.json \
+	yaml \
 	$(VERSION)/docs/dist/ramda.js \
 	$(VERSION)/docs/index.html \
 	$(VERSION)/docs/main.js \
@@ -31,7 +32,6 @@ all: \
 	index.html \
 	style.css \
 	examples/index.html \
-	yaml \
 	
 .PHONY: clean
 clean: $(VERSION)/clean

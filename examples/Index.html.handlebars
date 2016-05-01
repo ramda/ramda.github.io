@@ -29,9 +29,9 @@
     </div>
   </header>
   <aside class="sidebar no-filter container-fluid">
-        <ul class="nav nav-pills nav-stacked">
+        <ul class="nav nav-pills nav-stacked toc">
             {{#each files}}
-            <li class='text-capitalize' data-file="code/{{@key}}.json">{{title}}</li> 
+            <li class='text-capitalize padded' data-file="code/{{@key}}.json">{{name}}</li> 
             {{/each}}
         </ul>
     </aside>
@@ -51,14 +51,19 @@
             
             $('li').on('click', function(e){
                 let filename = $(e.currentTarget).data('file');
+                $('li').removeClass('active');
+                $(e.currentTarget).addClass('active');
                 
                 $.ajax({
                     url: filename,
                     dataType: 'text'
                 }).done(function(file){
-                    var example = JSON.parse(file);
+                    var example = JSON.parse(file);                  
                     $('h1.title').text(example.title);
-                    $('div.snippet').text(example.description);
+                    if(example.description){
+                      $('div.snippet').html(example.description);  
+                    }
+                    
                     notebook.setSource(example.source);
                 });         
             });

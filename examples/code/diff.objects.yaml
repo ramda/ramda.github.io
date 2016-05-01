@@ -1,31 +1,30 @@
-  title: diffing objects
-  description: |
-              similar to Guava's Maps.Difference.
-              See http://docs.guava-libraries.googlecode.com/git/javadoc/com/google/common/collect/Maps.html#difference%28java.util.Map,%20java.util.Map%29              
-  source: |
-        let R = require('ramda');
+title: diffing objects
+name: Diff Objects
+description: similar to <a href="http://docs.guava-libraries.googlecode.com/git/javadoc/com/google/common/collect/Maps.html#difference%28java.util.Map,%20java.util.Map%29">Guava's Maps Difference</a>              
+source: |
+      let R = require('ramda');
 
-        var groupObjBy = curry(pipe(
-          // Call groupBy with the object as pairs, passing only the value to the key function
-          useWith(groupBy, [useWith(__, [last]), toPairs]),
-          map(fromPairs)
-        ))
-        
-        var diffObjs = pipe(
-          useWith(mergeWith(merge), [map(objOf("leftValue")), map(objOf("rightValue"))]),
-          groupObjBy(cond([
-            [
-              both(has("leftValue"), has("rightValue")),
-              pipe(values, ifElse(apply(equals), always("common"), always("difference")))
-            ],
-            [has("leftValue"), always("onlyOnLeft")],
-            [has("rightValue"), always("onlyOnRight")],
-          ])),
-          evolve({
-            common: map(prop("leftValue")),
-            onlyOnLeft: map(prop("leftValue")),
-            onlyOnRight: map(prop("rightValue"))
-          })
-        );
-        
-        diffObjs({a: 1, c: 5, d: 4 }, {a: 1, b: 2, d: 7});
+      var groupObjBy = R.curry(R.pipe(
+        // Call groupBy with the object as pairs, passing only the value to the key function
+        R.useWith(R.groupBy, [R.useWith(__, [R.last]), R.toPairs]),
+        R.map(R.fromPairs)
+      ))
+      
+      var diffObjs = R.pipe(
+        R.useWith(R.mergeWith(R.merge), [R.map(R.objOf("leftValue")), R.map(R.objOf("rightValue"))]),
+        R.groupObjBy(R.cond([
+          [
+            R.both(R.has("leftValue"), R.has("rightValue")),
+            R.pipe(R.values, R.ifElse(R.apply(equals), R.always("common"), R.always("difference")))
+          ],
+          [R.has("leftValue"), R.always("onlyOnLeft")],
+          [R.has("rightValue"), R.always("onlyOnRight")],
+        ])),
+        R.evolve({
+          common: R.map(R.prop("leftValue")),
+          onlyOnLeft: R.map(R.prop("leftValue")),
+          onlyOnRight: R.map(R.prop("rightValue"))
+        })
+      );
+      
+      diffObjs({a: 1, c: 5, d: 4 }, {a: 1, b: 2, d: 7});

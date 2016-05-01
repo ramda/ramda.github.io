@@ -1,4 +1,5 @@
   title: Get n function calls as a list
+  name: Get n function calls
   description: 
   source: |
         let R = require('ramda');
