@@ -115,7 +115,7 @@ exports.publish = function (data, opts) {
       .map(simplifyData),
     readme: new handlebars.SafeString(marked(readFile(VERSION + '/tmp/README.md'))),
     version: require('../' + VERSION + '/tmp/package.json').version,
-    files: requireDir('../examples/code', {includeFiles: /^.*\.json$/})
+    files: requireDir('../' + VERSION + '/examples/code', {includeFiles: /^.*\.json$/})
   };
 
   render('jsdoc/templates/index.html.handlebars',

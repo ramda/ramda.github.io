@@ -6902,7 +6902,8 @@ html.docs-page #open-nav:checked ~ main {
   margin: 0;
 }
 .sidebar .toc li.active {
-  color: #849;
+  background-color: #849;
+  color: white;
 }
 .sidebar .toc a {
   padding: 5px 15px;

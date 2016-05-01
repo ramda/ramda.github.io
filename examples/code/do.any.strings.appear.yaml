@@ -1,10 +1,10 @@
 title: Do any of these strings appear in another list?
-  name: Any Duplicate Strings
+name: Any Duplicate Strings
 description: 
 source: |
-      "let R = require('ramda');
+      let R = require('ramda');
       //    overlaps :: [a] -> [a] -> Boolean
       const overlaps = R.pipe(R.intersection, R.complement(R.isEmpty));
       process.argv // ['node', 'script.js', '-v']
-      overlaps(['-v', '--verbose'], process.argv)"
+      overlaps(['-v', '--verbose'], process.argv)
         
