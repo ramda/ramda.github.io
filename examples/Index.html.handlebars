@@ -35,12 +35,12 @@
   <aside class="sidebar no-filter container-fluid">
         <ul class="nav nav-pills nav-stacked toc">
             {{#each files}}
-            <li class='text-capitalize padded' data-file="code/{{@key}}.json">{{name}}</li> 
+            <li class='text-capitalize padded' data-file="../examples/code/{{@key}}.json">{{name}}</li> 
             {{/each}}
         </ul>
     </aside>
   <main class="container-fluid">
-    <h1 class='title'>Cookbook</h1>
+    <h1 class='title text-capitalize'>Cookbook</h1>
     <div class='snippet'></div>    
     <div id='tonic'></div>
   </main>
