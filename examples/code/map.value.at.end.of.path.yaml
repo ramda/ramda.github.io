@@ -1,13 +1,13 @@
-  title: Map over the value at the end of a path
-  name: Map val at end of path
-  description: 
-  source: |
-        let R = require('ramda');
+title: Map over the value at the end of a path
+name: Map val at end of path
+description: 
+source: |
+      let R = require('ramda');
 
-        // :: [String] -> (a -> b) -> {k: a} -> {k: b}
-        const mapPath = R.curry((path, f, obj) =>
-          R.assocPath(path, f(R.path(path, obj)), obj)
-        );
-        
-        mapPath(['a', 'b', 'c'], R.inc, {a: {b: {c: 3}}});
-        
+      // :: [String] -> (a -> b) -> {k: a} -> {k: b}
+      const mapPath = R.curry((path, f, obj) =>
+        R.assocPath(path, f(R.path(path, obj)), obj)
+      );
+      
+      mapPath(['a', 'b', 'c'], R.inc, {a: {b: {c: 3}}});
+      

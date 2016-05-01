@@ -1,29 +1,29 @@
-  title: Get Object Size
-  name: Object Size
-  description: 
-  source: |
-        let R = require('ramda');
+title: Get Object Size
+name: Object Size
+description: 
+source: |
+      let R = require('ramda');
 
-        //    objSize :: Object -> Number
-        const objSize = R.nAry(1, R.pipe(
-          R.when(R.is(Object), R.keys),
-          R.when(R.is(Boolean), R.cond([[R.equals(false), R.always(null)], [R.T, R.always(1)]])),
-          R.when(R.is(Number), R.toString),
-          R.ifElse(R.isNil, R.always(0), R.length)
-        ));
-        console.log(objSize()); // 0
-        console.log(objSize(undefined)); // 0
-        console.log(objSize(null)); // 0
-        console.log(objSize(false)); // 0
-        console.log(objSize(true)); // 1
-        console.log(objSize('')); // 0
-        console.log(objSize('foo')); // 3
-        console.log(objSize(0)); // 1
-        console.log(objSize(13)); // 2
-        console.log(objSize(101)); // 3
-        console.log(objSize(0.01)); // 4
-        console.log(objSize({})); // 0
-        console.log(objSize({foo:undefined, bar:undefined})); // 2
-        console.log(objSize([])); // 0
-        console.log(objSize([undefined, undefined])); // 2
-        
+      //    objSize :: Object -> Number
+      const objSize = R.nAry(1, R.pipe(
+        R.when(R.is(Object), R.keys),
+        R.when(R.is(Boolean), R.cond([[R.equals(false), R.always(null)], [R.T, R.always(1)]])),
+        R.when(R.is(Number), R.toString),
+        R.ifElse(R.isNil, R.always(0), R.length)
+      ));
+      console.log(objSize()); // 0
+      console.log(objSize(undefined)); // 0
+      console.log(objSize(null)); // 0
+      console.log(objSize(false)); // 0
+      console.log(objSize(true)); // 1
+      console.log(objSize('')); // 0
+      console.log(objSize('foo')); // 3
+      console.log(objSize(0)); // 1
+      console.log(objSize(13)); // 2
+      console.log(objSize(101)); // 3
+      console.log(objSize(0.01)); // 4
+      console.log(objSize({})); // 0
+      console.log(objSize({foo:undefined, bar:undefined})); // 2
+      console.log(objSize([])); // 0
+      console.log(objSize([undefined, undefined])); // 2
+      

@@ -1,9 +1,9 @@
-  title: Pick List Values by Index
-  name: Pick List by Index
-  description: "This example shows you how to specify multiple indexes of an array to retrieve multiple values from the array." 
-  source: |
-        let R = require('ramda');
+title: Pick List Values by Index
+name: Pick List by Index
+description: "This example shows you how to specify multiple indexes of an array to retrieve multiple values from the array." 
+source: |
+      let R = require('ramda');
 
-        // :: [Number] -> [a] -> [a]
-        var pickIndexes = R.compose(R.values, R.pickAll);
-        pickIndexes([0, 2], ['a', 'b', 'c']);
+      // :: [Number] -> [a] -> [a]
+      var pickIndexes = R.compose(R.values, R.pickAll);
+      pickIndexes([0, 2], ['a', 'b', 'c']);

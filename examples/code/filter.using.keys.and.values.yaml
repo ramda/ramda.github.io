@@ -1,16 +1,16 @@
-  title: Filter an object using keys as well as values
-  name: "Filter w/ Keys & Vals"
-  description: 
-  source: |
-        let R = require('ramda');
+title: Filter an object using keys as well as values
+name: "Filter w/ Keys & Vals"
+description: 
+source: |
+      let R = require('ramda');
 
-        const filterWithKeys = (pred, obj) => R.pipe(
-          R.toPairs, 
-          R.filter(R.apply(pred)), 
-          R.fromPairs
-        )(obj);
-        
-        filterWithKeys(
-          (key, val) => key.length === val, 
-          {red: 3, blue: 5, green: 5, yellow: 2}
-        );
+      const filterWithKeys = (pred, obj) => R.pipe(
+        R.toPairs, 
+        R.filter(R.apply(pred)), 
+        R.fromPairs
+      )(obj);
+      
+      filterWithKeys(
+        (key, val) => key.length === val, 
+        {red: 3, blue: 5, green: 5, yellow: 2}
+      );

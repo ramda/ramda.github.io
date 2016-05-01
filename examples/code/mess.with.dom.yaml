@@ -1,20 +1,20 @@
-  title: Mess with the DOM
-  name: Mess with DOM
-  description: This example shows how to set styles so that all paragraphs are red.
-  source: |
-        let R = require('ramda');
-        
-        // Get all descendants that match selector
-        // Note: NodeList is array-like so you can run ramda list functions on it.
-        //  cssQuery :: String -> Node -> NodeList
-        var cssQuery = R.invoker(1, 'querySelectorAll');
+title: Mess with the DOM
+name: Mess with DOM
+description: This example shows how to set styles so that all paragraphs are red.
+source: |
+      let R = require('ramda');
+      
+      // Get all descendants that match selector
+      // Note: NodeList is array-like so you can run ramda list functions on it.
+      //  cssQuery :: String -> Node -> NodeList
+      var cssQuery = R.invoker(1, 'querySelectorAll');
 
-        // Mutate style properties on an element
-        //  setStyle :: String -> String -> Element -> Element
-        var setStyle = R.assoc('style');
+      // Mutate style properties on an element
+      //  setStyle :: String -> String -> Element -> Element
+      var setStyle = R.assoc('style');
 
-        // Make all paragraphs and anchors red
-        R.pipe(
-           cssQuery('a, p'),
-           R.map(setStyle('color', 'red'))
-        )(document)
+      // Make all paragraphs and anchors red
+      R.pipe(
+          cssQuery('a, p'),
+          R.map(setStyle('color', 'red'))
+      )(document)

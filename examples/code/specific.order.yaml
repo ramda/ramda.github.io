@@ -1,9 +1,9 @@
-  title: Apply a list of functions in a specific order into a list of values
-  name: Functions in order
-  description:  
-  source: |
-        let R = require('ramda');
+title: Apply a list of functions in a specific order into a list of values
+name: Functions in order
+description:  
+source: |
+      let R = require('ramda');
 
-        const {red, green, blue} = require('chalk');
-        const disco = R.pipe(R.zipWith(R.call, [ red, green, blue ]), R.join(' '));
-        console.log(disco([ 'foo', 'bar', 'xyz' ]));
+      const {red, green, blue} = require('chalk');
+      const disco = R.pipe(R.zipWith(R.call, [ red, green, blue ]), R.join(' '));
+      console.log(disco([ 'foo', 'bar', 'xyz' ]));
