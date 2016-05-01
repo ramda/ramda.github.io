@@ -1,4 +1,5 @@
   title: Create an incrementing or decrementing range of numbers with a step
+  name: Increment with step
   description: 
   source: |
         let R = require('ramda');
@@ -8,8 +9,8 @@
           R.range(0, (1 + (stop - start) / step) >>> 0)
         );
         
-        rangeStep(1, 1, 4);   // [1, 2, 3, 4]
-        rangeStep(2, 2, 8);   // [2, 4, 6, 8]
-        rangeStep(0, 3, 10);  // [0, 3, 6, 9]
-        rangeStep(3, -2, -3); // [3, 1, -1, -3]
+        console.log(rangeStep(1, 1, 4));   // [1, 2, 3, 4]
+        console.log(rangeStep(2, 2, 8));   // [2, 4, 6, 8]
+        console.log(rangeStep(0, 3, 10));  // [0, 3, 6, 9]
+        console.log(rangeStep(3, -2, -3)); // [3, 1, -1, -3]
         

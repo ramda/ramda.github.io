@@ -1,4 +1,5 @@
   title: Get Object Size
+  name: Object Size
   description: 
   source: |
         let R = require('ramda');
@@ -10,19 +11,19 @@
           R.when(R.is(Number), R.toString),
           R.ifElse(R.isNil, R.always(0), R.length)
         ));
-        objSize(); // 0
-        objSize(undefined); // 0
-        objSize(null); // 0
-        objSize(false); // 0
-        objSize(true); // 1
-        objSize(''); // 0
-        objSize('foo'); // 3
-        objSize(0); // 1
-        objSize(13); // 2
-        objSize(101); // 3
-        objSize(0.01); // 4
-        objSize({}); // 0
-        objSize({foo:undefined, bar:undefined}); // 2
-        objSize([]); // 0
-        objSize([undefined, undefined]); // 2
+        console.log(objSize()); // 0
+        console.log(objSize(undefined)); // 0
+        console.log(objSize(null)); // 0
+        console.log(objSize(false)); // 0
+        console.log(objSize(true)); // 1
+        console.log(objSize('')); // 0
+        console.log(objSize('foo')); // 3
+        console.log(objSize(0)); // 1
+        console.log(objSize(13)); // 2
+        console.log(objSize(101)); // 3
+        console.log(objSize(0.01)); // 4
+        console.log(objSize({})); // 0
+        console.log(objSize({foo:undefined, bar:undefined})); // 2
+        console.log(objSize([])); // 0
+        console.log(objSize([undefined, undefined])); // 2
         

@@ -1,4 +1,5 @@
   title: Get object by id
+  name: Get object by id
   description: 
   source: |
         let R = require('ramda');

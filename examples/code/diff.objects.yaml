@@ -1,30 +1,31 @@
   title: diffing objects
+  name: Diff Objects
   description: |
               similar to Guava's Maps.Difference.
               See http://docs.guava-libraries.googlecode.com/git/javadoc/com/google/common/collect/Maps.html#difference%28java.util.Map,%20java.util.Map%29              
   source: |
         let R = require('ramda');
 
-        var groupObjBy = curry(pipe(
+        var groupObjBy = R.curry(R.pipe(
           // Call groupBy with the object as pairs, passing only the value to the key function
-          useWith(groupBy, [useWith(__, [last]), toPairs]),
-          map(fromPairs)
+          R.useWith(R.groupBy, [R.useWith(__, [R.last]), R.toPairs]),
+          R.map(R.fromPairs)
         ))
         
-        var diffObjs = pipe(
-          useWith(mergeWith(merge), [map(objOf("leftValue")), map(objOf("rightValue"))]),
-          groupObjBy(cond([
+        var diffObjs = R.pipe(
+          R.useWith(R.mergeWith(R.merge), [R.map(R.objOf("leftValue")), R.map(R.objOf("rightValue"))]),
+          R.groupObjBy(R.cond([
             [
-              both(has("leftValue"), has("rightValue")),
-              pipe(values, ifElse(apply(equals), always("common"), always("difference")))
+              R.both(R.has("leftValue"), R.has("rightValue")),
+              R.pipe(R.values, R.ifElse(R.apply(equals), R.always("common"), R.always("difference")))
             ],
-            [has("leftValue"), always("onlyOnLeft")],
-            [has("rightValue"), always("onlyOnRight")],
+            [R.has("leftValue"), R.always("onlyOnLeft")],
+            [R.has("rightValue"), R.always("onlyOnRight")],
           ])),
-          evolve({
-            common: map(prop("leftValue")),
-            onlyOnLeft: map(prop("leftValue")),
-            onlyOnRight: map(prop("rightValue"))
+          R.evolve({
+            common: R.map(R.prop("leftValue")),
+            onlyOnLeft: R.map(R.prop("leftValue")),
+            onlyOnRight: R.map(R.prop("rightValue"))
           })
         );
         

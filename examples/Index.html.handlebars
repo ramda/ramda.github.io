@@ -29,9 +29,9 @@
     </div>
   </header>
   <aside class="sidebar no-filter container-fluid">
-        <ul class="nav nav-pills nav-stacked">
+        <ul class="nav nav-pills nav-stacked toc">
             {{#each files}}
-            <li class='text-capitalize' data-file="code/{{@key}}.json">{{title}}</li> 
+            <li class='text-capitalize' data-file="code/{{@key}}.json">{{name}}</li> 
             {{/each}}
         </ul>
     </aside>
@@ -51,6 +51,8 @@
             
             $('li').on('click', function(e){
                 let filename = $(e.currentTarget).data('file');
+                $('li').removeClass('active');
+                $(e.currentTarget).addClass('active');
                 
                 $.ajax({
                     url: filename,

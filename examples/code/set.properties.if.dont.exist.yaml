@@ -1,4 +1,5 @@
   title: Set properties only if they don't exist
+  name: Set non-existent properties
   description: "Useful for passing defaults, similar to lodash's _.defaults."
   source: |
         let R = require('ramda');

@@ -1,4 +1,5 @@
   title: Map Keys To Objects
+  name: Map keys to objects
   description: This is a description
   source: |
         let R = require('ramda');

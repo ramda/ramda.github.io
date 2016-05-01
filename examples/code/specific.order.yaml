@@ -1,4 +1,5 @@
   title: Apply a list of functions in a specific order into a list of values
+  name: Functions in order
   description:  
   source: |
         let R = require('ramda');

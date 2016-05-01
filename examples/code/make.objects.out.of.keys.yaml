@@ -1,7 +1,9 @@
   title: "Make an object out of keys, with values derived from them"
+  name: Make object from keys
   description: 
   source: |
         let R = require('ramda');
+        let fs = require('fs');
 
         //    objFromKeys :: (String -> a) -> [String] -> {String: a}
         const objFromKeys = R.curry((fn, keys) =>

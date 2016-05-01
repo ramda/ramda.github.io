@@ -1,1 +1,1 @@
-{"title":"Get object by id","description":null,"source":"let R = require('ramda');\n\n//    findById :: String -> Array -> Object\nconst findById = R.converge(\n  R.find,\n  [R.pipe(R.nthArg(0), R.propEq(\"id\")), R.nthArg(1)]\n);\n"}
+{"title":"Get object by id","name":"Get object by id","description":null,"source":"let R = require('ramda');\n\n//    findById :: String -> Array -> Object\nconst findById = R.converge(\n  R.find,\n  [R.pipe(R.nthArg(0), R.propEq(\"id\")), R.nthArg(1)]\n);\n"}

@@ -1,4 +1,5 @@
   title: Map over the value at the end of a path
+  name: Map val at end of path
   description: 
   source: |
         let R = require('ramda');

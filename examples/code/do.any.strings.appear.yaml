@@ -1,4 +1,5 @@
   title: Do any of these strings appear in another list?
+  name: Any Duplicate Strings
   description: 
   source: |
         let R = require('ramda');
