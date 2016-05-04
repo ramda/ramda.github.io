@@ -1,0 +1,12 @@
+title: Get object by id
+name: Get object by id
+description: 
+source: |
+      let R = require('ramda');
+
+      //    findById :: String -> Array -> Object
+      const findById = R.converge(
+        R.find,
+        [R.pipe(R.nthArg(0), R.propEq("id")), R.nthArg(1)]
+      );
+      

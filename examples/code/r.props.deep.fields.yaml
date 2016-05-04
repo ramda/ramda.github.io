@@ -1,0 +1,14 @@
+title: Derivative of R.props for deep fields
+name: R.props for deep fields
+description:  
+source: |
+      let R = require('ramda');
+
+      var dotPath = R.useWith(R.path, R.split('.'));
+      var propsDotPath = R.useWith(R.ap, R.map(dotPath), R.of);
+      var obj = {
+          a: { b: { c: 1 } },
+          x: 2
+      };
+
+      propsDotPath(['a.b.c', 'x'], obj);

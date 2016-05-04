@@ -1,0 +1,30 @@
+title: diffing objects
+name: Diff Objects
+description: similar to <a href="http://docs.guava-libraries.googlecode.com/git/javadoc/com/google/common/collect/Maps.html#difference%28java.util.Map,%20java.util.Map%29">Guava's Maps Difference</a>              
+source: |
+      let R = require('ramda');
+
+      var groupObjBy = R.curry(R.pipe(
+        // Call groupBy with the object as pairs, passing only the value to the key function
+        R.useWith(R.groupBy, [R.useWith(__, [R.last]), R.toPairs]),
+        R.map(R.fromPairs)
+      ))
+      
+      var diffObjs = R.pipe(
+        R.useWith(R.mergeWith(R.merge), [R.map(R.objOf("leftValue")), R.map(R.objOf("rightValue"))]),
+        R.groupObjBy(R.cond([
+          [
+            R.both(R.has("leftValue"), R.has("rightValue")),
+            R.pipe(R.values, R.ifElse(R.apply(equals), R.always("common"), R.always("difference")))
+          ],
+          [R.has("leftValue"), R.always("onlyOnLeft")],
+          [R.has("rightValue"), R.always("onlyOnRight")],
+        ])),
+        R.evolve({
+          common: R.map(R.prop("leftValue")),
+          onlyOnLeft: R.map(R.prop("leftValue")),
+          onlyOnRight: R.map(R.prop("rightValue"))
+        })
+      );
+      
+      diffObjs({a: 1, c: 5, d: 4 }, {a: 1, b: 2, d: 7});

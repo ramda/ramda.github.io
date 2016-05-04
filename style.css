@@ -6741,6 +6741,9 @@ header {
     display: none;
   }
 }
+.padded {
+  padding: 5px;
+}
 /**
  * Home
  */
@@ -6876,6 +6879,9 @@ html.docs-page #open-nav:checked ~ main {
   border-right: 1px solid #ccc;
   font-family: Menlo, Monaco, Consolas, "Courier New", monospace;
 }
+.sidebar.no-filter {
+  padding-top: 20px;
+}
 .sidebar .filter {
   width: 100%;
   margin: 15px 0;
@@ -6894,6 +6900,10 @@ html.docs-page #open-nav:checked ~ main {
 }
 .sidebar .toc li {
   margin: 0;
+}
+.sidebar .toc li.active {
+  background-color: #849;
+  color: white;
 }
 .sidebar .toc a {
   padding: 5px 15px;

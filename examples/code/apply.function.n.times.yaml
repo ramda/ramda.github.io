@@ -1,0 +1,15 @@
+title: Apply a given function N times
+name: Apply function N times
+description: 
+source: |
+      let R = require('ramda');
+
+      // applyN :: (a -> a) -> Number -> (a -> a)
+      const applyN = R.compose(R.reduceRight(R.compose, R.identity), R.repeat);
+      
+      applyN(x => x * x, 4)(2); //=> 65536 (2 -> 4 -> 16 -> 256 -> 65536)
+      
+      const isOdd = n => n % 2 == 1;
+      const collatz = n => isOdd(n) ? (3 * n + 1) : (n / 2);
+      
+      applyN(collatz, 5)(27);

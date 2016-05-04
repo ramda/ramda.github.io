@@ -1,0 +1,1 @@
+{"title":"Create a list","name":"Create a list","description":"This snippet will create a new list with the specified values. Check out https://clojuredocs.org/clojure.core/list.","source":"let R = require('ramda');\n\n//  list :: a... -> [a...]\nvar list = R.unapply(R.identity);\nlist(1, 2, 3);\n"}

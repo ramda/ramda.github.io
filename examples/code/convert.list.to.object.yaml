@@ -1,0 +1,12 @@
+title: Convert a list of property-lists (with header) into a list of objects
+name: Convert List to Object
+description:               
+source: |
+      let R = require('ramda');
+
+      const tsv = [
+        ['name',  'age', 'drink'], 
+        ['john',   23,   'wine'], 
+        ['maggie', 45,   'water']
+      ];
+      R.compose(R.apply(R.lift(R.zipObj)), R.splitAt(1))(tsv);

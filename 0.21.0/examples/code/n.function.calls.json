@@ -1,0 +1,1 @@
+{"title":"Get n function calls as a list","name":"Get n function calls","description":null,"source":"let R = require('ramda');\n\nR.map(R.call, R.repeat(Math.random, 5));\n"}

@@ -1,0 +1,59 @@
+title: Use ramda-fantasy Future to wrap AJAX
+name: ramda-fantasy wrap AJAX
+description:  
+source: |
+      var Future = require('ramda-fantasy').Future;
+      // Wrap ajax in a future
+      //  fetch :: String -> Future String
+      var fetch = function(url) {
+        return new Future(function(rej, res) {
+          var oReq = new XMLHttpRequest();
+          oReq.addEventListener('load', res, false);
+          oReq.addEventListener('error', rej, false);
+          oReq.addEventListener('abort', rej, false);
+          oReq.open('get', url, true);
+          oReq.send();
+        });
+      };
+      
+      // Could use Either instead of Future but they work about the same.
+      //  parseJSON :: String -> Future Object
+      var parseJSON = function(str) {
+        return new Future(function(rej, res) {
+          try {
+            res(JSON.parse(str));
+          } catch (err) {
+            rej({ error: 'json parse error' });
+          }
+        });
+      };
+      
+      // We have
+      // String -> Future String
+      // And
+      // String -> Future Object
+      // So we can .chain() them together
+      var fetchJSON = fetch.chain(parseJSON);
+      
+      // Get the items out of it?
+      //  fetchItems :: Future Object -> Future []
+      var fetchItems = fetchJSON.map(R.prop('items'));
+      
+      // BTW at this point in the code the request still hasn't been sent
+      
+      // Filter the response?
+      // Have to map first to get at the contents of the future then filter
+      //  fetchNewItems :: Future [Object] -> Future [Object]
+      var fetchNewItems = fetchItems.map(R.filter(R.prop('new')));
+      
+      // Just get the titles of the items
+      //  getNewTitles :: Future [Object] -> Future [String]
+      var getNewTitles = fetchNewItems.map(R.map('title'));
+      
+      // Finally do something
+      getNewTitles('/products.json').fork(console.error, console.log);
+      // Now the AJAX req is sent and will log success or failure to console.
+      
+      // Bonus: Make one ajax request dependent on another
+      fetchDependent = fetchJSON.map(R.prop('url')).chain(fetch);
+      fetchDependent('urls.json').fork(console.error, console.log);

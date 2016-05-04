@@ -1,16 +1,19 @@
 GITBOOK = node_modules/.bin/gitbook
 JSDOC = node_modules/.bin/jsdoc
 LESS = node_modules/.bin/lessc
+YAML = node_modules/.bin/yaml2json
 
 JSDOC_FILES := $(shell find jsdoc -type f | sort)
 LESS_FILES := $(shell find less -name '*.less' | sort)
-
+EXAMPLE_FILES := $(shell find examples -name '*.json' | sort)
+YAML_FILES := $(shell find examples -name '*.yaml' | sort)
 
 .PHONY: all
 all: \
 	check-version \
 	$(VERSION)/tmp/README.md \
 	$(VERSION)/tmp/package.json \
+	yaml \
 	$(VERSION)/docs/dist/ramda.js \
 	$(VERSION)/docs/index.html \
 	$(VERSION)/docs/main.js \
@@ -21,12 +24,20 @@ all: \
 	$(VERSION)/fonts/glyphicons-halflings-regular.woff \
 	$(VERSION)/fonts/glyphicons-halflings-regular.woff2 \
 	$(VERSION)/style.css \
+	$(VERSION)/examples/index.html \
 	gitbook \
 	docs/dist/ramda.js \
 	docs/index.html \
 	docs/main.js \
 	index.html \
 	style.css \
+	examples/index.html \
+	
+.PHONY: clean
+clean: $(VERSION)/clean
+	
+$(VERSION)/clean:
+	rm -r $(VERSION)/*
 
 $(VERSION)/tmp/%:
 	mkdir -p '$(@D)'
@@ -36,7 +47,7 @@ $(VERSION)/docs/dist/ramda.js:
 	mkdir -p '$(@D)'
 	curl --silent 'https://raw.githubusercontent.com/ramda/ramda/v$(VERSION)/dist/ramda.js' >'$@'
 
-$(VERSION)/docs/index.html $(VERSION)/index.html: $(JSDOC_FILES)
+$(VERSION)/docs/index.html $(VERSION)/index.html $(VERSION)/examples/index.html: $(JSDOC_FILES)
 	VERSION='$(VERSION)' $(JSDOC) \
 	  --destination '$(VERSION)' \
 	  --template '$(<D)' \
@@ -57,6 +68,16 @@ $(VERSION)/style.css: $(LESS_FILES)
 docs/%: $(VERSION)/docs/%
 	mkdir -p '$(@D)'
 	cp '$<' '$@'
+
+examples/%: $(VERSION)/examples/%
+	mkdir -p '$(<D)'
+	cp -R '$@' '$<'	
+
+yaml: $(YAML_FILES)
+	mkdir -p $(VERSION)/examples/code
+	-@for file in $(YAML_FILES); do \
+			$(YAML) $$file > $(VERSION)/$${file%yaml}json; \
+    done
 
 .PHONY: index.html
 index.html: check-version

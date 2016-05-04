@@ -1,0 +1,1 @@
+{"title":"Get an object's method names","name":"Get method names","description":null,"source":"let R = require('ramda');\n\n//  methodNames :: Object -> [String]\nvar methodNames = R.compose(R.keys, R.pickBy(R.is(Function)));\n\nvar obj = {\n  foo: true,\n  bar: function() {},\n  baz: function() {},\n};\n\nmethodNames(obj);\n"}
