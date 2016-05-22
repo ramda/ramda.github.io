@@ -12,4 +12,12 @@ $ VERSION=X.Y.Z make
 
 	npm run server
 
-Then visit [localhost:8080](http://localhost:8080/) to view the docs.
+Once this is running, visit [localhost:8080](http://localhost:8080/) to view the docs.
+In the event that `:8080` is in use, you can change the port like so:
+
+	npm run server -- -p 8081
+
+For more details on configuring the server, see [http-server (0.8.x)][http-server].
+
+[http-server]: https://github.com/indexzero/http-server/tree/0.8.5#available-options
+
