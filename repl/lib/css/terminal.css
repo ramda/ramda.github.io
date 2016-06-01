@@ -1,30 +1,22 @@
-.CodeMirror {
-    height: 500px;
-}
-
 .CodeMirror-hscrollbar {
     display: none !important;
+}
+
+.CodeMirror {
+    height: 100%;
 }
 
 .right .github-fork-ribbon {
     background-color: #29357F;
 }
 
-
-.output, .clear-console {
-    float:left;
-}
 .clear-console  {
     margin-left: 12px;
 }
+
 .top-nav {
     background: #6F377D;
     height:15px;
-}
-
-.col-md-6:last-of-type {
-    border-left: 1px solid #999;
-    min-height: 42em;
 }
 
 .page-header {
@@ -48,11 +40,17 @@
     color:#fff;
 }
 
+.panel-title {
+    display: inline-block;
+}
+
+.panel-body {
+    padding: 0;
+}
+
 .panel {
     background-color: #282a36;
 }
-
-
 
 .eval, .source-map, .console-log {
     background-color: #282a36;
@@ -63,7 +61,6 @@
 .console-log {
     color:#888;
 }
-
 
 .error {
     background: #282a36;
