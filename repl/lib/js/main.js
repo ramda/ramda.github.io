@@ -1,14 +1,14 @@
-const R = ramda;
-const S = sanctuary;
-const Either = ramdaFantasy.Either;
-const Future = ramdaFantasy.Future;
-const Identity = ramdaFantasy.Identity;
-const IO = ramdaFantasy.IO;
-const lift2 = ramdaFantasy.lift2;
-const lift3 = ramdaFantasy.lift3;
-const Maybe = ramdaFantasy.Maybe;
-const Tuple = ramdaFantasy.Tuple;
-const Reader = ramdaFantasy.Reader;
+global.R = ramda;
+global.S = sanctuary;
+global.Either = ramdaFantasy.Either;
+global.Future = ramdaFantasy.Future;
+global.Identity = ramdaFantasy.Identity;
+global.IO = ramdaFantasy.IO;
+global.lift2 = ramdaFantasy.lift2;
+global.lift3 = ramdaFantasy.lift3;
+global.Maybe = ramdaFantasy.Maybe;
+global.Tuple = ramdaFantasy.Tuple;
+global.Reader = ramdaFantasy.Reader;
 
 const _window = {}
 R.forEach(x => _window[x] = window[x], R.keys(R).filter(k => k in window))

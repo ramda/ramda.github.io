@@ -23,7 +23,7 @@
     "url": "git://github.com/ramda/ramda.github.io.git"
   },
   "scripts": {
-    "build": "browserify -t babelify ./lib/js/repl.js -o ./lib/js/bundle.js",
+    "build": "browserify ./lib/js/main.js -t babelify ./lib/js/repl.js -o ./lib/js/bundle.js",
     "build-examples": "babel-node create-examples.js && npm run build"
   }
 }
