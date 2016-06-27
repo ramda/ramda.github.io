@@ -4,6 +4,23 @@ html, body {
     margin: 0;
     padding-top: 30px;
     padding-bottom: 30px;
+    background-color: #282a36;
+    height: 100%;
+}
+
+pre {
+    padding: 0;
+    padding-left: 20px;
+}
+
+#midline {
+    position: fixed;
+    left: 50%;
+    top: 0;
+    bottom: 0;
+    width: 1px;
+    z-index: 1;
+    background-color: gray;
 }
 
 .output-wrapper {
@@ -14,9 +31,6 @@ html, body {
 
 html.hide-output .output-wrapper {
     display: none;
-}
-
-html.hide-output .CodeMirror {
 }
 
 .eval, .source-map {
@@ -55,6 +69,8 @@ body.dark, body.dark h1 {
     color: #ffffff;
 }
 .urltext {
+    background-color: #282a36;
+    color: white;
     border: none;
     font-size: 15px;
     vertical-align: middle;
