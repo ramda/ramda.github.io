@@ -16,9 +16,11 @@
     "http-server": "0.8.x",
     "jsdoc": "3.3.x",
     "less": "2.5.x",
-    "marked": "0.3.x"
+    "marked": "0.3.x",
+    "request": "2.69.x"
   },
   "scripts": {
+    "download": "node download.js",
     "jsdoc": "jsdoc --destination ./docs --template . ./docs/dist/ramda.js",
     "server": "http-server"
   }
