@@ -16,7 +16,8 @@
     "http-server": "0.8.x",
     "jsdoc": "3.3.x",
     "less": "2.5.x",
-    "marked": "0.3.x"
+    "marked": "0.3.x",
+    "ramda": "0.21.0"
   },
   "scripts": {
     "jsdoc": "jsdoc --destination ./docs --template . ./docs/dist/ramda.js",
