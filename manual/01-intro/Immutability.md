@@ -136,7 +136,7 @@ the same case without introducing such continual mutation:
 R.reduce((accum, state) => notSmall(state) ? 
                            R.assoc(state.symbol, state.pop, accum) : 
                            accum,
-{}, states),  //=> {"CT": 3574097, "MA": 6547629}
+{}, states);  //=> {"CT": 3574097, "MA": 6547629}
 ```
 
 And, unless it caused performance concerns, many Ramda users would
@@ -146,9 +146,8 @@ transformations:
 ```js
 R.pipe(
     R.filter(notSmall), 
-    R.props(['symbol', 'pop']),
-    R.fromPairs
-)(states) //=> {"CT": 3574097, "MA": 6547629}
+    R.map(R.props(['symbol', 'pop'])),
+    R.fromPairs)(states) //=> {"CT": 3574097, "MA": 6547629}
 ```
 
 In the section on [Transducers][tr] we'll examine how to make such
