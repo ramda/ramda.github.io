@@ -1,0 +1,1158 @@
+<!DOCTYPE HTML>
+<html lang="en" >
+    
+    <head>
+        
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <title>Immutability of user data | Ramda</title>
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 2.6.7">
+        
+        
+        <meta name="HandheldFriendly" content="true"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+        <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+        <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+        
+    <link rel="stylesheet" href="../gitbook/style.css">
+    
+        
+        <link rel="stylesheet" href="../gitbook/plugins/gitbook-plugin-highlight/website.css">
+        
+    
+        
+        <link rel="stylesheet" href="../gitbook/plugins/gitbook-plugin-search/search.css">
+        
+    
+        
+        <link rel="stylesheet" href="../gitbook/plugins/gitbook-plugin-fontsettings/website.css">
+        
+    
+    
+
+        
+    
+    
+    <link rel="next" href="../01-intro/Composition.html" />
+    
+    
+    <link rel="prev" href="../01-intro/SmallFunctions.html" />
+    
+
+        
+    </head>
+    <body>
+        
+        
+    <div class="book"
+        data-level="1.2"
+        data-chapter-title="Immutability of user data"
+        data-filepath="01-intro/Immutability.md"
+        data-basepath=".."
+       
+        data-innerlanguage="">
+    
+
+<div class="book-summary">
+    <nav role="navigation">
+        <ul class="summary">
+            
+            
+            
+            
+
+            
+
+            
+    
+        <li class="chapter " data-level="0" data-path="index.html">
+            
+                
+                    <a href="../index.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                        Introduction
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1" data-path="01-intro/index.html">
+            
+                
+                    <a href="../01-intro/index.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.</b>
+                        
+                        Core features in Ramda
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.1" data-path="01-intro/SmallFunctions.html">
+            
+                
+                    <a href="../01-intro/SmallFunctions.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.1.</b>
+                        
+                        Small functions on common structures
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.2" data-path="01-intro/Immutability.html">
+            
+                
+                    <a href="../01-intro/Immutability.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.2.</b>
+                        
+                        Immutability of user data
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="01-intro/ReferentialIntegrity.html">
+            
+            <span><b>1.3.</b> Referential Integrity</span>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="01-intro/Composition.html">
+            
+                
+                    <a href="../01-intro/Composition.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.4.</b>
+                        
+                        Composing functions
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="01-intro/Currying.html">
+            
+                
+                    <a href="../01-intro/Currying.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.5.</b>
+                        
+                        Currying everywhere
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="01-intro/Dispatching.html">
+            
+                
+                    <a href="../01-intro/Dispatching.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.6.</b>
+                        
+                        Dispatching
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2" data-path="02-functions/index.html">
+            
+                
+                    <a href="../02-functions/index.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.</b>
+                        
+                        Working with functions
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.1" data-path="02-functions/Currying.html">
+            
+                
+                    <a href="../02-functions/Currying.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.1.</b>
+                        
+                        Currying
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2" data-path="02-functions/Combining.html">
+            
+                
+                    <a href="../02-functions/Combining.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.2.</b>
+                        
+                        Combining functions
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3" data-path="02-functions/Changing.html">
+            
+                
+                    <a href="../02-functions/Changing.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.3.</b>
+                        
+                        Changing signatures
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.4" data-path="02-functions/Calling.html">
+            
+                
+                    <a href="../02-functions/Calling.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.4.</b>
+                        
+                        Calling functions
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.5" data-path="02-functions/Enhancing.html">
+            
+                
+                    <a href="../02-functions/Enhancing.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.5.</b>
+                        
+                        Adding additional functionality
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="3" data-path="03-lists/index.html">
+            
+                
+                    <a href="../03-lists/index.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.</b>
+                        
+                        Working with lists
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.1" data-path="03-lists/WhatIsAList.html">
+            
+                
+                    <a href="../03-lists/WhatIsAList.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.1.</b>
+                        
+                        What is a list?
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2" data-path="03-lists/Arrays.html">
+            
+                
+                    <a href="../03-lists/Arrays.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.2.</b>
+                        
+                        Arrays as lists
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3.3" data-path="03-lists/Strings.html">
+            
+                
+                    <a href="../03-lists/Strings.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.3.</b>
+                        
+                        Strings as (almost) lists
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3.4" data-path="03-lists/Building.html">
+            
+                
+                    <a href="../03-lists/Building.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.4.</b>
+                        
+                        Building lists
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3.5" data-path="03-lists/SlicingAndDicing.html">
+            
+                
+                    <a href="../03-lists/SlicingAndDicing.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.5.</b>
+                        
+                        Slicing and dicing lists
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3.6" data-path="03-lists/Tweaking.html">
+            
+                
+                    <a href="../03-lists/Tweaking.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.6.</b>
+                        
+                        Tweaking lists
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3.7" data-path="03-lists/Transforming.html">
+            
+                
+                    <a href="../03-lists/Transforming.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.7.</b>
+                        
+                        List to list transformations
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3.8" data-path="03-lists/Reducing.html">
+            
+                
+                    <a href="../03-lists/Reducing.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.8.</b>
+                        
+                        Transforming lists to values
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="4" data-path="04-objects/index.html">
+            
+                
+                    <a href="../04-objects/index.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.</b>
+                        
+                        Working with objects
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.1" data-path="04-objects/Creating.html">
+            
+                
+                    <a href="../04-objects/Creating.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.1.</b>
+                        
+                        Creating objects
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="4.2" data-path="04-objects/Retrieving.html">
+            
+                
+                    <a href="../04-objects/Retrieving.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.2.</b>
+                        
+                        Retrieving object properties
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="4.3" data-path="04-objects/Testing.html">
+            
+                
+                    <a href="../04-objects/Testing.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.3.</b>
+                        
+                        Testing object properties
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="4.4" data-path="04-objects/AlteringProps.html">
+            
+                
+                    <a href="../04-objects/AlteringProps.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.4.</b>
+                        
+                        Altering object properties
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="4.5" data-path="04-objects/Transforming.html">
+            
+                
+                    <a href="../04-objects/Transforming.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.5.</b>
+                        
+                        Transforming objects
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="5" data-path="05-strings/index.html">
+            
+                
+                    <a href="../05-strings/index.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.</b>
+                        
+                        Working with strings
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="6" data-path="06-numbers/index.html">
+            
+                
+                    <a href="../06-numbers/index.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>6.</b>
+                        
+                        Working with numbers
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="6.1" data-path="06-numbers/OpsAndPlaceholder.html">
+            
+                
+                    <a href="../06-numbers/OpsAndPlaceholder.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>6.1.</b>
+                        
+                        Operators and the placeholder
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="6.2" data-path="06-numbers/Unary.html">
+            
+                
+                    <a href="../06-numbers/Unary.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>6.2.</b>
+                        
+                        Unary Functions
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="6.3" data-path="06-numbers/Binary.html">
+            
+                
+                    <a href="../06-numbers/Binary.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>6.3.</b>
+                        
+                        Binary Functions
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="6.4" data-path="06-numbers/Variadic.html">
+            
+                
+                    <a href="../06-numbers/Variadic.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>6.4.</b>
+                        
+                        Variadic Functions
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="7" data-path="07-logic/index.html">
+            
+                
+                    <a href="../07-logic/index.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>7.</b>
+                        
+                        Working with logic and flow
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="7.1" data-path="07-logic/CombiningValues.html">
+            
+                
+                    <a href="../07-logic/CombiningValues.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>7.1.</b>
+                        
+                        Combining values
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="7.2" data-path="07-logic/CombiningPredicates.html">
+            
+                
+                    <a href="../07-logic/CombiningPredicates.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>7.2.</b>
+                        
+                        Combining predicates
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="7.3" data-path="07-logic/ControlFlow.html">
+            
+                
+                    <a href="../07-logic/ControlFlow.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>7.3.</b>
+                        
+                        Control flow
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="8" data-path="08-misc/index.html">
+            
+                
+                    <a href="../08-misc/index.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.</b>
+                        
+                        Miscellaneous other functions
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="9" data-path="09-advanced/index.html">
+            
+                
+                    <a href="../09-advanced/index.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>9.</b>
+                        
+                        Advanced constructs in Ramda
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="9.1" data-path="09-advanced/Algebra.html">
+            
+                
+                    <a href="../09-advanced/Algebra.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>9.1.</b>
+                        
+                        The fantasy land of algebraic data types
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="9.2" data-path="09-advanced/Transducers.html">
+            
+                
+                    <a href="../09-advanced/Transducers.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>9.2.</b>
+                        
+                        Transducers
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="9.3" data-path="09-advanced/Lenses.html">
+            
+                
+                    <a href="../09-advanced/Lenses.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>9.3.</b>
+                        
+                        Lenses
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="10" data-path="10-others/index.html">
+            
+                
+                    <a href="../10-others/index.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>10.</b>
+                        
+                        Working with other libraries
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="10.1" data-path="10-others/uncommon/index.html">
+            
+                
+                    <a href="../10-others/uncommon/index.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>10.1.</b>
+                        
+                        Uncommon features in Ramda
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="10.1.1" data-path="10-others/uncommon/ParameterOrder.html">
+            
+                
+                    <a href="../10-others/uncommon/ParameterOrder.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>10.1.1.</b>
+                        
+                        Parameter Order
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="10.1.2" data-path="10-others/uncommon/NoIndex.html">
+            
+                
+                    <a href="../10-others/uncommon/NoIndex.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>10.1.2.</b>
+                        
+                        No index in callbacks
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="10.1.3" data-path="10-others/uncommon/NoMutation.html">
+            
+                
+                    <a href="../10-others/uncommon/NoMutation.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>10.1.3.</b>
+                        
+                        Mutation-free
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="10.2" data-path="10-others/Sanctuary.html">
+            
+                
+                    <a href="../10-others/Sanctuary.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>10.2.</b>
+                        
+                        Sanctuary
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="10.3" data-path="10-others/Immutable.html">
+            
+                
+                    <a href="../10-others/Immutable.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>10.3.</b>
+                        
+                        Immutable, mori
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="10.4" data-path="10-others/Lazy.html">
+            
+                
+                    <a href="../10-others/Lazy.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>10.4.</b>
+                        
+                        Lazy, lz, Highland
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="10.5" data-path="10-others/Bacon.html">
+            
+                
+                    <a href="../10-others/Bacon.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>10.5.</b>
+                        
+                        Bacon, RxJs, Flyd
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="10.6" data-path="10-others/Underscore.html">
+            
+                
+                    <a href="../10-others/Underscore.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>10.6.</b>
+                        
+                        Underscore, lodash
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="10.7" data-path="10-others/Trine.html">
+            
+                
+                    <a href="../10-others/Trine.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>10.7.</b>
+                        
+                        Trine
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="10.8" data-path="10-others/Allonge.html">
+            
+                
+                    <a href="../10-others/Allonge.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>10.8.</b>
+                        
+                        allong.es, Wu, FKit, fn
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+
+            
+            <li class="divider"></li>
+            <li>
+                <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+                    Published with GitBook
+                </a>
+            </li>
+            
+        </ul>
+    </nav>
+</div>
+
+    <div class="book-body">
+        <div class="body-inner">
+            <div class="book-header" role="navigation">
+    <!-- Actions Left -->
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="../" >Ramda</a>
+    </h1>
+</div>
+
+            <div class="page-wrapper" tabindex="-1" role="main">
+                <div class="page-inner">
+                
+                
+                    <section class="normal" id="section-">
+                    
+                        <h1 id="immutability">Immutability</h1>
+<p>Often in Javascript we pair field accessors and field mutators for our
+data structures.  We might see</p>
+<pre><code class="lang-js">person.setName(<span class="hljs-string">&apos;Fred&apos;</span>);
+person.getName(); <span class="hljs-comment">//=&gt; &quot;Fred&quot;</span>
+</code></pre>
+<p>This is done in many different ways.  Of course fields themselves are
+most commonly both readable and writable:</p>
+<pre><code class="lang-js">person.name = <span class="hljs-string">&apos;Fred&apos;</span>;
+person.name; <span class="hljs-comment">//=&gt; &quot;Fred&quot;</span>
+</code></pre>
+<p>And there are more convoluted means involving <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/defineProperty" target="_blank"><code>Object.defineProperty</code></a>.
+In each of these techniques, there is a straightforward pairing.  Those
+things you can <em>read</em> from an object, you can also <em>write</em> to it.</p>
+<p>In functional programming, such mutable state is considered extremely
+dangerous, making programs hard to reason about, difficult to debug,
+and almost impossible to grow correctly into large, consistent systems.</p>
+<p>Ramda helps avoid this by refusing to ever mutate input data.  We have
+equivalents of the accessors above:</p>
+<pre><code class="lang-js"><span class="hljs-keyword">var</span> getName = R.prop(<span class="hljs-string">&apos;name&apos;</span>);
+getName(person); <span class="hljs-comment">//=&gt; &quot;Fred&quot;</span>
+<span class="hljs-comment">// or </span>
+R.prop(<span class="hljs-string">&apos;name&apos;</span>, person); <span class="hljs-comment">//=&gt; &quot;Fred&quot;</span>
+</code></pre>
+<p>But the closest equivalents we have to mutators are functions like 
+<a href="http://ramdajs.com/docs/#assoc" target="_blank"><code>assoc</code></a>.  And they&apos;re not all that close.  <code>assoc</code> creates a
+copy of your object with a new value associated with a field name:</p>
+<pre><code class="lang-js"><span class="hljs-keyword">var</span> barney = {name: <span class="hljs-string">&quot;Barney&quot;</span>, age: <span class="hljs-number">27</span>}
+<span class="hljs-keyword">var</span> fred = {name: <span class="hljs-string">&quot;Fred&quot;</span>, age: <span class="hljs-number">29</span>}
+barney.bestFriend = fred;
+fred.bestFriend = barney;
+
+<span class="hljs-keyword">var</span> fred2 = R.assoc(<span class="hljs-string">&apos;age&apos;</span>, <span class="hljs-number">30</span>, fred);
+
+fred2.age; <span class="hljs-comment">//=&gt; 30</span>
+fred.age; <span class="hljs-comment">//&gt; 29</span>
+fred2.bestFriend === barney; <span class="hljs-comment">//=&gt; true</span>
+</code></pre>
+<p>Note that <code>assoc</code> retuns a new object, but note also the last line; the
+returned structure shares as much of its internals with the original as
+possible.  This is not a deep clone of the original object.</p>
+<p>This is true across all of Ramda.  Nothing you pass to Ramda will be 
+altered.  If a function acts like a mutator, it instead creates a copy
+of the structure with the changes applied:</p>
+<p>For example, the native <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort" target="_blank"><code>sort</code></a> and <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/reverse" target="_blank"><code>reverse</code></a> methods on
+<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array" target="_blank"><code>Array.prototype</code></a> mutate the underlying object.  Ramda&apos;s
+equivalent <a href="http://ramdajs.com/docs/#reverse" target="_blank"><code>reverse</code></a> function just return new lists:</p>
+<pre><code class="lang-js"><span class="hljs-keyword">var</span> a1 = [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>];
+<span class="hljs-keyword">var</span> b1 = a1.reverse(); <span class="hljs-comment">//=&gt; [3, 2, 1]</span>
+a1; <span class="hljs-comment">//=&gt; [3, 2, 1]</span>
+
+<span class="hljs-keyword">var</span> a2 = [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>];
+<span class="hljs-keyword">var</span> b2 = R.reverse(a2); <span class="hljs-comment">//=&gt; [3, 2, 1]</span>
+a2; <span class="hljs-comment">//=&gt; [1, 2, 3]</span>
+</code></pre>
+<p>And there&apos;s similar behavior for Ramda&apos;s <a href="http://ramdajs.com/docs/#sort" target="_blank"><code>sort</code></a> function.</p>
+<p>We won&apos;t discuss in depth all the reasons that immutability is desirable.
+That&apos;s easily available <a href="https://www.google.com/search?q=Immutability+fp" target="_blank">on the web</a>.  But there are many important
+reasons having to do with how well anyone can understand our code, how
+well it stands up to parallelization, how many fewer ways in which it can
+actually fail.</p>
+<p>We also will not talk about how you might make more of our own data
+immutable (although in <a href="../10-others/Immutable.html">Chapter 10</a>, we do discuss how Ramda will
+integrate with some immutable data libraries but not others.)  But we do
+want to stress that <em>none</em> of Ramda&apos;s functions mutate user data.</p>
+<p>For those used to functional programming, we should point out that this 
+is not done through deeply recursive algorithms.  We have plenty of 
+internal mutation.  But at our function boundaries, everything can be 
+seen as immutable.</p>
+<p>The basic point is simple: Don&apos;t expect Ramda to mutate your data for
+you:</p>
+<pre><code class="lang-js"><span class="hljs-keyword">var</span> numbers = [<span class="hljs-number">8</span>, <span class="hljs-number">6</span>, <span class="hljs-number">7</span>, <span class="hljs-number">5</span>, <span class="hljs-number">3</span>, <span class="hljs-number">0</span>];
+<span class="hljs-keyword">var</span> jenny = R.append(<span class="hljs-number">9</span>, numbers);
+numbers; <span class="hljs-comment">//=&gt; [8, 6, 7, 5, 3, 0]</span>
+jenny; <span class="hljs-comment">//=&gt; [8, 6, 7, 5, 3, 0, 9]</span>
+</code></pre>
+<p>Ramda does not take any special pains to prevent you from mutating
+your own data when using its functions.  For intance you could build 
+up an output object by continually mutating the accumulator passed to
+<a href="http://ramdajs.com/docs/#reduce" target="_blank"><code>reduce</code></a>.  Ramda would not prevent you:</p>
+<pre><code class="lang-js"><span class="hljs-keyword">var</span> states = [
+    {symbol: <span class="hljs-string">&apos;CT&apos;</span>, name: <span class="hljs-string">&apos;Connecticut&apos;</span>, pop: <span class="hljs-number">3574097</span>},
+    {symbol: <span class="hljs-string">&apos;ME&apos;</span>, name: <span class="hljs-string">&apos;Maine&apos;</span>, pop: <span class="hljs-number">1328361</span>},
+    {symbol: <span class="hljs-string">&apos;MA&apos;</span>, name: <span class="hljs-string">&apos;Massachusetts&apos;</span>, pop: <span class="hljs-number">6547629</span>},
+    {symbol: <span class="hljs-string">&apos;NH&apos;</span>, name: <span class="hljs-string">&apos;New Hampshire&apos;</span>, pop: <span class="hljs-number">1316470</span>},
+    {symbol: <span class="hljs-string">&apos;RI&apos;</span>, name: <span class="hljs-string">&apos;Rhode Island&apos;</span>, pop: <span class="hljs-number">1052567</span>},
+    {symbol: <span class="hljs-string">&apos;VT&apos;</span>, name: <span class="hljs-string">&apos;Vermont&apos;</span>, pop: <span class="hljs-number">623741</span>},
+];
+
+<span class="hljs-keyword">var</span> notSmall = (state) =&gt; state.pop &gt;= <span class="hljs-number">2000000</span>;
+
+R.reduce((accum, state) =&gt; {
+    <span class="hljs-keyword">if</span> (notSmall(state)) {
+        accum[state.symbol] = state.pop;
+    }
+    <span class="hljs-keyword">return</span> accum;
+}, {}, states); <span class="hljs-comment">//=&gt; {&quot;CT&quot;: 3574097, &quot;MA&quot;: 6547629}</span>
+</code></pre>
+<p>Notice the continual mutation of the accumulator in this sample.  This
+is not in any way prohibited by Ramda.  But it is perhaps not the most
+idiomatic way to use Ramda.  The <code>assoc</code> we used earlier would cover 
+the same case without introducing such continual mutation:</p>
+<pre><code class="lang-js">R.reduce((accum, state) =&gt; notSmall(state) ? 
+                           R.assoc(state.symbol, state.pop, accum) : 
+                           accum,
+{}, states);  <span class="hljs-comment">//=&gt; {&quot;CT&quot;: 3574097, &quot;MA&quot;: 6547629}</span>
+</code></pre>
+<p>And, unless it caused performance concerns, many Ramda users would
+prefer to do this by piping the data through a few simpler 
+transformations:</p>
+<pre><code class="lang-js">R.pipe(
+    R.filter(notSmall), 
+    R.map(R.props([<span class="hljs-string">&apos;symbol&apos;</span>, <span class="hljs-string">&apos;pop&apos;</span>])),
+    R.fromPairs)(states) <span class="hljs-comment">//=&gt; {&quot;CT&quot;: 3574097, &quot;MA&quot;: 6547629}</span>
+</code></pre>
+<p>In the section on <a href="../09-advanced/Tranducers.md">Transducers</a> we&apos;ll examine how to make such
+multi-step transformations more efficient.  But for many users, for
+most cases, such code as listed above is ideal, as it&apos;s cleanly
+readable, involves no mutation, and is performant enough.</p>
+<p>Finally, in a later section, we&apos;ll look at <a href="../09-advanced/Lenses.html">Lenses</a>, a powerful
+tool that will allow you to abstract many common data access and
+pseudo-mutation functions provided by Ramda into a single framework.</p>
+
+                    
+                    </section>
+                
+                
+                </div>
+            </div>
+        </div>
+
+        
+        <a href="../01-intro/SmallFunctions.html" class="navigation navigation-prev " aria-label="Previous page: Small functions on common structures"><i class="fa fa-angle-left"></i></a>
+        
+        
+        <a href="../01-intro/Composition.html" class="navigation navigation-next " aria-label="Next page: Composing functions"><i class="fa fa-angle-right"></i></a>
+        
+    </div>
+</div>
+
+        
+<script src="../gitbook/app.js"></script>
+
+    
+    <script src="../gitbook/plugins/gitbook-plugin-search/lunr.min.js"></script>
+    
+
+    
+    <script src="../gitbook/plugins/gitbook-plugin-search/search.js"></script>
+    
+
+    
+    <script src="../gitbook/plugins/gitbook-plugin-sharing/buttons.js"></script>
+    
+
+    
+    <script src="../gitbook/plugins/gitbook-plugin-fontsettings/buttons.js"></script>
+    
+
+<script>
+require(["gitbook"], function(gitbook) {
+    var config = {"highlight":{},"search":{"maxIndexSize":1000000},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2}};
+    gitbook.start(config);
+});
+</script>
+
+        
+    </body>
+    
+</html>

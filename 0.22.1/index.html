@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html class="home-page">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Ramda Documentation</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+    <input type="checkbox" id="open-nav">
+    <header class="navbar navbar-fixed-top navbar-inverse container-fluid">
+        <div class="navbar-header">
+            <label class="open-nav" for="open-nav"></label>
+            <a class="navbar-brand" href="#">
+                <strong>Ramda</strong>
+                <span class="version">v0.22.1</span>
+            </a>
+        </div>
+        <div class="navbar-left">
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="#">Home</a></li>
+                <li><a href="docs">Documentation</a></li>
+                <li><a href="/repl?v=0.22.1">Try Ramda</a></li>
+                <li><a href="https://github.com/ramda/ramda">GitHub</a></li>
+            </ul>
+        </div>
+    </header>
+    <main class="container">
+        <article><h1 id="ramda">Ramda</h1>
+<p>A practical functional library for Javascript programmers.</p>
+<p><a href="https://travis-ci.org/ramda/ramda"><img src="https://travis-ci.org/ramda/ramda.svg?branch=master" alt="Build Status"></a>
+<a href="https://www.npmjs.org/package/ramda"><img src="https://badge.fury.io/js/ramda.svg" alt="npm module"></a>
+<a href="https://david-dm.org/ramda/ramda"><img src="https://david-dm.org/ramda/ramda.svg" alt="dependencies"></a>
+<a href="https://gitter.im/ramda/ramda?utm_source=badge&amp;utm_medium=badge&amp;utm_campaign=pr-badge&amp;utm_content=badge"><img src="https://badges.gitter.im/Join_Chat.svg" alt="Gitter"></a></p>
+<h2 id="why-ramda-">Why Ramda?</h2>
+<p><img src="http://ramda.jcphillipps.com/logo/ramdaFilled_200x235.png" 
+     width="170" height="190" align="right" hspace="12" /></p>
+<p>There are already several excellent libraries with a functional flavor. Typically, they are meant to be general-purpose toolkits, suitable for working in multiple paradigms. Ramda has a more focused goal. We wanted a library designed specifically for a functional programming style, one that makes it easy to create functional pipelines, one that never mutates user data. </p>
+<h2 id="what-s-different-">What&#39;s Different?</h2>
+<p>The primary distinguishing features of Ramda are:</p>
+<ul>
+<li><p>Ramda emphasizes a purer functional style. Immutability and side-effect free functions 
+are at the heart of its design philosophy. This can help you get the job done with simple, 
+elegant code.</p>
+</li>
+<li><p>Ramda functions are automatically curried. This allows you to easily build up new functions 
+from old ones simply by not supplying the final parameters.</p>
+</li>
+<li><p>The parameters to Ramda functions are arranged to make it convenient for currying. The data 
+to be operated on is generally supplied last.</p>
+</li>
+</ul>
+<p>The last two points together make it very easy to build functions as sequences of simpler functions, each of which transforms the data and passes it along to the next. Ramda is designed to support this style of coding.</p>
+<h2 id="introductions">Introductions</h2>
+<ul>
+<li><a href="http://buzzdecafe.github.io/code/2014/05/16/introducing-ramda">Introducing Ramda</a> by Buzz de Cafe</li>
+<li><a href="http://fr.umio.us/why-ramda/">Why Ramda?</a> by Scott Sauyet</li>
+<li><a href="http://fr.umio.us/favoring-curry/">Favoring Curry</a> by Scott Sauyet</li>
+<li><a href="https://hughfdjackson.com/javascript/why-curry-helps/">Why Curry Helps</a> by Hugh Jackson</li>
+<li><a href="https://www.youtube.com/watch?v=m3svKOdZijA&amp;app=desktop">Hey Underscore, You&#39;re Doing It Wrong!</a> by Brian Lonsdorf</li>
+<li><a href="http://randycoulman.com/blog/categories/thinking-in-ramda">Thinking in Ramda</a> by Randy Coulman</li>
+</ul>
+<h2 id="philosophy">Philosophy</h2>
+<p>Using Ramda should feel much like just using Javascript.
+It is practical, functional Javascript. We&#39;re not introducing
+lambda expressions in strings, we&#39;re not borrowing consed 
+lists, we&#39;re not porting over all of the Clojure functions.</p>
+<p>Our basic data structures are plain Javascript objects, and our
+usual collections are Javascript arrays. We also keep other
+native features of Javascript, such as functions as objects
+with properties.</p>
+<p>Functional programming is in good part about immutable objects and 
+side-effect free functions. While Ramda does not <em>enforce</em> this, it
+enables such style to be as frictionless as possible.</p>
+<p>We aim for an implementation both clean and elegant, but the API is king.
+We sacrifice a great deal of implementation elegance for even a slightly
+cleaner API.</p>
+<p>Last but not least, Ramda strives for performance. A reliable and quick
+implementation wins over any notions of functional purity.</p>
+<h2 id="installation">Installation</h2>
+<p>To use with node:</p>
+<pre><code class="lang-bash">$ npm install ramda
+</code></pre>
+<p>Then in the console:</p>
+<pre><code class="lang-javascript">var R = require(&#39;ramda&#39;);
+</code></pre>
+<p>To use directly in the browser:</p>
+<pre><code class="lang-html">&lt;script src=&quot;path/to/yourCopyOf/ramda.js&quot;&gt;&lt;/script&gt;
+</code></pre>
+<p>or the minified version:</p>
+<pre><code class="lang-html">&lt;script src=&quot;path/to/yourCopyOf/ramda.min.js&quot;&gt;&lt;/script&gt;
+</code></pre>
+<p>or from a CDN, either cdnjs:</p>
+<pre><code class="lang-html">&lt;script src=&quot;//cdnjs.cloudflare.com/ajax/libs/ramda/0.22.1/ramda.min.js&quot;&gt;&lt;/script&gt;
+</code></pre>
+<p>or one of the below links from <a href="http://jsdelivr.com">jsDelivr</a>:</p>
+<pre><code class="lang-html">&lt;script src=&quot;//cdn.jsdelivr.net/ramda/0.22.1/ramda.min.js&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;//cdn.jsdelivr.net/ramda/0.22/ramda.min.js&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;//cdn.jsdelivr.net/ramda/latest/ramda.min.js&quot;&gt;&lt;/script&gt;
+</code></pre>
+<p>(note that using <code>latest</code> is taking a significant risk that ramda API changes could break your code.)</p>
+<p>These script tags add the variable <code>R</code> on the browser&#39;s global scope.</p>
+<p>Or you can inject ramda into virtually any unsuspecting website using <a href="https://github.com/ramda/ramda/blob/master/BOOKMARKLET.md">the bookmarklet</a>.</p>
+<h3 id="build">Build</h3>
+<ul>
+<li>on Unix-based platforms, <code>npm run build</code> updates <strong>dist/ramda.js</strong> and <strong>dist/ramda.min.js</strong></li>
+<li>on Windows, write the output of <code>scripts/build --complete</code> to a temporary file, then rename the temporary file <strong>dist/ramda.js</strong>.</li>
+</ul>
+<h4 id="partial-builds">Partial Builds</h4>
+<p>It is possible to build Ramda with a subset of the functionality to reduce its file size. Ramda&#39;s build system supports this with command line flags. For example if you&#39;re using <code>R.compose</code>, <code>R.reduce</code>, and <code>R.filter</code> you can create a partial build with:</p>
+<pre><code>./scripts/build -- src/compose.js src/reduce.js src/filter.js &gt; dist/ramda.custom.js
+</code></pre><p>This requires having Node/io.js installed. </p>
+<h2 id="documentation">Documentation</h2>
+<p>Please review the <a href="http://ramdajs.com/docs/">API documentation</a>.</p>
+<h2 id="the-name">The Name</h2>
+<p>Ok, so we like sheep.  That&#39;s all.  It&#39;s a short name, not already 
+taken.  It could as easily have been <code>eweda</code>, but then we would be 
+forced to say <em>eweda lamb!</em>, and no one wants that.  For non-English 
+speakers, lambs are baby sheep, ewes are female sheep, and rams are male 
+sheep.  So perhaps ramda is a grown-up lambda... but probably not.</p>
+<h2 id="running-the-test-suite">Running The Test Suite</h2>
+<p><strong>Console:</strong></p>
+<p>To run the test suite from the console, you need to have <code>mocha</code> installed:</p>
+<pre><code>npm install -g mocha
+</code></pre><p>Then from the root of the project, you can just call</p>
+<pre><code>mocha
+</code></pre><p>Alternately, if you&#39;ve installed the dependencies, via:</p>
+<pre><code>npm install
+</code></pre><p>then you can run the tests (and get detailed output) by running:</p>
+<pre><code>npm test
+</code></pre><p><strong>Browser:</strong></p>
+<p>To run the test suite in the browser, you can simply open <code>test/index.html</code>.</p>
+<p>Alternatively, you can use <a href="https://github.com/airportyh/testem">testem</a> to
+test across different browsers (or even headlessly), with livereloading of
+tests too. Install testem (<code>npm install -g testem</code>) and run <code>testem</code>. Open the
+link provided in your browser and you will see the results in your terminal.</p>
+<p>If you have <em>PhantomJS</em> installed, you can run <code>testem -l phantomjs</code> to run the
+tests completely headlessly.</p>
+<h2 id="acknowledgements">Acknowledgements</h2>
+<p>Thanks to <a href="http://www.jcphillipps.com">J. C. Phillipps</a> for the Ramda logo.
+Ramda logo artwork &copy; 2014 J. C. Phillipps. Licensed Creative Commons 
+<a href="http://creativecommons.org/licenses/by-nc-sa/3.0/">CC BY-NC-SA 3.0</a>.</p>
+</article>
+    </main>
+</body>
+</html>
