@@ -90,6 +90,13 @@ var simplifyData = function(d) {
     see: d.see == null ? [] : simplifySee(d.see),
     sigs: valuesForTitle('sig', d.tags).map(prettifySig),
     since: d.since == null ? '' : d.since,
+    symb: valuesForTitle('symb', d.tags).map(function(symb) {
+      var split = symb.split('=').map(function(s) { return s.trim() })
+      return {
+        input: split[0],
+        output: split[1]
+      }
+    }),
     typedefns: valuesForTitle('typedefn', d.tags).map(prettifySig),
   };
 };

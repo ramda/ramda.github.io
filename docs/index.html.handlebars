@@ -5,8 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Ramda Documentation</title>
     <link rel="stylesheet" type="text/css" href="../style.css">
-    <!-- custom.css must go after base style.css -->
-    <link rel="stylesheet" type="text/css" href="../custom.css">
 </head>
 <body>
     <input type="checkbox" id="open-nav">
@@ -107,7 +105,26 @@
             {{/if}}
 
             <div class="description">{{{description}}}</div>
-
+            
+            {{#if symb}}
+            <table class="table table-sm">
+                <thead>
+                    <tr>
+                        <th>Input</th>
+                        <th>Output</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {{#each symb}}
+                    <tr>
+                        <td><pre class="symbol">{{input}}</pre></td>
+                        <td><pre class="symbol">{{output}}</pre></td>
+                    </tr>
+                    {{/each}}
+                </tbody>
+            </table>
+            {{/if}}
+            
             {{#if aka}}
             <div class="aka">
                 Known in other languages or libraries as
