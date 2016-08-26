@@ -87,6 +87,10 @@ CodeMirror.registerHelper("instance", "input", input);
 
 input.on('change', debounceCompile);
 
-if (location.hash.indexOf('code') > 0) {
-    input.setValue(queryString.parse(queryString.extract(location.href)).code);
+// Get source code from 'code' params and paste it into editor
+// The 'code' param is actually located in a hash URL fragment,
+// so we have to parse the hash instead of query to prevent conflicts
+const code = queryString.parse(queryString.extract(location.hash)).code;
+if (code !== undefined) {
+    input.setValue(code);
 }
