@@ -123,7 +123,7 @@ exports.publish = function(data, opts) {
     version: require('../' + VERSION + '/tmp/package.json').version,
   };
 
-  render('jsdoc/templates/index.html.handlebars',
+  render('index.html.handlebars',
          path.resolve(opts.destination, 'index.html'),
          context);
 
