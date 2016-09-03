@@ -17,7 +17,8 @@
     "jsdoc": "3.3.x",
     "less": "2.5.x",
     "marked": "0.3.x",
-    "ramda": "0.22.1"
+    "ramda": "0.22.1",
+    "walk": "^2.3.9"
   },
   "scripts": {
     "jsdoc": "jsdoc --destination ./docs --template . ./docs/dist/ramda.js",
