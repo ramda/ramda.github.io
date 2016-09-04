@@ -42,10 +42,6 @@ $(VERSION)/docs/index.html $(VERSION)/index.html: $(JSDOC_FILES)
 	  --template '$(<D)' \
 	  '$(VERSION)/docs/dist/ramda.js'
 
-$(VERSION)/docs/main.js: main.js
-	mkdir -p '$(@D)'
-	cp '$<' '$@'
-
 $(VERSION)/fonts/%: node_modules/bootstrap/fonts/%
 	mkdir -p '$(@D)'
 	cp '$<' '$@'
