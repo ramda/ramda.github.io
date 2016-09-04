@@ -10,7 +10,7 @@ var version = require('./package.json').devDependencies.ramda
 
 var template = fs.readFileSync('releases.html.handlebars', {encoding: 'utf8'})
 
-var version_folder_re = /\d+\.\d+(\.\d+)?/
+var version_folder_re = /^\d+\.\d+(\.\d+)?$/
 
 fs.readdir('./', (err, files) => {
   var version_folders = R.filter(R.bind(version_folder_re.test, version_folder_re), files).sort(semver_compare)
