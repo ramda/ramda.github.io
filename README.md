@@ -21,3 +21,11 @@ For more details on configuring the server, see [http-server (0.8.x)][http-serve
 
 [http-server]: https://github.com/indexzero/http-server/tree/0.8.5#available-options
 
+
+## What to do on a new release
+
+1. Update [package.json](./package.json) to latest version of `ramda`.
+
+2. Install packages: `npm i`
+
+3. `npm run make_release`

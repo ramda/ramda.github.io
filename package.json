@@ -22,6 +22,7 @@
   },
   "scripts": {
     "jsdoc": "jsdoc --destination ./docs --template . ./docs/dist/ramda.js",
+    "make_release": "npm run jsdoc && node make_index_html.js && node copy_to_version_folder.js",
     "server": "http-server"
   }
 }
