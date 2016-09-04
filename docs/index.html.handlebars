@@ -105,7 +105,7 @@
             {{/if}}
 
             <div class="description">{{{description}}}</div>
-            
+
             {{#if symb}}
             <table class="table table-sm">
                 <thead>
@@ -124,7 +124,7 @@
                 </tbody>
             </table>
             {{/if}}
-            
+
             {{#if aka}}
             <div class="aka">
                 Known in other languages or libraries as
@@ -144,7 +144,7 @@
             {{/if}}
 
             {{#if example}}
-	    <pre><button class="try-repl">Try in REPL</button><code class="hljs javascript">{{{example}}}</code></pre>
+	    <pre><button class="try-repl" data-ramda-version="{{@root.version}}">Try in REPL</button><code class="hljs javascript">{{{example}}}</code></pre>
             {{/if}}
         </section>
         {{/each}}

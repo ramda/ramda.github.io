@@ -101,9 +101,12 @@
     if (!event.target.matches('.try-repl')) {
       return;
     }
+    var version = event.target.dataset && event.target.dataset.ramdaVersion;
+    var versionParam = version ? '?v=' + version : '';
     var code = event.target.nextElementSibling.textContent;
     var encoded = fixedEncodeURIComponent(code);
-    location.assign(location.origin + '/repl/#?code=' + encoded);
+    location.assign(location.origin + '/repl/' +
+      versionParam + '#?code=' + encoded);
   }
 
 
