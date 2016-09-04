@@ -5,8 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Ramda Documentation</title>
     <link rel="stylesheet" type="text/css" href="../style.css">
-    <!-- custom.css must go after base style.css -->
-    <link rel="stylesheet" type="text/css" href="../custom.css">
 </head>
 <body>
     <input type="checkbox" id="open-nav">
@@ -1721,7 +1719,8 @@ equivalent:</p>
 <li><code>g(_, 2)(_, 3)(1)</code></li>
 </ul>
 </div>
-
+            
+            
 
 
 	    <pre><button class="try-repl">Try in REPL</button><code class="hljs javascript"><span class="hljs-keyword">var</span> greet = R.replace(<span class="hljs-string">'{name}'</span>, R.__, <span class="hljs-string">'Hello, {name}!'</span>);
@@ -1767,7 +1766,8 @@ greet(<span class="hljs-string">'Alice'</span>); <span class="hljs-comment">//=&
 
             <div class="description"><p>Adds two values.</p>
 </div>
-
+            
+            
 
             <div class="see">
                 See also
@@ -1820,7 +1820,8 @@ for functions in which the iteration callback function is the first
 parameter, and where the list is the last parameter. (This latter might be
 unimportant if the list parameter is not used.)</p>
 </div>
-
+            
+            
 
 
 	    <pre><button class="try-repl">Try in REPL</button><code class="hljs javascript"><span class="hljs-keyword">var</span> mapIndexed = R.addIndex(R.map);
@@ -1881,7 +1882,8 @@ mapIndexed((val, idx) =&gt; idx + <span class="hljs-string">'-'</span> + val, [<
 new copy of the array with the element at the given index replaced with the
 result of the function application.</p>
 </div>
-
+            
+            
 
             <div class="see">
                 See also
@@ -1938,7 +1940,8 @@ there are any that don&#39;t.</p>
 <p>Dispatches to the <code>all</code> method of the second argument, if present.</p>
 <p>Acts as a transducer if a transformer is given in list position.</p>
 </div>
-
+            
+            
 
             <div class="see">
                 See also
@@ -1991,7 +1994,8 @@ by those arguments.</p>
 <p>The function returned is a curried function whose arity matches that of the
 highest-arity predicate.</p>
 </div>
-
+            
+            
 
             <div class="see">
                 See also
@@ -2045,7 +2049,8 @@ non-primitives the value returned is a reference to the original value.</p>
 <p>This function is known as <code>const</code>, <code>constant</code>, or <code>K</code> (for K combinator) in
 other languages and libraries.</p>
 </div>
-
+            
+            
 
 
 	    <pre><button class="try-repl">Try in REPL</button><code class="hljs javascript"><span class="hljs-keyword">var</span> t = R.always(<span class="hljs-string">'Tee'</span>);
@@ -2094,7 +2099,8 @@ t(); <span class="hljs-comment">//=&gt; 'Tee'</span></code></pre>
 
             <div class="description"><p>Returns <code>true</code> if both arguments are <code>true</code>; <code>false</code> otherwise.</p>
 </div>
-
+            
+            
 
             <div class="see">
                 See also
@@ -2153,7 +2159,8 @@ R.and(<span class="hljs-literal">false</span>, <span class="hljs-literal">false<
 <p>Dispatches to the <code>any</code> method of the second argument, if present.</p>
 <p>Acts as a transducer if a transformer is given in list position.</p>
 </div>
-
+            
+            
 
             <div class="see">
                 See also
@@ -2206,7 +2213,8 @@ satisfied by those arguments.</p>
 <p>The function returned is a curried function whose arity matches that of the
 highest-arity predicate.</p>
 </div>
-
+            
+            
 
             <div class="see">
                 See also
@@ -2265,7 +2273,8 @@ gte(<span class="hljs-number">2</span>, <span class="hljs-number">3</span>); <sp
 <p>Dispatches to the <code>ap</code> method of the second argument, if present. Also
 treats curried functions as applicatives.</p>
 </div>
-
+            
+            
 
 
 	    <pre><button class="try-repl">Try in REPL</button><code class="hljs javascript">R.ap([R.multiply(<span class="hljs-number">2</span>), R.add(<span class="hljs-number">3</span>)], [<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>]); <span class="hljs-comment">//=&gt; [2, 4, 6, 4, 5, 6]</span></code></pre>
@@ -2316,7 +2325,8 @@ greater than the length of the list, an empty list is returned.</p>
 <p>Dispatches to the <code>aperture</code> method of the second argument, if present.</p>
 <p>Acts as a transducer if a transformer is given in list position.</p>
 </div>
-
+            
+            
 
             <div class="see">
                 See also
@@ -2372,7 +2382,8 @@ R.aperture(<span class="hljs-number">7</span>, [<span class="hljs-number">1</spa
             <div class="description"><p>Returns a new list containing the contents of the given list, followed by
 the given element.</p>
 </div>
-
+            
+            
 
             <div class="see">
                 See also
@@ -2425,7 +2436,8 @@ R.append([<span class="hljs-string">'tests'</span>], [<span class="hljs-string">
 creating a fixed-arity function from a variadic function. <code>fn</code> should be a
 bound function if context is significant.</p>
 </div>
-
+            
+            
 
             <div class="see">
                 See also
@@ -2478,7 +2490,8 @@ associated function with the supplied arguments.</p>
 function producing an object of the same structure, by mapping each property
 to the result of calling its associated function with the supplied arguments.</p>
 </div>
-
+            
+            
 
             <div class="see">
                 See also
@@ -2544,7 +2557,8 @@ property with the given value. Note that this copies and flattens prototype
 properties onto the new object as well. All non-primitive properties are
 copied by reference.</p>
 </div>
-
+            
+            
 
             <div class="see">
                 See also
@@ -2605,7 +2619,8 @@ to create the given path, and placing the specific value at the tail end of
 that path. Note that this copies and flattens prototype properties onto the
 new object as well. All non-primitive properties are copied by reference.</p>
 </div>
-
+            
+            
 
             <div class="see">
                 See also
@@ -2654,7 +2669,8 @@ new object as well. All non-primitive properties are copied by reference.</p>
 exactly 2 parameters. Any extraneous parameters will not be passed to the
 supplied function.</p>
 </div>
-
+            
+            
 
 
 	    <pre><button class="try-repl">Try in REPL</button><code class="hljs javascript"><span class="hljs-keyword">var</span> takesThreeArgs = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">a, b, c</span>) </span>{
@@ -2713,7 +2729,8 @@ takesTwoArgs(<span class="hljs-number">1</span>, <span class="hljs-number">2</sp
 Note: <code>R.bind</code> does not provide the additional argument-binding capabilities of
 <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/bind">Function.prototype.bind</a>.</p>
 </div>
-
+            
+            
 
             <div class="see">
                 See also
@@ -2773,7 +2790,8 @@ false-y value.</p>
 <p>In addition to functions, <code>R.both</code> also accepts any fantasy-land compatible
 applicative functor.</p>
 </div>
-
+            
+            
 
             <div class="see">
                 See also
@@ -2831,7 +2849,8 @@ arguments. This is occasionally useful as a converging function for
 <code>R.converge</code>: the left branch can produce a function while the right branch
 produces a value to be passed to that function as an argument.</p>
 </div>
-
+            
+            
 
             <div class="see">
                 See also
@@ -2892,7 +2911,8 @@ is also known as <code>flatMap</code> in some libraries</p>
 <p>Dispatches to the <code>chain</code> method of the second argument, if present,
 according to the <a href="https://github.com/fantasyland/fantasy-land#chain">FantasyLand Chain spec</a>.</p>
 </div>
-
+            
+            
 
 
 	    <pre><button class="try-repl">Try in REPL</button><code class="hljs javascript"><span class="hljs-keyword">var</span> duplicate = n =&gt; [n, n];
@@ -2948,7 +2968,8 @@ R.chain(duplicate, [<span class="hljs-number">1</span>, <span class="hljs-number
             <div class="description"><p>Restricts a number to be within a range.</p>
 <p>Also works for other ordered types such as Strings and Dates.</p>
 </div>
-
+            
+            
 
 
 	    <pre><button class="try-repl">Try in REPL</button><code class="hljs javascript">R.clamp(<span class="hljs-number">1</span>, <span class="hljs-number">10</span>, -<span class="hljs-number">1</span>) <span class="hljs-comment">// =&gt; 1</span>
@@ -2995,7 +3016,8 @@ R.clamp(<span class="hljs-number">1</span>, <span class="hljs-number">10</span>,
 copied, but assigned by their reference.</p>
 <p>Dispatches to a <code>clone</code> method if present.</p>
 </div>
-
+            
+            
 
 
 	    <pre><button class="try-repl">Try in REPL</button><code class="hljs javascript"><span class="hljs-keyword">var</span> objects = [{}, {}, {}];
@@ -3040,7 +3062,8 @@ objects[<span class="hljs-number">0</span>] === objectsClone[<span class="hljs-n
             <div class="description"><p>Makes a comparator function out of a function that reports whether the first
 element is less than the second.</p>
 </div>
-
+            
+            
 
 
 	    <pre><button class="try-repl">Try in REPL</button><code class="hljs javascript"><span class="hljs-keyword">var</span> cmp = R.comparator((a, b) =&gt; a.age &lt; b.age);
@@ -3093,7 +3116,8 @@ the same arguments to <code>f</code> gives a logical <strong>true</strong> value
 </ul>
 <p><code>R.complement</code> will work on all other functors as well.</p>
 </div>
-
+            
+            
 
             <div class="see">
                 See also
@@ -3142,7 +3166,8 @@ isOdd(<span class="hljs-number">42</span>); <span class="hljs-comment">//=&gt; f
 any arity; the remaining functions must be unary.</p>
 <p><strong>Note:</strong> The result of compose is not automatically curried.</p>
 </div>
-
+            
+            
 
             <div class="see">
                 See also
@@ -3190,7 +3215,8 @@ f(<span class="hljs-number">3</span>, <span class="hljs-number">4</span>); <span
 each of which must return a value of a type supported by <a href="#chain"><code>chain</code></a>.</p>
 <p><code>R.composeK(h, g, f)</code> is equivalent to <code>R.compose(R.chain(h), R.chain(g), R.chain(f))</code>.</p>
 </div>
-
+            
+            
 
             <div class="see">
                 See also
@@ -3251,7 +3277,8 @@ getStateCode(Maybe.of(<span class="hljs-string">'[Invalid JSON]'</span>));
 functions. The rightmost function may have any arity; the remaining
 functions must be unary.</p>
 </div>
-
+            
+            
 
             <div class="see">
                 See also
@@ -3306,7 +3333,8 @@ unlike the native <code>Array.prototype.concat</code> method. It will throw
 an error if you <code>concat</code> an Array with a non-Array value.</p>
 <p>Dispatches to the <code>concat</code> method of the first argument, if present.</p>
 </div>
-
+            
+            
 
 
 	    <pre><button class="try-repl">Try in REPL</button><code class="hljs javascript">R.concat([], []); <span class="hljs-comment">//=&gt; []</span>
@@ -3353,7 +3381,8 @@ to <code>fn</code> are applied to each of the predicates in turn until one retur
 arguments to the corresponding transformer. If none of the predicates
 matches, <code>fn</code> returns undefined.</p>
 </div>
-
+            
+            
 
 
 	    <pre><button class="try-repl">Try in REPL</button><code class="hljs javascript"><span class="hljs-keyword">var</span> fn = R.cond([
@@ -3403,7 +3432,8 @@ fn(<span class="hljs-number">100</span>); <span class="hljs-comment">//=&gt; 'wa
             <div class="description"><p>Wraps a constructor function inside a curried function that can be called
 with the same arguments and returns the same type.</p>
 </div>
-
+            
+            
 
 
 	    <pre><button class="try-repl">Try in REPL</button><code class="hljs javascript"><span class="hljs-comment">// Constructor function</span>
@@ -3463,7 +3493,8 @@ R.map(R.construct(Widget), allConfigs); <span class="hljs-comment">// a list of 
 with the same arguments and returns the same type. The arity of the function
 returned is specified to allow using variadic constructor functions.</p>
 </div>
-
+            
+            
 
 
 	    <pre><button class="try-repl">Try in REPL</button><code class="hljs javascript"><span class="hljs-comment">// Variadic constructor function</span>
@@ -3523,7 +3554,8 @@ R.map(R.constructN(<span class="hljs-number">1</span>, Widget), allConfigs); <sp
             <div class="description"><p>Returns <code>true</code> if the specified value is equal, in <code>R.equals</code> terms, to at
 least one element of the given list; <code>false</code> otherwise.</p>
 </div>
-
+            
+            
 
             <div class="see">
                 See also
@@ -3582,7 +3614,8 @@ arguments, each branching function is applied to those same arguments. The
 results of each branching function are passed as arguments to the converging
 function to produce the return value.</p>
 </div>
-
+            
+            
 
 
 	    <pre><button class="try-repl">Try in REPL</button><code class="hljs javascript"><span class="hljs-keyword">var</span> add = (a, b) =&gt; a + b;
@@ -3642,7 +3675,8 @@ produced by <code>fn</code> to the number of occurrences in the list. Note that 
 keys are coerced to strings because of how JavaScript objects work.</p>
 <p>Acts as a transducer if a transformer is given in list position.</p>
 </div>
-
+            
+            
 
 
 	    <pre><button class="try-repl">Try in REPL</button><code class="hljs javascript"><span class="hljs-keyword">var</span> numbers = [<span class="hljs-number">1.0</span>, <span class="hljs-number">1.1</span>, <span class="hljs-number">1.2</span>, <span class="hljs-number">2.0</span>, <span class="hljs-number">3.0</span>, <span class="hljs-number">2.2</span>];
@@ -3709,7 +3743,8 @@ following are equivalent:</p>
 <li><code>g(_, 2)(_, 3)(1)</code></li>
 </ul>
 </div>
-
+            
+            
 
             <div class="see">
                 See also
@@ -3788,7 +3823,8 @@ following are equivalent:</p>
 <li><code>g(_, 2)(_, 3)(1)</code></li>
 </ul>
 </div>
-
+            
+            
 
             <div class="see">
                 See also
@@ -3837,7 +3873,8 @@ g(<span class="hljs-number">4</span>); <span class="hljs-comment">//=&gt; 10</sp
 
             <div class="description"><p>Decrements its argument.</p>
 </div>
-
+            
+            
 
             <div class="see">
                 See also
@@ -3890,7 +3927,8 @@ g(<span class="hljs-number">4</span>); <span class="hljs-comment">//=&gt; 10</sp
             <div class="description"><p>Returns the second argument if it is not <code>null</code>, <code>undefined</code> or <code>NaN</code>
 otherwise the first argument is returned.</p>
 </div>
-
+            
+            
 
 
 	    <pre><button class="try-repl">Try in REPL</button><code class="hljs javascript"><span class="hljs-keyword">var</span> defaultTo42 = R.defaultTo(<span class="hljs-number">42</span>);
@@ -3944,7 +3982,8 @@ defaultTo42(<span class="hljs-built_in">parseInt</span>(<span class="hljs-string
             <div class="description"><p>Finds the set (i.e. no duplicates) of all elements in the first list not
 contained in the second list.</p>
 </div>
-
+            
+            
 
             <div class="see">
                 See also
@@ -4007,7 +4046,8 @@ R.difference([<span class="hljs-number">7</span>,<span class="hljs-number">6</sp
 contained in the second list. Duplication is determined according to the
 value returned by applying the supplied predicate to two list elements.</p>
 </div>
-
+            
+            
 
             <div class="see">
                 See also
@@ -4064,7 +4104,8 @@ R.differenceWith(cmp, l1, l2); <span class="hljs-comment">//=&gt; [{a: 1}, {a: 2
 
             <div class="description"><p>Returns a new object that does not contain a <code>prop</code> property.</p>
 </div>
-
+            
+            
 
             <div class="see">
                 See also
@@ -4118,7 +4159,8 @@ R.differenceWith(cmp, l1, l2); <span class="hljs-comment">//=&gt; [{a: 1}, {a: 2
 Note that this copies and flattens prototype properties onto the new object
 as well. All non-primitive properties are copied by reference.</p>
 </div>
-
+            
+            
 
             <div class="see">
                 See also
@@ -4170,7 +4212,8 @@ as well. All non-primitive properties are copied by reference.</p>
 
             <div class="description"><p>Divides two numbers. Equivalent to <code>a / b</code>.</p>
 </div>
-
+            
+            
 
             <div class="see">
                 See also
@@ -4228,7 +4271,8 @@ reciprocal(<span class="hljs-number">4</span>);   <span class="hljs-comment">//=
 transducer/transformer (or object with a <code>drop</code> method).</p>
 <p>Dispatches to the <code>drop</code> method of the second argument, if present.</p>
 </div>
-
+            
+            
 
             <div class="see">
                 See also
@@ -4285,7 +4329,8 @@ R.drop(<span class="hljs-number">3</span>, <span class="hljs-string">'ramda'</sp
 
             <div class="description"><p>Returns a list containing all but the last <code>n</code> elements of the given <code>list</code>.</p>
 </div>
-
+            
+            
 
             <div class="see">
                 See also
@@ -4345,7 +4390,8 @@ to the supplied predicate function, skipping elements while the predicate
 function returns <code>true</code>. The predicate function is applied to one argument:
 <em>(value)</em>.</p>
 </div>
-
+            
+            
 
             <div class="see">
                 See also
@@ -4397,7 +4443,8 @@ is used to determine equality.</p>
 <p>Dispatches to the <code>dropRepeats</code> method of the first argument, if present.</p>
 <p>Acts as a transducer if a transformer is given in list position.</p>
 </div>
-
+            
+            
 
             <div class="see">
                 See also
@@ -4453,7 +4500,8 @@ first element in a series of equal element is the one being preserved.</p>
 <p>Dispatches to the <code>dropRepeatsWith</code> method of the second argument, if present.</p>
 <p>Acts as a transducer if a transformer is given in list position.</p>
 </div>
-
+            
+            
 
             <div class="see">
                 See also
@@ -4511,7 +4559,8 @@ predicate function, skipping elements while the predicate function returns
 <p>Dispatches to the <code>dropWhile</code> method of the second argument, if present.</p>
 <p>Acts as a transducer if a transformer is given in list position.</p>
 </div>
-
+            
+            
 
             <div class="see">
                 See also
@@ -4573,7 +4622,8 @@ truth-y value.</p>
 <p>In addition to functions, <code>R.either</code> also accepts any fantasy-land compatible
 applicative functor.</p>
 </div>
-
+            
+            
 
             <div class="see">
                 See also
@@ -4625,7 +4675,8 @@ types are supported if they define <code>&lt;Type&gt;.empty</code> and/or
 <code>&lt;Type&gt;.prototype.empty</code>.</p>
 <p>Dispatches to the <code>empty</code> method of the first argument, if present.</p>
 </div>
-
+            
+            
 
 
 	    <pre><button class="try-repl">Try in REPL</button><code class="hljs javascript">R.empty(Just(<span class="hljs-number">42</span>));      <span class="hljs-comment">//=&gt; Nothing()</span>
@@ -4679,7 +4730,8 @@ R.empty({x: <span class="hljs-number">1</span>, y: <span class="hljs-number">2</
             <div class="description"><p>Takes a function and two values in its domain and returns <code>true</code> if the
 values map to the same value in the codomain; <code>false</code> otherwise.</p>
 </div>
-
+            
+            
 
 
 	    <pre><button class="try-repl">Try in REPL</button><code class="hljs javascript">R.eqBy(<span class="hljs-built_in">Math</span>.abs, <span class="hljs-number">5</span>, -<span class="hljs-number">5</span>); <span class="hljs-comment">//=&gt; true</span></code></pre>
@@ -4731,7 +4783,8 @@ values map to the same value in the codomain; <code>false</code> otherwise.</p>
             <div class="description"><p>Reports whether two objects have the same value, in <code>R.equals</code> terms, for
 the specified property. Useful as a curried predicate.</p>
 </div>
-
+            
+            
 
 
 	    <pre><button class="try-repl">Try in REPL</button><code class="hljs javascript"><span class="hljs-keyword">var</span> o1 = { a: <span class="hljs-number">1</span>, b: <span class="hljs-number">2</span>, c: <span class="hljs-number">3</span>, d: <span class="hljs-number">4</span> };
@@ -4782,7 +4835,8 @@ cyclical data structures.</p>
 <p>Dispatches symmetrically to the <code>equals</code> methods of both arguments, if
 present.</p>
 </div>
-
+            
+            
 
 
 	    <pre><button class="try-repl">Try in REPL</button><code class="hljs javascript">R.equals(<span class="hljs-number">1</span>, <span class="hljs-number">1</span>); <span class="hljs-comment">//=&gt; true</span>
@@ -4841,7 +4895,8 @@ are copied by reference.</p>
 <p>A <code>transformation</code> function will not be invoked if its corresponding key
 does not exist in the evolved object.</p>
 </div>
-
+            
+            
 
 
 	    <pre><button class="try-repl">Try in REPL</button><code class="hljs javascript"><span class="hljs-keyword">var</span> tomato  = {firstName: <span class="hljs-string">'  Tomato '</span>, data: {elapsed: <span class="hljs-number">100</span>, remaining: <span class="hljs-number">1400</span>}, id:<span class="hljs-number">123</span>};
@@ -4887,7 +4942,8 @@ R.evolve(transformations, tomato); <span class="hljs-comment">//=&gt; {firstName
 
             <div class="description"><p>A function that always returns <code>false</code>. Any passed in parameters are ignored.</p>
 </div>
-
+            
+            
 
             <div class="see">
                 See also
@@ -4941,7 +4997,8 @@ given predicate.</p>
 <p>Dispatches to the <code>filter</code> method of the second argument, if present.</p>
 <p>Acts as a transducer if a transformer is given in list position.</p>
 </div>
-
+            
+            
 
             <div class="see">
                 See also
@@ -5003,7 +5060,8 @@ R.filter(isEven, {a: <span class="hljs-number">1</span>, b: <span class="hljs-nu
 <p>Dispatches to the <code>find</code> method of the second argument, if present.</p>
 <p>Acts as a transducer if a transformer is given in list position.</p>
 </div>
-
+            
+            
 
             <div class="see">
                 See also
@@ -5061,7 +5119,8 @@ predicate, or <code>-1</code> if no element matches.</p>
 <p>Dispatches to the <code>findIndex</code> method of the second argument, if present.</p>
 <p>Acts as a transducer if a transformer is given in list position.</p>
 </div>
-
+            
+            
 
             <div class="see">
                 See also
@@ -5119,7 +5178,8 @@ desired one.</p>
 <p>Dispatches to the <code>findLast</code> method of the second argument, if present.</p>
 <p>Acts as a transducer if a transformer is given in list position.</p>
 </div>
-
+            
+            
 
             <div class="see">
                 See also
@@ -5177,7 +5237,8 @@ predicate, or <code>-1</code> if no element matches.</p>
 <p>Dispatches to the <code>findLastIndex</code> method of the second argument, if present.</p>
 <p>Acts as a transducer if a transformer is given in list position.</p>
 </div>
-
+            
+            
 
             <div class="see">
                 See also
@@ -5226,7 +5287,8 @@ R.findLastIndex(R.propEq(<span class="hljs-string">'a'</span>, <span class="hljs
             <div class="description"><p>Returns a new list by pulling every item out of it (and all its sub-arrays)
 and putting them in a new array, depth-first.</p>
 </div>
-
+            
+            
 
             <div class="see">
                 See also
@@ -5274,7 +5336,8 @@ and putting them in a new array, depth-first.</p>
             <div class="description"><p>Returns a new function much like the supplied one, except that the first two
 arguments&#39; order is reversed.</p>
 </div>
-
+            
+            
 
 
 	    <pre><button class="try-repl">Try in REPL</button><code class="hljs javascript"><span class="hljs-keyword">var</span> mergeThree = (a, b, c) =&gt; [].concat(a, b, c);
@@ -5335,7 +5398,8 @@ details on this behavior, see:
 the original array. In some libraries this function is named <code>each</code>.</p>
 <p>Dispatches to the <code>forEach</code> method of the second argument, if present.</p>
 </div>
-
+            
+            
 
             <div class="see">
                 See also
@@ -5386,7 +5450,8 @@ R.forEach(printXPlusFive, [<span class="hljs-number">1</span>, <span class="hljs
             <div class="description"><p>Creates a new object from a list key-value pairs. If a key appears in
 multiple pairs, the rightmost pair is included in the object.</p>
 </div>
-
+            
+            
 
             <div class="see">
                 See also
@@ -5444,7 +5509,8 @@ results according to values returned.</p>
 <p>Dispatches to the <code>groupBy</code> method of the second argument, if present.</p>
 <p>Acts as a transducer if a transformer is given in list position.</p>
 </div>
-
+            
+            
 
             <div class="see">
                 See also
@@ -5517,7 +5583,8 @@ byGrade(students);
             <div class="description"><p>Takes a list and returns a list of lists where each sublist&#39;s elements are
 all &quot;equal&quot; according to the provided equality function.</p>
 </div>
-
+            
+            
 
 
 	    <pre><button class="try-repl">Try in REPL</button><code class="hljs javascript">R.groupWith(R.equals, [<span class="hljs-number">0</span>, <span class="hljs-number">1</span>, <span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">5</span>, <span class="hljs-number">8</span>, <span class="hljs-number">13</span>, <span class="hljs-number">21</span>])
@@ -5570,7 +5637,8 @@ R.groupWith(R.eqBy(isVowel), <span class="hljs-string">'aestiou'</span>)
             <div class="description"><p>Returns <code>true</code> if the first argument is greater than the second; <code>false</code>
 otherwise.</p>
 </div>
-
+            
+            
 
             <div class="see">
                 See also
@@ -5624,7 +5692,8 @@ R.gt(<span class="hljs-string">'z'</span>, <span class="hljs-string">'a'</span>)
             <div class="description"><p>Returns <code>true</code> if the first argument is greater than or equal to the second;
 <code>false</code> otherwise.</p>
 </div>
-
+            
+            
 
             <div class="see">
                 See also
@@ -5680,7 +5749,8 @@ R.gte(<span class="hljs-string">'z'</span>, <span class="hljs-string">'a'</span>
 
             <div class="description"><p>Returns whether or not an object has an own property with the specified name</p>
 </div>
-
+            
+            
 
 
 	    <pre><button class="try-repl">Try in REPL</button><code class="hljs javascript"><span class="hljs-keyword">var</span> hasName = R.has(<span class="hljs-string">'name'</span>);
@@ -5738,7 +5808,8 @@ pointHas(<span class="hljs-string">'z'</span>);  <span class="hljs-comment">//=&
             <div class="description"><p>Returns whether or not an object or its prototype chain has a property with
 the specified name</p>
 </div>
-
+            
+            
 
 
 	    <pre><button class="try-repl">Try in REPL</button><code class="hljs javascript"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">Rectangle</span>(<span class="hljs-params">width, height</span>) </span>{
@@ -5790,7 +5861,8 @@ R.hasIn(<span class="hljs-string">'area'</span>, square);  <span class="hljs-com
             <div class="description"><p>Returns the first element of the given list or string. In some libraries
 this function is named <code>first</code>.</p>
 </div>
-
+            
+            
 
             <div class="see">
                 See also
@@ -5847,7 +5919,8 @@ R.head(<span class="hljs-string">''</span>); <span class="hljs-comment">//=&gt; 
 identical if they reference the same memory. <code>NaN</code> is identical to <code>NaN</code>;
 <code>0</code> and <code>-0</code> are not identical.</p>
 </div>
-
+            
+            
 
 
 	    <pre><button class="try-repl">Try in REPL</button><code class="hljs javascript"><span class="hljs-keyword">var</span> o = {};
@@ -5896,7 +5969,8 @@ R.identical(<span class="hljs-literal">NaN</span>, <span class="hljs-literal">Na
             <div class="description"><p>A function that does nothing but return the parameter supplied to it. Good
 as a default or placeholder function.</p>
 </div>
-
+            
+            
 
 
 	    <pre><button class="try-repl">Try in REPL</button><code class="hljs javascript">R.identity(<span class="hljs-number">1</span>); <span class="hljs-comment">//=&gt; 1</span>
@@ -5955,7 +6029,8 @@ R.identity(obj) === obj; <span class="hljs-comment">//=&gt; true</span></code></
             <div class="description"><p>Creates a function that will process either the <code>onTrue</code> or the <code>onFalse</code>
 function depending upon the result of the <code>condition</code> predicate.</p>
 </div>
-
+            
+            
 
             <div class="see">
                 See also
@@ -6006,7 +6081,8 @@ incCount({ count: <span class="hljs-number">1</span> }); <span class="hljs-comme
 
             <div class="description"><p>Increments its argument.</p>
 </div>
-
+            
+            
 
             <div class="see">
                 See also
@@ -6062,7 +6138,8 @@ objects generate the same value for the indexing key only the last value
 will be included in the generated object.</p>
 <p>Acts as a transducer if a transformer is given in list position.</p>
 </div>
-
+            
+            
 
 
 	    <pre><button class="try-repl">Try in REPL</button><code class="hljs javascript"><span class="hljs-keyword">var</span> list = [{id: <span class="hljs-string">'xyz'</span>, title: <span class="hljs-string">'A'</span>}, {id: <span class="hljs-string">'abc'</span>, title: <span class="hljs-string">'B'</span>}];
@@ -6114,7 +6191,8 @@ R.indexBy(R.prop(<span class="hljs-string">'id'</span>), list);
 if the item is not included in the array. <code>R.equals</code> is used to determine
 equality.</p>
 </div>
-
+            
+            
 
             <div class="see">
                 See also
@@ -6160,7 +6238,8 @@ R.indexOf(<span class="hljs-number">10</span>, [<span class="hljs-number">1</spa
 
             <div class="description"><p>Returns all but the last element of the given list or string.</p>
 </div>
-
+            
+            
 
             <div class="see">
                 See also
@@ -6230,7 +6309,8 @@ R.init(<span class="hljs-string">''</span>);     <span class="hljs-comment">//=&
 this is not destructive</em>: it returns a copy of the list with the changes.
 <small>No lists have been harmed in the application of this function.</small></p>
 </div>
-
+            
+            
 
 
 	    <pre><button class="try-repl">Try in REPL</button><code class="hljs javascript">R.insert(<span class="hljs-number">2</span>, <span class="hljs-string">'x'</span>, [<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>,<span class="hljs-number">4</span>]); <span class="hljs-comment">//=&gt; [1,2,'x',3,4]</span></code></pre>
@@ -6286,7 +6366,8 @@ this is not destructive</em>: it returns a copy of the list with the changes.
 destructive</em>: it returns a copy of the list with the changes.
 <small>No lists have been harmed in the application of this function.</small></p>
 </div>
-
+            
+            
 
 
 	    <pre><button class="try-repl">Try in REPL</button><code class="hljs javascript">R.insertAll(<span class="hljs-number">2</span>, [<span class="hljs-string">'x'</span>,<span class="hljs-string">'y'</span>,<span class="hljs-string">'z'</span>], [<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>,<span class="hljs-number">4</span>]); <span class="hljs-comment">//=&gt; [1,2,'x','y','z',3,4]</span></code></pre>
@@ -6335,7 +6416,8 @@ destructive</em>: it returns a copy of the list with the changes.
             <div class="description"><p>Combines two lists into a set (i.e. no duplicates) composed of those
 elements common to both lists.</p>
 </div>
-
+            
+            
 
             <div class="see">
                 See also
@@ -6396,7 +6478,8 @@ elements common to both lists.</p>
 elements common to both lists. Duplication is determined according to the
 value returned by applying the supplied predicate to two list elements.</p>
 </div>
-
+            
+            
 
             <div class="see">
                 See also
@@ -6464,7 +6547,8 @@ R.intersectionWith(R.eqBy(R.prop(<span class="hljs-string">'id'</span>)), buffal
             <div class="description"><p>Creates a new list with the separator interposed between elements.</p>
 <p>Dispatches to the <code>intersperse</code> method of the second argument, if present.</p>
 </div>
-
+            
+            
 
 
 	    <pre><button class="try-repl">Try in REPL</button><code class="hljs javascript">R.intersperse(<span class="hljs-string">'n'</span>, [<span class="hljs-string">'ba'</span>, <span class="hljs-string">'a'</span>, <span class="hljs-string">'a'</span>]); <span class="hljs-comment">//=&gt; ['ba', 'n', 'a', 'n', 'a']</span></code></pre>
@@ -6530,7 +6614,8 @@ final accumulator into the return type and in most cases is R.identity. The
 init function is used to provide the initial accumulator.</p>
 <p>The iteration is performed with R.reduce after initializing the transducer.</p>
 </div>
-
+            
+            
 
 
 	    <pre><button class="try-repl">Try in REPL</button><code class="hljs javascript"><span class="hljs-keyword">var</span> numbers = [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>];
@@ -6580,7 +6665,8 @@ in an array.</p>
             <div class="description"><p>Same as R.invertObj, however this accounts for objects with duplicate values
 by putting the values into an array.</p>
 </div>
-
+            
+            
 
 
 	    <pre><button class="try-repl">Try in REPL</button><code class="hljs javascript"><span class="hljs-keyword">var</span> raceResultsByFirstName = {
@@ -6630,7 +6716,8 @@ R.invert(raceResultsByFirstName);
 values of the given object, which are coerced to strings, as keys. Note
 that the last key found is preferred when handling the same value.</p>
 </div>
-
+            
+            
 
 
 	    <pre><button class="try-repl">Try in REPL</button><code class="hljs javascript"><span class="hljs-keyword">var</span> raceResults = {
@@ -6692,7 +6779,8 @@ called directly supplied with arguments and a target object.</p>
 <p>The returned function is curried and accepts <code>arity + 1</code> parameters where
 the final parameter is the target object.</p>
 </div>
-
+            
+            
 
 
 	    <pre><button class="try-repl">Try in REPL</button><code class="hljs javascript"><span class="hljs-keyword">var</span> sliceFrom = R.invoker(<span class="hljs-number">1</span>, <span class="hljs-string">'slice'</span>);
@@ -6743,7 +6831,8 @@ sliceFrom6(<span class="hljs-number">8</span>, <span class="hljs-string">'abcdef
             <div class="description"><p>See if an object (<code>val</code>) is an instance of the supplied constructor. This
 function will check up the inheritance chain, if any.</p>
 </div>
-
+            
+            
 
 
 	    <pre><button class="try-repl">Try in REPL</button><code class="hljs javascript">R.is(<span class="hljs-built_in">Object</span>, {}); <span class="hljs-comment">//=&gt; true</span>
@@ -6792,7 +6881,8 @@ R.is(<span class="hljs-built_in">Number</span>, {}); <span class="hljs-comment">
 
             <div class="description"><p>Tests whether or not an object is similar to an array.</p>
 </div>
-
+            
+            
 
 
 	    <pre><button class="try-repl">Try in REPL</button><code class="hljs javascript">R.isArrayLike([]); <span class="hljs-comment">//=&gt; true</span>
@@ -6837,7 +6927,8 @@ R.isArrayLike({<span class="hljs-number">0</span>: <span class="hljs-string">'ze
             <div class="description"><p>Returns <code>true</code> if the given value is its type&#39;s empty value; <code>false</code>
 otherwise.</p>
 </div>
-
+            
+            
 
             <div class="see">
                 See also
@@ -6888,7 +6979,8 @@ R.isEmpty({length: <span class="hljs-number">0</span>}); <span class="hljs-comme
 
             <div class="description"><p>Checks if the input value is <code>null</code> or <code>undefined</code>.</p>
 </div>
-
+            
+            
 
 
 	    <pre><button class="try-repl">Try in REPL</button><code class="hljs javascript">R.isNil(<span class="hljs-literal">null</span>); <span class="hljs-comment">//=&gt; true</span>
@@ -6940,7 +7032,8 @@ R.isNil([]); <span class="hljs-comment">//=&gt; false</span></code></pre>
             <div class="description"><p>Returns a string made by inserting the <code>separator</code> between each element and
 concatenating all the elements into a single string.</p>
 </div>
-
+            
+            
 
             <div class="see">
                 See also
@@ -6988,7 +7081,8 @@ R.join(<span class="hljs-string">'|'</span>, [<span class="hljs-number">1</span>
 
             <div class="description"><p>juxt applies a list of functions to a list of values.</p>
 </div>
-
+            
+            
 
             <div class="see">
                 See also
@@ -7038,7 +7132,8 @@ the supplied object.
 Note that the order of the output array is not guaranteed to be consistent
 across different JS platforms.</p>
 </div>
-
+            
+            
 
 
 	    <pre><button class="try-repl">Try in REPL</button><code class="hljs javascript">R.keys({a: <span class="hljs-number">1</span>, b: <span class="hljs-number">2</span>, c: <span class="hljs-number">3</span>}); <span class="hljs-comment">//=&gt; ['a', 'b', 'c']</span></code></pre>
@@ -7083,7 +7178,8 @@ object, including prototype properties.
 Note that the order of the output array is not guaranteed to be consistent
 across different JS platforms.</p>
 </div>
-
+            
+            
 
 
 	    <pre><button class="try-repl">Try in REPL</button><code class="hljs javascript"><span class="hljs-keyword">var</span> F = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{ <span class="hljs-keyword">this</span>.x = <span class="hljs-string">'X'</span>; };
@@ -7127,7 +7223,8 @@ R.keysIn(f); <span class="hljs-comment">//=&gt; ['x', 'y']</span></code></pre>
 
             <div class="description"><p>Returns the last element of the given list or string.</p>
 </div>
-
+            
+            
 
             <div class="see">
                 See also
@@ -7187,7 +7284,8 @@ R.last(<span class="hljs-string">''</span>); <span class="hljs-comment">//=&gt; 
 the item is not included in the array. <code>R.equals</code> is used to determine
 equality.</p>
 </div>
-
+            
+            
 
             <div class="see">
                 See also
@@ -7234,7 +7332,8 @@ R.lastIndexOf(<span class="hljs-number">10</span>, [<span class="hljs-number">1<
 
             <div class="description"><p>Returns the number of elements in the array by returning <code>list.length</code>.</p>
 </div>
-
+            
+            
 
 
 	    <pre><button class="try-repl">Try in REPL</button><code class="hljs javascript">R.length([]); <span class="hljs-comment">//=&gt; 0</span>
@@ -7283,7 +7382,8 @@ R.length([<span class="hljs-number">1</span>, <span class="hljs-number">2</span>
 the value of the focus; the setter &quot;sets&quot; the value of the focus. The setter
 should not mutate the data structure.</p>
 </div>
-
+            
+            
 
             <div class="see">
                 See also
@@ -7336,7 +7436,8 @@ R.over(xLens, R.negate, {x: <span class="hljs-number">1</span>, y: <span class="
 
             <div class="description"><p>Returns a lens whose focus is the specified index.</p>
 </div>
-
+            
+            
 
             <div class="see">
                 See also
@@ -7388,7 +7489,8 @@ R.over(headLens, R.toUpper, [<span class="hljs-string">'a'</span>, <span class="
 
             <div class="description"><p>Returns a lens whose focus is the specified path.</p>
 </div>
-
+            
+            
 
             <div class="see">
                 See also
@@ -7439,7 +7541,8 @@ R.over(xyLens, R.negate, {x: {y: <span class="hljs-number">2</span>, z: <span cl
 
             <div class="description"><p>Returns a lens whose focus is the specified property.</p>
 </div>
-
+            
+            
 
             <div class="see">
                 See also
@@ -7492,7 +7595,8 @@ R.over(xLens, R.negate, {x: <span class="hljs-number">1</span>, y: <span class="
             <div class="description"><p>&quot;lifts&quot; a function of arity &gt; 1 so that it may &quot;map over&quot; a list, Function or other
 object that satisfies the <a href="https://github.com/fantasyland/fantasy-land#apply">FantasyLand Apply spec</a>.</p>
 </div>
-
+            
+            
 
             <div class="see">
                 See also
@@ -7545,7 +7649,8 @@ madd5([<span class="hljs-number">1</span>,<span class="hljs-number">2</span>], [
             <div class="description"><p>&quot;lifts&quot; a function to be the specified arity, so that it may &quot;map over&quot; that
 many lists, Functions or other objects that satisfy the <a href="https://github.com/fantasyland/fantasy-land#apply">FantasyLand Apply spec</a>.</p>
 </div>
-
+            
+            
 
             <div class="see">
                 See also
@@ -7597,7 +7702,8 @@ madd3([<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<sp
             <div class="description"><p>Returns <code>true</code> if the first argument is less than the second; <code>false</code>
 otherwise.</p>
 </div>
-
+            
+            
 
             <div class="see">
                 See also
@@ -7651,7 +7757,8 @@ R.lt(<span class="hljs-string">'z'</span>, <span class="hljs-string">'a'</span>)
             <div class="description"><p>Returns <code>true</code> if the first argument is less than or equal to the second;
 <code>false</code> otherwise.</p>
 </div>
-
+            
+            
 
             <div class="see">
                 See also
@@ -7715,7 +7822,8 @@ so this function may be applied to <code>[1, 2, 3]</code> or <code>{x: 1, y: 2, 
 <p>Acts as a transducer if a transformer is given in list position.</p>
 <p>Also treats functions as functors and will compose them together.</p>
 </div>
-
+            
+            
 
             <div class="see">
                 See also
@@ -7783,7 +7891,8 @@ accumulator together with the new list.</p>
 <p>The iterator function receives two arguments, <em>acc</em> and <em>value</em>, and should
 return a tuple <em>[acc, value]</em>.</p>
 </div>
-
+            
+            
 
             <div class="see">
                 See also
@@ -7851,7 +7960,8 @@ the left.</p>
 <p>The iterator function receives two arguments, <em>acc</em> and <em>value</em>, and should
 return a tuple <em>[acc, value]</em>.</p>
 </div>
-
+            
+            
 
             <div class="see">
                 See also
@@ -7905,7 +8015,8 @@ R.mapAccumRight(append, <span class="hljs-number">0</span>, digits); <span class
 arguments: <em>(value, key, obj)</em>. If only the value is significant, use
 <code>map</code> instead.</p>
 </div>
-
+            
+            
 
             <div class="see">
                 See also
@@ -7963,7 +8074,8 @@ return an empty array when there are no matches. This differs from
 <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/match"><code>String.prototype.match</code></a>
 which returns <code>null</code> when there are no matches.</p>
 </div>
-
+            
+            
 
             <div class="see">
                 See also
@@ -8020,7 +8132,8 @@ R.match(<span class="hljs-regexp">/a/</span>, <span class="hljs-literal">null</s
 mathMod(-17, 5) is 3. mathMod requires Integer arguments, and returns NaN
 when the modulus is zero or negative.</p>
 </div>
-
+            
+            
 
 
 	    <pre><button class="try-repl">Try in REPL</button><code class="hljs javascript">R.mathMod(-<span class="hljs-number">17</span>, <span class="hljs-number">5</span>);  <span class="hljs-comment">//=&gt; 3</span>
@@ -8079,7 +8192,8 @@ seventeenMod(<span class="hljs-number">10</span>); <span class="hljs-comment">//
 
             <div class="description"><p>Returns the larger of its two arguments.</p>
 </div>
-
+            
+            
 
             <div class="see">
                 See also
@@ -8136,7 +8250,8 @@ R.max(<span class="hljs-string">'a'</span>, <span class="hljs-string">'b'</span>
             <div class="description"><p>Takes a function and two values, and returns whichever value produces the
 larger result when passed to the provided function.</p>
 </div>
-
+            
+            
 
             <div class="see">
                 See also
@@ -8187,7 +8302,8 @@ R.reduce(R.maxBy(square), <span class="hljs-number">0</span>, []); <span class="
 
             <div class="description"><p>Returns the mean of the given list of numbers.</p>
 </div>
-
+            
+            
 
 
 	    <pre><button class="try-repl">Try in REPL</button><code class="hljs javascript">R.mean([<span class="hljs-number">2</span>, <span class="hljs-number">7</span>, <span class="hljs-number">9</span>]); <span class="hljs-comment">//=&gt; 6</span>
@@ -8228,7 +8344,8 @@ R.mean([]); <span class="hljs-comment">//=&gt; NaN</span></code></pre>
 
             <div class="description"><p>Returns the median of the given list of numbers.</p>
 </div>
-
+            
+            
 
 
 	    <pre><button class="try-repl">Try in REPL</button><code class="hljs javascript">R.median([<span class="hljs-number">2</span>, <span class="hljs-number">9</span>, <span class="hljs-number">7</span>]); <span class="hljs-comment">//=&gt; 7</span>
@@ -8276,7 +8393,8 @@ memoized <code>fn</code> with the same argument set will not result in an additi
 call to <code>fn</code>; instead, the cached result for that set of arguments will be
 returned.</p>
 </div>
-
+            
+            
 
 
 	    <pre><button class="try-repl">Try in REPL</button><code class="hljs javascript"><span class="hljs-keyword">var</span> count = <span class="hljs-number">0</span>;
@@ -8331,7 +8449,8 @@ count; <span class="hljs-comment">//=&gt; 1</span></code></pre>
 the own properties of the second object. If a key exists in both objects,
 the value from the second object will be used.</p>
 </div>
-
+            
+            
 
             <div class="see">
                 See also
@@ -8382,7 +8501,8 @@ resetToDefault({x: <span class="hljs-number">5</span>, y: <span class="hljs-numb
 
             <div class="description"><p>Merges a list of objects together into one object.</p>
 </div>
-
+            
+            
 
             <div class="see">
                 See also
@@ -8441,7 +8561,8 @@ associated with the key in each object, with the result being used as the
 value associated with the key in the returned object. The key will be
 excluded from the returned object if the resulting value is <code>undefined</code>.</p>
 </div>
-
+            
+            
 
             <div class="see">
                 See also
@@ -8504,7 +8625,8 @@ used as the value associated with the key in the returned object. The key
 will be excluded from the returned object if the resulting value is
 <code>undefined</code>.</p>
 </div>
-
+            
+            
 
             <div class="see">
                 See also
@@ -8558,7 +8680,8 @@ R.mergeWithKey(concatValues,
 
             <div class="description"><p>Returns the smaller of its two arguments.</p>
 </div>
-
+            
+            
 
             <div class="see">
                 See also
@@ -8615,7 +8738,8 @@ R.min(<span class="hljs-string">'a'</span>, <span class="hljs-string">'b'</span>
             <div class="description"><p>Takes a function and two values, and returns whichever value produces the
 smaller result when passed to the provided function.</p>
 </div>
-
+            
+            
 
             <div class="see">
                 See also
@@ -8676,7 +8800,8 @@ R.reduce(R.minBy(square), <span class="hljs-literal">Infinity</span>, []); <span
 that this function preserves the JavaScript-style behavior for modulo. For
 mathematical modulo see <code>mathMod</code>.</p>
 </div>
-
+            
+            
 
             <div class="see">
                 See also
@@ -8735,7 +8860,8 @@ isOdd(<span class="hljs-number">21</span>); <span class="hljs-comment">//=&gt; 1
 
             <div class="description"><p>Multiplies two numbers. Equivalent to <code>a * b</code> but curried.</p>
 </div>
-
+            
+            
 
             <div class="see">
                 See also
@@ -8794,7 +8920,8 @@ R.multiply(<span class="hljs-number">2</span>, <span class="hljs-number">5</span
 exactly <code>n</code> parameters. Any extraneous parameters will not be passed to the
 supplied function.</p>
 </div>
-
+            
+            
 
 
 	    <pre><button class="try-repl">Try in REPL</button><code class="hljs javascript"><span class="hljs-keyword">var</span> takesTwoArgs = (a, b) =&gt; [a, b];
@@ -8842,7 +8969,8 @@ takesOneArg(<span class="hljs-number">1</span>, <span class="hljs-number">2</spa
 
             <div class="description"><p>Negates its argument.</p>
 </div>
-
+            
+            
 
 
 	    <pre><button class="try-repl">Try in REPL</button><code class="hljs javascript">R.negate(<span class="hljs-number">42</span>); <span class="hljs-comment">//=&gt; -42</span></code></pre>
@@ -8892,7 +9020,8 @@ takesOneArg(<span class="hljs-number">1</span>, <span class="hljs-number">2</spa
 otherwise.</p>
 <p>Dispatches to the <code>any</code> method of the second argument, if present.</p>
 </div>
-
+            
+            
 
             <div class="see">
                 See also
@@ -8943,7 +9072,8 @@ R.none(isEven, [<span class="hljs-number">1</span>, <span class="hljs-number">3<
             <div class="description"><p>A function that returns the <code>!</code> of its argument. It will return <code>true</code> when
 passed false-y value, and <code>false</code> when passed a truth-y one.</p>
 </div>
-
+            
+            
 
             <div class="see">
                 See also
@@ -8997,7 +9127,8 @@ R.not(<span class="hljs-number">1</span>); <span class="hljs-comment">//=&gt; fa
             <div class="description"><p>Returns the nth element of the given list or string. If n is negative the
 element at index length + n is returned.</p>
 </div>
-
+            
+            
 
 
 	    <pre><button class="try-repl">Try in REPL</button><code class="hljs javascript"><span class="hljs-keyword">var</span> list = [<span class="hljs-string">'foo'</span>, <span class="hljs-string">'bar'</span>, <span class="hljs-string">'baz'</span>, <span class="hljs-string">'quux'</span>];
@@ -9043,7 +9174,8 @@ R.nth(<span class="hljs-number">3</span>, <span class="hljs-string">'abc'</span>
 
             <div class="description"><p>Returns a function which returns its nth argument.</p>
 </div>
-
+            
+            
 
 
 	    <pre><button class="try-repl">Try in REPL</button><code class="hljs javascript">R.nthArg(<span class="hljs-number">1</span>)(<span class="hljs-string">'a'</span>, <span class="hljs-string">'b'</span>, <span class="hljs-string">'c'</span>); <span class="hljs-comment">//=&gt; 'b'</span>
@@ -9089,7 +9221,8 @@ R.nthArg(-<span class="hljs-number">1</span>)(<span class="hljs-string">'a'</spa
 
             <div class="description"><p>Creates an object containing a single key:value pair.</p>
 </div>
-
+            
+            
 
             <div class="see">
                 See also
@@ -9141,7 +9274,8 @@ matchPhrases([<span class="hljs-string">'foo'</span>, <span class="hljs-string">
 <p>Note this <code>of</code> is different from the ES6 <code>of</code>; See
 <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/of">https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/of</a></p>
 </div>
-
+            
+            
 
 
 	    <pre><button class="try-repl">Try in REPL</button><code class="hljs javascript">R.of(<span class="hljs-literal">null</span>); <span class="hljs-comment">//=&gt; [null]</span>
@@ -9190,7 +9324,8 @@ R.of([<span class="hljs-number">42</span>]); <span class="hljs-comment">//=&gt; 
 
             <div class="description"><p>Returns a partial copy of an object omitting the keys specified.</p>
 </div>
-
+            
+            
 
             <div class="see">
                 See also
@@ -9239,7 +9374,8 @@ R.of([<span class="hljs-number">42</span>]); <span class="hljs-comment">//=&gt; 
 the returned function is invoked. The first value calculated is returned in
 subsequent invocations.</p>
 </div>
-
+            
+            
 
 
 	    <pre><button class="try-repl">Try in REPL</button><code class="hljs javascript"><span class="hljs-keyword">var</span> addOneOnce = R.once(x =&gt; x + <span class="hljs-number">1</span>);
@@ -9290,7 +9426,8 @@ addOneOnce(addOneOnce(<span class="hljs-number">50</span>)); <span class="hljs-c
             <div class="description"><p>Returns <code>true</code> if one or both of its arguments are <code>true</code>. Returns <code>false</code>
 if both arguments are <code>false</code>.</p>
 </div>
-
+            
+            
 
             <div class="see">
                 See also
@@ -9350,7 +9487,8 @@ R.or(<span class="hljs-literal">false</span>, <span class="hljs-literal">false</
 focused by the given lens to the result of applying the given function to
 the focused value.</p>
 </div>
-
+            
+            
 
             <div class="see">
                 See also
@@ -9403,7 +9541,8 @@ R.over(headLens, R.toUpper, [<span class="hljs-string">'foo'</span>, <span class
 
             <div class="description"><p>Takes two arguments, <code>fst</code> and <code>snd</code>, and returns <code>[fst, snd]</code>.</p>
 </div>
-
+            
+            
 
             <div class="see">
                 See also
@@ -9455,7 +9594,8 @@ R.over(headLens, R.toUpper, [<span class="hljs-string">'foo'</span>, <span class
 When applied, <code>g</code> returns the result of applying <code>f</code> to the arguments
 provided initially followed by the arguments provided to <code>g</code>.</p>
 </div>
-
+            
+            
 
             <div class="see">
                 See also
@@ -9515,7 +9655,8 @@ sayHelloToMs(<span class="hljs-string">'Jane'</span>, <span class="hljs-string">
 When applied, <code>g</code> returns the result of applying <code>f</code> to the arguments
 provided to <code>g</code> followed by the arguments provided initially.</p>
 </div>
-
+            
+            
 
             <div class="see">
                 See also
@@ -9575,7 +9716,8 @@ greetMsJaneJones(<span class="hljs-string">'Hello'</span>); <span class="hljs-co
 pair of filterable objects of the same type of elements which do and do not
 satisfy, the predicate, respectively.</p>
 </div>
-
+            
+            
 
             <div class="see">
                 See also
@@ -9632,7 +9774,8 @@ R.partition(R.contains(<span class="hljs-string">'s'</span>), { a: <span class="
 
             <div class="description"><p>Retrieve the value at a given path.</p>
 </div>
-
+            
+            
 
             <div class="see">
                 See also
@@ -9693,7 +9836,8 @@ R.path([<span class="hljs-string">'a'</span>, <span class="hljs-string">'b'</spa
             <div class="description"><p>Determines whether a nested path on an object has a specific value, in
 <code>R.equals</code> terms. Most likely used to filter a list.</p>
 </div>
-
+            
+            
 
 
 	    <pre><button class="try-repl">Try in REPL</button><code class="hljs javascript"><span class="hljs-keyword">var</span> user1 = { address: { zipCode: <span class="hljs-number">90210</span> } };
@@ -9753,7 +9897,8 @@ R.filter(isFamous, users); <span class="hljs-comment">//=&gt; [ user1 ]</span></
             <div class="description"><p>If the given, non-null object has a value at the given path, returns the
 value at that path. Otherwise returns the provided default value.</p>
 </div>
-
+            
+            
 
 
 	    <pre><button class="try-repl">Try in REPL</button><code class="hljs javascript">R.pathOr(<span class="hljs-string">'N/A'</span>, [<span class="hljs-string">'a'</span>, <span class="hljs-string">'b'</span>], {a: {b: <span class="hljs-number">2</span>}}); <span class="hljs-comment">//=&gt; 2</span>
@@ -9805,7 +9950,8 @@ R.pathOr(<span class="hljs-string">'N/A'</span>, [<span class="hljs-string">'a'<
             <div class="description"><p>Returns <code>true</code> if the specified object property at given path satisfies the
 given predicate; <code>false</code> otherwise.</p>
 </div>
-
+            
+            
 
             <div class="see">
                 See also
@@ -9859,7 +10005,8 @@ given predicate; <code>false</code> otherwise.</p>
             <div class="description"><p>Returns a partial copy of an object containing only the keys specified. If
 the key does not exist, the property is ignored.</p>
 </div>
-
+            
+            
 
             <div class="see">
                 See also
@@ -9914,7 +10061,8 @@ R.pick([<span class="hljs-string">'a'</span>, <span class="hljs-string">'e'</spa
             <div class="description"><p>Similar to <code>pick</code> except that this one includes a <code>key: undefined</code> pair for
 properties that don&#39;t exist.</p>
 </div>
-
+            
+            
 
             <div class="see">
                 See also
@@ -9970,7 +10118,8 @@ R.pickAll([<span class="hljs-string">'a'</span>, <span class="hljs-string">'e'</
             <div class="description"><p>Returns a partial copy of an object containing only the keys that satisfy
 the supplied predicate.</p>
 </div>
-
+            
+            
 
             <div class="see">
                 See also
@@ -10019,7 +10168,8 @@ any arity; the remaining functions must be unary.</p>
 <p>In some libraries this function is named <code>sequence</code>.</p>
 <p><strong>Note:</strong> The result of pipe is not automatically curried.</p>
 </div>
-
+            
+            
 
             <div class="see">
                 See also
@@ -10067,7 +10217,8 @@ f(<span class="hljs-number">3</span>, <span class="hljs-number">4</span>); <span
 each of which must return a value of a type supported by <a href="#chain"><code>chain</code></a>.</p>
 <p><code>R.pipeK(f, g, h)</code> is equivalent to <code>R.pipe(R.chain(f), R.chain(g), R.chain(h))</code>.</p>
 </div>
-
+            
+            
 
             <div class="see">
                 See also
@@ -10128,7 +10279,8 @@ getStateCode(Maybe.of(<span class="hljs-string">'[Invalid JSON]'</span>));
 functions. The leftmost function may have any arity; the remaining functions
 must be unary.</p>
 </div>
-
+            
+            
 
             <div class="see">
                 See also
@@ -10182,7 +10334,8 @@ must be unary.</p>
             <div class="description"><p>Returns a new list by plucking the same named property off all objects in
 the list supplied.</p>
 </div>
-
+            
+            
 
             <div class="see">
                 See also
@@ -10236,7 +10389,8 @@ R.pluck(<span class="hljs-number">0</span>)([[<span class="hljs-number">1</span>
             <div class="description"><p>Returns a new list with the given element at the front, followed by the
 contents of the list.</p>
 </div>
-
+            
+            
 
             <div class="see">
                 See also
@@ -10282,7 +10436,8 @@ contents of the list.</p>
 
             <div class="description"><p>Multiplies together all the elements of a list.</p>
 </div>
-
+            
+            
 
             <div class="see">
                 See also
@@ -10334,7 +10489,8 @@ contents of the list.</p>
 
             <div class="description"><p>Reasonable analog to SQL <code>select</code> statement.</p>
 </div>
-
+            
+            
 
 
 	    <pre><button class="try-repl">Try in REPL</button><code class="hljs javascript"><span class="hljs-keyword">var</span> abby = {name: <span class="hljs-string">'Abby'</span>, age: <span class="hljs-number">7</span>, hair: <span class="hljs-string">'blond'</span>, grade: <span class="hljs-number">2</span>};
@@ -10386,7 +10542,8 @@ R.project([<span class="hljs-string">'name'</span>, <span class="hljs-string">'g
             <div class="description"><p>Returns a function that when supplied an object returns the indicated
 property of that object, if it exists.</p>
 </div>
-
+            
+            
 
             <div class="see">
                 See also
@@ -10442,7 +10599,8 @@ R.prop(<span class="hljs-string">'x'</span>, {}); <span class="hljs-comment">//=
             <div class="description"><p>Returns <code>true</code> if the specified object property is equal, in <code>R.equals</code>
 terms, to the given value; <code>false</code> otherwise.</p>
 </div>
-
+            
+            
 
             <div class="see">
                 See also
@@ -10504,7 +10662,8 @@ R.filter(hasBrownHair, kids); <span class="hljs-comment">//=&gt; [fred, rusty]</
             <div class="description"><p>Returns <code>true</code> if the specified object property is of the given type;
 <code>false</code> otherwise.</p>
 </div>
-
+            
+            
 
             <div class="see">
                 See also
@@ -10567,7 +10726,8 @@ R.propIs(<span class="hljs-built_in">Number</span>, <span class="hljs-string">'x
 returns the value of that property. Otherwise returns the provided default
 value.</p>
 </div>
-
+            
+            
 
 
 	    <pre><button class="try-repl">Try in REPL</button><code class="hljs javascript"><span class="hljs-keyword">var</span> alice = {
@@ -10624,7 +10784,8 @@ favoriteWithDefault(alice);  <span class="hljs-comment">//=&gt; 'Ramda'</span></
             <div class="description"><p>Acts as multiple <code>prop</code>: array of keys in, array of values out. Preserves
 order.</p>
 </div>
-
+            
+            
 
 
 	    <pre><button class="try-repl">Try in REPL</button><code class="hljs javascript">R.props([<span class="hljs-string">'x'</span>, <span class="hljs-string">'y'</span>], {x: <span class="hljs-number">1</span>, y: <span class="hljs-number">2</span>}); <span class="hljs-comment">//=&gt; [1, 2]</span>
@@ -10679,7 +10840,8 @@ fullName({last: <span class="hljs-string">'Bullet-Tooth'</span>, age: <span clas
             <div class="description"><p>Returns <code>true</code> if the specified object property satisfies the given
 predicate; <code>false</code> otherwise.</p>
 </div>
-
+            
+            
 
             <div class="see">
                 See also
@@ -10732,7 +10894,8 @@ predicate; <code>false</code> otherwise.</p>
 
             <div class="description"><p>Returns a list of numbers from <code>from</code> (inclusive) to <code>to</code> (exclusive).</p>
 </div>
-
+            
+            
 
 
 	    <pre><button class="try-repl">Try in REPL</button><code class="hljs javascript">R.range(<span class="hljs-number">1</span>, <span class="hljs-number">5</span>);    <span class="hljs-comment">//=&gt; [1, 2, 3, 4]</span>
@@ -10797,7 +10960,8 @@ on this behavior, see:
 <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/reduce#Description">https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/reduce#Description</a></p>
 <p>Dispatches to the <code>reduce</code> method of the third argument, if present.</p>
 </div>
-
+            
+            
 
             <div class="see">
                 See also
@@ -10871,7 +11035,8 @@ of each group to a single value via the reducer function <code>valueFn</code>.</
 <p>This function is basically a more general <code>groupBy</code> function.</p>
 <p>Acts as a transducer if a transformer is given in list position.</p>
 </div>
-
+            
+            
 
             <div class="see">
                 See also
@@ -10940,7 +11105,8 @@ box: the internal structure is not guaranteed to be stable.</p>
 <p>Note: this optimization is unavailable to functions not explicitly listed
 above. For instance, it is not currently supported by reduceRight.</p>
 </div>
-
+            
+            
 
             <div class="see">
                 See also
@@ -11012,7 +11178,8 @@ arrays), unlike the native <code>Array.prototype.reduce</code> method. For more 
 on this behavior, see:
 <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/reduceRight#Description">https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/reduceRight#Description</a></p>
 </div>
-
+            
+            
 
             <div class="see">
                 See also
@@ -11085,7 +11252,8 @@ takes a predicate that is evaluated before each step. If the predicate returns
 <code>false</code>, it &quot;short-circuits&quot; the iteration and returns the current value
 of the accumulator.</p>
 </div>
-
+            
+            
 
             <div class="see">
                 See also
@@ -11141,7 +11309,8 @@ R.reduceWhile(isOdd, R.add, <span class="hljs-number">111</span>, ys); <span cla
             <div class="description"><p>The complement of <code>filter</code>.</p>
 <p>Acts as a transducer if a transformer is given in list position.</p>
 </div>
-
+            
+            
 
             <div class="see">
                 See also
@@ -11208,7 +11377,8 @@ R.reject(isOdd, {a: <span class="hljs-number">1</span>, b: <span class="hljs-num
 the list with the changes.
 <small>No lists have been harmed in the application of this function.</small></p>
 </div>
-
+            
+            
 
 
 	    <pre><button class="try-repl">Try in REPL</button><code class="hljs javascript">R.remove(<span class="hljs-number">2</span>, <span class="hljs-number">3</span>, [<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>,<span class="hljs-number">4</span>,<span class="hljs-number">5</span>,<span class="hljs-number">6</span>,<span class="hljs-number">7</span>,<span class="hljs-number">8</span>]); <span class="hljs-comment">//=&gt; [1,2,6,7,8]</span></code></pre>
@@ -11256,7 +11426,8 @@ the list with the changes.
 
             <div class="description"><p>Returns a fixed list of size <code>n</code> containing a specified identical value.</p>
 </div>
-
+            
+            
 
 
 	    <pre><button class="try-repl">Try in REPL</button><code class="hljs javascript">R.repeat(<span class="hljs-string">'hi'</span>, <span class="hljs-number">5</span>); <span class="hljs-comment">//=&gt; ['hi', 'hi', 'hi', 'hi', 'hi']</span>
@@ -11314,7 +11485,8 @@ repeatedObjs[<span class="hljs-number">0</span>] === repeatedObjs[<span class="h
 
             <div class="description"><p>Replace a substring or regex match in a string with a replacement.</p>
 </div>
-
+            
+            
 
 
 	    <pre><button class="try-repl">Try in REPL</button><code class="hljs javascript">R.replace(<span class="hljs-string">'foo'</span>, <span class="hljs-string">'bar'</span>, <span class="hljs-string">'foo foo foo'</span>); <span class="hljs-comment">//=&gt; 'bar foo foo'</span>
@@ -11360,7 +11532,8 @@ R.replace(<span class="hljs-regexp">/foo/g</span>, <span class="hljs-string">'ba
             <div class="description"><p>Returns a new list or string with the elements or characters in reverse
 order.</p>
 </div>
-
+            
+            
 
 
 	    <pre><button class="try-repl">Try in REPL</button><code class="hljs javascript">R.reverse([<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>]);  <span class="hljs-comment">//=&gt; [3, 2, 1]</span>
@@ -11424,7 +11597,8 @@ R.reverse(<span class="hljs-string">''</span>);         <span class="hljs-commen
             <div class="description"><p>Scan is similar to reduce, but returns a list of successively reduced values
 from the left</p>
 </div>
-
+            
+            
 
 
 	    <pre><button class="try-repl">Try in REPL</button><code class="hljs javascript"><span class="hljs-keyword">var</span> numbers = [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>];
@@ -11473,7 +11647,8 @@ of <a href="https://github.com/fantasyland/fantasy-land#applicative">Applicative
 Applicative of Traversable.</p>
 <p>Dispatches to the <code>sequence</code> method of the second argument, if present.</p>
 </div>
-
+            
+            
 
             <div class="see">
                 See also
@@ -11533,7 +11708,8 @@ R.sequence(R.of, Nothing());       <span class="hljs-comment">//=&gt; [Nothing()
             <div class="description"><p>Returns the result of &quot;setting&quot; the portion of the given data structure
 focused by the given lens to the given value.</p>
 </div>
-
+            
+            
 
             <div class="see">
                 See also
@@ -11597,7 +11773,8 @@ R.set(xLens, <span class="hljs-number">8</span>, {x: <span class="hljs-number">1
 method) from <code>fromIndex</code> (inclusive) to <code>toIndex</code> (exclusive).</p>
 <p>Dispatches to the <code>slice</code> method of the third argument, if present.</p>
 </div>
-
+            
+            
 
 
 	    <pre><button class="try-repl">Try in REPL</button><code class="hljs javascript">R.slice(<span class="hljs-number">1</span>, <span class="hljs-number">3</span>, [<span class="hljs-string">'a'</span>, <span class="hljs-string">'b'</span>, <span class="hljs-string">'c'</span>, <span class="hljs-string">'d'</span>]);        <span class="hljs-comment">//=&gt; ['b', 'c']</span>
@@ -11653,7 +11830,8 @@ first value is smaller, a positive number if it&#39;s larger, and zero if they
 are equal. Please note that this is a <strong>copy</strong> of the list. It does not
 modify the original.</p>
 </div>
-
+            
+            
 
 
 	    <pre><button class="try-repl">Try in REPL</button><code class="hljs javascript"><span class="hljs-keyword">var</span> diff = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">a, b</span>) </span>{ <span class="hljs-keyword">return</span> a - b; };
@@ -11701,7 +11879,8 @@ R.sort(diff, [<span class="hljs-number">4</span>,<span class="hljs-number">2</sp
 
             <div class="description"><p>Sorts the list according to the supplied function.</p>
 </div>
-
+            
+            
 
 
 	    <pre><button class="try-repl">Try in REPL</button><code class="hljs javascript"><span class="hljs-keyword">var</span> sortByFirstItem = R.sortBy(R.prop(<span class="hljs-number">0</span>));
@@ -11767,7 +11946,8 @@ sortByNameCaseInsensitive(people); <span class="hljs-comment">//=&gt; [alice, bo
             <div class="description"><p>Splits a string into an array of strings based on the given
 separator.</p>
 </div>
-
+            
+            
 
             <div class="see">
                 See also
@@ -11822,7 +12002,8 @@ R.split(<span class="hljs-string">'.'</span>, <span class="hljs-string">'a.b.c.x
 
             <div class="description"><p>Splits a given list or string at a given index.</p>
 </div>
-
+            
+            
 
 
 	    <pre><button class="try-repl">Try in REPL</button><code class="hljs javascript">R.splitAt(<span class="hljs-number">1</span>, [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>]);          <span class="hljs-comment">//=&gt; [[1], [2, 3]]</span>
@@ -11870,7 +12051,8 @@ R.splitAt(-<span class="hljs-number">1</span>, <span class="hljs-string">'foobar
 
             <div class="description"><p>Splits a collection into slices of the specified length.</p>
 </div>
-
+            
+            
 
 
 	    <pre><button class="try-repl">Try in REPL</button><code class="hljs javascript">R.splitEvery(<span class="hljs-number">3</span>, [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>, <span class="hljs-number">5</span>, <span class="hljs-number">6</span>, <span class="hljs-number">7</span>]); <span class="hljs-comment">//=&gt; [[1, 2, 3], [4, 5, 6], [7]]</span>
@@ -11923,7 +12105,8 @@ R.splitEvery(<span class="hljs-number">3</span>, <span class="hljs-string">'foob
 <li>if the second output list is non-empty, its first element satisfies the predicate.</li>
 </ul>
 </div>
-
+            
+            
 
 
 	    <pre><button class="try-repl">Try in REPL</button><code class="hljs javascript">R.splitWhen(R.equals(<span class="hljs-number">2</span>), [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>]);   <span class="hljs-comment">//=&gt; [[1], [2, 3, 1, 2, 3]]</span></code></pre>
@@ -11971,7 +12154,8 @@ R.splitEvery(<span class="hljs-number">3</span>, <span class="hljs-string">'foob
 
             <div class="description"><p>Subtracts its second argument from its first argument.</p>
 </div>
-
+            
+            
 
             <div class="see">
                 See also
@@ -12024,7 +12208,8 @@ complementaryAngle(<span class="hljs-number">72</span>); <span class="hljs-comme
 
             <div class="description"><p>Adds together all the elements of a list.</p>
 </div>
-
+            
+            
 
             <div class="see">
                 See also
@@ -12077,7 +12262,8 @@ complementaryAngle(<span class="hljs-number">72</span>); <span class="hljs-comme
             <div class="description"><p>Finds the set (i.e. no duplicates) of all elements contained in the first or
 second list, but not both.</p>
 </div>
-
+            
+            
 
             <div class="see">
                 See also
@@ -12140,7 +12326,8 @@ R.symmetricDifference([<span class="hljs-number">7</span>,<span class="hljs-numb
 second list, but not both. Duplication is determined according to the value
 returned by applying the supplied predicate to two list elements.</p>
 </div>
-
+            
+            
 
             <div class="see">
                 See also
@@ -12189,7 +12376,8 @@ R.symmetricDifferenceWith(eqA, l1, l2); <span class="hljs-comment">//=&gt; [{a: 
 
             <div class="description"><p>A function that always returns <code>true</code>. Any passed in parameters are ignored.</p>
 </div>
-
+            
+            
 
             <div class="see">
                 See also
@@ -12237,7 +12425,8 @@ R.symmetricDifferenceWith(eqA, l1, l2); <span class="hljs-comment">//=&gt; [{a: 
 with a <code>tail</code> method).</p>
 <p>Dispatches to the <code>slice</code> method of the first argument, if present.</p>
 </div>
-
+            
+            
 
             <div class="see">
                 See also
@@ -12299,7 +12488,8 @@ R.tail(<span class="hljs-string">''</span>);     <span class="hljs-comment">//=&
 transducer/transformer (or object with a <code>take</code> method).</p>
 <p>Dispatches to the <code>take</code> method of the second argument, if present.</p>
 </div>
-
+            
+            
 
             <div class="see">
                 See also
@@ -12371,7 +12561,8 @@ takeFive(personnel);
             <div class="description"><p>Returns a new list containing the last <code>n</code> elements of the given list.
 If <code>n &gt; list.length</code>, returns a list of <code>list.length</code> elements.</p>
 </div>
-
+            
+            
 
             <div class="see">
                 See also
@@ -12431,7 +12622,8 @@ predicate function returns <code>false</code>. Excludes the element that caused 
 predicate function to fail. The predicate function is passed one argument:
 <em>(value)</em>.</p>
 </div>
-
+            
+            
 
             <div class="see">
                 See also
@@ -12492,7 +12684,8 @@ predicate function to fail. The predicate function is passed one argument:
 <p>Dispatches to the <code>takeWhile</code> method of the second argument, if present.</p>
 <p>Acts as a transducer if a transformer is given in list position.</p>
 </div>
-
+            
+            
 
             <div class="see">
                 See also
@@ -12547,7 +12740,8 @@ R.takeWhile(isNotFour, [<span class="hljs-number">1</span>, <span class="hljs-nu
 
             <div class="description"><p>Runs the given function with the supplied object, then returns the object.</p>
 </div>
-
+            
+            
 
 
 	    <pre><button class="try-repl">Try in REPL</button><code class="hljs javascript"><span class="hljs-keyword">var</span> sayX = x =&gt; <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'x is '</span> + x);
@@ -12594,7 +12788,8 @@ R.tap(sayX, <span class="hljs-number">100</span>); <span class="hljs-comment">//
 
             <div class="description"><p>Determines whether a given string matches a given regular expression.</p>
 </div>
-
+            
+            
 
             <div class="see">
                 See also
@@ -12650,7 +12845,8 @@ of those function calls.</p>
 <p><code>fn</code> is passed one argument: The current value of <code>n</code>, which begins at <code>0</code>
 and is gradually incremented to <code>n - 1</code>.</p>
 </div>
-
+            
+            
 
 
 	    <pre><button class="try-repl">Try in REPL</button><code class="hljs javascript">R.times(R.identity, <span class="hljs-number">5</span>); <span class="hljs-comment">//=&gt; [0, 1, 2, 3, 4]</span></code></pre>
@@ -12692,7 +12888,8 @@ and is gradually incremented to <code>n - 1</code>.</p>
 
             <div class="description"><p>The lower case version of a string.</p>
 </div>
-
+            
+            
 
             <div class="see">
                 See also
@@ -12741,7 +12938,8 @@ own properties are used.
 Note that the order of the output array is not guaranteed to be consistent
 across different JS platforms.</p>
 </div>
-
+            
+            
 
             <div class="see">
                 See also
@@ -12791,7 +12989,8 @@ properties and prototype properties are used. Note that the order of the
 output array is not guaranteed to be consistent across different JS
 platforms.</p>
 </div>
-
+            
+            
 
 
 	    <pre><button class="try-repl">Try in REPL</button><code class="hljs javascript"><span class="hljs-keyword">var</span> F = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{ <span class="hljs-keyword">this</span>.x = <span class="hljs-string">'X'</span>; };
@@ -12850,7 +13049,8 @@ Point.prototype.toString = function() {
 
 R.toString(new Point(1, 2)); //=&gt; &#39;new Point(1, 2)&#39;
 </code></pre></div>
-
+            
+            
 
 
 	    <pre><button class="try-repl">Try in REPL</button><code class="hljs javascript">R.toString(<span class="hljs-number">42</span>); <span class="hljs-comment">//=&gt; '42'</span>
@@ -12896,7 +13096,8 @@ R.toString(<span class="hljs-keyword">new</span> <span class="hljs-built_in">Dat
 
             <div class="description"><p>The upper case version of a string.</p>
 </div>
-
+            
+            
 
             <div class="see">
                 See also
@@ -12979,7 +13180,8 @@ function can be used to provide an initial accumulator, but is ignored by
 transduce.</p>
 <p>The iteration is performed with R.reduce after initializing the transducer.</p>
 </div>
-
+            
+            
 
             <div class="see">
                 See also
@@ -13032,7 +13234,8 @@ R.transduce(transducer, R.flip(R.append), [], numbers); <span class="hljs-commen
 When passed a list of <code>n</code> lists of length <code>x</code>,
 returns a list of <code>x</code> lists of length <code>n</code>.</p>
 </div>
-
+            
+            
 
 
 	    <pre><button class="try-repl">Try in REPL</button><code class="hljs javascript">R.transpose([[<span class="hljs-number">1</span>, <span class="hljs-string">'a'</span>], [<span class="hljs-number">2</span>, <span class="hljs-string">'b'</span>], [<span class="hljs-number">3</span>, <span class="hljs-string">'c'</span>]]) <span class="hljs-comment">//=&gt; [[1, 2, 3], ['a', 'b', 'c']]</span>
@@ -13091,7 +13294,8 @@ then uses <a href="#sequence"><code>sequence</code></a> to transform the resulti
 into an Applicative of Traversable.</p>
 <p>Dispatches to the <code>sequence</code> method of the third argument, if present.</p>
 </div>
-
+            
+            
 
             <div class="see">
                 See also
@@ -13141,7 +13345,8 @@ R.traverse(Maybe.of, safeDiv(<span class="hljs-number">10</span>), [<span class=
 
             <div class="description"><p>Removes (strips) whitespace from both ends of the string.</p>
 </div>
-
+            
+            
 
 
 	    <pre><button class="try-repl">Try in REPL</button><code class="hljs javascript">R.trim(<span class="hljs-string">'   xyz  '</span>); <span class="hljs-comment">//=&gt; 'xyz'</span>
@@ -13195,7 +13400,8 @@ result. If the <code>tryer</code> <em>does</em> throw, the returned function eva
 composition with this function, both the <code>tryer</code> and <code>catcher</code> functions
 must return the same type of results.</p>
 </div>
-
+            
+            
 
 
 	    <pre><button class="try-repl">Try in REPL</button><code class="hljs javascript">R.tryCatch(R.prop(<span class="hljs-string">'x'</span>), R.F)({x: <span class="hljs-literal">true</span>}); <span class="hljs-comment">//=&gt; true</span>
@@ -13240,7 +13446,8 @@ returning such answers as &#39;Object&#39;, &#39;Number&#39;, &#39;Array&#39;, o
 attempt to distinguish user Object types any further, reporting them all as
 &#39;Object&#39;.</p>
 </div>
-
+            
+            
 
 
 	    <pre><button class="try-repl">Try in REPL</button><code class="hljs javascript">R.type({}); <span class="hljs-comment">//=&gt; "Object"</span>
@@ -13294,7 +13501,8 @@ function which:</p>
 <p>In other words, R.unapply derives a variadic function from a function which
 takes an array. R.unapply is the inverse of R.apply.</p>
 </div>
-
+            
+            
 
             <div class="see">
                 See also
@@ -13343,7 +13551,8 @@ takes an array. R.unapply is the inverse of R.apply.</p>
 exactly 1 parameter. Any extraneous parameters will not be passed to the
 supplied function.</p>
 </div>
-
+            
+            
 
 
 	    <pre><button class="try-repl">Try in REPL</button><code class="hljs javascript"><span class="hljs-keyword">var</span> takesTwoArgs = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">a, b</span>) </span>{
@@ -13400,7 +13609,8 @@ takesOneArg(<span class="hljs-number">1</span>, <span class="hljs-number">2</spa
 
             <div class="description"><p>Returns a function of arity <code>n</code> from a (manually) curried function.</p>
 </div>
-
+            
+            
 
             <div class="see">
                 See also
@@ -13462,7 +13672,8 @@ to add to the resulting list and the seed to be used in the next call to the
 iterator function.</p>
 <p>The iterator function receives one argument: <em>(seed)</em>.</p>
 </div>
-
+            
+            
 
 
 	    <pre><button class="try-repl">Try in REPL</button><code class="hljs javascript"><span class="hljs-keyword">var</span> f = n =&gt; n &gt; <span class="hljs-number">50</span> ? <span class="hljs-literal">false</span> : [-n, n + <span class="hljs-number">10</span>];
@@ -13513,7 +13724,8 @@ R.unfold(f, <span class="hljs-number">10</span>); <span class="hljs-comment">//=
             <div class="description"><p>Combines two lists into a set (i.e. no duplicates) composed of the elements
 of each list.</p>
 </div>
-
+            
+            
 
 
 	    <pre><button class="try-repl">Try in REPL</button><code class="hljs javascript">R.union([<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>], [<span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>]); <span class="hljs-comment">//=&gt; [1, 2, 3, 4]</span></code></pre>
@@ -13570,7 +13782,8 @@ of each list.</p>
 of each list. Duplication is determined according to the value returned by
 applying the supplied predicate to two list elements.</p>
 </div>
-
+            
+            
 
             <div class="see">
                 See also
@@ -13619,7 +13832,8 @@ R.unionWith(R.eqBy(R.prop(<span class="hljs-string">'a'</span>)), l1, l2); <span
             <div class="description"><p>Returns a new list containing only one copy of each element in the original
 list. <code>R.equals</code> is used to determine equality.</p>
 </div>
-
+            
+            
 
 
 	    <pre><button class="try-repl">Try in REPL</button><code class="hljs javascript">R.uniq([<span class="hljs-number">1</span>, <span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">1</span>]); <span class="hljs-comment">//=&gt; [1, 2]</span>
@@ -13672,7 +13886,8 @@ list, based upon the value returned by applying the supplied function to
 each list element. Prefers the first item if the supplied function produces
 the same value on two items. <code>R.equals</code> is used for comparison.</p>
 </div>
-
+            
+            
 
 
 	    <pre><button class="try-repl">Try in REPL</button><code class="hljs javascript">R.uniqBy(<span class="hljs-built_in">Math</span>.abs, [-<span class="hljs-number">1</span>, -<span class="hljs-number">5</span>, <span class="hljs-number">2</span>, <span class="hljs-number">10</span>, <span class="hljs-number">1</span>, <span class="hljs-number">2</span>]); <span class="hljs-comment">//=&gt; [-1, -5, 2, 10]</span></code></pre>
@@ -13723,7 +13938,8 @@ list, based upon the value returned by applying the supplied predicate to
 two list elements. Prefers the first item if two items compare equal based
 on the predicate.</p>
 </div>
-
+            
+            
 
 
 	    <pre><button class="try-repl">Try in REPL</button><code class="hljs javascript"><span class="hljs-keyword">var</span> strEq = R.eqBy(<span class="hljs-built_in">String</span>);
@@ -13786,7 +14002,8 @@ the predicate is not satisfied, the function will return the result of
 calling the <code>whenFalseFn</code> function with the same argument. If the predicate
 is satisfied, the argument is returned as is.</p>
 </div>
-
+            
+            
 
             <div class="see">
                 See also
@@ -13835,7 +14052,8 @@ coerceArray(<span class="hljs-number">1</span>);         <span class="hljs-comme
             <div class="description"><p>Shorthand for <code>R.chain(R.identity)</code>, which removes one level of nesting from
 any <a href="https://github.com/fantasyland/fantasy-land#chain">Chain</a>.</p>
 </div>
-
+            
+            
 
             <div class="see">
                 See also
@@ -13898,7 +14116,8 @@ and returns a value of the same type as the initial value.
 It does so by applying the transformation until the predicate is satisfied,
 at which point it returns the satisfactory value.</p>
 </div>
-
+            
+            
 
 
 	    <pre><button class="try-repl">Try in REPL</button><code class="hljs javascript">R.until(R.gt(R.__, <span class="hljs-number">100</span>), R.multiply(<span class="hljs-number">2</span>))(<span class="hljs-number">1</span>) <span class="hljs-comment">// =&gt; 128</span></code></pre>
@@ -13953,7 +14172,8 @@ at which point it returns the satisfactory value.</p>
             <div class="description"><p>Returns a new copy of the array with the element at the provided index
 replaced with the given value.</p>
 </div>
-
+            
+            
 
             <div class="see">
                 See also
@@ -14014,7 +14234,8 @@ parameters. If you expect additional arguments that don&#39;t need to be
 transformed, although you can ignore them, it&#39;s best to pass an identity
 function so that the new function reports the correct arity.</p>
 </div>
-
+            
+            
 
 
 	    <pre><button class="try-repl">Try in REPL</button><code class="hljs javascript">R.useWith(<span class="hljs-built_in">Math</span>.pow, [R.identity, R.identity])(<span class="hljs-number">3</span>, <span class="hljs-number">4</span>); <span class="hljs-comment">//=&gt; 81</span>
@@ -14061,7 +14282,8 @@ R.useWith(<span class="hljs-built_in">Math</span>.pow, [R.dec, R.inc])(<span cla
 Note that the order of the output array is not guaranteed across different
 JS platforms.</p>
 </div>
-
+            
+            
 
 
 	    <pre><button class="try-repl">Try in REPL</button><code class="hljs javascript">R.values({a: <span class="hljs-number">1</span>, b: <span class="hljs-number">2</span>, c: <span class="hljs-number">3</span>}); <span class="hljs-comment">//=&gt; [1, 2, 3]</span></code></pre>
@@ -14106,7 +14328,8 @@ supplied object.
 Note that the order of the output array is not guaranteed to be consistent
 across different JS platforms.</p>
 </div>
-
+            
+            
 
 
 	    <pre><button class="try-repl">Try in REPL</button><code class="hljs javascript"><span class="hljs-keyword">var</span> F = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{ <span class="hljs-keyword">this</span>.x = <span class="hljs-string">'X'</span>; };
@@ -14156,7 +14379,8 @@ R.valuesIn(f); <span class="hljs-comment">//=&gt; ['X', 'Y']</span></code></pre>
             <div class="description"><p>Returns a &quot;view&quot; of the given data structure, determined by the given lens.
 The lens&#39;s focus determines which portion of the data structure is visible.</p>
 </div>
-
+            
+            
 
             <div class="see">
                 See also
@@ -14224,7 +14448,8 @@ the predicate is satisfied, the function will return the result of calling
 the <code>whenTrueFn</code> function with the same argument. If the predicate is not
 satisfied, the argument is returned as is.</p>
 </div>
-
+            
+            
 
             <div class="see">
                 See also
@@ -14286,7 +14511,8 @@ otherwise.</p>
 <p><code>where</code> is well suited to declaratively expressing constraints for other
 functions such as <code>filter</code> and <code>find</code>.</p>
 </div>
-
+            
+            
 
 
 	    <pre><button class="try-repl">Try in REPL</button><code class="hljs javascript"><span class="hljs-comment">// pred :: Object -&gt; Boolean</span>
@@ -14347,7 +14573,8 @@ spec&#39;s own properties, accessing that property of the object gives the same
 value (in <code>R.equals</code> terms) as accessing that property of the spec.</p>
 <p><code>whereEq</code> is a specialization of <a href="#where"><code>where</code></a>.</p>
 </div>
-
+            
+            
 
             <div class="see">
                 See also
@@ -14407,7 +14634,8 @@ pred({a: <span class="hljs-number">1</span>, b: <span class="hljs-number">1</spa
 <code>R.equals</code> is used to determine equality.</p>
 <p>Acts as a transducer if a transformer is given in list position.</p>
 </div>
-
+            
+            
 
             <div class="see">
                 See also
@@ -14464,7 +14692,8 @@ pred({a: <span class="hljs-number">1</span>, b: <span class="hljs-number">1</spa
 parameters, or do other processing either before the internal function is
 called or with its results.</p>
 </div>
-
+            
+            
 
 
 	    <pre><button class="try-repl">Try in REPL</button><code class="hljs javascript"><span class="hljs-keyword">var</span> greet = name =&gt; <span class="hljs-string">'Hello '</span> + name;
@@ -14523,7 +14752,8 @@ shortenedGreet(<span class="hljs-string">"Robert"</span>); <span class="hljs-com
             <div class="description"><p>Creates a new list out of the two supplied by creating each possible pair
 from the lists.</p>
 </div>
-
+            
+            
 
 
 	    <pre><button class="try-repl">Try in REPL</button><code class="hljs javascript">R.xprod([<span class="hljs-number">1</span>, <span class="hljs-number">2</span>], [<span class="hljs-string">'a'</span>, <span class="hljs-string">'b'</span>]); <span class="hljs-comment">//=&gt; [[1, 'a'], [1, 'b'], [2, 'a'], [2, 'b']]</span></code></pre>
@@ -14574,7 +14804,8 @@ items from both lists. The returned list is truncated to the length of the
 shorter of the two input lists.
 Note: <code>zip</code> is equivalent to <code>zipWith(function(a, b) { return [a, b] })</code>.</p>
 </div>
-
+            
+            
 
 
 	    <pre><button class="try-repl">Try in REPL</button><code class="hljs javascript">R.zip([<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>], [<span class="hljs-string">'a'</span>, <span class="hljs-string">'b'</span>, <span class="hljs-string">'c'</span>]); <span class="hljs-comment">//=&gt; [[1, 'a'], [2, 'b'], [3, 'c']]</span></code></pre>
@@ -14624,7 +14855,8 @@ Note: <code>zip</code> is equivalent to <code>zipWith(function(a, b) { return [a
 Key/value pairing is truncated to the length of the shorter of the two lists.
 Note: <code>zipObj</code> is equivalent to <code>pipe(zipWith(pair), fromPairs)</code>.</p>
 </div>
-
+            
+            
 
 
 	    <pre><button class="try-repl">Try in REPL</button><code class="hljs javascript">R.zipObj([<span class="hljs-string">'a'</span>, <span class="hljs-string">'b'</span>, <span class="hljs-string">'c'</span>], [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>]); <span class="hljs-comment">//=&gt; {a: 1, b: 2, c: 3}</span></code></pre>
@@ -14681,7 +14913,8 @@ Note: <code>zipObj</code> is equivalent to <code>pipe(zipWith(pair), fromPairs)<
 equally-positioned pair in the lists. The returned list is truncated to the
 length of the shorter of the two input lists.</p>
 </div>
-
+            
+            
 
 
 	    <pre><button class="try-repl">Try in REPL</button><code class="hljs javascript"><span class="hljs-keyword">var</span> f = (x, y) =&gt; {
