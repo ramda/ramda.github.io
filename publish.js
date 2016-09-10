@@ -6,7 +6,7 @@ var hljs = require('highlight.js');
 var helper = require('jsdoc/util/templateHelper');
 var marked = require('marked');
 
-var version = require('./package.json').version;
+var version = require('./package.json').devDependencies.ramda
 
 var headOr = function(x, xs) {
   return xs.length === 0 ? x : xs[0];
