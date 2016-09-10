@@ -15,7 +15,7 @@
     "highlight.js": "8.x.x",
     "http-server": "0.8.x",
     "jsdoc": "3.3.x",
-    "less": "2.5.x",
+    "less": "2.7.x",
     "marked": "0.3.x",
     "ramda": "0.22.1",
     "semver-compare": "^1.0.0",
