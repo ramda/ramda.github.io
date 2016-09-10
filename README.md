@@ -17,9 +17,9 @@ In the event that `:8080` is in use, you can change the port like so:
 
 	npm run server -- -p 8081
 
-For more details on configuring the server, see [http-server (0.8.x)][http-server].
+For more details on configuring the server, see [http-server docs][http-server].
 
-[http-server]: https://github.com/indexzero/http-server/tree/0.8.5#available-options
+[http-server]: https://github.com/indexzero/http-server#available-options
 
 
 ## What to do on a new release

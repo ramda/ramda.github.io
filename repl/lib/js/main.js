@@ -1,4 +1,3 @@
-global.R = ramda;
 global.S = sanctuary;
 global.Either = ramdaFantasy.Either;
 global.Future = ramdaFantasy.Future;

@@ -33,6 +33,26 @@
     <link rel="stylesheet" href="lib/css/repl.css">
     <link rel="stylesheet" href="lib/css/terminal.css">
 
+    <!-- load ramda.js -->
+    <script>
+    (function() {
+      var r = document.createElement('script');
+      var rx = /^\d+\.\d+(\.\d+)?$/;
+      var version = 'latest';
+      location.search.substr(1).split('&').forEach(function(pair) {
+        var ps = pair.split('=');
+        if (ps[0] === 'v') {
+          if (rx.test(ps[1])) {
+            version = ps[1];
+          }
+        }
+      });
+      r.id = 'r';
+      var protocol = location.protocol === 'file:' ? 'https:' : location.protocol;
+      r.setAttribute('src', protocol + '//cdn.jsdelivr.net/ramda/' + version + '/ramda.min.js');
+      document.head.appendChild(r);
+    }());
+    </script>
 
 </head>
 
@@ -100,7 +120,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.6.0/addon/hint/show-hint.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.6.0/addon/hint/javascript-hint.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.6.0/mode/javascript/javascript.min.js"></script>
-    <script src="//wzrd.in/standalone/ramda@latest"></script>
     <script src="//wzrd.in/standalone/sanctuary@latest"></script>
     <script src="//wzrd.in/standalone/ramda-fantasy@latest"></script>
     <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
