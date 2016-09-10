@@ -76,3 +76,38 @@ body.dark, body.dark h1 {
     vertical-align: middle;
     margin-left: 6px;
 }
+
+@media (min-width: 991px) {
+  .main {
+      display: flex;
+      flex-direction: column;
+      flex: 1 0 auto;
+      height : 100%;
+      border: 4px;
+  }
+
+  .repl {
+      display: flex;
+      flex: 1 0 auto;
+  }
+
+  .repl-input {
+      flex: 1 0 auto;
+  }
+
+  .repl-input .panel-primary {
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+  }
+
+  .repl-input .panel-body {
+      flex: 1 0 auto;
+      display: flex;
+  }
+
+  .repl-input .CodeMirror {
+      height: auto;
+      flex: 1 0 auto;
+  }
+}
