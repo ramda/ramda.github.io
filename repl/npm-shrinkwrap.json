@@ -363,9 +363,9 @@
       "resolved": "https://registry.npmjs.org/babel-traverse/-/babel-traverse-6.4.5.tgz",
       "dependencies": {
         "babylon": {
-          "version": "6.3.26",
-          "from": "babylon@6.3.26",
-          "resolved": "https://registry.npmjs.org/babylon/-/babylon-6.3.26.tgz"
+          "version": "6.9.2",
+          "from": "babylon@>=6.4.5 <7.0.0",
+          "resolved": "https://registry.npmjs.org/babylon/-/babylon-6.9.2.tgz"
         }
       }
     },
@@ -430,6 +430,16 @@
       "version": "0.0.1",
       "from": "clone-stats@>=0.0.1 <0.0.2",
       "resolved": "https://registry.npmjs.org/clone-stats/-/clone-stats-0.0.1.tgz"
+    },
+    "complexion": {
+      "version": "0.1.3",
+      "from": "complexion@>=0.1.3 <0.2.0",
+      "resolved": "https://registry.npmjs.org/complexion/-/complexion-0.1.3.tgz"
+    },
+    "complexion-js": {
+      "version": "0.1.5",
+      "from": "complexion-js@>=0.1.5 <0.2.0",
+      "resolved": "https://registry.npmjs.org/complexion-js/-/complexion-js-0.1.5.tgz"
     },
     "concat-map": {
       "version": "0.0.1",
@@ -589,18 +599,6 @@
       "version": "3.0.8",
       "from": "graceful-fs@>=3.0.0 <4.0.0",
       "resolved": "https://registry.npmjs.org/graceful-fs/-/graceful-fs-3.0.8.tgz"
-    },
-    "handlebars": {
-      "version": "4.0.5",
-      "from": "handlebars@latest",
-      "resolved": "https://registry.npmjs.org/handlebars/-/handlebars-4.0.5.tgz",
-      "dependencies": {
-        "source-map": {
-          "version": "0.4.4",
-          "from": "source-map@>=0.4.4 <0.5.0",
-          "resolved": "https://registry.npmjs.org/source-map/-/source-map-0.4.4.tgz"
-        }
-      }
     },
     "has-ansi": {
       "version": "2.0.0",
@@ -778,6 +776,11 @@
         }
       }
     },
+    "option-parser": {
+      "version": "0.1.3",
+      "from": "option-parser@*",
+      "resolved": "https://registry.npmjs.org/option-parser/-/option-parser-0.1.3.tgz"
+    },
     "ordered-read-streams": {
       "version": "0.1.0",
       "from": "ordered-read-streams@>=0.1.0 <0.2.0",
@@ -798,10 +801,20 @@
       "from": "path-is-absolute@>=1.0.0 <2.0.0",
       "resolved": "https://registry.npmjs.org/path-is-absolute/-/path-is-absolute-1.0.0.tgz"
     },
+    "pretty-js": {
+      "version": "0.1.8",
+      "from": "pretty-js@latest",
+      "resolved": "https://registry.npmjs.org/pretty-js/-/pretty-js-0.1.8.tgz"
+    },
     "private": {
       "version": "0.1.6",
       "from": "private@>=0.1.6 <0.2.0",
       "resolved": "https://registry.npmjs.org/private/-/private-0.1.6.tgz"
+    },
+    "process-files": {
+      "version": "0.1.1",
+      "from": "process-files@*",
+      "resolved": "https://registry.npmjs.org/process-files/-/process-files-0.1.1.tgz"
     },
     "process-nextick-args": {
       "version": "1.0.6",
