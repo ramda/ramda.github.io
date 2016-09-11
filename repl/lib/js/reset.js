@@ -1,13 +1,12 @@
 const resetBtn = document.getElementById('resetBtn');
 const clearBtn = document.querySelector('.clear-console');
 const evalError = document.querySelector('pre.error');
-const evalElement = document.querySelector('pre.eval');
 
-export default () => {
+export default (output) => {
     resetBtn.addEventListener('click', () => window.location = '.');
     clearBtn.addEventListener("click", () => {
         console.clear();
-        evalElement.textContent = '';
+        output.setValue('');
         evalError.textContent = '';
     });
 };

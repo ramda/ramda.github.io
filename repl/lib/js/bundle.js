@@ -157,9 +157,9 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 var prettyBtn = document.querySelector('.pretty-console');
 var evalElement = document.querySelector('pre.eval');
 
-exports.default = function () {
-  prettyBtn.addEventListener('click', function () {
-    evalElement.textContent = (0, _prettyJs2.default)(evalElement.textContent, { indent: '  ' });
+exports.default = function (output) {
+  prettyBtn.addEventListener('click', function prettify() {
+    output.setValue((0, _prettyJs2.default)(output.getValue()));
   });
 };
 
@@ -197,7 +197,6 @@ var stage0 = require('babel-preset-stage-0');
 
 var babel = require('babel-core');
 
-var evalElement = document.querySelector('pre.eval');
 var evalError = document.querySelector('pre.error');
 
 var printError = function printError(message) {
@@ -236,7 +235,7 @@ var compile = function compile() {
             "presets": [es2015, stage0]
         });
 
-        evalElement.textContent = evalSource(transformed.code).replace('"use strict"', '');
+        output.setValue(evalSource(transformed.code).replace('"use strict"', ''));
     } catch (err) {
         printError(err.message.replace(ramdaStr, '').replace(/(?=\d).*(?=\|)/g, function (a) {
             return Number(a.trim()) - 1;
@@ -246,33 +245,44 @@ var compile = function compile() {
 
 _logger2.default.main();
 
-(0, _reset2.default)();
-
-(0, _pretty2.default)();
-
 (0, _googl2.default)();
 
 var debounceCompile = (0, _debounce2.default)(compile, 1000);
 
-var input = CodeMirror.fromTextArea(document.querySelector('.input'), {
-    lineNumbers: true,
+var codeMirrorConfig = {
     theme: "dracula",
-    extraKeys: {
-        "Tab": "autocomplete"
-    },
-    autofocus: true,
-    autoCloseBrackets: true,
-    historyEventDelay: 2000,
     mode: {
         name: "javascript",
         json: true,
         globalVars: true
     }
+};
+
+var inputConfig = R.merge(codeMirrorConfig, {
+    lineNumbers: true,
+    extraKeys: {
+        "Tab": "autocomplete"
+    },
+    autofocus: true,
+    autoCloseBrackets: true,
+    historyEventDelay: 2000
 });
+
+var outputConfig = R.merge(codeMirrorConfig, {
+    readOnly: true
+});
+
+var input = CodeMirror.fromTextArea(document.querySelector('.input'), inputConfig);
 
 CodeMirror.registerHelper("instance", "input", input);
 
 input.on('change', debounceCompile);
+
+var output = CodeMirror.fromTextArea(document.querySelector('.output'), outputConfig);
+
+(0, _reset2.default)(output);
+
+(0, _pretty2.default)(output);
 
 // Get source code from 'code' params and paste it into editor
 // The 'code' param is actually located in a hash URL fragment,
@@ -291,15 +301,14 @@ Object.defineProperty(exports, "__esModule", {
 var resetBtn = document.getElementById('resetBtn');
 var clearBtn = document.querySelector('.clear-console');
 var evalError = document.querySelector('pre.error');
-var evalElement = document.querySelector('pre.eval');
 
-exports.default = function () {
+exports.default = function (output) {
     resetBtn.addEventListener('click', function () {
         return window.location = '.';
     });
     clearBtn.addEventListener("click", function () {
         console.clear();
-        evalElement.textContent = '';
+        output.setValue('');
         evalError.textContent = '';
     });
 };
