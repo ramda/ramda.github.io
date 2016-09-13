@@ -8,7 +8,6 @@ import prettyBtn from './pretty';
 import googl from './googl';
 const babel = require('babel-core');
 
-const evalElement = document.querySelector('pre.eval');
 const evalError = document.querySelector('pre.error');
 
 const printError = function printError(message) {
@@ -52,7 +51,8 @@ const compile = function compile() {
             ]
         });
 
-        evalElement.textContent = evalSource(transformed.code).replace('"use strict"', '');
+        output.setValue(evalSource(transformed.code).replace('"use strict"', ''));
+
     } catch (err) {
         printError(err.message.replace(ramdaStr, '').replace(/(?=\d).*(?=\|)/g, function(a) {
             return Number(a.trim()) - 1;
@@ -62,33 +62,44 @@ const compile = function compile() {
 
 reporter.main();
 
-resetBtn();
-
-prettyBtn();
-
 googl();
 
 const debounceCompile = debounce(compile, 1000);
 
-const input = CodeMirror.fromTextArea(document.querySelector('.input'), {
-    lineNumbers: true,
+const codeMirrorConfig = {
     theme: "dracula",
+    mode: {
+        name: "javascript",
+        json: true,
+        globalVars: true
+    }
+}
+
+const inputConfig = R.merge(codeMirrorConfig, {
+    lineNumbers : true,
     extraKeys: {
         "Tab": "autocomplete"
     },
     autofocus: true,
     autoCloseBrackets: true,
     historyEventDelay: 2000,
-    mode: {
-        name: "javascript",
-        json: true,
-        globalVars: true
-    }
 });
+
+const outputConfig = R.merge(codeMirrorConfig, {
+    readOnly : true
+});
+
+const input = CodeMirror.fromTextArea(document.querySelector('.input'), inputConfig);
 
 CodeMirror.registerHelper("instance", "input", input);
 
 input.on('change', debounceCompile);
+
+const output = CodeMirror.fromTextArea(document.querySelector('.output'), outputConfig);
+
+resetBtn(output);
+
+prettyBtn(output);
 
 // Get source code from 'code' params and paste it into editor
 // The 'code' param is actually located in a hash URL fragment,
