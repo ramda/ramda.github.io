@@ -62,8 +62,12 @@ html.home-page {
 
 /**
  * Documentation
+ *
+ * 1. Prevent content from overflowing the viewport
  */
 html.docs-page {
+    overflow-x: hidden; /* 1 */
+
     header .navbar-left {
         transform: translateX(-@sidebar-width);
     }
@@ -85,6 +89,7 @@ html.docs-page {
     }
     body {
         background: #eee;
+         overflow-x: hidden; /* 1 */
     }
 
     #open-nav:checked ~ header .navbar-left,
