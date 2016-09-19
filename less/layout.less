@@ -2,10 +2,9 @@
 @sidebar-width: 250px;
 
 .main-content() {
-    top: @navbar-height;
     right: 0;
     bottom: 0;
-    overflow: auto;
+    margin-top: @navbar-height;
     padding-top: @padding;
 }
 
@@ -82,8 +81,6 @@ html.docs-page {
     }
     main {
         .main-content();
-        position: fixed;
-        left: 0;
         min-width: 320px;
     }
     body {
@@ -114,7 +111,7 @@ html.docs-page {
         main,
         #open-nav:checked ~ main {
             transform: translateX(0);
-            left: @sidebar-width;
+            margin-left: @sidebar-width;
         }
     }
 }
