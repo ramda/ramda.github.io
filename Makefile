@@ -48,7 +48,7 @@ $(VERSION)/fonts/%: node_modules/bootstrap/fonts/%
 
 $(VERSION)/style.css: $(LESS_FILES)
 	mkdir -p '$(@D)'
-	$(LESS) less/ramda.less >'$@'
+	$(LESS) less/ramda.less --autoprefix >'$@'
 
 docs/%: $(VERSION)/docs/%
 	mkdir -p '$(@D)'
