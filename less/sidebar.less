@@ -1,5 +1,6 @@
 @border: 1px solid #ccc;
 
+/* 1. Add momentum scrolling for iOS Safari */
 .sidebar {
     background: #f4f4f4;
     border-right: @border;
@@ -25,7 +26,9 @@
 
         padding: (3 * @padding) 0;
 
-        overflow: auto;
+        overflow-x: hidden;
+        overflow-y: auto;
+        -webkit-overflow-scrolling: touch; /* 1 */
 
         li {
             margin: 0;
