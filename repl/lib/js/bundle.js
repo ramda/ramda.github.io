@@ -117,18 +117,28 @@ exports.default = reporter;
 
 },{}],3:[function(require,module,exports){
 (function (global){
-"use strict";
+'use strict';
 
-global.S = sanctuary;
-global.Either = ramdaFantasy.Either;
-global.Future = ramdaFantasy.Future;
-global.Identity = ramdaFantasy.Identity;
-global.IO = ramdaFantasy.IO;
-global.lift2 = ramdaFantasy.lift2;
-global.lift3 = ramdaFantasy.lift3;
-global.Maybe = ramdaFantasy.Maybe;
-global.Tuple = ramdaFantasy.Tuple;
-global.Reader = ramdaFantasy.Reader;
+var _sanctuary = require('sanctuary');
+
+var _sanctuary2 = _interopRequireDefault(_sanctuary);
+
+var _ramdaFantasy = require('ramda-fantasy');
+
+var _ramdaFantasy2 = _interopRequireDefault(_ramdaFantasy);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+global.S = _sanctuary2.default;
+global.Either = _ramdaFantasy2.default.Either;
+global.Future = _ramdaFantasy2.default.Future;
+global.Identity = _ramdaFantasy2.default.Identity;
+global.IO = _ramdaFantasy2.default.IO;
+global.lift2 = _ramdaFantasy2.default.lift2;
+global.lift3 = _ramdaFantasy2.default.lift3;
+global.Maybe = _ramdaFantasy2.default.Maybe;
+global.Tuple = _ramdaFantasy2.default.Tuple;
+global.Reader = _ramdaFantasy2.default.Reader;
 
 var _window = {};
 R.forEach(function (x) {
@@ -141,7 +151,7 @@ R.forEach(function (x) {
 }, R.keys(R));
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{}],4:[function(require,module,exports){
+},{"ramda-fantasy":450,"sanctuary":470}],4:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -37655,6 +37665,7 @@ function range(a, b, str) {
 },{}],226:[function(require,module,exports){
 'use strict'
 
+exports.byteLength = byteLength
 exports.toByteArray = toByteArray
 exports.fromByteArray = fromByteArray
 
@@ -37662,23 +37673,17 @@ var lookup = []
 var revLookup = []
 var Arr = typeof Uint8Array !== 'undefined' ? Uint8Array : Array
 
-function init () {
-  var code = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/'
-  for (var i = 0, len = code.length; i < len; ++i) {
-    lookup[i] = code[i]
-    revLookup[code.charCodeAt(i)] = i
-  }
-
-  revLookup['-'.charCodeAt(0)] = 62
-  revLookup['_'.charCodeAt(0)] = 63
+var code = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/'
+for (var i = 0, len = code.length; i < len; ++i) {
+  lookup[i] = code[i]
+  revLookup[code.charCodeAt(i)] = i
 }
 
-init()
+revLookup['-'.charCodeAt(0)] = 62
+revLookup['_'.charCodeAt(0)] = 63
 
-function toByteArray (b64) {
-  var i, j, l, tmp, placeHolders, arr
+function placeHoldersCount (b64) {
   var len = b64.length
-
   if (len % 4 > 0) {
     throw new Error('Invalid string. Length must be a multiple of 4')
   }
@@ -37688,9 +37693,19 @@ function toByteArray (b64) {
   // represent one byte
   // if there is only one, then the three characters before it represent 2 bytes
   // this is just a cheap hack to not do indexOf twice
-  placeHolders = b64[len - 2] === '=' ? 2 : b64[len - 1] === '=' ? 1 : 0
+  return b64[len - 2] === '=' ? 2 : b64[len - 1] === '=' ? 1 : 0
+}
 
+function byteLength (b64) {
   // base64 is 4/3 + up to two characters of the original data
+  return b64.length * 3 / 4 - placeHoldersCount(b64)
+}
+
+function toByteArray (b64) {
+  var i, j, l, tmp, placeHolders, arr
+  var len = b64.length
+  placeHolders = placeHoldersCount(b64)
+
   arr = new Arr(len * 3 / 4 - placeHolders)
 
   // if there are placeholders, only get up to the last complete 4 chars

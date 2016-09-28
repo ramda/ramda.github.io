@@ -1,3 +1,6 @@
+import sanctuary from 'sanctuary';
+import ramdaFantasy from 'ramda-fantasy';
+
 global.S = sanctuary;
 global.Either = ramdaFantasy.Either;
 global.Future = ramdaFantasy.Future;
