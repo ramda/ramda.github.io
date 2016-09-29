@@ -12,9 +12,9 @@
     "debounce": "1.0.0",
     "pretty-js": "^0.1.8",
     "query-string": "2.4.1",
-    "ramda": "0.19.0",
-    "ramda-fantasy": "0.4.0",
-    "sanctuary": "0.7.0",
+    "ramda": "^0.22.1",
+    "ramda-fantasy": "^0.7.0",
+    "sanctuary": "^0.11.1",
     "through2": "2.0.0",
     "vinyl-fs": "1.0.0"
   },
