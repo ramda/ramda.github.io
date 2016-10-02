@@ -1,0 +1,26 @@
+html, body {
+    background-color: #282a36;
+    height: 100%;
+}
+
+.navbar.navbar-inverse.navbar-fixed-top {
+    background-color: #849;
+    background-image: none;
+    box-shadow: 0 0 8px 2px rgba(0, 0, 0, 0.2);
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+.navbar.navbar-inverse.navbar-fixed-top a {
+   color:#e1d0e6;
+}
+
+.navbar.navbar-inverse.navbar-fixed-top .active > a {
+   padding-bottom: 16px;
+   background-color:#693476;
+   color:#fff;
+}
+
+.repl {
+  margin-top : 3.5em;
+}
