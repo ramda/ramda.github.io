@@ -1,0 +1,90 @@
+.CodeMirror-hscrollbar {
+    display: none !important;
+}
+
+.CodeMirror {
+    height: 100%;
+}
+
+.right .github-fork-ribbon {
+    background-color: #29357F;
+}
+
+.clear-console  {
+    margin-left: 12px;
+}
+
+.top-nav {
+    background: #6F377D;
+    height:15px;
+}
+
+.page-header {
+    margin-bottom: 0;
+    padding-bottom: 30px;
+}
+
+.row {
+    background: #282a36;
+}
+
+.panel-primary {
+    border-color:#282a36;
+    box-shadow: none;
+}
+.panel-primary > .panel-heading,
+.panel-default>.panel-heading {
+    background-color: #282a36;
+    border-color: #282a36;
+    background-image: none;
+    color:#fff;
+}
+
+.panel-title {
+    display: inline-block;
+}
+
+.panel-body {
+    padding: 0;
+}
+
+.panel {
+    background-color: #282a36;
+}
+
+.eval, .source-map, .console-log {
+    background-color: #282a36;
+    color: #fff;
+    border:none;
+}
+
+.console-log {
+    color:#888;
+}
+
+.error {
+    background: #282a36;
+}
+
+button.btn.btn-danger {
+    background-color: #bf0000;
+    background-image: none;
+}
+
+.navbar.navbar-inverse.navbar-fixed-top {
+    background-color: #849;
+    background-image: none;
+    box-shadow: 0 0 8px 2px rgba(0, 0, 0, 0.2);
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+.navbar.navbar-inverse.navbar-fixed-top a {
+   color:#e1d0e6;
+}
+
+.navbar.navbar-inverse.navbar-fixed-top .active > a {
+   padding-bottom: 16px;
+   background-color:#693476;
+   color:#fff;
+}
