@@ -71,9 +71,8 @@ endif
 
 .PHONY: gitbook
 gitbook: check-version
-	mkdir -p '$(VERSION)/manual'
-	$(GITBOOK) build manual '$(VERSION)/manual'
-	find '$(VERSION)/manual' -name '*.html' -print0 \
+	$(GITBOOK) build manual './manual'
+	find './manual' -name '*.html' -print0 \
 	  | xargs -0 perl -p -i -e 's/ data-revision="[^"]*"//g'
 
 
