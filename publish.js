@@ -16,8 +16,7 @@ var version = require('./package.json').devDependencies.ramda
 var prettifyCode = R.pipe(
   R.join('\n'),
   R.replace(/^[ ]{5}/gm, ''),
-  R.flip(R.invoker(2, 'highlight')('javascript'))(hljs),
-  R.prop('value')
+  s => hljs.highlight('javascript', s).value
 )
 
 var prettifySig = R.pipe(
