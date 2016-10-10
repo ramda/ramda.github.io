@@ -25,18 +25,10 @@ var prettifySig = R.pipe(
   R.replace(/->/g, '\u2192')
 )
 
-//  simplifySee :: [String] -> [String]
+//  simplifySee :: Array String -> Array String
 //
 //  Handles any combination of comma-separated and multi-line @see annotations.
-var simplifySee = R.pipe(
-  R.map(
-    R.pipe(
-      R.split(/\s*,\s*/),
-      R.map(R.replace(/^R[.]/, ''))
-    )
-  ),
-  R.flatten
-)
+var simplifySee = R.pipe(R.chain(R.split(/\s*,\s*/)), R.map(R.replace(/^R[.]/, '')))
 
 var titleFilter = pipe(R.propEq('title'), R.filter)
 
