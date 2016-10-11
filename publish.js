@@ -1,25 +1,25 @@
-var fs = require('fs');
-var path = require('path');
+const fs = require('fs');
+const path = require('path');
 
-var R = require('ramda');
+const R = require('ramda');
 
-var {defaultTo, map, pipe, prop} = R
+const {defaultTo, map, pipe, prop} = R
 
-var handlebars = require('handlebars');
-var hljs = require('highlight.js');
-var helper = require('jsdoc/util/templateHelper');
-var marked = require('marked');
+const handlebars = require('handlebars');
+const hljs = require('highlight.js');
+const helper = require('jsdoc/util/templateHelper');
+const marked = require('marked');
 
-var version = require('./package.json').devDependencies.ramda
+const version = require('./package.json').devDependencies.ramda
 
 
-var prettifyCode = R.pipe(
+const prettifyCode = R.pipe(
   R.join('\n'),
   R.replace(/^[ ]{5}/gm, ''),
   s => hljs.highlight('javascript', s).value
 )
 
-var prettifySig = R.pipe(
+const prettifySig = R.pipe(
   R.replace(/[.][.][.]/g, '\u2026'),
   R.replace(/->/g, '\u2192')
 )
@@ -27,13 +27,13 @@ var prettifySig = R.pipe(
 //  simplifySee :: Array String -> Array String
 //
 //  Handles any combination of comma-separated and multi-line @see annotations.
-var simplifySee = R.pipe(R.chain(R.split(/\s*,\s*/)), R.map(R.replace(/^R[.]/, '')))
+const simplifySee = R.pipe(R.chain(R.split(/\s*,\s*/)), R.map(R.replace(/^R[.]/, '')))
 
-var titleFilter = pipe(R.propEq('title'), R.filter)
+const titleFilter = pipe(R.propEq('title'), R.filter)
 
-var valueProp = R.chain(prop('value'))
+const valueProp = R.chain(prop('value'))
 
-var simplifyData = R.applySpec({
+const simplifyData = R.applySpec({
     aka: pipe(
       prop('tags'),
       titleFilter('aka'),
@@ -97,25 +97,25 @@ var simplifyData = R.applySpec({
 })
 
 exports.publish = function(data, opts) {
-  var templateFile = path.resolve(opts.destination, 'index.html.handlebars')
+  const templateFile = path.resolve(opts.destination, 'index.html.handlebars')
 
-  var templateContent = fs.readFileSync(templateFile, {encoding: 'utf8'})
+  const templateContent = fs.readFileSync(templateFile, {encoding: 'utf8'})
 
-  var docs = helper.prune(data)()
+  const docs = helper.prune(data)()
     .order('name, version, since')
     .filter({kind: ['function', 'constant']})
     .get()
-    .filter(function(x) { return x.access !== 'private' })
+    .filter(x => x.access !== 'private')
     .map(simplifyData)
 
-  var context = {
+  const context = {
     docs: docs,
     version: version
   }
 
-  var outputContent = handlebars.compile(templateContent)(context)
+  const outputContent = handlebars.compile(templateContent)(context)
 
-  var outputFile = path.resolve(opts.destination, 'index.html')
+  const outputFile = path.resolve(opts.destination, 'index.html')
 
   fs.writeFileSync(outputFile, outputContent, {encoding: 'utf8'});
 }
