@@ -96,7 +96,7 @@ const simplifyData = R.applySpec({
     )
 })
 
-exports.publish = function(data, opts) {
+exports.publish = (data, opts) => {
   const templateFile = path.resolve(opts.destination, 'index.html.handlebars')
 
   const templateContent = fs.readFileSync(templateFile, {encoding: 'utf8'})
