@@ -16,7 +16,7 @@
     <link href="css/page.css" rel="stylesheet">
 
     <!-- Style for the REPL -->
-    <link href="https://cdn.rawgit.com/ramda/repl/master/dist/bundle.css" rel="stylesheet">
+    <link href="https://cdn.rawgit.com/craigdallimore/repl/control-styles/dist/bundle.css" rel="stylesheet">
 
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -50,43 +50,93 @@
 
     <textarea class="ramda-repl-target"></textarea>
 
-    <!-- load ramda.js -->
-    <script>
-    (function() {
-      var r = document.createElement('script');
-      var rx = /^\d+\.\d+(\.\d+)?$/;
-      var version = 'latest';
-      location.search.substr(1).split('&').forEach(function(pair) {
-        var ps = pair.split('=');
-        if (ps[0] === 'v') {
-          if (rx.test(ps[1])) {
-            version = ps[1];
-          }
-        }
-      });
-      r.id = 'r';
-      var protocol = location.protocol === 'file:' ? 'https:' : location.protocol;
-      r.setAttribute('src', protocol + '//cdn.jsdelivr.net/ramda/' + version + '/ramda.min.js');
-      document.head.appendChild(r);
-    }());
-    </script>
-
     <script src="https://cdnjs.cloudflare.com/ajax/libs/URI.js/1.18.1/URI.min.js"></script>
-    <script src="https://cdn.rawgit.com/ramda/repl/master/dist/bundle.js"></script>
+    <script src="https://cdn.rawgit.com/craigdallimore/repl/control-styles/dist/bundle.js"></script>
 
     <script>
+
+      (function() {
+
+        // --------------------------------------------------------------------
+
+        // Regex for matching version strings
+        // Example match: "0.21.123"
+        var rx = /^\d+\.\d+(\.\d+)?$/;
+
+        // :: String, String -> String
+        function toVersion(acc, pair) {
+
+          var splitPair = pair.split('=');
+
+          return splitPair[0] === 'v' && rx.test(splitPair[1]) ?  splitPair[1] : acc;
+
+        }
+
+        var version = location.search.substr(1).split('&').reduce(toVersion, 'latest');
+
+        var ramdaUrl = '//cdn.jsdelivr.net/ramda/' + version + '/ramda.min.js';
+
+        // --------------------------------------------------------------------
 
         ramdaRepl(document.querySelector('.ramda-repl-target'), {
+
           apiUrl: 'https://www.googleapis.com/urlshortener/v1/url?key=AIzaSyDhbAvT5JqkxFPkoeezJp19-S_mAJudxyk',
           returnUrl: 'http://ramdajs.com/repl/',
+
           // If unset, initialValue will use the value or textcontent of the
           // target element.
           initialValue: URI.decode(window.location.hash).substring(2),
+
           // Called with the pre-compiled content
           onChange : function(code) {
             window.location.hash = '?' + URI.encode(code);
-          }
+          },
+
+          // The following config defines scripts that will be dynamically
+          // loaded upon creating the REPL. Each has the following properties:
+          //
+          // src      - The source of the script, a URL
+          // global   - (Optional) a name of a global that the script introduces
+          // exposeAs - (Optional) a name that can alias the global
+          // expose   - (Optional) a list of methods to expose globally
+
+          // Required.
+          // As ramda may be a dependency for other scripts, it will
+          // be intentionally loaded before any other script.
+          ramdaScript: {
+            src    : ramdaUrl,
+            global : 'R'
+          },
+
+          // Optional.
+          // Here we can declare a list of libraries that we wish to have
+          // loaded and exposed in the repl.
+          scripts: [
+            {
+              src      : '//wzrd.in/standalone/sanctuary@latest',
+              global   : 'sanctuary',
+              exposeAs : 'S'
+            },
+            {
+              src    : '//wzrd.in/standalone/ramda-fantasy@latest',
+              global : 'ramdaFantasy',
+              expose : [
+                'Either',
+                'Future',
+                'Identity',
+                'IO',
+                'lift2',
+                'lift3',
+                'Maybe',
+                'Tuple',
+                'Reader'
+              ]
+            }
+          ]
+
         });
+
+      }());
 
     </script>
 

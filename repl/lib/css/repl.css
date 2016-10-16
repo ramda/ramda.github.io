@@ -1,0 +1,113 @@
+@import url(http://fonts.googleapis.com/css?family=Droid+Sans+Mono|Droid+Sans);
+
+html, body {
+    margin: 0;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    background-color: #282a36;
+    height: 100%;
+}
+
+pre {
+    padding: 0;
+    padding-left: 20px;
+}
+
+#midline {
+    position: fixed;
+    left: 50%;
+    top: 0;
+    bottom: 0;
+    width: 1px;
+    z-index: 1;
+    background-color: gray;
+}
+
+.output-wrapper {
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+
+html.hide-output .output-wrapper {
+    display: none;
+}
+
+.eval, .source-map {
+    background-color: white;
+    border: none;
+}
+.error {
+    color: red;
+    background-color: white;
+    border: none;
+}
+
+.dropdown-menu {
+    width: 250px;
+}
+
+#options_menu input {
+    margin-left: 3px;
+    margin-right: 3px;
+    margin-top: 0;
+}
+
+#options_menu label {
+    font-weight: normal;
+    margin-bottom: 0;
+}
+
+#options_menu hr {
+    border-color: darkgrey;
+    margin-top: 3px;
+    margin-bottom: 3px;
+}
+
+body.dark, body.dark h1 {
+    background-color: #000000;
+    color: #ffffff;
+}
+.urltext {
+    background-color: #282a36;
+    color: white;
+    border: none;
+    font-size: 15px;
+    vertical-align: middle;
+    margin-left: 6px;
+}
+
+@media (min-width: 991px) {
+  .main {
+      display: flex;
+      flex-direction: column;
+      flex: 1 0 auto;
+      height : 100%;
+      border: 4px;
+  }
+
+  .repl {
+      display: flex;
+      flex: 1 0 auto;
+  }
+
+  .repl-input {
+      flex: 1 0 auto;
+  }
+
+  .repl-input .panel-primary {
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+  }
+
+  .repl-input .panel-body {
+      flex: 1 0 auto;
+      display: flex;
+  }
+
+  .repl-input .CodeMirror {
+      height: auto;
+      flex: 1 0 auto;
+  }
+}
