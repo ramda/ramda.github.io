@@ -21,6 +21,13 @@ html, body {
    color:#fff;
 }
 
-.repl {
+.ramda-repl-wrapper {
   padding-top: 3.7em;
+  height: 100%;
+}
+
+.ramda-repl-target {
+  display    : block;
+  background : #333;
+  color      : #ccc;
 }
