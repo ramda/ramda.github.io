@@ -28,6 +28,8 @@ html, body {
 
 .ramda-repl-target {
   display    : block;
-  background : #333;
-  color      : #ccc;
+  background : #282a36;
+  color      : #282a36;
+  border     : 0;
+  resize     : none;
 }
