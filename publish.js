@@ -1,114 +1,121 @@
-var fs = require('fs');
-var path = require('path');
+const fs = require('fs');
+const path = require('path');
 
-var handlebars = require('handlebars');
-var hljs = require('highlight.js');
-var helper = require('jsdoc/util/templateHelper');
-var marked = require('marked');
+const R = require('ramda');
 
-var version = require('./package.json').devDependencies.ramda
+const {defaultTo, map, pipe, prop} = R
 
-var headOr = function(x, xs) {
-  return xs.length === 0 ? x : xs[0];
-};
+const handlebars = require('handlebars');
+const hljs = require('highlight.js');
+const helper = require('jsdoc/util/templateHelper');
+const marked = require('marked');
 
-var chain = function(f, xs) {
-  var result = [];
-  for (var idx = 0; idx < xs.length; idx += 1) {
-    result = result.concat(f(xs[idx]));
-  }
-  return result;
-};
+const version = require('./package.json').devDependencies.ramda
 
-var valuesForTitle = function(title, xs) {
-  var result = [];
-  for (var idx = 0; idx < xs.length; idx += 1) {
-    if (xs[idx].title === title) {
-      result.push(xs[idx].value);
-    }
-  }
-  return result;
-};
 
-var prettifySig = function(s) {
-  return s.replace(/[.][.][.]/g, '\u2026').replace(/->/g, '\u2192');
-};
+const prettifyCode = R.pipe(
+  R.join('\n'),
+  R.replace(/^[ ]{5}/gm, ''),
+  s => hljs.highlight('javascript', s).value
+)
 
-var prettifyCode = function(s) {
-  return hljs.highlight('javascript', s.join('\n').replace(/^[ ]{5}/gm, '')).value;
-};
+const prettifySig = R.pipe(
+  R.replace(/[.][.][.]/g, '\u2026'),
+  R.replace(/->/g, '\u2192')
+)
 
-//  simplifySee :: [String] -> [String]
+//  simplifySee :: Array String -> Array String
 //
 //  Handles any combination of comma-separated and multi-line @see annotations.
-var simplifySee = function(xs) {
-  var result = [];
-  xs.forEach(function(x) {
-    x.split(/\s*,\s*/).forEach(function(s) {
-      result.push(s.replace(/^R[.]/, ''));
-    });
-  });
-  return result;
-};
+const simplifySee = R.pipe(R.chain(R.split(/\s*,\s*/)), R.map(R.replace(/^R[.]/, '')))
 
-var simplifyData = function(d) {
-  return {
-    aka: chain(function(s) { return s.split(/,\s*/); }, valuesForTitle('aka', d.tags)),
-    category: headOr('', valuesForTitle('category', d.tags)),
-    deprecated: d.deprecated == null ? '' : d.deprecated,
-    description: d.description == null ? '' : marked(d.description),
-    example: d.examples == null ? [] : prettifyCode(d.examples),
-    name: d.name == null ? '' : d.name,
-    params: d.params == null ? [] : d.params.map(function(p) {
-      return {
-        type: p.type.names[0] || '',
-        description: marked(p.description || ''),
-        name: p.name || ''
-      };
-    }),
+const titleFilter = pipe(R.propEq('title'), R.filter)
+
+const valueProp = R.chain(prop('value'))
+
+const simplifyData = R.applySpec({
+    aka: pipe(
+      prop('tags'),
+      titleFilter('aka'),
+      valueProp,
+      R.chain(R.split(/,\s*/))
+    ),
+    category: pipe(
+      prop('tags'),
+      titleFilter('category'),
+      valueProp,
+      R.head,
+      defaultTo('')
+    ),
+    deprecated: pipe(prop('deprecated'), defaultTo('')),
+    description: pipe(
+      prop('description'),
+      R.defaultTo(''),
+      marked
+    ),
+    example: pipe(
+      prop('examples'),
+      R.defaultTo(''),
+      prettifyCode
+    ),
+    name: pipe(prop('name'), defaultTo('')),
+    params: pipe(
+      prop('params'),
+      defaultTo([]),
+      map(R.applySpec({
+        description: pipe(
+          prop('description'),
+          defaultTo(''),
+          marked
+        ),
+        name: pipe(prop('name'), defaultTo('')),
+        type: pipe(R.path(['type', 'names', 0]), defaultTo(''))
+      }))
+    ),
     returns: {
-      type:
-        d.returns != null &&
-        d.returns[0] != null &&
-        d.returns[0].type != null &&
-        d.returns[0].type.names != null &&
-        d.returns[0].type.names[0] != null ?
-          d.returns[0].type.names[0] :
-          '',
-      description:
-        d.returns != null &&
-        d.returns[0] != null &&
-        d.returns[0].description != null ?
-          marked(d.returns[0].description) :
-          '',
+      description: pipe(R.path(['returns', 0, 'description']), defaultTo('')),
+      type: pipe(R.path(['returns', 0, 'type', 'names', 0]), defaultTo(''))
     },
-    see: d.see == null ? [] : simplifySee(d.see),
-    sigs: valuesForTitle('sig', d.tags).map(prettifySig),
-    since: d.since == null ? '' : d.since,
-    typedefns: valuesForTitle('typedefn', d.tags).map(prettifySig),
-  };
-};
+    see: pipe(
+      prop('see'),
+      defaultTo(''),
+      simplifySee
+    ),
+    sigs: pipe(
+      prop('tags'),
+      titleFilter('sig'),
+      valueProp,
+      map(prettifySig)
+    ),
+    since: pipe(prop('since'), defaultTo('')),
+    typedefns: pipe(
+      prop('tags'),
+      titleFilter('typedefn'),
+      valueProp,
+      map(prettifySig)
+    )
+})
 
-exports.publish = function(data, opts) {
-  var templateFile = path.resolve(opts.destination, 'index.html.handlebars')
+exports.publish = (data, opts) => {
+  const templateFile = path.resolve(opts.destination, 'index.html.handlebars')
 
-  var templateContent = fs.readFileSync(templateFile, {encoding: 'utf8'})
+  const templateContent = fs.readFileSync(templateFile, {encoding: 'utf8'})
 
-  var docs = helper.prune(data)()
+  const docs = helper.prune(data)()
     .order('name, version, since')
     .filter({kind: ['function', 'constant']})
     .get()
-    .filter(function(x) { return x.access !== 'private' })
+    .filter(x => x.access !== 'private')
     .map(simplifyData)
 
-  var context = {
+  const context = {
     docs: docs,
     version: version
   }
 
-  var outputContent = handlebars.compile(templateContent)(context)
+  const outputContent = handlebars.compile(templateContent)(context)
 
-  var outputFile = path.resolve(opts.destination, 'index.html')
+  const outputFile = path.resolve(opts.destination, 'index.html')
 
   fs.writeFileSync(outputFile, outputContent, {encoding: 'utf8'});
 }
