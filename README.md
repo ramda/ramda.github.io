@@ -10,6 +10,9 @@ $ VERSION=X.Y.Z make
 
 ## Start local server
 
+This repo contains all the prebuilt files used on the site.
+It also contains a static file server (available after `npm i`):
+
 	npm run server
 
 Once this is running, visit [localhost:8080](http://localhost:8080/) to view the docs.
