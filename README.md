@@ -29,3 +29,22 @@ For more details on configuring the server, see [http-server docs][http-server].
 2. Install packages: `npm i`
 
 3. `npm run make_release`
+
+
+## Development
+
+### Building docs
+
+To rebuild the [docs](./docs/index.html) page:
+
+	npm run jsdoc
+
+
+### Building styles
+
+Styles for the site are written with [Less](http://lesscss.org/), using the
+[Bootstrap](https://getbootstrap.com/) package.
+
+To rebuild the main [style.css](./style.css):
+
+	npm run less
