@@ -24,6 +24,7 @@
     "walk": "^2.3.9"
   },
   "scripts": {
+    "gitbook": "gitbook build manual",
     "jsdoc": "jsdoc --destination ./docs --template . ./docs/dist/ramda.js",
     "less": "lessc --autoprefix --clean-css ./less/ramda.less ./style.css",
     "make_release": "npm run jsdoc && node make_index_html.js && node copy_to_version_folder.js",
