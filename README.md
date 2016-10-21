@@ -10,6 +10,9 @@ $ VERSION=X.Y.Z make
 
 ## Start local server
 
+This repo contains all the prebuilt files used on the site.
+It also contains a static file server (available after `npm i`):
+
 	npm run server
 
 Once this is running, visit [localhost:8080](http://localhost:8080/) to view the docs.
@@ -29,3 +32,22 @@ For more details on configuring the server, see [http-server docs][http-server].
 2. Install packages: `npm i`
 
 3. `npm run make_release`
+
+
+## Development
+
+### Building docs
+
+To rebuild the [docs](./docs/index.html) page:
+
+	npm run jsdoc
+
+
+### Building styles
+
+Styles for the site are written with [Less](http://lesscss.org/), using the
+[Bootstrap](https://getbootstrap.com/) package.
+
+To rebuild the main [style.css](./style.css):
+
+	npm run less
