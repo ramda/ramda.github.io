@@ -106,7 +106,7 @@
     var code = event.target.nextElementSibling.textContent;
     var encoded = fixedEncodeURIComponent(code);
     location.assign(location.origin + '/repl/' +
-      versionParam + '#?code=' + encoded);
+      versionParam + '#;' + encoded);
   }
 
 
