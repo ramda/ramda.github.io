@@ -88,6 +88,19 @@ const simplifyData = R.applySpec({
       map(prettifySig)
     ),
     since: pipe(prop('since'), defaultTo('')),
+    symb: pipe(
+      prop('tags'),
+      titleFilter('symb'),
+      valueProp,
+      map(pipe(
+        R.split('='),
+        map(R.trim()),
+        R.applySpec({
+          input: R.nth(0),
+          output: R.nth(1)
+        })
+      ))
+    ),
     typedefns: pipe(
       prop('tags'),
       titleFilter('typedefn'),
