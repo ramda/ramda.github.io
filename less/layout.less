@@ -120,4 +120,28 @@ html.docs-page {
             margin-left: @sidebar-width;
         }
     }
+
+    @media print {
+        .card {
+            margin: 0;
+        }
+        aside {
+            display: none;
+        }
+        a[title="View source on GitHub"] {
+            display: none;
+        }
+        .try-repl {
+            display: none;
+        }
+        h2 {
+            font-size: 20px;
+        }
+        .params a {
+            display: none;
+        }
+        .card div code {
+            padding: 0;
+        }
+    }
 }
