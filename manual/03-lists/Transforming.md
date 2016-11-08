@@ -1,12 +1,13 @@
-List to list transformations
-============================
+# List to list transformations
 
 TODO: `map`, `pluck`, `filter`, `aperture`, `uniq`, `zip`, `partition`
 
-Many times we loop over lists for...
---
+## Many times we loop over lists for...
 
-**Transforming**
+
+### Transforming
+
+ 
 ```js
 const libs = ["Ramda", "Lodash", "Pramda", "Underscore"]
 const html = []
@@ -33,7 +34,8 @@ Now we can use wrapTag for any tag, and our usage map function became even more 
 TODO: map over objects
 
 
-**Filtering**
+### Filtering
+
 ```js
 const libs = ["Ramda", "Lodash", "Pramda", "Underscore"]
 const amdas = []
