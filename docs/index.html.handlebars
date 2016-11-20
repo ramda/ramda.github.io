@@ -56,7 +56,8 @@
     </aside>
     <main class="container-fluid">
         {{#each docs}}
-        <section class="card" id="{{name}}">
+        <div id="{{name}}" class="section-id"></div>
+        <section class="card">
             <h2>
                 <a tabindex="2" class="name" href="#{{name}}">{{name}}</a>
                 <span class="pull-right">
