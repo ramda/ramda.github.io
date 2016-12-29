@@ -148,6 +148,13 @@
                     >Function</span>
                 </a>
             </li>
+            <li class="func" data-name="ascend" data-category="Function">
+                <a href="#ascend">
+                    ascend
+                    <span data-category="Function" class="label label-category pull-right"
+                    >Function</span>
+                </a>
+            </li>
             <li class="func" data-name="assoc" data-category="Object">
                 <a href="#assoc">
                     assoc
@@ -321,6 +328,13 @@
                     defaultTo
                     <span data-category="Logic" class="label label-category pull-right"
                     >Logic</span>
+                </a>
+            </li>
+            <li class="func" data-name="descend" data-category="Function">
+                <a href="#descend">
+                    descend
+                    <span data-category="Function" class="label label-category pull-right"
+                    >Function</span>
                 </a>
             </li>
             <li class="func" data-name="difference" data-category="Relation">
@@ -503,6 +517,13 @@
                     forEach
                     <span data-category="List" class="label label-category pull-right"
                     >List</span>
+                </a>
+            </li>
+            <li class="func" data-name="forEachObjIndexed" data-category="Object">
+                <a href="#forEachObjIndexed">
+                    forEachObjIndexed
+                    <span data-category="Object" class="label label-category pull-right"
+                    >Object</span>
                 </a>
             </li>
             <li class="func" data-name="fromPairs" data-category="List">
@@ -1310,6 +1331,13 @@
                     >Relation</span>
                 </a>
             </li>
+            <li class="func" data-name="sortWith" data-category="Relation">
+                <a href="#sortWith">
+                    sortWith
+                    <span data-category="Relation" class="label label-category pull-right"
+                    >Relation</span>
+                </a>
+            </li>
             <li class="func" data-name="split" data-category="String">
                 <a href="#split">
                     split
@@ -1653,13 +1681,6 @@
                     >List</span>
                 </a>
             </li>
-            <li class="func" data-name="wrap" data-category="Function">
-                <a href="#wrap">
-                    wrap
-                    <span data-category="Function" class="label label-category pull-right"
-                    >Function</span>
-                </a>
-            </li>
             <li class="func" data-name="xprod" data-category="List">
                 <a href="#xprod">
                     xprod
@@ -1901,8 +1922,8 @@ result of the function application.</p>
                 <a href="#update">update</a>.
             </div>
 
-	    <pre><button class="try-repl" data-ramda-version="0.23.0">Try in REPL</button><code class="hljs javascript">R.adjust(R.add(<span class="hljs-number">10</span>), <span class="hljs-number">1</span>, [<span class="hljs-number">0</span>, <span class="hljs-number">1</span>, <span class="hljs-number">2</span>]);     <span class="hljs-comment">//=&gt; [0, 11, 2]</span>
-R.adjust(R.add(<span class="hljs-number">10</span>))(<span class="hljs-number">1</span>)([<span class="hljs-number">0</span>, <span class="hljs-number">1</span>, <span class="hljs-number">2</span>]);     <span class="hljs-comment">//=&gt; [0, 11, 2]</span></code></pre>
+	    <pre><button class="try-repl" data-ramda-version="0.23.0">Try in REPL</button><code class="hljs javascript">R.adjust(R.add(<span class="hljs-number">10</span>), <span class="hljs-number">1</span>, [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>]);     <span class="hljs-comment">//=&gt; [1, 12, 3]</span>
+R.adjust(R.add(<span class="hljs-number">10</span>))(<span class="hljs-number">1</span>)([<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>]);     <span class="hljs-comment">//=&gt; [1, 12, 3]</span></code></pre>
         </section>
         <div id="all" class="section-id"></div>
         <section class="card">
@@ -1963,10 +1984,9 @@ there are any that don&#39;t.</p>
                 <a href="#transduce">transduce</a>.
             </div>
 
-	    <pre><button class="try-repl" data-ramda-version="0.23.0">Try in REPL</button><code class="hljs javascript"><span class="hljs-keyword">var</span> lessThan2 = R.flip(R.lt)(<span class="hljs-number">2</span>);
-<span class="hljs-keyword">var</span> lessThan3 = R.flip(R.lt)(<span class="hljs-number">3</span>);
-R.all(lessThan2)([<span class="hljs-number">1</span>, <span class="hljs-number">2</span>]); <span class="hljs-comment">//=&gt; false</span>
-R.all(lessThan3)([<span class="hljs-number">1</span>, <span class="hljs-number">2</span>]); <span class="hljs-comment">//=&gt; true</span></code></pre>
+	    <pre><button class="try-repl" data-ramda-version="0.23.0">Try in REPL</button><code class="hljs javascript"><span class="hljs-keyword">var</span> equals3 = R.equals(<span class="hljs-number">3</span>);
+R.all(equals3)([<span class="hljs-number">3</span>, <span class="hljs-number">3</span>, <span class="hljs-number">3</span>, <span class="hljs-number">3</span>]); <span class="hljs-comment">//=&gt; true</span>
+R.all(equals3)([<span class="hljs-number">3</span>, <span class="hljs-number">3</span>, <span class="hljs-number">1</span>, <span class="hljs-number">3</span>]); <span class="hljs-comment">//=&gt; false</span></code></pre>
         </section>
         <div id="allPass" class="section-id"></div>
         <section class="card">
@@ -1989,14 +2009,15 @@ R.all(lessThan3)([<span class="hljs-number">1</span>, <span class="hljs-number">
                         <li class="list-group-item">
                             <span class="type">
                             </span>
-                            <span class="name">preds</span>
-                            <span class="description"></span>
+                            <span class="name">predicates</span>
+                            <span class="description"><p>An array of predicates to check</p>
+</span>
                         </li>
                     </ul>
                     <div class="panel-body">
                         <span class="returns">Returns</span>
                         <span class="type">function</span>
-                        <span class="description"></span>
+                        <span class="description">The combined predicate</span>
                     </div>
                 </div>
             </div>
@@ -2083,7 +2104,7 @@ t(); <span class="hljs-comment">//=&gt; 'Tee'</span></code></pre>
             </h2>
 
 
-            <div><code>* → * → *</code></div>
+            <div><code>a → b → a | b</code></div>
 
 
             <div class="params" data-expanded="false">
@@ -2094,21 +2115,19 @@ t(); <span class="hljs-comment">//=&gt; 'Tee'</span></code></pre>
                             <span class="type">
                             </span>
                             <span class="name">a</span>
-                            <span class="description"><p>A boolean value</p>
-</span>
+                            <span class="description"></span>
                         </li>
                         <li class="list-group-item">
                             <span class="type">
                             </span>
                             <span class="name">b</span>
-                            <span class="description"><p>A boolean value</p>
-</span>
+                            <span class="description"></span>
                         </li>
                     </ul>
                     <div class="panel-body">
                         <span class="returns">Returns</span>
-                        <span class="type">Boolean</span>
-                        <span class="description">`true` if both arguments are `true`, `false` otherwise</span>
+                        <span class="type">Any</span>
+                        <span class="description">the first argument if it is falsy, otherwise the second argument.</span>
                     </div>
                 </div>
             </div>
@@ -2215,14 +2234,15 @@ R.any(lessThan2)([<span class="hljs-number">1</span>, <span class="hljs-number">
                         <li class="list-group-item">
                             <span class="type">
                             </span>
-                            <span class="name">preds</span>
-                            <span class="description"></span>
+                            <span class="name">predicates</span>
+                            <span class="description"><p>An array of predicates to check</p>
+</span>
                         </li>
                     </ul>
                     <div class="panel-body">
                         <span class="returns">Returns</span>
                         <span class="type">function</span>
-                        <span class="description"></span>
+                        <span class="description">The combined predicate</span>
                     </div>
                 </div>
             </div>
@@ -2243,11 +2263,13 @@ highest-arity predicate.</p>
                 <a href="#allPass">allPass</a>.
             </div>
 
-	    <pre><button class="try-repl" data-ramda-version="0.23.0">Try in REPL</button><code class="hljs javascript"><span class="hljs-keyword">var</span> gte = R.anyPass([R.gt, R.equals]);
+	    <pre><button class="try-repl" data-ramda-version="0.23.0">Try in REPL</button><code class="hljs javascript"><span class="hljs-keyword">var</span> isClub = R.propEq(<span class="hljs-string">'suit'</span>, <span class="hljs-string">'♣'</span>);
+<span class="hljs-keyword">var</span> isSpade = R.propEq(<span class="hljs-string">'suit'</span>, <span class="hljs-string">'♠'</span>);
+<span class="hljs-keyword">var</span> isBlackCard = R.anyPass([isClub, isSpade]);
 
-gte(<span class="hljs-number">3</span>, <span class="hljs-number">2</span>); <span class="hljs-comment">//=&gt; true</span>
-gte(<span class="hljs-number">2</span>, <span class="hljs-number">2</span>); <span class="hljs-comment">//=&gt; true</span>
-gte(<span class="hljs-number">2</span>, <span class="hljs-number">3</span>); <span class="hljs-comment">//=&gt; false</span></code></pre>
+isBlackCard({<span class="hljs-attr">rank</span>: <span class="hljs-string">'10'</span>, <span class="hljs-attr">suit</span>: <span class="hljs-string">'♣'</span>}); <span class="hljs-comment">//=&gt; true</span>
+isBlackCard({<span class="hljs-attr">rank</span>: <span class="hljs-string">'Q'</span>, <span class="hljs-attr">suit</span>: <span class="hljs-string">'♠'</span>}); <span class="hljs-comment">//=&gt; true</span>
+isBlackCard({<span class="hljs-attr">rank</span>: <span class="hljs-string">'Q'</span>, <span class="hljs-attr">suit</span>: <span class="hljs-string">'♦'</span>}); <span class="hljs-comment">//=&gt; false</span></code></pre>
         </section>
         <div id="ap" class="section-id"></div>
         <section class="card">
@@ -2301,7 +2323,8 @@ treats curried functions as applicatives.</p>
 
 
 
-	    <pre><button class="try-repl" data-ramda-version="0.23.0">Try in REPL</button><code class="hljs javascript">R.ap([R.multiply(<span class="hljs-number">2</span>), R.add(<span class="hljs-number">3</span>)], [<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>]); <span class="hljs-comment">//=&gt; [2, 4, 6, 4, 5, 6]</span></code></pre>
+	    <pre><button class="try-repl" data-ramda-version="0.23.0">Try in REPL</button><code class="hljs javascript">R.ap([R.multiply(<span class="hljs-number">2</span>), R.add(<span class="hljs-number">3</span>)], [<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>]); <span class="hljs-comment">//=&gt; [2, 4, 6, 4, 5, 6]</span>
+R.ap([R.concat(<span class="hljs-string">'tasty '</span>), R.toUpper], [<span class="hljs-string">'pizza'</span>, <span class="hljs-string">'salad'</span>]); <span class="hljs-comment">//=&gt; ["tasty pizza", "tasty salad", "PIZZA", "SALAD"]</span></code></pre>
         </section>
         <div id="aperture" class="section-id"></div>
         <section class="card">
@@ -2332,14 +2355,14 @@ treats curried functions as applicatives.</p>
                             <span class="type">
                             </span>
                             <span class="name">list</span>
-                            <span class="description"><p>The list to split into <code>n</code>-tuples</p>
+                            <span class="description"><p>The list to split into <code>n</code>-length tuples</p>
 </span>
                         </li>
                     </ul>
                     <div class="panel-body">
                         <span class="returns">Returns</span>
                         <span class="type">Array</span>
-                        <span class="description">The new list.</span>
+                        <span class="description">The resulting list of `n`-length tuples</span>
                     </div>
                 </div>
             </div>
@@ -2348,7 +2371,6 @@ treats curried functions as applicatives.</p>
 
             <div class="description"><p>Returns a new list, composed of n-tuples of consecutive elements If <code>n</code> is
 greater than the length of the list, an empty list is returned.</p>
-<p>Dispatches to the <code>aperture</code> method of the second argument, if present.</p>
 <p>Acts as a transducer if a transformer is given in list position.</p>
 </div>
 
@@ -2392,7 +2414,7 @@ R.aperture(<span class="hljs-number">7</span>, [<span class="hljs-number">1</spa
                             <span class="type">
                             </span>
                             <span class="name">list</span>
-                            <span class="description"><p>The list whose contents will be added to the beginning of the output
+                            <span class="description"><p>The list of elements to add a new item to.
        list.</p>
 </span>
                         </li>
@@ -2400,7 +2422,7 @@ R.aperture(<span class="hljs-number">7</span>, [<span class="hljs-number">1</spa
                     <div class="panel-body">
                         <span class="returns">Returns</span>
                         <span class="type">Array</span>
-                        <span class="description">A new list containing the contents of the old list followed by `el`.</span>
+                        <span class="description">A new list containing the elements of the old list followed by `el`.</span>
                     </div>
                 </div>
             </div>
@@ -2444,19 +2466,21 @@ R.append([<span class="hljs-string">'tests'</span>], [<span class="hljs-string">
                             <span class="type">
                             </span>
                             <span class="name">fn</span>
-                            <span class="description"></span>
+                            <span class="description"><p>The function which will be called with <code>args</code></p>
+</span>
                         </li>
                         <li class="list-group-item">
                             <span class="type">
                             </span>
                             <span class="name">args</span>
-                            <span class="description"></span>
+                            <span class="description"><p>The arguments to call <code>fn</code> with</p>
+</span>
                         </li>
                     </ul>
                     <div class="panel-body">
                         <span class="returns">Returns</span>
                         <span class="type">*</span>
-                        <span class="description"></span>
+                        <span class="description">result The result, equivalent to `fn(...args)`</span>
                     </div>
                 </div>
             </div>
@@ -2537,6 +2561,69 @@ to the result of calling its associated function with the supplied arguments.</p
                              });
 getMetrics(<span class="hljs-number">2</span>, <span class="hljs-number">4</span>); <span class="hljs-comment">// =&gt; { sum: 6, nested: { mul: 8 } }</span></code></pre>
         </section>
+        <div id="ascend" class="section-id"></div>
+        <section class="card">
+            <h2>
+                <a tabindex="2" class="name" href="#ascend">ascend</a>
+                <span class="pull-right">
+                        <span class="label label-category">Function</span>
+                        <a target="_blank" title="View source on GitHub" href="https://github.com/ramda/ramda/tree/v0.23.0/src/ascend.js"><small class="glyphicon glyphicon-new-window"></small></a>
+                </span>
+            </h2>
+
+
+            <div><code>Ord b &#x3D;&gt; (a → b) → a → a → Number</code></div>
+
+
+            <div class="params" data-expanded="false">
+                <a href="#expand" class="toggle-params">Parameters</a>
+                <div class="details panel panel-default">
+                    <ul class="list-group">
+                        <li class="list-group-item">
+                            <span class="type">
+                            </span>
+                            <span class="name">fn</span>
+                            <span class="description"><p>A function of arity one that returns a value that can be compared</p>
+</span>
+                        </li>
+                        <li class="list-group-item">
+                            <span class="type">
+                            </span>
+                            <span class="name">a</span>
+                            <span class="description"><p>The first item to be compared.</p>
+</span>
+                        </li>
+                        <li class="list-group-item">
+                            <span class="type">
+                            </span>
+                            <span class="name">b</span>
+                            <span class="description"><p>The second item to be compared.</p>
+</span>
+                        </li>
+                    </ul>
+                    <div class="panel-body">
+                        <span class="returns">Returns</span>
+                        <span class="type">Number</span>
+                        <span class="description">`-1` if fn(a) < fn(b), `1` if fn(b) < fn(a), otherwise `0`</span>
+                    </div>
+                </div>
+            </div>
+
+            <p><small>Added in v0.23.0</small></p>
+
+            <div class="description"><p>Makes an ascending comparator function out of a function that returns a value
+that can be compared with <code>&lt;</code> and <code>&gt;</code>.</p>
+</div>
+
+
+
+
+	    <pre><button class="try-repl" data-ramda-version="0.23.0">Try in REPL</button><code class="hljs javascript"><span class="hljs-keyword">var</span> byAge = R.ascend(R.prop(<span class="hljs-string">'age'</span>));
+<span class="hljs-keyword">var</span> people = [
+  <span class="hljs-comment">// ...</span>
+];
+<span class="hljs-keyword">var</span> peopleByYoungestFirst = R.sort(byAge, people);</code></pre>
+        </section>
         <div id="assoc" class="section-id"></div>
         <section class="card">
             <h2>
@@ -2559,28 +2646,28 @@ getMetrics(<span class="hljs-number">2</span>, <span class="hljs-number">4</span
                             <span class="type">
                             </span>
                             <span class="name">prop</span>
-                            <span class="description"><p>the property name to set</p>
+                            <span class="description"><p>The property name to set</p>
 </span>
                         </li>
                         <li class="list-group-item">
                             <span class="type">
                             </span>
                             <span class="name">val</span>
-                            <span class="description"><p>the new value</p>
+                            <span class="description"><p>The new value</p>
 </span>
                         </li>
                         <li class="list-group-item">
                             <span class="type">
                             </span>
                             <span class="name">obj</span>
-                            <span class="description"><p>the object to clone</p>
+                            <span class="description"><p>The object to clone</p>
 </span>
                         </li>
                     </ul>
                     <div class="panel-body">
                         <span class="returns">Returns</span>
                         <span class="type">Object</span>
-                        <span class="description">a new object similar to the original except for the specified property.</span>
+                        <span class="description">A new object equivalent to the original except for the changed property.</span>
                     </div>
                 </div>
             </div>
@@ -2613,8 +2700,9 @@ copied by reference.</p>
             </h2>
 
 
-            <div><code>[String] → a → {k: v} → {k: v}</code></div>
+            <div><code>[Idx] → a → {a} → {a}</code></div>
 
+            <div><code>Idx &#x3D; String | Int</code></div>
 
             <div class="params" data-expanded="false">
                 <a href="#expand" class="toggle-params">Parameters</a>
@@ -2631,21 +2719,21 @@ copied by reference.</p>
                             <span class="type">
                             </span>
                             <span class="name">val</span>
-                            <span class="description"><p>the new value</p>
+                            <span class="description"><p>The new value</p>
 </span>
                         </li>
                         <li class="list-group-item">
                             <span class="type">
                             </span>
                             <span class="name">obj</span>
-                            <span class="description"><p>the object to clone</p>
+                            <span class="description"><p>The object to clone</p>
 </span>
                         </li>
                     </ul>
                     <div class="panel-body">
                         <span class="returns">Returns</span>
                         <span class="type">Object</span>
-                        <span class="description">a new object similar to the original except along the specified path.</span>
+                        <span class="description">A new object equivalent to the original except along the specified path.</span>
                     </div>
                 </div>
             </div>
@@ -2665,7 +2753,10 @@ new object as well. All non-primitive properties are copied by reference.</p>
                 <a href="#dissocPath">dissocPath</a>.
             </div>
 
-	    <pre><button class="try-repl" data-ramda-version="0.23.0">Try in REPL</button><code class="hljs javascript">R.assocPath([<span class="hljs-string">'a'</span>, <span class="hljs-string">'b'</span>, <span class="hljs-string">'c'</span>], <span class="hljs-number">42</span>, {<span class="hljs-attr">a</span>: {<span class="hljs-attr">b</span>: {<span class="hljs-attr">c</span>: <span class="hljs-number">0</span>}}}); <span class="hljs-comment">//=&gt; {a: {b: {c: 42}}}</span></code></pre>
+	    <pre><button class="try-repl" data-ramda-version="0.23.0">Try in REPL</button><code class="hljs javascript">R.assocPath([<span class="hljs-string">'a'</span>, <span class="hljs-string">'b'</span>, <span class="hljs-string">'c'</span>], <span class="hljs-number">42</span>, {<span class="hljs-attr">a</span>: {<span class="hljs-attr">b</span>: {<span class="hljs-attr">c</span>: <span class="hljs-number">0</span>}}}); <span class="hljs-comment">//=&gt; {a: {b: {c: 42}}}</span>
+
+<span class="hljs-comment">// Any missing or non-object keys in path will be overridden</span>
+R.assocPath([<span class="hljs-string">'a'</span>, <span class="hljs-string">'b'</span>, <span class="hljs-string">'c'</span>], <span class="hljs-number">42</span>, {<span class="hljs-attr">a</span>: <span class="hljs-number">5</span>}); <span class="hljs-comment">//=&gt; {a: {b: {c: 42}}}</span></code></pre>
         </section>
         <div id="binary" class="section-id"></div>
         <section class="card">
@@ -2804,14 +2895,14 @@ R.pipe(R.assoc(<span class="hljs-string">'a'</span>, <span class="hljs-number">2
                             <span class="type">
                             </span>
                             <span class="name">f</span>
-                            <span class="description"><p>a predicate</p>
+                            <span class="description"><p>A predicate</p>
 </span>
                         </li>
                         <li class="list-group-item">
                             <span class="type">
                             </span>
                             <span class="name">g</span>
-                            <span class="description"><p>another predicate</p>
+                            <span class="description"><p>Another predicate</p>
 </span>
                         </li>
                     </ul>
@@ -2825,8 +2916,9 @@ R.pipe(R.assoc(<span class="hljs-string">'a'</span>, <span class="hljs-number">2
 
             <p><small>Added in v0.12.0</small></p>
 
-            <div class="description"><p>A function wrapping calls to the two functions in an <code>&amp;&amp;</code> operation,
-returning the result of the first function if it is false-y and the result
+            <div class="description"><p>A function which calls the two provided functions and returns the <code>&amp;&amp;</code>
+of the results.
+It returns the result of the first function if it is false-y and the result
 of the second function otherwise. Note that this is short-circuited,
 meaning that the second function will not be invoked if the first returns a
 false-y value.</p>
@@ -2841,11 +2933,11 @@ applicative functor.</p>
                 <a href="#and">and</a>.
             </div>
 
-	    <pre><button class="try-repl" data-ramda-version="0.23.0">Try in REPL</button><code class="hljs javascript"><span class="hljs-keyword">var</span> gt10 = <span class="hljs-function"><span class="hljs-params">x</span> =&gt;</span> x &gt; <span class="hljs-number">10</span>;
-<span class="hljs-keyword">var</span> even = <span class="hljs-function"><span class="hljs-params">x</span> =&gt;</span> x % <span class="hljs-number">2</span> === <span class="hljs-number">0</span>;
-<span class="hljs-keyword">var</span> f = R.both(gt10, even);
-f(<span class="hljs-number">100</span>); <span class="hljs-comment">//=&gt; true</span>
-f(<span class="hljs-number">101</span>); <span class="hljs-comment">//=&gt; false</span></code></pre>
+	    <pre><button class="try-repl" data-ramda-version="0.23.0">Try in REPL</button><code class="hljs javascript"><span class="hljs-keyword">var</span> gt10 = R.gt(R.__, <span class="hljs-number">10</span>)
+<span class="hljs-keyword">var</span> lt20 = R.lt(R.__, <span class="hljs-number">20</span>)
+<span class="hljs-keyword">var</span> f = R.both(gt10, lt20);
+f(<span class="hljs-number">15</span>); <span class="hljs-comment">//=&gt; true</span>
+f(<span class="hljs-number">30</span>); <span class="hljs-comment">//=&gt; false</span></code></pre>
         </section>
         <div id="call" class="section-id"></div>
         <section class="card">
@@ -2903,7 +2995,9 @@ produces a value to be passed to that function as an argument.</p>
                 <a href="#apply">apply</a>.
             </div>
 
-	    <pre><button class="try-repl" data-ramda-version="0.23.0">Try in REPL</button><code class="hljs javascript"><span class="hljs-keyword">var</span> indentN = R.pipe(R.times(R.always(<span class="hljs-string">' '</span>)),
+	    <pre><button class="try-repl" data-ramda-version="0.23.0">Try in REPL</button><code class="hljs javascript">R.call(R.add, <span class="hljs-number">1</span>, <span class="hljs-number">2</span>); <span class="hljs-comment">//=&gt; 3</span>
+
+<span class="hljs-keyword">var</span> indentN = R.pipe(R.times(R.always(<span class="hljs-string">' '</span>)),
                      R.join(<span class="hljs-string">''</span>),
                      R.replace(<span class="hljs-regexp">/^(?!$)/gm</span>));
 
@@ -2936,19 +3030,21 @@ format({<span class="hljs-attr">indent</span>: <span class="hljs-number">2</span
                             <span class="type">
                             </span>
                             <span class="name">fn</span>
-                            <span class="description"></span>
+                            <span class="description"><p>The function to map with</p>
+</span>
                         </li>
                         <li class="list-group-item">
                             <span class="type">
                             </span>
                             <span class="name">list</span>
-                            <span class="description"></span>
+                            <span class="description"><p>The list to map over</p>
+</span>
                         </li>
                     </ul>
                     <div class="panel-body">
                         <span class="returns">Returns</span>
                         <span class="type">Array</span>
-                        <span class="description"></span>
+                        <span class="description">The result of flat-mapping `list` with `fn`</span>
                     </div>
                 </div>
             </div>
@@ -2965,7 +3061,9 @@ according to the <a href="https://github.com/fantasyland/fantasy-land#chain">Fan
 
 
 	    <pre><button class="try-repl" data-ramda-version="0.23.0">Try in REPL</button><code class="hljs javascript"><span class="hljs-keyword">var</span> duplicate = <span class="hljs-function"><span class="hljs-params">n</span> =&gt;</span> [n, n];
-R.chain(duplicate, [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>]); <span class="hljs-comment">//=&gt; [1, 1, 2, 2, 3, 3]</span></code></pre>
+R.chain(duplicate, [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>]); <span class="hljs-comment">//=&gt; [1, 1, 2, 2, 3, 3]</span>
+
+R.chain(R.append, R.head)([<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>]); <span class="hljs-comment">//=&gt; [1, 2, 3, 1]</span></code></pre>
         </section>
         <div id="clamp" class="section-id"></div>
         <section class="card">
@@ -2989,28 +3087,28 @@ R.chain(duplicate, [<span class="hljs-number">1</span>, <span class="hljs-number
                             <span class="type">
                             </span>
                             <span class="name">minimum</span>
-                            <span class="description"><p>number</p>
+                            <span class="description"><p>The lower limit of the clamp (inclusive)</p>
 </span>
                         </li>
                         <li class="list-group-item">
                             <span class="type">
                             </span>
                             <span class="name">maximum</span>
-                            <span class="description"><p>number</p>
+                            <span class="description"><p>The upper limit of the clamp (inclusive)</p>
 </span>
                         </li>
                         <li class="list-group-item">
                             <span class="type">
                             </span>
                             <span class="name">value</span>
-                            <span class="description"><p>to be clamped</p>
+                            <span class="description"><p>Value to be clamped</p>
 </span>
                         </li>
                     </ul>
                     <div class="panel-body">
                         <span class="returns">Returns</span>
                         <span class="type">Number</span>
-                        <span class="description">Returns the clamped value</span>
+                        <span class="description">Returns `minimum` when `val < minimum`, `maximum` when `val > maximum`, returns `val` otherwise</span>
                     </div>
                 </div>
             </div>
@@ -3024,8 +3122,8 @@ R.chain(duplicate, [<span class="hljs-number">1</span>, <span class="hljs-number
 
 
 
-	    <pre><button class="try-repl" data-ramda-version="0.23.0">Try in REPL</button><code class="hljs javascript">R.clamp(<span class="hljs-number">1</span>, <span class="hljs-number">10</span>, <span class="hljs-number">-1</span>) <span class="hljs-comment">// =&gt; 1</span>
-R.clamp(<span class="hljs-number">1</span>, <span class="hljs-number">10</span>, <span class="hljs-number">11</span>) <span class="hljs-comment">// =&gt; 10</span>
+	    <pre><button class="try-repl" data-ramda-version="0.23.0">Try in REPL</button><code class="hljs javascript">R.clamp(<span class="hljs-number">1</span>, <span class="hljs-number">10</span>, <span class="hljs-number">-5</span>) <span class="hljs-comment">// =&gt; 1</span>
+R.clamp(<span class="hljs-number">1</span>, <span class="hljs-number">10</span>, <span class="hljs-number">15</span>) <span class="hljs-comment">// =&gt; 10</span>
 R.clamp(<span class="hljs-number">1</span>, <span class="hljs-number">10</span>, <span class="hljs-number">4</span>)  <span class="hljs-comment">// =&gt; 4</span></code></pre>
         </section>
         <div id="clone" class="section-id"></div>
@@ -3057,7 +3155,7 @@ R.clamp(<span class="hljs-number">1</span>, <span class="hljs-number">10</span>,
                     <div class="panel-body">
                         <span class="returns">Returns</span>
                         <span class="type">*</span>
-                        <span class="description">A new object or array.</span>
+                        <span class="description">A deeply cloned copy of `val`</span>
                     </div>
                 </div>
             </div>
@@ -3065,8 +3163,8 @@ R.clamp(<span class="hljs-number">1</span>, <span class="hljs-number">10</span>,
             <p><small>Added in v0.1.0</small></p>
 
             <div class="description"><p>Creates a deep copy of the value which may contain (nested) <code>Array</code>s and
-<code>Object</code>s, <code>Number</code>s, <code>String</code>s, <code>Boolean</code>s and <code>Date</code>s. <code>Function</code>s are not
-copied, but assigned by their reference.</p>
+<code>Object</code>s, <code>Number</code>s, <code>String</code>s, <code>Boolean</code>s and <code>Date</code>s. <code>Function</code>s are
+assigned by reference rather than copied</p>
 <p>Dispatches to a <code>clone</code> method if present.</p>
 </div>
 
@@ -3075,6 +3173,7 @@ copied, but assigned by their reference.</p>
 
 	    <pre><button class="try-repl" data-ramda-version="0.23.0">Try in REPL</button><code class="hljs javascript"><span class="hljs-keyword">var</span> objects = [{}, {}, {}];
 <span class="hljs-keyword">var</span> objectsClone = R.clone(objects);
+objects === objectsClone; <span class="hljs-comment">//=&gt; false</span>
 objects[<span class="hljs-number">0</span>] === objectsClone[<span class="hljs-number">0</span>]; <span class="hljs-comment">//=&gt; false</span></code></pre>
         </section>
         <div id="comparator" class="section-id"></div>
@@ -3099,14 +3198,15 @@ objects[<span class="hljs-number">0</span>] === objectsClone[<span class="hljs-n
                             <span class="type">
                             </span>
                             <span class="name">pred</span>
-                            <span class="description"><p>A predicate function of arity two.</p>
+                            <span class="description"><p>A predicate function of arity two which will return <code>true</code> if the first argument
+is less than the second, <code>false</code> otherwise</p>
 </span>
                         </li>
                     </ul>
                     <div class="panel-body">
                         <span class="returns">Returns</span>
                         <span class="type">function</span>
-                        <span class="description">A Function :: a -> b -> Int that returns `-1` if a < b, `1` if b < a, otherwise `0`.</span>
+                        <span class="description">A Function :: a -> b -> Int that returns `-1` if a < b, `1` if b < a, otherwise `0`</span>
                     </div>
                 </div>
             </div>
@@ -3120,11 +3220,11 @@ element is less than the second.</p>
 
 
 
-	    <pre><button class="try-repl" data-ramda-version="0.23.0">Try in REPL</button><code class="hljs javascript"><span class="hljs-keyword">var</span> cmp = R.comparator(<span class="hljs-function">(<span class="hljs-params">a, b</span>) =&gt;</span> a.age &lt; b.age);
+	    <pre><button class="try-repl" data-ramda-version="0.23.0">Try in REPL</button><code class="hljs javascript"><span class="hljs-keyword">var</span> byAge = R.comparator(<span class="hljs-function">(<span class="hljs-params">a, b</span>) =&gt;</span> a.age &lt; b.age);
 <span class="hljs-keyword">var</span> people = [
   <span class="hljs-comment">// ...</span>
 ];
-R.sort(cmp, people);</code></pre>
+<span class="hljs-keyword">var</span> peopleByIncreasingAge = R.sort(byAge, people);</code></pre>
         </section>
         <div id="complement" class="section-id"></div>
         <section class="card">
@@ -3161,16 +3261,9 @@ R.sort(cmp, people);</code></pre>
 
             <p><small>Added in v0.12.0</small></p>
 
-            <div class="description"><p>Takes a function <code>f</code> and returns a function <code>g</code> such that:</p>
-<ul>
-<li><p>applying <code>g</code> to zero or more arguments will give <strong>true</strong> if applying
-the same arguments to <code>f</code> gives a logical <strong>false</strong> value; and</p>
-</li>
-<li><p>applying <code>g</code> to zero or more arguments will give <strong>false</strong> if applying
-the same arguments to <code>f</code> gives a logical <strong>true</strong> value.</p>
-</li>
-</ul>
-<p><code>R.complement</code> will work on all other functors as well.</p>
+            <div class="description"><p>Takes a function <code>f</code> and returns a function <code>g</code> such that if called with the same arguments
+when <code>f</code> returns a &quot;truthy&quot; value, <code>g</code> returns <code>false</code> and when <code>f</code> returns a &quot;falsy&quot; value <code>g</code> returns <code>true</code>.</p>
+<p><code>R.complement</code> may be applied to any functor</p>
 </div>
 
 
@@ -3180,10 +3273,11 @@ the same arguments to <code>f</code> gives a logical <strong>true</strong> value
                 <a href="#not">not</a>.
             </div>
 
-	    <pre><button class="try-repl" data-ramda-version="0.23.0">Try in REPL</button><code class="hljs javascript"><span class="hljs-keyword">var</span> isEven = <span class="hljs-function"><span class="hljs-params">n</span> =&gt;</span> n % <span class="hljs-number">2</span> === <span class="hljs-number">0</span>;
-<span class="hljs-keyword">var</span> isOdd = R.complement(isEven);
-isOdd(<span class="hljs-number">21</span>); <span class="hljs-comment">//=&gt; true</span>
-isOdd(<span class="hljs-number">42</span>); <span class="hljs-comment">//=&gt; false</span></code></pre>
+	    <pre><button class="try-repl" data-ramda-version="0.23.0">Try in REPL</button><code class="hljs javascript"><span class="hljs-keyword">var</span> isNotNil = R.complement(R.isNil);
+isNil(<span class="hljs-literal">null</span>); <span class="hljs-comment">//=&gt; true</span>
+isNotNil(<span class="hljs-literal">null</span>); <span class="hljs-comment">//=&gt; false</span>
+isNil(<span class="hljs-number">7</span>); <span class="hljs-comment">//=&gt; false</span>
+isNotNil(<span class="hljs-number">7</span>); <span class="hljs-comment">//=&gt; true</span></code></pre>
         </section>
         <div id="compose" class="section-id"></div>
         <section class="card">
@@ -3206,8 +3300,9 @@ isOdd(<span class="hljs-number">42</span>); <span class="hljs-comment">//=&gt; f
                         <li class="list-group-item">
                             <span class="type">
                             </span>
-                            <span class="name">functions</span>
-                            <span class="description"></span>
+                            <span class="name">...functions</span>
+                            <span class="description"><p>The functions to compose</p>
+</span>
                         </li>
                     </ul>
                     <div class="panel-body">
@@ -3232,9 +3327,11 @@ any arity; the remaining functions must be unary.</p>
                 <a href="#pipe">pipe</a>.
             </div>
 
-	    <pre><button class="try-repl" data-ramda-version="0.23.0">Try in REPL</button><code class="hljs javascript"><span class="hljs-keyword">var</span> f = R.compose(R.inc, R.negate, <span class="hljs-built_in">Math</span>.pow);
+	    <pre><button class="try-repl" data-ramda-version="0.23.0">Try in REPL</button><code class="hljs javascript"><span class="hljs-keyword">var</span> classyGreeting = <span class="hljs-function">(<span class="hljs-params">firstName, lastName</span>) =&gt;</span> <span class="hljs-string">"The name's "</span> + lastName + <span class="hljs-string">", "</span> + firstName + <span class="hljs-string">" "</span> + lastName
+<span class="hljs-keyword">var</span> yellGreeting = R.compose(R.toUpper, classyGreeting);
+yellGreeting(<span class="hljs-string">'James'</span>, <span class="hljs-string">'Bond'</span>); <span class="hljs-comment">//=&gt; "THE NAME'S BOND, JAMES BOND"</span>
 
-f(<span class="hljs-number">3</span>, <span class="hljs-number">4</span>); <span class="hljs-comment">// -(3^4) + 1</span></code></pre>
+R.compose(<span class="hljs-built_in">Math</span>.abs, R.add(<span class="hljs-number">1</span>), R.multiply(<span class="hljs-number">2</span>))(<span class="hljs-number">-4</span>) <span class="hljs-comment">//=&gt; 7</span></code></pre>
         </section>
         <div id="composeK" class="section-id"></div>
         <section class="card">
@@ -3247,7 +3344,7 @@ f(<span class="hljs-number">3</span>, <span class="hljs-number">4</span>); <span
             </h2>
 
 
-            <div><code>Chain m &#x3D;&gt; ((y → m z), (x → m y), …, (a → m b)) → (m a → m z)</code></div>
+            <div><code>Chain m &#x3D;&gt; ((y → m z), (x → m y), …, (a → m b)) → (a → m z)</code></div>
 
 
             <div class="params" data-expanded="false">
@@ -3257,8 +3354,9 @@ f(<span class="hljs-number">3</span>, <span class="hljs-number">4</span>); <span
                         <li class="list-group-item">
                             <span class="type">
                             </span>
-                            <span class="name"></span>
-                            <span class="description"></span>
+                            <span class="name">...functions</span>
+                            <span class="description"><p>The functions to compose</p>
+</span>
                         </li>
                     </ul>
                     <div class="panel-body">
@@ -3283,22 +3381,18 @@ each of which must return a value of a type supported by <a href="#chain"><code>
                 <a href="#pipeK">pipeK</a>.
             </div>
 
-	    <pre><button class="try-repl" data-ramda-version="0.23.0">Try in REPL</button><code class="hljs javascript"><span class="hljs-comment">//  parseJson :: String -&gt; Maybe *</span>
-<span class="hljs-comment">//  get :: String -&gt; Object -&gt; Maybe *</span>
+	    <pre><button class="try-repl" data-ramda-version="0.23.0">Try in REPL</button><code class="hljs javascript"><span class="hljs-comment">//  get :: String -&gt; Object -&gt; Maybe *</span>
+ <span class="hljs-keyword">var</span> get = R.curry(<span class="hljs-function">(<span class="hljs-params">propName, obj</span>) =&gt;</span> Maybe(obj[propName]))
 
-<span class="hljs-comment">//  getStateCode :: Maybe String -&gt; Maybe String</span>
-<span class="hljs-keyword">var</span> getStateCode = R.composeK(
-  R.compose(Maybe.of, R.toUpper),
-  get(<span class="hljs-string">'state'</span>),
-  get(<span class="hljs-string">'address'</span>),
-  get(<span class="hljs-string">'user'</span>),
-  parseJson
-);
-
-getStateCode(Maybe.of(<span class="hljs-string">'{"user":{"address":{"state":"ny"}}}'</span>));
-<span class="hljs-comment">//=&gt; Just('NY')</span>
-getStateCode(Maybe.of(<span class="hljs-string">'[Invalid JSON]'</span>));
-<span class="hljs-comment">//=&gt; Nothing()</span></code></pre>
+ <span class="hljs-comment">//  getStateCode :: Maybe String -&gt; Maybe String</span>
+ <span class="hljs-keyword">var</span> getStateCode = R.composeK(
+   R.compose(Maybe.of, R.toUpper),
+   get(<span class="hljs-string">'state'</span>),
+   get(<span class="hljs-string">'address'</span>),
+   get(<span class="hljs-string">'user'</span>),
+ );
+ getStateCode({<span class="hljs-string">"user"</span>:{<span class="hljs-string">"address"</span>:{<span class="hljs-string">"state"</span>:<span class="hljs-string">"ny"</span>}}}); <span class="hljs-comment">//=&gt; Maybe.Just("NY")</span>
+ getStateCode({}); <span class="hljs-comment">//=&gt; Maybe.Nothing()</span></code></pre>
         </section>
         <div id="composeP" class="section-id"></div>
         <section class="card">
@@ -3322,7 +3416,8 @@ getStateCode(Maybe.of(<span class="hljs-string">'[Invalid JSON]'</span>));
                             <span class="type">
                             </span>
                             <span class="name">functions</span>
-                            <span class="description"></span>
+                            <span class="description"><p>The functions to compose</p>
+</span>
                         </li>
                     </ul>
                     <div class="panel-body">
@@ -3347,8 +3442,24 @@ functions must be unary.</p>
                 <a href="#pipeP">pipeP</a>.
             </div>
 
-	    <pre><button class="try-repl" data-ramda-version="0.23.0">Try in REPL</button><code class="hljs javascript"><span class="hljs-comment">//  followersForUser :: String -&gt; Promise [User]</span>
-<span class="hljs-keyword">var</span> followersForUser = R.composeP(db.getFollowers, db.getUserById);</code></pre>
+	    <pre><button class="try-repl" data-ramda-version="0.23.0">Try in REPL</button><code class="hljs javascript"><span class="hljs-keyword">var</span> db = {
+  <span class="hljs-attr">users</span>: {
+    <span class="hljs-attr">JOE</span>: {
+      <span class="hljs-attr">name</span>: <span class="hljs-string">'Joe'</span>,
+      <span class="hljs-attr">followers</span>: [<span class="hljs-string">'STEVE'</span>, <span class="hljs-string">'SUZY'</span>]
+    }
+  }
+}
+
+<span class="hljs-comment">// We'll pretend to do a db lookup which returns a promise</span>
+<span class="hljs-keyword">var</span> lookupUser = <span class="hljs-function">(<span class="hljs-params">userId</span>) =&gt;</span> <span class="hljs-built_in">Promise</span>.resolve(db.users[userId])
+<span class="hljs-keyword">var</span> lookupFollowers = <span class="hljs-function">(<span class="hljs-params">user</span>) =&gt;</span> <span class="hljs-built_in">Promise</span>.resolve(user.followers)
+lookupUser(<span class="hljs-string">'JOE'</span>).then(lookupFollowers)
+
+<span class="hljs-comment">//  followersForUser :: String -&gt; Promise [UserId]</span>
+<span class="hljs-keyword">var</span> followersForUser = R.composeP(lookupFollowers, lookupUser);
+followersForUser(<span class="hljs-string">'JOE'</span>).then(<span class="hljs-function"><span class="hljs-params">followers</span> =&gt;</span> <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'Followers:'</span>, followers))
+<span class="hljs-comment">// Followers: ["STEVE","SUZY"]</span></code></pre>
         </section>
         <div id="concat" class="section-id"></div>
         <section class="card">
@@ -3372,20 +3483,23 @@ functions must be unary.</p>
                         <li class="list-group-item">
                             <span class="type">
                             </span>
-                            <span class="name">a</span>
-                            <span class="description"></span>
+                            <span class="name">firstList</span>
+                            <span class="description"><p>The first list</p>
+</span>
                         </li>
                         <li class="list-group-item">
                             <span class="type">
                             </span>
-                            <span class="name">b</span>
-                            <span class="description"></span>
+                            <span class="name">secondList</span>
+                            <span class="description"><p>The second list</p>
+</span>
                         </li>
                     </ul>
                     <div class="panel-body">
                         <span class="returns">Returns</span>
                         <span class="type">Array</span>
-                        <span class="description"></span>
+                        <span class="description">A list consisting of the elements of `firstList` followed by the elements of
+`secondList`.</span>
                     </div>
                 </div>
             </div>
@@ -3402,9 +3516,9 @@ an error if you <code>concat</code> an Array with a non-Array value.</p>
 
 
 
-	    <pre><button class="try-repl" data-ramda-version="0.23.0">Try in REPL</button><code class="hljs javascript">R.concat([], []); <span class="hljs-comment">//=&gt; []</span>
+	    <pre><button class="try-repl" data-ramda-version="0.23.0">Try in REPL</button><code class="hljs javascript">R.concat(<span class="hljs-string">'ABC'</span>, <span class="hljs-string">'DEF'</span>); <span class="hljs-comment">// 'ABCDEF'</span>
 R.concat([<span class="hljs-number">4</span>, <span class="hljs-number">5</span>, <span class="hljs-number">6</span>], [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>]); <span class="hljs-comment">//=&gt; [4, 5, 6, 1, 2, 3]</span>
-R.concat(<span class="hljs-string">'ABC'</span>, <span class="hljs-string">'DEF'</span>); <span class="hljs-comment">// 'ABCDEF'</span></code></pre>
+R.concat([], []); <span class="hljs-comment">//=&gt; []</span></code></pre>
         </section>
         <div id="cond" class="section-id"></div>
         <section class="card">
@@ -3428,7 +3542,8 @@ R.concat(<span class="hljs-string">'ABC'</span>, <span class="hljs-string">'DEF'
                             <span class="type">
                             </span>
                             <span class="name">pairs</span>
-                            <span class="description"></span>
+                            <span class="description"><p>A list of [predicate, transformer]</p>
+</span>
                         </li>
                     </ul>
                     <div class="panel-body">
@@ -3441,8 +3556,8 @@ R.concat(<span class="hljs-string">'ABC'</span>, <span class="hljs-string">'DEF'
 
             <p><small>Added in v0.6.0</small></p>
 
-            <div class="description"><p>Returns a function, <code>fn</code>, which encapsulates if/else-if/else logic.
-<code>R.cond</code> takes a list of [predicate, transform] pairs. All of the arguments
+            <div class="description"><p>Returns a function, <code>fn</code>, which encapsulates <code>if/else, if/else, ...</code> logic.
+<code>R.cond</code> takes a list of [predicate, transformer] pairs. All of the arguments
 to <code>fn</code> are applied to each of the predicates in turn until one returns a
 &quot;truthy&quot; value, at which point <code>fn</code> returns the result of applying its
 arguments to the corresponding transformer. If none of the predicates
@@ -3482,7 +3597,7 @@ fn(<span class="hljs-number">100</span>); <span class="hljs-comment">//=&gt; 'wa
                         <li class="list-group-item">
                             <span class="type">
                             </span>
-                            <span class="name">Fn</span>
+                            <span class="name">fn</span>
                             <span class="description"><p>The constructor function to wrap.</p>
 </span>
                         </li>
@@ -3505,16 +3620,22 @@ with the same arguments and returns the same type.</p>
 
 
 	    <pre><button class="try-repl" data-ramda-version="0.23.0">Try in REPL</button><code class="hljs javascript"><span class="hljs-comment">// Constructor function</span>
-<span class="hljs-keyword">var</span> Widget = <span class="hljs-function"><span class="hljs-params">config</span> =&gt;</span> {
-  <span class="hljs-comment">// ...</span>
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">Animal</span>(<span class="hljs-params">kind</span>) </span>{
+  <span class="hljs-keyword">this</span>.kind = kind;
 };
-Widget.prototype = {
-  <span class="hljs-comment">// ...</span>
-};
-<span class="hljs-keyword">var</span> allConfigs = [
-  <span class="hljs-comment">// ...</span>
-];
-R.map(R.construct(Widget), allConfigs); <span class="hljs-comment">// a list of Widgets</span></code></pre>
+Animal.prototype.sighting = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+  <span class="hljs-keyword">return</span> <span class="hljs-string">"It's a "</span> + <span class="hljs-keyword">this</span>.kind + <span class="hljs-string">"!"</span>;
+}
+
+<span class="hljs-keyword">var</span> AnimalConstructor = R.construct(Animal)
+
+<span class="hljs-comment">// Notice we no longer need the 'new' keyword:</span>
+AnimalConstructor(<span class="hljs-string">'Pig'</span>); <span class="hljs-comment">//=&gt; {"kind": "Pig", "sighting": function (){...}};</span>
+
+<span class="hljs-keyword">var</span> animalTypes = [<span class="hljs-string">"Lion"</span>, <span class="hljs-string">"Tiger"</span>, <span class="hljs-string">"Bear"</span>];
+<span class="hljs-keyword">var</span> animalSighting = R.invoker(<span class="hljs-number">0</span>, <span class="hljs-string">'sighting'</span>);
+<span class="hljs-keyword">var</span> sightNewAnimal = R.compose(animalSighting, AnimalConstructor);
+R.map(sightNewAnimal, animalTypes); <span class="hljs-comment">//=&gt; ["It's a Lion!", "It's a Tiger!", "It's a Bear!"]</span></code></pre>
         </section>
         <div id="constructN" class="section-id"></div>
         <section class="card">
@@ -3567,18 +3688,25 @@ returned is specified to allow using variadic constructor functions.</p>
 
 
 
-	    <pre><button class="try-repl" data-ramda-version="0.23.0">Try in REPL</button><code class="hljs javascript"><span class="hljs-comment">// Variadic constructor function</span>
-<span class="hljs-keyword">var</span> Widget = <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> {
-  <span class="hljs-keyword">this</span>.children = <span class="hljs-built_in">Array</span>.prototype.slice.call(<span class="hljs-built_in">arguments</span>);
-  <span class="hljs-comment">// ...</span>
+	    <pre><button class="try-repl" data-ramda-version="0.23.0">Try in REPL</button><code class="hljs javascript"><span class="hljs-comment">// Variadic Constructor function</span>
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">Salad</span>(<span class="hljs-params"></span>) </span>{
+  <span class="hljs-keyword">this</span>.ingredients = <span class="hljs-built_in">arguments</span>;
 };
-Widget.prototype = {
-  <span class="hljs-comment">// ...</span>
-};
-<span class="hljs-keyword">var</span> allConfigs = [
-  <span class="hljs-comment">// ...</span>
-];
-R.map(R.constructN(<span class="hljs-number">1</span>, Widget), allConfigs); <span class="hljs-comment">// a list of Widgets</span></code></pre>
+Salad.prototype.recipe = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+  <span class="hljs-keyword">var</span> instructions = R.map(<span class="hljs-function">(<span class="hljs-params">ingredient</span>) =&gt;</span> (
+    <span class="hljs-string">'Add a whollop of '</span> + ingredient, <span class="hljs-keyword">this</span>.ingredients)
+  )
+  <span class="hljs-keyword">return</span> R.join(<span class="hljs-string">'\n'</span>, instructions)
+}
+
+<span class="hljs-keyword">var</span> ThreeLayerSalad = R.constructN(<span class="hljs-number">3</span>, Salad)
+
+<span class="hljs-comment">// Notice we no longer need the 'new' keyword, and the constructor is curried for 3 arguments.</span>
+<span class="hljs-keyword">var</span> salad = ThreeLayerSalad(<span class="hljs-string">'Mayonnaise'</span>)(<span class="hljs-string">'Potato Chips'</span>)(<span class="hljs-string">'Ketchup'</span>)
+<span class="hljs-built_in">console</span>.log(salad.recipe());
+<span class="hljs-comment">// Add a whollop of Mayonnaise</span>
+<span class="hljs-comment">// Add a whollop of Potato Chips</span>
+<span class="hljs-comment">// Add a whollop of Potato Ketchup</span></code></pre>
         </section>
         <div id="contains" class="section-id"></div>
         <section class="card">
@@ -3616,7 +3744,7 @@ R.map(R.constructN(<span class="hljs-number">1</span>, Widget), allConfigs); <sp
                     <div class="panel-body">
                         <span class="returns">Returns</span>
                         <span class="type">Boolean</span>
-                        <span class="description">`true` if the item is in the list, `false` otherwise.</span>
+                        <span class="description">`true` if an equivalent item is in the list, `false` otherwise.</span>
                     </div>
                 </div>
             </div>
@@ -3636,6 +3764,7 @@ least one element of the given list; <code>false</code> otherwise.</p>
 
 	    <pre><button class="try-repl" data-ramda-version="0.23.0">Try in REPL</button><code class="hljs javascript">R.contains(<span class="hljs-number">3</span>, [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>]); <span class="hljs-comment">//=&gt; true</span>
 R.contains(<span class="hljs-number">4</span>, [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>]); <span class="hljs-comment">//=&gt; false</span>
+R.contains({ <span class="hljs-attr">name</span>: <span class="hljs-string">'Fred'</span> }, [{ <span class="hljs-attr">name</span>: <span class="hljs-string">'Fred'</span> }]); <span class="hljs-comment">//=&gt; true</span>
 R.contains([<span class="hljs-number">42</span>], [[<span class="hljs-number">42</span>]]); <span class="hljs-comment">//=&gt; true</span></code></pre>
         </section>
         <div id="converge" class="section-id"></div>
@@ -3691,16 +3820,16 @@ function to produce the return value.</p>
 
 
 
+            <div class="see">
+                See also
+                <a href="#useWith">useWith</a>.
+            </div>
 
-	    <pre><button class="try-repl" data-ramda-version="0.23.0">Try in REPL</button><code class="hljs javascript"><span class="hljs-keyword">var</span> add = <span class="hljs-function">(<span class="hljs-params">a, b</span>) =&gt;</span> a + b;
-<span class="hljs-keyword">var</span> multiply = <span class="hljs-function">(<span class="hljs-params">a, b</span>) =&gt;</span> a * b;
-<span class="hljs-keyword">var</span> subtract = <span class="hljs-function">(<span class="hljs-params">a, b</span>) =&gt;</span> a - b;
+	    <pre><button class="try-repl" data-ramda-version="0.23.0">Try in REPL</button><code class="hljs javascript"><span class="hljs-keyword">var</span> average = R.converge(R.divide, [R.sum, R.length])
+average([<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>, <span class="hljs-number">5</span>, <span class="hljs-number">6</span>, <span class="hljs-number">7</span>]) <span class="hljs-comment">//=&gt; 4</span>
 
-<span class="hljs-comment">//≅ multiply( add(1, 2), subtract(1, 2) );</span>
-R.converge(multiply, [add, subtract])(<span class="hljs-number">1</span>, <span class="hljs-number">2</span>); <span class="hljs-comment">//=&gt; -3</span>
-
-<span class="hljs-keyword">var</span> add3 = <span class="hljs-function">(<span class="hljs-params">a, b, c</span>) =&gt;</span> a + b + c;
-R.converge(add3, [multiply, add, subtract])(<span class="hljs-number">1</span>, <span class="hljs-number">2</span>); <span class="hljs-comment">//=&gt; 4</span></code></pre>
+<span class="hljs-keyword">var</span> strangeConcat = R.converge(R.concat, [R.toUpper, R.toLower])
+strangeConcat(<span class="hljs-string">"Yodel"</span>) <span class="hljs-comment">//=&gt; "YODELyodel"</span></code></pre>
         </section>
         <div id="countBy" class="section-id"></div>
         <section class="card">
@@ -3756,9 +3885,10 @@ keys are coerced to strings because of how JavaScript objects work.</p>
 
 
 	    <pre><button class="try-repl" data-ramda-version="0.23.0">Try in REPL</button><code class="hljs javascript"><span class="hljs-keyword">var</span> numbers = [<span class="hljs-number">1.0</span>, <span class="hljs-number">1.1</span>, <span class="hljs-number">1.2</span>, <span class="hljs-number">2.0</span>, <span class="hljs-number">3.0</span>, <span class="hljs-number">2.2</span>];
-<span class="hljs-keyword">var</span> letters = R.split(<span class="hljs-string">''</span>, <span class="hljs-string">'abcABCaaaBBc'</span>);
 R.countBy(<span class="hljs-built_in">Math</span>.floor)(numbers);    <span class="hljs-comment">//=&gt; {'1': 3, '2': 2, '3': 1}</span>
-R.countBy(R.toLower)(letters);   <span class="hljs-comment">//=&gt; {'a': 5, 'b': 4, 'c': 3}</span></code></pre>
+
+<span class="hljs-keyword">var</span> letters = [<span class="hljs-string">'a'</span>, <span class="hljs-string">'b'</span>, <span class="hljs-string">'A'</span>, <span class="hljs-string">'a'</span>, <span class="hljs-string">'B'</span>, <span class="hljs-string">'c'</span>];
+R.countBy(R.toLower)(letters);   <span class="hljs-comment">//=&gt; {'a': 3, 'b': 2, 'c': 1}</span></code></pre>
         </section>
         <div id="curry" class="section-id"></div>
         <section class="card">
@@ -3945,7 +4075,7 @@ g(<span class="hljs-number">4</span>); <span class="hljs-comment">//=&gt; 10</sp
                     <div class="panel-body">
                         <span class="returns">Returns</span>
                         <span class="type">Number</span>
-                        <span class="description"></span>
+                        <span class="description">n - 1</span>
                     </div>
                 </div>
             </div>
@@ -3985,7 +4115,7 @@ g(<span class="hljs-number">4</span>); <span class="hljs-comment">//=&gt; 10</sp
                         <li class="list-group-item">
                             <span class="type">
                             </span>
-                            <span class="name">val</span>
+                            <span class="name">default</span>
                             <span class="description"><p>The default value.</p>
 </span>
                         </li>
@@ -3993,14 +4123,14 @@ g(<span class="hljs-number">4</span>); <span class="hljs-comment">//=&gt; 10</sp
                             <span class="type">
                             </span>
                             <span class="name">val</span>
-                            <span class="description"><p>The value to return if it is not null or undefined</p>
+                            <span class="description"><p><code>val</code> will be returned instead of <code>default</code> unless <code>val</code> is <code>null</code>, <code>undefined</code> or <code>NaN</code>.</p>
 </span>
                         </li>
                     </ul>
                     <div class="panel-body">
                         <span class="returns">Returns</span>
                         <span class="type">*</span>
-                        <span class="description">The the second value or the default value</span>
+                        <span class="description">The second value if it is not `null`, `undefined` or `NaN`, otherwise the default value</span>
                     </div>
                 </div>
             </div>
@@ -4019,7 +4149,71 @@ otherwise the first argument is returned.</p>
 defaultTo42(<span class="hljs-literal">null</span>);  <span class="hljs-comment">//=&gt; 42</span>
 defaultTo42(<span class="hljs-literal">undefined</span>);  <span class="hljs-comment">//=&gt; 42</span>
 defaultTo42(<span class="hljs-string">'Ramda'</span>);  <span class="hljs-comment">//=&gt; 'Ramda'</span>
+<span class="hljs-comment">// parseInt('string') results in NaN</span>
 defaultTo42(<span class="hljs-built_in">parseInt</span>(<span class="hljs-string">'string'</span>)); <span class="hljs-comment">//=&gt; 42</span></code></pre>
+        </section>
+        <div id="descend" class="section-id"></div>
+        <section class="card">
+            <h2>
+                <a tabindex="2" class="name" href="#descend">descend</a>
+                <span class="pull-right">
+                        <span class="label label-category">Function</span>
+                        <a target="_blank" title="View source on GitHub" href="https://github.com/ramda/ramda/tree/v0.23.0/src/descend.js"><small class="glyphicon glyphicon-new-window"></small></a>
+                </span>
+            </h2>
+
+
+            <div><code>Ord b &#x3D;&gt; (a → b) → a → a → Number</code></div>
+
+
+            <div class="params" data-expanded="false">
+                <a href="#expand" class="toggle-params">Parameters</a>
+                <div class="details panel panel-default">
+                    <ul class="list-group">
+                        <li class="list-group-item">
+                            <span class="type">
+                            </span>
+                            <span class="name">fn</span>
+                            <span class="description"><p>A function of arity one that returns a value that can be compared</p>
+</span>
+                        </li>
+                        <li class="list-group-item">
+                            <span class="type">
+                            </span>
+                            <span class="name">a</span>
+                            <span class="description"><p>The first item to be compared.</p>
+</span>
+                        </li>
+                        <li class="list-group-item">
+                            <span class="type">
+                            </span>
+                            <span class="name">b</span>
+                            <span class="description"><p>The second item to be compared.</p>
+</span>
+                        </li>
+                    </ul>
+                    <div class="panel-body">
+                        <span class="returns">Returns</span>
+                        <span class="type">Number</span>
+                        <span class="description">`-1` if fn(a) > fn(b), `1` if fn(b) > fn(a), otherwise `0`</span>
+                    </div>
+                </div>
+            </div>
+
+            <p><small>Added in v0.23.0</small></p>
+
+            <div class="description"><p>Makes a descending comparator function out of a function that returns a value
+that can be compared with <code>&lt;</code> and <code>&gt;</code>.</p>
+</div>
+
+
+
+
+	    <pre><button class="try-repl" data-ramda-version="0.23.0">Try in REPL</button><code class="hljs javascript"><span class="hljs-keyword">var</span> byAge = R.descend(R.prop(<span class="hljs-string">'age'</span>));
+<span class="hljs-keyword">var</span> people = [
+  <span class="hljs-comment">// ...</span>
+];
+<span class="hljs-keyword">var</span> peopleByOldestFirst = R.sort(byAge, people);</code></pre>
         </section>
         <div id="difference" class="section-id"></div>
         <section class="card">
@@ -4065,7 +4259,8 @@ defaultTo42(<span class="hljs-built_in">parseInt</span>(<span class="hljs-string
             <p><small>Added in v0.1.0</small></p>
 
             <div class="description"><p>Finds the set (i.e. no duplicates) of all elements in the first list not
-contained in the second list.</p>
+contained in the second list. Objects and Arrays are compared are compared
+in terms of value equality, not reference equality.</p>
 </div>
 
 
@@ -4078,7 +4273,8 @@ contained in the second list.</p>
             </div>
 
 	    <pre><button class="try-repl" data-ramda-version="0.23.0">Try in REPL</button><code class="hljs javascript">R.difference([<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>,<span class="hljs-number">4</span>], [<span class="hljs-number">7</span>,<span class="hljs-number">6</span>,<span class="hljs-number">5</span>,<span class="hljs-number">4</span>,<span class="hljs-number">3</span>]); <span class="hljs-comment">//=&gt; [1,2]</span>
-R.difference([<span class="hljs-number">7</span>,<span class="hljs-number">6</span>,<span class="hljs-number">5</span>,<span class="hljs-number">4</span>,<span class="hljs-number">3</span>], [<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>,<span class="hljs-number">4</span>]); <span class="hljs-comment">//=&gt; [7,6,5]</span></code></pre>
+R.difference([<span class="hljs-number">7</span>,<span class="hljs-number">6</span>,<span class="hljs-number">5</span>,<span class="hljs-number">4</span>,<span class="hljs-number">3</span>], [<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>,<span class="hljs-number">4</span>]); <span class="hljs-comment">//=&gt; [7,6,5]</span>
+R.difference([{<span class="hljs-attr">a</span>: <span class="hljs-number">1</span>}, {<span class="hljs-attr">b</span>: <span class="hljs-number">2</span>}], [{<span class="hljs-attr">a</span>: <span class="hljs-number">1</span>}, {<span class="hljs-attr">c</span>: <span class="hljs-number">3</span>}]) <span class="hljs-comment">//=&gt; [{b: 2}]</span></code></pre>
         </section>
         <div id="differenceWith" class="section-id"></div>
         <section class="card">
@@ -4091,7 +4287,7 @@ R.difference([<span class="hljs-number">7</span>,<span class="hljs-number">6</sp
             </h2>
 
 
-            <div><code>(a → a → Boolean) → [*] → [*] → [*]</code></div>
+            <div><code>((a, a) → Boolean) → [a] → [a] → [a]</code></div>
 
 
             <div class="params" data-expanded="false">
@@ -4171,21 +4367,21 @@ R.differenceWith(cmp, l1, l2); <span class="hljs-comment">//=&gt; [{a: 1}, {a: 2
                             <span class="type">
                             </span>
                             <span class="name">prop</span>
-                            <span class="description"><p>the name of the property to dissociate</p>
+                            <span class="description"><p>The name of the property to dissociate</p>
 </span>
                         </li>
                         <li class="list-group-item">
                             <span class="type">
                             </span>
                             <span class="name">obj</span>
-                            <span class="description"><p>the object to clone</p>
+                            <span class="description"><p>The object to clone</p>
 </span>
                         </li>
                     </ul>
                     <div class="panel-body">
                         <span class="returns">Returns</span>
                         <span class="type">Object</span>
-                        <span class="description">a new object similar to the original but without the specified property</span>
+                        <span class="description">A new object equivalent to the original but without the specified property</span>
                     </div>
                 </div>
             </div>
@@ -4226,21 +4422,21 @@ R.differenceWith(cmp, l1, l2); <span class="hljs-comment">//=&gt; [{a: 1}, {a: 2
                             <span class="type">
                             </span>
                             <span class="name">path</span>
-                            <span class="description"><p>the path to set</p>
+                            <span class="description"><p>The path to the value to omit</p>
 </span>
                         </li>
                         <li class="list-group-item">
                             <span class="type">
                             </span>
                             <span class="name">obj</span>
-                            <span class="description"><p>the object to clone</p>
+                            <span class="description"><p>The object to clone</p>
 </span>
                         </li>
                     </ul>
                     <div class="panel-body">
                         <span class="returns">Returns</span>
                         <span class="type">Object</span>
-                        <span class="description">a new object without the property at path</span>
+                        <span class="description">A new object without the property at path</span>
                     </div>
                 </div>
             </div>
@@ -4356,8 +4552,8 @@ reciprocal(<span class="hljs-number">4</span>);   <span class="hljs-comment">//=
                     </ul>
                     <div class="panel-body">
                         <span class="returns">Returns</span>
-                        <span class="type">*</span>
-                        <span class="description"></span>
+                        <span class="type">Array</span>
+                        <span class="description">A copy of list without the first `n` elements</span>
                     </div>
                 </div>
             </div>
@@ -4374,7 +4570,9 @@ transducer/transformer (or object with a <code>drop</code> method).</p>
             <div class="see">
                 See also
                 <a href="#take">take</a>,
-                <a href="#transduce">transduce</a>.
+                <a href="#transduce">transduce</a>,
+                <a href="#dropLast">dropLast</a>,
+                <a href="#dropWhile">dropWhile</a>.
             </div>
 
 	    <pre><button class="try-repl" data-ramda-version="0.23.0">Try in REPL</button><code class="hljs javascript">R.drop(<span class="hljs-number">1</span>, [<span class="hljs-string">'foo'</span>, <span class="hljs-string">'bar'</span>, <span class="hljs-string">'baz'</span>]); <span class="hljs-comment">//=&gt; ['bar', 'baz']</span>
@@ -4406,21 +4604,21 @@ R.drop(<span class="hljs-number">3</span>, <span class="hljs-string">'ramda'</sp
                             <span class="type">
                             </span>
                             <span class="name">n</span>
-                            <span class="description"><p>The number of elements of <code>xs</code> to skip.</p>
+                            <span class="description"><p>The number of elements of <code>list</code> to skip.</p>
 </span>
                         </li>
                         <li class="list-group-item">
                             <span class="type">
                             </span>
-                            <span class="name">xs</span>
-                            <span class="description"><p>The collection to consider.</p>
+                            <span class="name">list</span>
+                            <span class="description"><p>The list of elements to consider.</p>
 </span>
                         </li>
                     </ul>
                     <div class="panel-body">
                         <span class="returns">Returns</span>
                         <span class="type">Array</span>
-                        <span class="description"></span>
+                        <span class="description">A copy of the list with only the first `list.length - n` elements</span>
                     </div>
                 </div>
             </div>
@@ -4434,7 +4632,10 @@ R.drop(<span class="hljs-number">3</span>, <span class="hljs-string">'ramda'</sp
 
             <div class="see">
                 See also
-                <a href="#takeLast">takeLast</a>.
+                <a href="#takeLast">takeLast</a>,
+                <a href="#drop">drop</a>,
+                <a href="#dropWhile">dropWhile</a>,
+                <a href="#dropLastWhile">dropLastWhile</a>.
             </div>
 
 	    <pre><button class="try-repl" data-ramda-version="0.23.0">Try in REPL</button><code class="hljs javascript">R.dropLast(<span class="hljs-number">1</span>, [<span class="hljs-string">'foo'</span>, <span class="hljs-string">'bar'</span>, <span class="hljs-string">'baz'</span>]); <span class="hljs-comment">//=&gt; ['foo', 'bar']</span>
@@ -4464,8 +4665,8 @@ R.dropLast(<span class="hljs-number">3</span>, <span class="hljs-string">'ramda'
                         <li class="list-group-item">
                             <span class="type">
                             </span>
-                            <span class="name">fn</span>
-                            <span class="description"><p>The function called per iteration.</p>
+                            <span class="name">predicate</span>
+                            <span class="description"><p>The function to be called on each element</p>
 </span>
                         </li>
                         <li class="list-group-item">
@@ -4479,7 +4680,7 @@ R.dropLast(<span class="hljs-number">3</span>, <span class="hljs-string">'ramda'
                     <div class="panel-body">
                         <span class="returns">Returns</span>
                         <span class="type">Array</span>
-                        <span class="description">A new array.</span>
+                        <span class="description">A new array without any trailing elements that return `falsy` values from the `predicate`.</span>
                     </div>
                 </div>
             </div>
@@ -4488,8 +4689,8 @@ R.dropLast(<span class="hljs-number">3</span>, <span class="hljs-string">'ramda'
 
             <div class="description"><p>Returns a new list excluding all the tailing elements of a given list which
 satisfy the supplied predicate function. It passes each value from the right
-to the supplied predicate function, skipping elements while the predicate
-function returns <code>true</code>. The predicate function is applied to one argument:
+to the supplied predicate function, skipping elements until the predicate
+function returns a <code>falsy</code> value. The predicate function is applied to one argument:
 <em>(value)</em>.</p>
 </div>
 
@@ -4498,7 +4699,9 @@ function returns <code>true</code>. The predicate function is applied to one arg
             <div class="see">
                 See also
                 <a href="#takeLastWhile">takeLastWhile</a>,
-                <a href="#addIndex">addIndex</a>.
+                <a href="#addIndex">addIndex</a>,
+                <a href="#drop">drop</a>,
+                <a href="#dropWhile">dropWhile</a>.
             </div>
 
 	    <pre><button class="try-repl" data-ramda-version="0.23.0">Try in REPL</button><code class="hljs javascript"><span class="hljs-keyword">var</span> lteThree = <span class="hljs-function"><span class="hljs-params">x</span> =&gt;</span> x &lt;= <span class="hljs-number">3</span>;
@@ -4543,7 +4746,6 @@ R.dropLastWhile(lteThree, [<span class="hljs-number">1</span>, <span class="hljs
 
             <div class="description"><p>Returns a new list without any consecutively repeating elements. <code>R.equals</code>
 is used to determine equality.</p>
-<p>Dispatches to the <code>dropRepeats</code> method of the first argument, if present.</p>
 <p>Acts as a transducer if a transformer is given in list position.</p>
 </div>
 
@@ -4600,9 +4802,8 @@ is used to determine equality.</p>
             <p><small>Added in v0.14.0</small></p>
 
             <div class="description"><p>Returns a new list without any consecutively repeating elements. Equality is
-determined by applying the supplied predicate two consecutive elements. The
-first element in a series of equal element is the one being preserved.</p>
-<p>Dispatches to the <code>dropRepeatsWith</code> method of the second argument, if present.</p>
+determined by applying the supplied predicate to each pair of consecutive elements. The
+first element in a series of equal elements will be preserved.</p>
 <p>Acts as a transducer if a transformer is given in list position.</p>
 </div>
 
@@ -5249,7 +5450,6 @@ desired one.</p>
 
             <div class="description"><p>Returns the index of the first element of the list which matches the
 predicate, or <code>-1</code> if no element matches.</p>
-<p>Dispatches to the <code>findIndex</code> method of the second argument, if present.</p>
 <p>Acts as a transducer if a transformer is given in list position.</p>
 </div>
 
@@ -5310,7 +5510,6 @@ desired one.</p>
 
             <div class="description"><p>Returns the last element of the list which matches the predicate, or
 <code>undefined</code> if no element matches.</p>
-<p>Dispatches to the <code>findLast</code> method of the second argument, if present.</p>
 <p>Acts as a transducer if a transformer is given in list position.</p>
 </div>
 
@@ -5371,7 +5570,6 @@ desired one.</p>
 
             <div class="description"><p>Returns the index of the last element of the list which matches the
 predicate, or <code>-1</code> if no element matches.</p>
-<p>Dispatches to the <code>findLastIndex</code> method of the second argument, if present.</p>
 <p>Acts as a transducer if a transformer is given in list position.</p>
 </div>
 
@@ -5552,6 +5750,62 @@ R.forEach(printXPlusFive, [<span class="hljs-number">1</span>, <span class="hljs
 <span class="hljs-comment">// logs 6</span>
 <span class="hljs-comment">// logs 7</span>
 <span class="hljs-comment">// logs 8</span></code></pre>
+        </section>
+        <div id="forEachObjIndexed" class="section-id"></div>
+        <section class="card">
+            <h2>
+                <a tabindex="2" class="name" href="#forEachObjIndexed">forEachObjIndexed</a>
+                <span class="pull-right">
+                        <span class="label label-category">Object</span>
+                        <a target="_blank" title="View source on GitHub" href="https://github.com/ramda/ramda/tree/v0.23.0/src/forEachObjIndexed.js"><small class="glyphicon glyphicon-new-window"></small></a>
+                </span>
+            </h2>
+
+
+            <div><code>((a, String, StrMap a) → Any) → StrMap a → StrMap a</code></div>
+
+
+            <div class="params" data-expanded="false">
+                <a href="#expand" class="toggle-params">Parameters</a>
+                <div class="details panel panel-default">
+                    <ul class="list-group">
+                        <li class="list-group-item">
+                            <span class="type">
+                            </span>
+                            <span class="name">fn</span>
+                            <span class="description"><p>The function to invoke. Receives three argument, <code>value</code>, <code>key</code>, <code>obj</code>.</p>
+</span>
+                        </li>
+                        <li class="list-group-item">
+                            <span class="type">
+                            </span>
+                            <span class="name">obj</span>
+                            <span class="description"><p>The object to iterate over.</p>
+</span>
+                        </li>
+                    </ul>
+                    <div class="panel-body">
+                        <span class="returns">Returns</span>
+                        <span class="type">Object</span>
+                        <span class="description">The original object.</span>
+                    </div>
+                </div>
+            </div>
+
+            <p><small>Added in v0.23.0</small></p>
+
+            <div class="description"><p>Iterate over an input <code>object</code>, calling a provided function <code>fn</code> for each
+key and value in the object.</p>
+<p><code>fn</code> receives three argument: <em>(value, key, obj)</em>.</p>
+</div>
+
+
+
+
+	    <pre><button class="try-repl" data-ramda-version="0.23.0">Try in REPL</button><code class="hljs javascript"><span class="hljs-keyword">var</span> printKeyConcatValue = <span class="hljs-function">(<span class="hljs-params">value, key</span>) =&gt;</span> <span class="hljs-built_in">console</span>.log(key + <span class="hljs-string">':'</span> + value);
+R.forEachObjIndexed(printKeyConcatValue, {<span class="hljs-attr">x</span>: <span class="hljs-number">1</span>, <span class="hljs-attr">y</span>: <span class="hljs-number">2</span>}); <span class="hljs-comment">//=&gt; {x: 1, y: 2}</span>
+<span class="hljs-comment">// logs x:1</span>
+<span class="hljs-comment">// logs y:2</span></code></pre>
         </section>
         <div id="fromPairs" class="section-id"></div>
         <section class="card">
@@ -6239,7 +6493,7 @@ incCount({ <span class="hljs-attr">count</span>: <span class="hljs-number">1</sp
                     <div class="panel-body">
                         <span class="returns">Returns</span>
                         <span class="type">Number</span>
-                        <span class="description"></span>
+                        <span class="description">n + 1</span>
                     </div>
                 </div>
             </div>
@@ -6618,7 +6872,7 @@ elements common to both lists.</p>
             </h2>
 
 
-            <div><code>(a → a → Boolean) → [*] → [*] → [*]</code></div>
+            <div><code>((a, a) → Boolean) → [a] → [a] → [a]</code></div>
 
 
             <div class="params" data-expanded="false">
@@ -7050,6 +7304,9 @@ R.is(<span class="hljs-built_in">Number</span>, {}); <span class="hljs-comment">
                 </span>
             </h2>
 
+            <div class="deprecated">
+                Deprecated since v0.23.0
+            </div>
 
             <div><code>* → Boolean</code></div>
 
@@ -7678,8 +7935,9 @@ R.over(headLens, R.toUpper, [<span class="hljs-string">'a'</span>, <span class="
             </h2>
 
 
-            <div><code>[String] → Lens s a</code></div>
+            <div><code>[Idx] → Lens s a</code></div>
 
+            <div><code>Idx &#x3D; String | Int</code></div>
             <div><code>Lens s a &#x3D; Functor f &#x3D;&gt; (a → f a) → s → f s</code></div>
 
             <div class="params" data-expanded="false">
@@ -7716,11 +7974,14 @@ R.over(headLens, R.toUpper, [<span class="hljs-string">'a'</span>, <span class="
                 <a href="#over">over</a>.
             </div>
 
-	    <pre><button class="try-repl" data-ramda-version="0.23.0">Try in REPL</button><code class="hljs javascript"><span class="hljs-keyword">var</span> xyLens = R.lensPath([<span class="hljs-string">'x'</span>, <span class="hljs-string">'y'</span>]);
+	    <pre><button class="try-repl" data-ramda-version="0.23.0">Try in REPL</button><code class="hljs javascript"><span class="hljs-keyword">var</span> xHeadYLens = R.lensPath([<span class="hljs-string">'x'</span>, <span class="hljs-number">0</span>, <span class="hljs-string">'y'</span>]);
 
-R.view(xyLens, {<span class="hljs-attr">x</span>: {<span class="hljs-attr">y</span>: <span class="hljs-number">2</span>, <span class="hljs-attr">z</span>: <span class="hljs-number">3</span>}});            <span class="hljs-comment">//=&gt; 2</span>
-R.set(xyLens, <span class="hljs-number">4</span>, {<span class="hljs-attr">x</span>: {<span class="hljs-attr">y</span>: <span class="hljs-number">2</span>, <span class="hljs-attr">z</span>: <span class="hljs-number">3</span>}});          <span class="hljs-comment">//=&gt; {x: {y: 4, z: 3}}</span>
-R.over(xyLens, R.negate, {<span class="hljs-attr">x</span>: {<span class="hljs-attr">y</span>: <span class="hljs-number">2</span>, <span class="hljs-attr">z</span>: <span class="hljs-number">3</span>}});  <span class="hljs-comment">//=&gt; {x: {y: -2, z: 3}}</span></code></pre>
+R.view(xHeadYLens, {<span class="hljs-attr">x</span>: [{<span class="hljs-attr">y</span>: <span class="hljs-number">2</span>, <span class="hljs-attr">z</span>: <span class="hljs-number">3</span>}, {<span class="hljs-attr">y</span>: <span class="hljs-number">4</span>, <span class="hljs-attr">z</span>: <span class="hljs-number">5</span>}]});
+<span class="hljs-comment">//=&gt; 2</span>
+R.set(xHeadYLens, <span class="hljs-number">1</span>, {<span class="hljs-attr">x</span>: [{<span class="hljs-attr">y</span>: <span class="hljs-number">2</span>, <span class="hljs-attr">z</span>: <span class="hljs-number">3</span>}, {<span class="hljs-attr">y</span>: <span class="hljs-number">4</span>, <span class="hljs-attr">z</span>: <span class="hljs-number">5</span>}]});
+<span class="hljs-comment">//=&gt; {x: [{y: 1, z: 3}, {y: 4, z: 5}]}</span>
+R.over(xHeadYLens, R.negate, {<span class="hljs-attr">x</span>: [{<span class="hljs-attr">y</span>: <span class="hljs-number">2</span>, <span class="hljs-attr">z</span>: <span class="hljs-number">3</span>}, {<span class="hljs-attr">y</span>: <span class="hljs-number">4</span>, <span class="hljs-attr">z</span>: <span class="hljs-number">5</span>}]});
+<span class="hljs-comment">//=&gt; {x: [{y: -2, z: 3}, {y: 4, z: 5}]}</span></code></pre>
         </section>
         <div id="lensProp" class="section-id"></div>
         <section class="card">
@@ -7823,11 +8084,11 @@ object that satisfies the <a href="https://github.com/fantasyland/fantasy-land#a
                 <a href="#liftN">liftN</a>.
             </div>
 
-	    <pre><button class="try-repl" data-ramda-version="0.23.0">Try in REPL</button><code class="hljs javascript"><span class="hljs-keyword">var</span> madd3 = R.lift(R.curry(<span class="hljs-function">(<span class="hljs-params">a, b, c</span>) =&gt;</span> a + b + c));
+	    <pre><button class="try-repl" data-ramda-version="0.23.0">Try in REPL</button><code class="hljs javascript"><span class="hljs-keyword">var</span> madd3 = R.lift(<span class="hljs-function">(<span class="hljs-params">a, b, c</span>) =&gt;</span> a + b + c);
 
 madd3([<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>], [<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>], [<span class="hljs-number">1</span>]); <span class="hljs-comment">//=&gt; [3, 4, 5, 4, 5, 6, 5, 6, 7]</span>
 
-<span class="hljs-keyword">var</span> madd5 = R.lift(R.curry(<span class="hljs-function">(<span class="hljs-params">a, b, c, d, e</span>) =&gt;</span> a + b + c + d + e));
+<span class="hljs-keyword">var</span> madd5 = R.lift(<span class="hljs-function">(<span class="hljs-params">a, b, c, d, e</span>) =&gt;</span> a + b + c + d + e);
 
 madd5([<span class="hljs-number">1</span>,<span class="hljs-number">2</span>], [<span class="hljs-number">3</span>], [<span class="hljs-number">4</span>, <span class="hljs-number">5</span>], [<span class="hljs-number">6</span>], [<span class="hljs-number">7</span>, <span class="hljs-number">8</span>]); <span class="hljs-comment">//=&gt; [21, 22, 22, 23, 22, 23, 23, 24]</span></code></pre>
         </section>
@@ -7879,7 +8140,7 @@ many lists, Functions or other objects that satisfy the <a href="https://github.
                 <a href="#ap">ap</a>.
             </div>
 
-	    <pre><button class="try-repl" data-ramda-version="0.23.0">Try in REPL</button><code class="hljs javascript"><span class="hljs-keyword">var</span> madd3 = R.liftN(<span class="hljs-number">3</span>, R.curryN(<span class="hljs-number">3</span>, (...args) =&gt; R.sum(args)));
+	    <pre><button class="try-repl" data-ramda-version="0.23.0">Try in REPL</button><code class="hljs javascript"><span class="hljs-keyword">var</span> madd3 = R.liftN(<span class="hljs-number">3</span>, (...args) =&gt; R.sum(args));
 madd3([<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>], [<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>], [<span class="hljs-number">1</span>]); <span class="hljs-comment">//=&gt; [3, 4, 5, 4, 5, 6, 5, 6, 7]</span></code></pre>
         </section>
         <div id="lt" class="section-id"></div>
@@ -8128,7 +8389,8 @@ return a tuple <em>[acc, value]</em>.</p>
 
             <div class="see">
                 See also
-                <a href="#addIndex">addIndex</a>.
+                <a href="#addIndex">addIndex</a>,
+                <a href="#mapAccumRight">mapAccumRight</a>.
             </div>
 
 	    <pre><button class="try-repl" data-ramda-version="0.23.0">Try in REPL</button><code class="hljs javascript"><span class="hljs-keyword">var</span> digits = [<span class="hljs-string">'1'</span>, <span class="hljs-string">'2'</span>, <span class="hljs-string">'3'</span>, <span class="hljs-string">'4'</span>];
@@ -8147,7 +8409,7 @@ R.mapAccum(appender, <span class="hljs-number">0</span>, digits); <span class="h
             </h2>
 
 
-            <div><code>(acc → x → (acc, y)) → acc → [x] → (acc, [y])</code></div>
+            <div><code>(x→ acc → (y, acc)) → acc → [x] → ([y], acc)</code></div>
 
 
             <div class="params" data-expanded="false">
@@ -8192,21 +8454,22 @@ parameter from right to left, and returning a final value of this
 accumulator together with the new list.</p>
 <p>Similar to <code>mapAccum</code>, except moves through the input list from the right to
 the left.</p>
-<p>The iterator function receives two arguments, <em>acc</em> and <em>value</em>, and should
-return a tuple <em>[acc, value]</em>.</p>
+<p>The iterator function receives two arguments, <em>value</em> and <em>acc</em>, and should
+return a tuple <em>[value, acc]</em>.</p>
 </div>
 
 
 
             <div class="see">
                 See also
-                <a href="#addIndex">addIndex</a>.
+                <a href="#addIndex">addIndex</a>,
+                <a href="#mapAccum">mapAccum</a>.
             </div>
 
 	    <pre><button class="try-repl" data-ramda-version="0.23.0">Try in REPL</button><code class="hljs javascript"><span class="hljs-keyword">var</span> digits = [<span class="hljs-string">'1'</span>, <span class="hljs-string">'2'</span>, <span class="hljs-string">'3'</span>, <span class="hljs-string">'4'</span>];
 <span class="hljs-keyword">var</span> append = <span class="hljs-function">(<span class="hljs-params">a, b</span>) =&gt;</span> [a + b, a + b];
 
-R.mapAccumRight(append, <span class="hljs-number">0</span>, digits); <span class="hljs-comment">//=&gt; ['04321', ['04321', '0432', '043', '04']]</span></code></pre>
+R.mapAccumRight(append, <span class="hljs-number">5</span>, digits); <span class="hljs-comment">//=&gt; [['12345', '2345', '345', '45'], '12345']</span></code></pre>
         </section>
         <div id="mapObjIndexed" class="section-id"></div>
         <section class="card">
@@ -9689,7 +9952,7 @@ addOneOnce(addOneOnce(<span class="hljs-number">50</span>)); <span class="hljs-c
             </h2>
 
 
-            <div><code>* → * → *</code></div>
+            <div><code>a → b → a | b</code></div>
 
 
             <div class="params" data-expanded="false">
@@ -9700,21 +9963,19 @@ addOneOnce(addOneOnce(<span class="hljs-number">50</span>)); <span class="hljs-c
                             <span class="type">
                             </span>
                             <span class="name">a</span>
-                            <span class="description"><p>A boolean value</p>
-</span>
+                            <span class="description"></span>
                         </li>
                         <li class="list-group-item">
                             <span class="type">
                             </span>
                             <span class="name">b</span>
-                            <span class="description"><p>A boolean value</p>
-</span>
+                            <span class="description"></span>
                         </li>
                     </ul>
                     <div class="panel-body">
                         <span class="returns">Returns</span>
-                        <span class="type">Boolean</span>
-                        <span class="description">`true` if one or both arguments are `true`, `false` otherwise</span>
+                        <span class="type">Any</span>
+                        <span class="description">the first argument if truthy, otherwise the second argument.</span>
                     </div>
                 </div>
             </div>
@@ -9910,8 +10171,8 @@ provided initially followed by the arguments provided to <code>g</code>.</p>
                 <a href="#partialRight">partialRight</a>.
             </div>
 
-	    <pre><button class="try-repl" data-ramda-version="0.23.0">Try in REPL</button><code class="hljs javascript"><span class="hljs-keyword">var</span> multiply = <span class="hljs-function">(<span class="hljs-params">a, b</span>) =&gt;</span> a * b;
-<span class="hljs-keyword">var</span> double = R.partial(multiply, [<span class="hljs-number">2</span>]);
+	    <pre><button class="try-repl" data-ramda-version="0.23.0">Try in REPL</button><code class="hljs javascript"><span class="hljs-keyword">var</span> multiply2 = <span class="hljs-function">(<span class="hljs-params">a, b</span>) =&gt;</span> a * b;
+<span class="hljs-keyword">var</span> double = R.partial(multiply2, [<span class="hljs-number">2</span>]);
 double(<span class="hljs-number">2</span>); <span class="hljs-comment">//=&gt; 4</span>
 
 <span class="hljs-keyword">var</span> greet = <span class="hljs-function">(<span class="hljs-params">salutation, title, firstName, lastName</span>) =&gt;</span>
@@ -10055,8 +10316,9 @@ R.partition(R.contains(<span class="hljs-string">'s'</span>), { <span class="hlj
             </h2>
 
 
-            <div><code>[String] → {k: v} → v | Undefined</code></div>
+            <div><code>[Idx] → {a} → a | Undefined</code></div>
 
+            <div><code>Idx &#x3D; String | Int</code></div>
 
             <div class="params" data-expanded="false">
                 <a href="#expand" class="toggle-params">Parameters</a>
@@ -10111,8 +10373,9 @@ R.path([<span class="hljs-string">'a'</span>, <span class="hljs-string">'b'</spa
             </h2>
 
 
-            <div><code>[String] → * → {String: *} → Boolean</code></div>
+            <div><code>[Idx] → a → {a} → Boolean</code></div>
 
+            <div><code>Idx &#x3D; String | Int</code></div>
 
             <div class="params" data-expanded="false">
                 <a href="#expand" class="toggle-params">Parameters</a>
@@ -10176,8 +10439,9 @@ R.filter(isFamous, users); <span class="hljs-comment">//=&gt; [ user1 ]</span></
             </h2>
 
 
-            <div><code>a → [String] → Object → a</code></div>
+            <div><code>a → [Idx] → {a} → a</code></div>
 
+            <div><code>Idx &#x3D; String | Int</code></div>
 
             <div class="params" data-expanded="false">
                 <a href="#expand" class="toggle-params">Parameters</a>
@@ -10236,8 +10500,9 @@ R.pathOr(<span class="hljs-string">'N/A'</span>, [<span class="hljs-string">'a'<
             </h2>
 
 
-            <div><code>(a → Boolean) → [String] → Object → Boolean</code></div>
+            <div><code>(a → Boolean) → [Idx] → {a} → Boolean</code></div>
 
+            <div><code>Idx &#x3D; String | Int</code></div>
 
             <div class="params" data-expanded="false">
                 <a href="#expand" class="toggle-params">Parameters</a>
@@ -10524,7 +10789,7 @@ f(<span class="hljs-number">3</span>, <span class="hljs-number">4</span>); <span
             </h2>
 
 
-            <div><code>Chain m &#x3D;&gt; ((a → m b), (b → m c), …, (y → m z)) → (m a → m z)</code></div>
+            <div><code>Chain m &#x3D;&gt; ((a → m b), (b → m c), …, (y → m z)) → (a → m z)</code></div>
 
 
             <div class="params" data-expanded="false">
@@ -10572,9 +10837,9 @@ each of which must return a value of a type supported by <a href="#chain"><code>
   R.compose(Maybe.of, R.toUpper)
 );
 
-getStateCode(Maybe.of(<span class="hljs-string">'{"user":{"address":{"state":"ny"}}}'</span>));
+getStateCode(<span class="hljs-string">'{"user":{"address":{"state":"ny"}}}'</span>);
 <span class="hljs-comment">//=&gt; Just('NY')</span>
-getStateCode(Maybe.of(<span class="hljs-string">'[Invalid JSON]'</span>));
+getStateCode(<span class="hljs-string">'[Invalid JSON]'</span>);
 <span class="hljs-comment">//=&gt; Nothing()</span></code></pre>
         </section>
         <div id="pipeP" class="section-id"></div>
@@ -11322,6 +11587,7 @@ the iterator function and passing it an accumulator value and the current
 value from the array, and then passing the result to the next call.</p>
 <p>The iterator function receives two values: <em>(acc, value)</em>. It may use
 <code>R.reduced</code> to shortcut the iteration.</p>
+<p>The arguments&#39; order of <code>reduceRight</code>&#39;s iterator function is <em>(value, acc)</em>.</p>
 <p>Note: <code>R.reduce</code> does not skip deleted or unassigned indices (sparse
 arrays), unlike the native <code>Array.prototype.reduce</code> method. For more details
 on this behavior, see:
@@ -11334,13 +11600,20 @@ on this behavior, see:
             <div class="see">
                 See also
                 <a href="#reduced">reduced</a>,
-                <a href="#addIndex">addIndex</a>.
+                <a href="#addIndex">addIndex</a>,
+                <a href="#reduceRight">reduceRight</a>.
             </div>
 
-	    <pre><button class="try-repl" data-ramda-version="0.23.0">Try in REPL</button><code class="hljs javascript"><span class="hljs-keyword">var</span> numbers = [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>];
-<span class="hljs-keyword">var</span> plus = <span class="hljs-function">(<span class="hljs-params">a, b</span>) =&gt;</span> a + b;
-
-R.reduce(plus, <span class="hljs-number">10</span>, numbers); <span class="hljs-comment">//=&gt; 16</span></code></pre>
+	    <pre><button class="try-repl" data-ramda-version="0.23.0">Try in REPL</button><code class="hljs javascript">R.reduce(R.subtract, <span class="hljs-number">0</span>, [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>]) <span class="hljs-comment">// =&gt; ((((0 - 1) - 2) - 3) - 4) = -10</span>
+          -               <span class="hljs-number">-10</span>
+         / \              / \
+        -   <span class="hljs-number">4</span>           <span class="hljs-number">-6</span>   <span class="hljs-number">4</span>
+       / \              / \
+      -   <span class="hljs-number">3</span>   ==&gt;     <span class="hljs-number">-3</span>   <span class="hljs-number">3</span>
+     / \              / \
+    -   <span class="hljs-number">2</span>           <span class="hljs-number">-1</span>   <span class="hljs-number">2</span>
+   / \              / \
+  <span class="hljs-number">0</span>   <span class="hljs-number">1</span>            <span class="hljs-number">0</span>   <span class="hljs-number">1</span></code></pre>
         </section>
         <div id="reduceBy" class="section-id"></div>
         <section class="card">
@@ -11503,7 +11776,7 @@ above. For instance, it is not currently supported by reduceRight.</p>
             </h2>
 
 
-            <div><code>(a,b → a) → a → [b] → a</code></div>
+            <div><code>(a, b → b) → b → [a] → b</code></div>
 
 
             <div class="params" data-expanded="false">
@@ -11514,8 +11787,8 @@ above. For instance, it is not currently supported by reduceRight.</p>
                             <span class="type">
                             </span>
                             <span class="name">fn</span>
-                            <span class="description"><p>The iterator function. Receives two values, the accumulator and the
-       current element from the array.</p>
+                            <span class="description"><p>The iterator function. Receives two values, the current element from the array
+       and the accumulator.</p>
 </span>
                         </li>
                         <li class="list-group-item">
@@ -11548,7 +11821,8 @@ the iterator function and passing it an accumulator value and the current
 value from the array, and then passing the result to the next call.</p>
 <p>Similar to <code>reduce</code>, except moves through the input list from the right to
 the left.</p>
-<p>The iterator function receives two values: <em>(acc, value)</em></p>
+<p>The iterator function receives two values: <em>(value, acc)</em>, while the arguments&#39;
+order of <code>reduce</code>&#39;s iterator function is <em>(acc, value)</em>.</p>
 <p>Note: <code>R.reduceRight</code> does not skip deleted or unassigned indices (sparse
 arrays), unlike the native <code>Array.prototype.reduce</code> method. For more details
 on this behavior, see:
@@ -11559,13 +11833,20 @@ on this behavior, see:
 
             <div class="see">
                 See also
+                <a href="#reduce">reduce</a>,
                 <a href="#addIndex">addIndex</a>.
             </div>
 
-	    <pre><button class="try-repl" data-ramda-version="0.23.0">Try in REPL</button><code class="hljs javascript"><span class="hljs-keyword">var</span> pairs = [ [<span class="hljs-string">'a'</span>, <span class="hljs-number">1</span>], [<span class="hljs-string">'b'</span>, <span class="hljs-number">2</span>], [<span class="hljs-string">'c'</span>, <span class="hljs-number">3</span>] ];
-<span class="hljs-keyword">var</span> flattenPairs = <span class="hljs-function">(<span class="hljs-params">acc, pair</span>) =&gt;</span> acc.concat(pair);
-
-R.reduceRight(flattenPairs, [], pairs); <span class="hljs-comment">//=&gt; [ 'c', 3, 'b', 2, 'a', 1 ]</span></code></pre>
+	    <pre><button class="try-repl" data-ramda-version="0.23.0">Try in REPL</button><code class="hljs javascript">R.reduceRight(R.subtract, <span class="hljs-number">0</span>, [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>]) <span class="hljs-comment">// =&gt; (1 - (2 - (3 - (4 - 0)))) = -2</span>
+    -               <span class="hljs-number">-2</span>
+   / \              / \
+  <span class="hljs-number">1</span>   -            <span class="hljs-number">1</span>   <span class="hljs-number">3</span>
+     / \              / \
+    <span class="hljs-number">2</span>   -     ==&gt;    <span class="hljs-number">2</span>  <span class="hljs-number">-1</span>
+       / \              / \
+      <span class="hljs-number">3</span>   -            <span class="hljs-number">3</span>   <span class="hljs-number">4</span>
+         / \              / \
+        <span class="hljs-number">4</span>   <span class="hljs-number">0</span>            <span class="hljs-number">4</span>   <span class="hljs-number">0</span></code></pre>
         </section>
         <div id="reduceWhile" class="section-id"></div>
         <section class="card">
@@ -12313,6 +12594,74 @@ sortByFirstItem(pairs); <span class="hljs-comment">//=&gt; [[-3, 3], [-2, 2], [-
 <span class="hljs-keyword">var</span> people = [clara, bob, alice];
 sortByNameCaseInsensitive(people); <span class="hljs-comment">//=&gt; [alice, bob, clara]</span></code></pre>
         </section>
+        <div id="sortWith" class="section-id"></div>
+        <section class="card">
+            <h2>
+                <a tabindex="2" class="name" href="#sortWith">sortWith</a>
+                <span class="pull-right">
+                        <span class="label label-category">Relation</span>
+                        <a target="_blank" title="View source on GitHub" href="https://github.com/ramda/ramda/tree/v0.23.0/src/sortWith.js"><small class="glyphicon glyphicon-new-window"></small></a>
+                </span>
+            </h2>
+
+
+            <div><code>[a → a → Number] → [a] → [a]</code></div>
+
+
+            <div class="params" data-expanded="false">
+                <a href="#expand" class="toggle-params">Parameters</a>
+                <div class="details panel panel-default">
+                    <ul class="list-group">
+                        <li class="list-group-item">
+                            <span class="type">
+                            </span>
+                            <span class="name">functions</span>
+                            <span class="description"><p>A list of comparator functions.</p>
+</span>
+                        </li>
+                        <li class="list-group-item">
+                            <span class="type">
+                            </span>
+                            <span class="name">list</span>
+                            <span class="description"><p>The list to sort.</p>
+</span>
+                        </li>
+                    </ul>
+                    <div class="panel-body">
+                        <span class="returns">Returns</span>
+                        <span class="type">Array</span>
+                        <span class="description">A new list sorted according to the comarator functions.</span>
+                    </div>
+                </div>
+            </div>
+
+            <p><small>Added in v0.23.0</small></p>
+
+            <div class="description"><p>Sorts a list according to a list of comparators.</p>
+</div>
+
+
+
+
+	    <pre><button class="try-repl" data-ramda-version="0.23.0">Try in REPL</button><code class="hljs javascript"><span class="hljs-keyword">var</span> alice = {
+  <span class="hljs-attr">name</span>: <span class="hljs-string">'alice'</span>,
+  <span class="hljs-attr">age</span>: <span class="hljs-number">40</span>
+};
+<span class="hljs-keyword">var</span> bob = {
+  <span class="hljs-attr">name</span>: <span class="hljs-string">'bob'</span>,
+  <span class="hljs-attr">age</span>: <span class="hljs-number">30</span>
+};
+<span class="hljs-keyword">var</span> clara = {
+  <span class="hljs-attr">name</span>: <span class="hljs-string">'clara'</span>,
+  <span class="hljs-attr">age</span>: <span class="hljs-number">40</span>
+};
+<span class="hljs-keyword">var</span> people = [clara, bob, alice];
+<span class="hljs-keyword">var</span> ageNameSort = R.sortWith([
+  R.descend(R.prop(<span class="hljs-string">'age'</span>)),
+  R.ascend(R.prop(<span class="hljs-string">'name'</span>))
+]);
+ageNameSort(people); <span class="hljs-comment">//=&gt; [alice, clara, bob]</span></code></pre>
+        </section>
         <div id="split" class="section-id"></div>
         <section class="card">
             <h2>
@@ -12713,7 +13062,7 @@ R.symmetricDifference([<span class="hljs-number">7</span>,<span class="hljs-numb
             </h2>
 
 
-            <div><code>(a → a → Boolean) → [a] → [a] → [a]</code></div>
+            <div><code>((a, a) → Boolean) → [a] → [a] → [a]</code></div>
 
 
             <div class="params" data-expanded="false">
@@ -14738,6 +15087,10 @@ function so that the new function reports the correct arity.</p>
 
 
 
+            <div class="see">
+                See also
+                <a href="#converge">converge</a>.
+            </div>
 
 	    <pre><button class="try-repl" data-ramda-version="0.23.0">Try in REPL</button><code class="hljs javascript">R.useWith(<span class="hljs-built_in">Math</span>.pow, [R.identity, R.identity])(<span class="hljs-number">3</span>, <span class="hljs-number">4</span>); <span class="hljs-comment">//=&gt; 81</span>
 R.useWith(<span class="hljs-built_in">Math</span>.pow, [R.identity, R.identity])(<span class="hljs-number">3</span>)(<span class="hljs-number">4</span>); <span class="hljs-comment">//=&gt; 81</span>
@@ -15028,11 +15381,11 @@ functions such as <code>filter</code> and <code>find</code>.</p>
 
 
 	    <pre><button class="try-repl" data-ramda-version="0.23.0">Try in REPL</button><code class="hljs javascript"><span class="hljs-comment">// pred :: Object -&gt; Boolean</span>
-<span class="hljs-keyword">var</span> pred = where({
-  <span class="hljs-attr">a</span>: equals(<span class="hljs-string">'foo'</span>),
-  <span class="hljs-attr">b</span>: complement(equals(<span class="hljs-string">'bar'</span>)),
-  <span class="hljs-attr">x</span>: gt(__, <span class="hljs-number">10</span>),
-  <span class="hljs-attr">y</span>: lt(__, <span class="hljs-number">20</span>)
+<span class="hljs-keyword">var</span> pred = R.where({
+  <span class="hljs-attr">a</span>: R.equals(<span class="hljs-string">'foo'</span>),
+  <span class="hljs-attr">b</span>: R.complement(R.equals(<span class="hljs-string">'bar'</span>)),
+  <span class="hljs-attr">x</span>: R.gt(__, <span class="hljs-number">10</span>),
+  <span class="hljs-attr">y</span>: R.lt(__, <span class="hljs-number">20</span>)
 });
 
 pred({<span class="hljs-attr">a</span>: <span class="hljs-string">'foo'</span>, <span class="hljs-attr">b</span>: <span class="hljs-string">'xxx'</span>, <span class="hljs-attr">x</span>: <span class="hljs-number">11</span>, <span class="hljs-attr">y</span>: <span class="hljs-number">19</span>}); <span class="hljs-comment">//=&gt; true</span>
@@ -15160,71 +15513,6 @@ pred({<span class="hljs-attr">a</span>: <span class="hljs-number">1</span>, <spa
             </div>
 
 	    <pre><button class="try-repl" data-ramda-version="0.23.0">Try in REPL</button><code class="hljs javascript">R.without([<span class="hljs-number">1</span>, <span class="hljs-number">2</span>], [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">1</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>]); <span class="hljs-comment">//=&gt; [3, 4]</span></code></pre>
-        </section>
-        <div id="wrap" class="section-id"></div>
-        <section class="card">
-            <h2>
-                <a tabindex="2" class="name" href="#wrap">wrap</a>
-                <span class="pull-right">
-                        <span class="label label-category">Function</span>
-                        <a target="_blank" title="View source on GitHub" href="https://github.com/ramda/ramda/tree/v0.23.0/src/wrap.js"><small class="glyphicon glyphicon-new-window"></small></a>
-                </span>
-            </h2>
-
-            <div class="deprecated">
-                Deprecated since v0.22.0
-            </div>
-
-            <div><code>(a… → b) → ((a… → b) → a… → c) → (a… → c)</code></div>
-
-
-            <div class="params" data-expanded="false">
-                <a href="#expand" class="toggle-params">Parameters</a>
-                <div class="details panel panel-default">
-                    <ul class="list-group">
-                        <li class="list-group-item">
-                            <span class="type">
-                            </span>
-                            <span class="name">fn</span>
-                            <span class="description"><p>The function to wrap.</p>
-</span>
-                        </li>
-                        <li class="list-group-item">
-                            <span class="type">
-                            </span>
-                            <span class="name">wrapper</span>
-                            <span class="description"><p>The wrapper function.</p>
-</span>
-                        </li>
-                    </ul>
-                    <div class="panel-body">
-                        <span class="returns">Returns</span>
-                        <span class="type">function</span>
-                        <span class="description">The wrapped function.</span>
-                    </div>
-                </div>
-            </div>
-
-            <p><small>Added in v0.1.0</small></p>
-
-            <div class="description"><p>Wrap a function inside another to allow you to make adjustments to the
-parameters, or do other processing either before the internal function is
-called or with its results.</p>
-</div>
-
-
-
-
-	    <pre><button class="try-repl" data-ramda-version="0.23.0">Try in REPL</button><code class="hljs javascript"><span class="hljs-keyword">var</span> greet = <span class="hljs-function"><span class="hljs-params">name</span> =&gt;</span> <span class="hljs-string">'Hello '</span> + name;
-
-<span class="hljs-keyword">var</span> shoutedGreet = R.wrap(greet, (gr, name) =&gt; gr(name).toUpperCase());
-
-shoutedGreet(<span class="hljs-string">"Kathy"</span>); <span class="hljs-comment">//=&gt; "HELLO KATHY"</span>
-
-<span class="hljs-keyword">var</span> shortenedGreet = R.wrap(greet, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">gr, name</span>) </span>{
-  <span class="hljs-keyword">return</span> gr(name.substring(<span class="hljs-number">0</span>, <span class="hljs-number">3</span>));
-});
-shortenedGreet(<span class="hljs-string">"Robert"</span>); <span class="hljs-comment">//=&gt; "Hello Rob"</span></code></pre>
         </section>
         <div id="xprod" class="section-id"></div>
         <section class="card">
