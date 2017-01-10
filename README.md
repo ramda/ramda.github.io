@@ -17,6 +17,11 @@ $ ln -s ../../../ramda/dist/ramda.js
 
 分支名用自己的名字即可，不要在 master 上开发。
 
+一共分五部分，用下面的命令查看自己负责的部分：（命令中 num=[负责第几部分，以数字表示]，如下所示）
+```console
+$ num=1 && ls -l |grep "^-"| head -n $(( 48 * $num)) | tail -n 48 | awk '{ print $NF }'
+```
+
 ```console
 $ cd ramda/
 $ git checkout -b [wangzengdi]
