@@ -2,7 +2,9 @@
 
 ## 中文翻译开发
 
-### 1. 下载 ramda 和 ramda.github.io，将 ramda 工程中的 ramda.js 软连接到 ramda.github.io 中。
+### 1. 在[ramdacn](https://github.com/ramdacn) github 组织下，下载 ramda 和 ramda.github.io，将 ramda 工程中的 ramda.js 软连接到 ramda.github.io 中。
+
+
 
 ```console
 $ cd one_directory
