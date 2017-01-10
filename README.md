@@ -1,8 +1,5 @@
 # ramda.github.io
 
-To generate the various files required by the website, run the following
-command (using the actual version number in place of `X.Y.Z`):
-
 ## 中文翻译开发
 
 ### 1. 下载 ramda 和 ramda.github.io，将 ramda 工程中的 ramda.js 软连接到 ramda.github.io 中。
@@ -49,6 +46,10 @@ $ npm run jsdoc
 
 刷新网页
 
+## 原 READMD.md 文档
+
+To generate the various files required by the website, run the following
+command (using the actual version number in place of `X.Y.Z`):
 
 ```console
 $ VERSION=X.Y.Z make
