@@ -1,0 +1,53 @@
+doctype html
+html.home-page
+	head
+		meta(charset="UTF-8")
+		meta(
+			content="width=device-width, initial-scale=1"
+			name="viewport"
+		)
+
+		title Ramda Documentation
+
+		link(
+			href="style.css"
+			rel="stylesheet"
+			type="text/css"
+		)
+
+	body
+		input#open-nav(type="checkbox")
+		header.navbar.navbar-fixed-top.navbar-inverse.container-fluid
+			.container-fluid
+				.navbar-header
+					label.open-nav(for="open-nav")
+					a.navbar-brand(href="#")
+						strong Ramda
+						span.version v#{version}
+
+				ul.nav.navbar-nav.navbar-left
+					li.active: a(href="#") Home
+					li: a(href="docs") Documentation
+					li: a(href="/repl?v=#{version}") Try Ramda
+
+				ul.nav.navbar-nav.navbar-right
+					li: a(href="https://github.com/ramda/ramda") GitHub
+					li: a(href="https://gitter.im/ramda/ramda") Discuss
+
+		main.container
+			block main
+
+		script.
+			window.gitter = {
+				chat: {
+					options: {
+						room: 'ramda/ramda'
+					}
+				}
+			}
+
+		script(
+			async
+			defer
+			src="https://sidecar.gitter.im/dist/sidecar.v1.js"
+		)
