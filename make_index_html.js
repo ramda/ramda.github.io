@@ -17,6 +17,8 @@ get_ramda_file('README.md')
   var make_html = pug.compileFile('index.pug')
 
   var html = make_html({
+    html_class: 'home-page',
+    page: 'home',
     readme: readme_html,
     version: version
   })
