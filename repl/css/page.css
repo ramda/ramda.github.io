@@ -33,3 +33,13 @@ html, body {
   border     : 0;
   resize     : none;
 }
+
+.repl-midline {
+	background-color: #44475a;
+	position: absolute;
+	left: 50%;
+	top: 0;
+	bottom: 0;
+	width: 2px;
+	z-index: 1;
+}

@@ -1,5 +1,7 @@
 doctype html
-html.home-page
+html(class=html_class)
+	- base_link = ('home' == page ? '.' : '..')
+
 	head
 		meta(charset="UTF-8")
 		meta(
@@ -9,11 +11,16 @@ html.home-page
 
 		title Ramda Documentation
 
+		- href = base_link + "/style.css"
 		link(
-			href="style.css"
+			href=href
 			rel="stylesheet"
 			type="text/css"
 		)
+
+		block styles
+
+		block scripts
 
 	body
 		input#open-nav(type="checkbox")
@@ -23,19 +30,26 @@ html.home-page
 					label.open-nav(for="open-nav")
 					a.navbar-brand(href="#")
 						strong Ramda
-						span.version v#{version}
+						span.version  v#{version}
 
 				ul.nav.navbar-nav.navbar-left
-					li.active: a(href="#") Home
-					li: a(href="docs") Documentation
-					li: a(href="/repl?v=#{version}") Try Ramda
+					- active = ('home' == page) ? 'active' : ''
+					- href = base_link + "/"
+					li(class=active): a(href=href) Home
+
+					- active = ('docs' == page) ? 'active' : ''
+					- href = base_link + "/docs/"
+					li(class=active): a(href=href) Documentation
+
+					- active = ('repl' == page) ? 'active' : ''
+					- href = base_link + "/repl/"
+					li(class=active): a(href=href) Try Ramda
 
 				ul.nav.navbar-nav.navbar-right
 					li: a(href="https://github.com/ramda/ramda") GitHub
 					li: a(href="https://gitter.im/ramda/ramda") Discuss
 
-		main.container
-			block main
+		block main
 
 		script.
 			window.gitter = {
