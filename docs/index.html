@@ -1961,16 +1961,14 @@ R.adjust(R.add(<span class="hljs-number">10</span>))(<span class="hljs-number">1
                     <div class="panel-body">
                         <span class="returns">Returns</span>
                         <span class="type">Boolean</span>
-                        <span class="description">`true` if the predicate is satisfied by every element, `false`
-        otherwise.</span>
+                        <span class="description">`false` if any element does not satisfy the predicate, true otherwise.</span>
                     </div>
                 </div>
             </div>
 
             <p><small>Added in v0.1.0</small></p>
 
-            <div class="description"><p>Returns <code>true</code> if all elements of the list match the predicate, <code>false</code> if
-there are any that don&#39;t.</p>
+		<div class="description"><p>Returns <code>false</code> if any element does not satisfy the predicate, <code>true</code> otherwise.</p>
 <p>Dispatches to the <code>all</code> method of the second argument, if present.</p>
 <p>Acts as a transducer if a transformer is given in list position.</p>
 </div>
