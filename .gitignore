@@ -3,3 +3,4 @@ tmp/
 /npm-debug.log
 .directory
 .kateproject
+*.sw[op]

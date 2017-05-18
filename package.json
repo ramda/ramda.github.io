@@ -5,11 +5,12 @@
   "private": true,
   "repository": {
     "type": "git",
-    "url": "git://github.com/ramda/ramda.github.io.git"
+    "url": "git://github.com/ramdacn/ramda.github.io.git"
   },
   "license": "MIT",
   "devDependencies": {
     "bootstrap": "3.3.x",
+    "chokidar": "^1.6.1",
     "gitbook-cli": "2.3.x",
     "handlebars": "4.x.x",
     "highlight.js": "9.x.x",

@@ -30,11 +30,11 @@ all: \
 
 $(VERSION)/tmp/%:
 	mkdir -p '$(@D)'
-	curl --silent 'https://raw.githubusercontent.com/ramda/ramda/v$(VERSION)/$(@F)' >'$@'
+	curl --silent 'https://raw.githubusercontent.com/ramdacn/ramda/v$(VERSION)/$(@F)' >'$@'
 
 $(VERSION)/docs/dist/ramda.js:
 	mkdir -p '$(@D)'
-	curl --silent 'https://raw.githubusercontent.com/ramda/ramda/v$(VERSION)/dist/ramda.js' >'$@'
+	curl --silent 'https://raw.githubusercontent.com/ramdacn/ramda/v$(VERSION)/dist/ramda.js' >'$@'
 
 $(VERSION)/docs/index.html $(VERSION)/index.html: $(JSDOC_FILES)
 	VERSION='$(VERSION)' $(JSDOC) \

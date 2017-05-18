@@ -1728,11 +1728,9 @@
 
             <p><small>Added in v0.6.0</small></p>
 
-            <div class="description"><p>A special placeholder value used to specify &quot;gaps&quot; within curried functions,
-allowing partial application of any combination of arguments, regardless of
-their positions.</p>
-<p>If <code>g</code> is a curried ternary function and <code>_</code> is <code>R.__</code>, the following are
-equivalent:</p>
+            <div class="description"><p>柯里化函数的参数占位符。允许部分应用于任何位置的参数。</p>
+<p>假设 <code>g</code> 代表柯里化的三元函数，<code>_</code> 代表 <code>R.__</code>，下面几种写法是等价的：</p>
+<p>haha</p>
 <ul>
 <li><code>g(1, 2, 3)</code></li>
 <li><code>g(_, 2, 3)(1)</code></li>
@@ -1792,7 +1790,7 @@ greet(<span class="hljs-string">'Alice'</span>); <span class="hljs-comment">//=&
 
             <p><small>Added in v0.1.0</small></p>
 
-            <div class="description"><p>Adds two values.</p>
+            <div class="description"><p>两数相加。</p>
 </div>
 
 
@@ -1841,13 +1839,8 @@ R.add(<span class="hljs-number">7</span>)(<span class="hljs-number">10</span>); 
 
             <p><small>Added in v0.15.0</small></p>
 
-            <div class="description"><p>Creates a new list iteration function from an existing one by adding two new
-parameters to its callback function: the current index, and the entire list.</p>
-<p>This would turn, for instance, Ramda&#39;s simple <code>map</code> function into one that
-more closely resembles <code>Array.prototype.map</code>. Note that this will only work
-for functions in which the iteration callback function is the first
-parameter, and where the list is the last parameter. (This latter might be
-unimportant if the list parameter is not used.)</p>
+            <div class="description"><p>对已有迭代函数的回调函数添加两个新的参数：当前索引、整个列表，创建出一个新的列表迭代函数</p>
+<p>例如，这将把 Ramda 中简单的 <code>map</code> 函数变成更接近于 <code>Array.prototype.map</code> 形式的函数。注意，只有满足下面条件的函数才能正常工作：迭代回调函数是其首个参数;列表是回调函数的最后一个参数。（如果列表参数没有用到，后一个条件可以忽略）</p>
 </div>
 
 
@@ -1910,9 +1903,7 @@ mapIndexed(<span class="hljs-function">(<span class="hljs-params">val, idx</span
 
             <p><small>Added in v0.14.0</small></p>
 
-            <div class="description"><p>Applies a function to the value at the given index of an array, returning a
-new copy of the array with the element at the given index replaced with the
-result of the function application.</p>
+            <div class="description"><p>对数组中给定索引的值进行函数变换，返回一份新的数组拷贝，给定索引处的值被替换为函数变换的结果。</p>
 </div>
 
 
@@ -4411,8 +4402,9 @@ R.differenceWith(cmp, l1, l2); <span class="hljs-comment">//=&gt; [{a: 1}, {a: 2
             </h2>
 
 
-            <div><code>[String] → {k: v} → {k: v}</code></div>
+            <div><code>[Idx] → {k: v} → {k: v}</code></div>
 
+            <div><code>Idx &#x3D; String | Int</code></div>
 
             <div class="params" data-expanded="false">
                 <a href="#expand" class="toggle-params">Parameters</a>
@@ -4552,7 +4544,7 @@ reciprocal(<span class="hljs-number">4</span>);   <span class="hljs-comment">//=
                     </ul>
                     <div class="panel-body">
                         <span class="returns">Returns</span>
-                        <span class="type">Array</span>
+                        <span class="type">*</span>
                         <span class="description">A copy of list without the first `n` elements</span>
                     </div>
                 </div>
