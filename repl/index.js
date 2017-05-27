@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
   var version = location.search.substr(1).split('&').reduce(toVersion, 'latest')
 
-  var ramdaUrl = '//cdn.jsdelivr.net/ramda/' + version + '/ramda.min.js'
+  var ramdaUrl = '//cdn.jsdelivr.net/npm/ramda@' + version + '/dist/ramda.min.js'
 
 
   ramdaRepl(document.querySelector('.ramda-repl-target'), {
