@@ -50,13 +50,6 @@
                     >Function</span>
                 </a>
             </li>
-            <li class="func" data-name="_isArrayLike" data-category="Type">
-                <a href="#_isArrayLike">
-                    _isArrayLike
-                    <span data-category="Type" class="label label-category pull-right"
-                    >Type</span>
-                </a>
-            </li>
             <li class="func" data-name="add" data-category="Math">
                 <a href="#add">
                     add
@@ -1813,57 +1806,6 @@ equivalent:</p>
 
 	    <pre><button class="try-repl" data-ramda-version="0.24.0">Try in REPL</button><code class="hljs javascript"><span class="hljs-keyword">var</span> greet = R.replace(<span class="hljs-string">'{name}'</span>, R.__, <span class="hljs-string">'Hello, {name}!'</span>);
 greet(<span class="hljs-string">'Alice'</span>); <span class="hljs-comment">//=&gt; 'Hello, Alice!'</span></code></pre>
-        </section>
-        <div id="_isArrayLike" class="section-id"></div>
-        <section class="card">
-            <h2>
-                <a tabindex="2" class="name" href="#_isArrayLike">_isArrayLike</a>
-                <span class="pull-right">
-                        <span class="label label-category">Type</span>
-                        <a target="_blank" title="View source on GitHub" href="https://github.com/ramda/ramda/tree/v0.24.0/src/_isArrayLike.js"><small class="glyphicon glyphicon-new-window"></small></a>
-                </span>
-            </h2>
-
-            <div class="deprecated">
-                Deprecated since v0.23.0
-            </div>
-
-            <div><code>* → Boolean</code></div>
-
-
-            <div class="params" data-expanded="false">
-                <a href="#expand" class="toggle-params">Parameters</a>
-                <div class="details panel panel-default">
-                    <ul class="list-group">
-                        <li class="list-group-item">
-                            <span class="type">
-                            </span>
-                            <span class="name">x</span>
-                            <span class="description"><p>The object to test.</p>
-</span>
-                        </li>
-                    </ul>
-                    <div class="panel-body">
-                        <span class="returns">Returns</span>
-                        <span class="type">Boolean</span>
-                        <span class="description">`true` if `x` has a numeric length property and extreme indices defined; `false` otherwise.</span>
-                    </div>
-                </div>
-            </div>
-
-            <p><small>Added in v0.5.0</small></p>
-
-            <div class="description"><p>Tests whether or not an object is similar to an array.</p>
-</div>
-
-
-
-
-	    <pre><button class="try-repl" data-ramda-version="0.24.0">Try in REPL</button><code class="hljs javascript">R.isArrayLike([]); <span class="hljs-comment">//=&gt; true</span>
-R.isArrayLike(<span class="hljs-literal">true</span>); <span class="hljs-comment">//=&gt; false</span>
-R.isArrayLike({}); <span class="hljs-comment">//=&gt; false</span>
-R.isArrayLike({<span class="hljs-attr">length</span>: <span class="hljs-number">10</span>}); <span class="hljs-comment">//=&gt; false</span>
-R.isArrayLike({<span class="hljs-number">0</span>: <span class="hljs-string">'zero'</span>, <span class="hljs-number">9</span>: <span class="hljs-string">'nine'</span>, <span class="hljs-attr">length</span>: <span class="hljs-number">10</span>}); <span class="hljs-comment">//=&gt; true</span></code></pre>
         </section>
         <div id="add" class="section-id"></div>
         <section class="card">
