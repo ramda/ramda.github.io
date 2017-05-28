@@ -35,7 +35,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="http://ramdajs.com"><strong>Ramda </strong><span class="version">v0.22.1</span></a>
+            <a class="navbar-brand" href="http://ramdajs.com"><strong>Ramda </strong><span class="version">v0.24.0</span></a>
         </div>
         <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
@@ -76,7 +76,7 @@
 
         var version = location.search.substr(1).split('&').reduce(toVersion, 'latest');
 
-        var ramdaUrl = '//cdn.jsdelivr.net/ramda/' + version + '/ramda.min.js';
+        var ramdaUrl = '//cdn.jsdelivr.net/npm/ramda@' + version + '/dist/ramda.min.js';
 
         // --------------------------------------------------------------------
 
