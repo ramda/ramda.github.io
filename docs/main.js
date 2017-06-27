@@ -105,7 +105,7 @@
     var versionParam = version ? '?v=' + version : '';
     var code = event.target.nextElementSibling.textContent;
     var encoded = fixedEncodeURIComponent(code);
-    location.assign(location.origin + '/repl/' +
+    window.open(location.origin + '/repl/' +
       versionParam + '#;' + encoded);
   }
 
