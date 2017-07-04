@@ -98,15 +98,43 @@
   }
 
   function tryInREPL(event) {
-    if (!event.target.matches('.try-repl')) {
+    var target = event.target;
+
+    if (!target.matches('.try-repl')) {
       return;
     }
-    var version = event.target.dataset && event.target.dataset.ramdaVersion;
-    var versionParam = version ? '?v=' + version : '';
-    var code = event.target.nextElementSibling.textContent;
-    var encoded = fixedEncodeURIComponent(code);
-    window.open(location.origin + '/repl/' +
-      versionParam + '#;' + encoded);
+
+    if (!window.RunKit) {
+        var version = event.target.dataset && event.target.dataset.ramdaVersion;
+        var versionParam = version ? '?v=' + version : '';
+        var code = event.target.nextElementSibling.textContent;
+        var encoded = fixedEncodeURIComponent(code);
+        window.open(location.origin + '/repl/' +
+          versionParam + '#;' + encoded);
+    }
+
+    var parent = target.parentNode;
+    var ramdaVersion = target.dataset && "@" + target.dataset.ramdaVersion || "";
+    var codeElement = target.nextElementSibling;
+
+    parent.removeChild(codeElement);
+    parent.removeChild(target);
+    parent.style.background = "transparent";
+
+    RunKit.createNotebook({
+        element: parent,
+        nodeVersion: '*',
+        preamble: 'var R = require("ramda' + ramdaVersion + '")',
+        source: codeElement.textContent,
+        syntaxTheme: 'atom-dark-syntax',
+        minHeight: "52px",
+        onLoad: function(notebook) {
+          var iframe = parent.lastElementChild;
+          iframe.style.cssText = 'height:' + iframe.style.height
+          iframe.classList.add('repl')
+          notebook.evaluate()
+        }
+    });
   }
 
 
