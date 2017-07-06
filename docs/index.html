@@ -14602,7 +14602,7 @@ R.toString(<span class="hljs-keyword">new</span> <span class="hljs-built_in">Dat
             </h2>
 
 
-            <div><code>(c → c) → (a,b → a) → a → [b] → a</code></div>
+            <div><code>(c → c) → ((a, b) → a) → a → [b] → a</code></div>
 
 
             <div class="params" data-expanded="false">
@@ -14681,8 +14681,11 @@ initial accumulator, but is ignored by transduce.</p>
 
 	    <pre><button class="try-repl" data-ramda-version="0.24.1">Try in REPL</button><code class="hljs javascript"><span class="hljs-keyword">var</span> numbers = [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>];
 <span class="hljs-keyword">var</span> transducer = R.compose(R.map(R.add(<span class="hljs-number">1</span>)), R.take(<span class="hljs-number">2</span>));
+R.transduce(transducer, R.flip(R.append), [], numbers); <span class="hljs-comment">//=&gt; [2, 3]</span>
 
-R.transduce(transducer, R.flip(R.append), [], numbers); <span class="hljs-comment">//=&gt; [2, 3]</span></code></pre>
+<span class="hljs-keyword">var</span> isOdd = <span class="hljs-function">(<span class="hljs-params">x</span>) =&gt;</span> x % <span class="hljs-number">2</span> === <span class="hljs-number">1</span>;
+<span class="hljs-keyword">var</span> firstOddTransducer = R.compose(R.filter(isOdd), R.take(<span class="hljs-number">1</span>));
+R.transduce(firstOddTransducer, R.flip(R.append), [], R.range(<span class="hljs-number">0</span>, <span class="hljs-number">100</span>)); <span class="hljs-comment">//=&gt; [1]</span></code></pre>
         </section>
         <div id="transpose" class="section-id"></div>
         <section class="card">
@@ -16437,5 +16440,6 @@ R.zipWith(f, [<span class="hljs-number">1</span>, <span class="hljs-number">2</s
     </main>
     <script src="dist/ramda.js"></script>
     <script src="main.js"></script>
+    <script src = "https://embed.runkit.com"></script>
 </body>
 </html>

@@ -109,7 +109,8 @@
         var versionParam = version ? '?v=' + version : '';
         var code = event.target.nextElementSibling.textContent;
         var encoded = fixedEncodeURIComponent(code);
-        window.open(location.origin + '/repl/' +
+        
+        return window.open(location.origin + '/repl/' +
           versionParam + '#;' + encoded);
     }
 
@@ -130,7 +131,7 @@
         minHeight: "52px",
         onLoad: function(notebook) {
           var iframe = parent.lastElementChild;
-          iframe.style.cssText = 'height:' + iframe.style.height
+          iframe.style.cssText = 'height:' + iframe.style.height + ';width:' + iframe.style.width;
           iframe.classList.add('repl')
           notebook.evaluate()
         }
