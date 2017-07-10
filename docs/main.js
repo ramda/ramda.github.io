@@ -118,22 +118,32 @@
     var ramdaVersion = target.dataset && "@" + target.dataset.ramdaVersion || "";
     var codeElement = target.nextElementSibling;
 
-    parent.removeChild(codeElement);
-    parent.removeChild(target);
     parent.style.background = "transparent";
     parent.style.overflow = "hidden";
+    
+    var container = document.createElement("div");
+
+    container.style.width = "1px";
+    container.style.height = "1px";
+    
+    parent.appendChild(container);
 
     RunKit.createNotebook({
-        element: parent,
+        element: container,
         nodeVersion: '*',
         preamble: 'var R = require("ramda' + ramdaVersion + '")',
         source: codeElement.textContent,
         syntaxTheme: 'atom-dark-syntax',
         minHeight: "52px",
         onLoad: function(notebook) {
-          var iframe = parent.lastElementChild;
+          parent.removeChild(codeElement);
+          parent.removeChild(target);
+
+          container.style.cssText = "";
+
+          var iframe = container.lastElementChild;
           iframe.style.cssText = 'height:' + iframe.style.height;
-          iframe.classList.add('repl')
+          iframe.classList.add('repl');
           notebook.evaluate()
         }
     });
