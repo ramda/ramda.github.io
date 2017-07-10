@@ -121,6 +121,7 @@
     parent.removeChild(codeElement);
     parent.removeChild(target);
     parent.style.background = "transparent";
+    parent.style.overflow = "hidden";
 
     RunKit.createNotebook({
         element: parent,
@@ -131,7 +132,7 @@
         minHeight: "52px",
         onLoad: function(notebook) {
           var iframe = parent.lastElementChild;
-          iframe.style.cssText = 'height:' + iframe.style.height + ';width:' + iframe.style.width;
+          iframe.style.cssText = 'height:' + iframe.style.height;
           iframe.classList.add('repl')
           notebook.evaluate()
         }
