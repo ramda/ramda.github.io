@@ -99,12 +99,14 @@
 
   function tryInREPL(event) {
     var target = event.target;
+    var isREPL = target.matches('.send-repl');
+    var isRun = target.matches('.run-here');
 
-    if (!target.matches('.try-repl')) {
+    if (!isREPL && !isRun) {
       return;
     }
 
-    if (!window.RunKit) {
+    if (isREPL || !window.RunKit) {
         var version = event.target.dataset && event.target.dataset.ramdaVersion;
         var versionParam = version ? '?v=' + version : '';
         var code = event.target.nextElementSibling.textContent;
@@ -114,9 +116,9 @@
           versionParam + '#;' + encoded);
     }
 
-    var parent = target.parentNode;
+    var parent = target.parentNode.parentNode;
     var ramdaVersion = target.dataset && "@" + target.dataset.ramdaVersion || "";
-    var codeElement = target.nextElementSibling;
+    var codeElement = target.parentNode.nextElementSibling;
 
     parent.style.background = "transparent";
     parent.style.overflow = "hidden";
@@ -137,7 +139,7 @@
         minHeight: "52px",
         onLoad: function(notebook) {
           parent.removeChild(codeElement);
-          parent.removeChild(target);
+          parent.removeChild(target.parentNode);
 
           container.style.cssText = "";
 

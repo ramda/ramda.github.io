@@ -153,7 +153,7 @@
             {{/if}}
 
             {{#if example}}
-	    <pre><button class="try-repl" data-ramda-version="{{@root.version}}">Try in REPL</button><code class="hljs javascript">{{{example}}}</code></pre>
+	    <pre><div class = "try-repl" ><button class = "send-repl" data-ramda-version="{{@root.version}}">Send to REPL</button><button class = "run-here" data-ramda-version="{{@root.version}}">Run it here</button></div><code class="hljs javascript">{{{example}}}</code></pre>
             {{/if}}
         </section>
         {{/each}}
