@@ -106,19 +106,20 @@
       return;
     }
 
+    var codeElement = target.parentNode.nextElementSibling;
+
     if (isREPL || !window.RunKit) {
         var version = event.target.dataset && event.target.dataset.ramdaVersion;
         var versionParam = version ? '?v=' + version : '';
-        var code = event.target.nextElementSibling.textContent;
+        var code = codeElement.textContent;
         var encoded = fixedEncodeURIComponent(code);
-        
+
         return window.open(location.origin + '/repl/' +
           versionParam + '#;' + encoded);
     }
 
     var parent = target.parentNode.parentNode;
     var ramdaVersion = target.dataset && "@" + target.dataset.ramdaVersion || "";
-    var codeElement = target.parentNode.nextElementSibling;
 
     parent.style.background = "transparent";
     parent.style.overflow = "hidden";
