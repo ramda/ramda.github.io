@@ -98,15 +98,58 @@
   }
 
   function tryInREPL(event) {
-    if (!event.target.matches('.try-repl')) {
+    var target = event.target;
+    var isREPL = target.matches('.send-repl');
+    var isRun = target.matches('.run-here');
+
+    if (!isREPL && !isRun) {
       return;
     }
-    var version = event.target.dataset && event.target.dataset.ramdaVersion;
-    var versionParam = version ? '?v=' + version : '';
-    var code = event.target.nextElementSibling.textContent;
-    var encoded = fixedEncodeURIComponent(code);
-    location.assign(location.origin + '/repl/' +
-      versionParam + '#;' + encoded);
+
+    var codeElement = target.parentNode.nextElementSibling;
+
+    if (isREPL || !window.RunKit) {
+        var version = event.target.dataset && event.target.dataset.ramdaVersion;
+        var versionParam = version ? '?v=' + version : '';
+        var code = codeElement.textContent;
+        var encoded = fixedEncodeURIComponent(code);
+
+        return window.open(location.origin + '/repl/' +
+          versionParam + '#;' + encoded);
+    }
+
+    var parent = target.parentNode.parentNode;
+    var ramdaVersion = target.dataset && "@" + target.dataset.ramdaVersion || "";
+
+    parent.style.background = "transparent";
+    parent.style.overflow = "hidden";
+    
+    var container = document.createElement("div");
+
+    container.style.width = "1px";
+    container.style.height = "1px";
+    
+    parent.appendChild(container);
+
+    RunKit.createNotebook({
+        element: container,
+        nodeVersion: '*',
+        preamble: 'var R = require("ramda' + ramdaVersion + '")',
+        source: codeElement.textContent,
+        syntaxTheme: 'atom-dark-syntax',
+        minHeight: "52px",
+        onLoad: function(notebook) {
+          parent.removeChild(codeElement);
+          parent.removeChild(target.parentNode);
+
+          container.style.cssText = "";
+
+          var iframe = container.lastElementChild;
+          iframe.style.cssText = 'height:' + iframe.style.height;
+          iframe.classList.add('repl');
+          notebook.evaluate()
+        }
+    });
   }
 
 

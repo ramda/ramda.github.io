@@ -1,4 +1,4 @@
-//  Ramda v0.24.0
+//  Ramda v0.24.1
 //  https://github.com/ramda/ramda
 //  (c) 2013-2017 Scott Sauyet, Michael Hurley, and David Chambers
 //  Ramda may be freely distributed under the MIT license.
@@ -559,6 +559,23 @@
         };
     };
 
+    /**
+     * Tests whether or not an object is similar to an array.
+     *
+     * @private
+     * @category Type
+     * @category List
+     * @sig * -> Boolean
+     * @param {*} x The object to test.
+     * @return {Boolean} `true` if `x` has a numeric length property and extreme indices defined; `false` otherwise.
+     * @example
+     *
+     *      _isArrayLike([]); //=> true
+     *      _isArrayLike(true); //=> false
+     *      _isArrayLike({}); //=> false
+     *      _isArrayLike({length: 10}); //=> false
+     *      _isArrayLike({0: 'zero', 9: 'nine', length: 10}); //=> true
+     */
     var _isArrayLike = _curry1(function isArrayLike(x) {
         if (_isArray(x)) {
             return true;
@@ -6801,7 +6818,7 @@
      * @memberOf R
      * @since v0.12.0
      * @category List
-     * @sig (c -> c) -> (a,b -> a) -> a -> [b] -> a
+     * @sig (c -> c) -> ((a, b) -> a) -> a -> [b] -> a
      * @param {Function} xf The transducer function. Receives a transformer and returns a transformer.
      * @param {Function} fn The iterator function. Receives two values, the accumulator and the
      *        current element from the array. Wrapped as transformer, if necessary, and used to
@@ -6814,8 +6831,11 @@
      *
      *      var numbers = [1, 2, 3, 4];
      *      var transducer = R.compose(R.map(R.add(1)), R.take(2));
-     *
      *      R.transduce(transducer, R.flip(R.append), [], numbers); //=> [2, 3]
+     *
+     *      var isOdd = (x) => x % 2 === 1;
+     *      var firstOddTransducer = R.compose(R.filter(isOdd), R.take(1));
+     *      R.transduce(firstOddTransducer, R.flip(R.append), [], R.range(0, 100)); //=> [1]
      */
     var transduce = curryN(4, function transduce(xf, fn, acc, list) {
         return _reduce(xf(typeof fn === 'function' ? _xwrap(fn) : fn), acc, list);
@@ -8882,7 +8902,9 @@
      *      factorial(5); //=> 120
      *      count; //=> 1
      */
-    var memoize = memoizeWith(toString);
+    var memoize = memoizeWith(function () {
+        return toString(arguments);
+    });
 
     /**
      * Splits a string into an array of strings based on the given
