@@ -146,7 +146,7 @@
 
           var iframe = container.lastElementChild;
           iframe.style.cssText = 'height:' + iframe.style.height;
-          iframe.classList.add('repl');
+          iframe.classList.add('repl-inline');
           notebook.evaluate()
         }
     });
