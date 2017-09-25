@@ -36,6 +36,14 @@ For more details on configuring the server, see [http-server docs][http-server].
 
 ## Development
 
+### Node version
+
+Node 6 or above is required in order to build jsdoc.
+
+If you are using [nvm](https://github.com/creationix/nvm#nvmrc), simply run:
+
+	nvm install && nvm use
+
 ### Building docs
 
 To rebuild the [docs](./docs/index.html) page:

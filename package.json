@@ -2,6 +2,7 @@
   "name": "ramda.github.io",
   "version": "0.24.1",
   "description": "Ramda website",
+  "engines" : { "node" : ">=6.0.0" },
   "private": true,
   "repository": {
     "type": "git",
