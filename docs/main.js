@@ -8,22 +8,25 @@
     return Array.prototype.slice.call(xs);
   }
 
-  function filterTocType(category) {
-    nameFilter.value = category;
+  function setTocFilter(text) {
+    nameFilter.value = text;
     filterToc();
   }
 
   function filterToc() {
     var f = filterElement.bind(null, nameFilter.value);
     funcs.forEach(f);
+    funcCards.forEach(f);
+    scrollToTop();
+  }
+
+  function isElementVisible(nameFilter, elem) {
+    return strIn(nameFilter, elem.getAttribute('data-name')) ||
+      R.toLower(nameFilter) === R.toLower(elem.getAttribute('data-category'));
   }
 
   function filterElement(nameFilter, elem) {
-    elem.style.display =
-      strIn(nameFilter, elem.getAttribute('data-name')) ||
-      R.toLower(nameFilter) === R.toLower(elem.getAttribute('data-category')) ?
-        '' :
-        'none';
+    elem.style.display = isElementVisible(nameFilter, elem) ? '' : 'none';
   }
 
   function gotoFirst(e) {
@@ -51,8 +54,7 @@
   }
 
   function scrollToTop() {
-    var main = document.querySelector('main');
-    main.scrollTop = 0;
+    window.scrollTo(0,0);
   }
 
   function isTopLink(elem) {
@@ -75,10 +77,10 @@
       closeNav();
     }
     if (category) {
-      filterTocType(category);
+      setTocFilter(category);
     }
     if (isTopLink(target)) {
-      scrollToTop(target);
+      scrollToTop();
     }
   }
 
@@ -123,12 +125,12 @@
 
     parent.style.background = "transparent";
     parent.style.overflow = "hidden";
-    
+
     var container = document.createElement("div");
 
     container.style.width = "1px";
     container.style.height = "1px";
-    
+
     parent.appendChild(container);
 
     RunKit.createNotebook({
@@ -155,6 +157,7 @@
 
   var nameFilter = document.getElementById('name-filter');
   var funcs = toArray(document.querySelectorAll('.toc .func'));
+  var funcCards = toArray(document.querySelectorAll('.func-card'));
   filterToc();
 
   document.body.addEventListener('click', dispatchEvent, false);
@@ -178,8 +181,15 @@
     }
   }, false);
 
-  // back-button hack
-  window.addEventListener('hashchange', function() {
+  window.addEventListener('hashchange', function(e) {
+    // unset filter if clicked anchor is not visible
+    var hash = R.last(e.newURL.split('#'));
+    var tocEntry = funcs.filter(function (f) { return f.getAttribute('data-name') === hash });
+    if(tocEntry[0] && !isElementVisible(nameFilter.value, tocEntry[0])) {
+      setTocFilter('');
+    }
+
+    // back-button hack
     location.href = location.href;
   }, false);
 
