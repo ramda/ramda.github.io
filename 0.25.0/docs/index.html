@@ -8690,10 +8690,10 @@ arguments: <em>(value, key, obj)</em>. If only the value is significant, use
                 <a href="#map">map</a>.
             </div>
 
-        <pre><div class = "try-repl" ><button class = "send-repl" data-ramda-version="0.25.0">Open in REPL</button><button class = "run-here" data-ramda-version="0.25.0">Run it here</button></div><code class="hljs javascript"><span class="hljs-keyword">var</span> values = { <span class="hljs-attr">x</span>: <span class="hljs-number">1</span>, <span class="hljs-attr">y</span>: <span class="hljs-number">2</span>, <span class="hljs-attr">z</span>: <span class="hljs-number">3</span> };
+        <pre><div class = "try-repl" ><button class = "send-repl" data-ramda-version="0.25.0">Open in REPL</button><button class = "run-here" data-ramda-version="0.25.0">Run it here</button></div><code class="hljs javascript"><span class="hljs-keyword">var</span> vals = { <span class="hljs-attr">x</span>: <span class="hljs-number">1</span>, <span class="hljs-attr">y</span>: <span class="hljs-number">2</span>, <span class="hljs-attr">z</span>: <span class="hljs-number">3</span> };
 <span class="hljs-keyword">var</span> prependKeyAndDouble = <span class="hljs-function">(<span class="hljs-params">num, key, obj</span>) =&gt;</span> key + (num * <span class="hljs-number">2</span>);
 
-R.mapObjIndexed(prependKeyAndDouble, values); <span class="hljs-comment">//=&gt; { x: 'x2', y: 'y4', z: 'z6' }</span></code></pre>
+R.mapObjIndexed(prependKeyAndDouble, vals); <span class="hljs-comment">//=&gt; { x: 'x2', y: 'y4', z: 'z6' }</span></code></pre>
         </section>
         <div id="match" class="section-id"></div>
         <section class="card">
