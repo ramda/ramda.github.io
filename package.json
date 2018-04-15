@@ -31,7 +31,7 @@
     "gitbook": "gitbook build manual",
     "jsdoc": "jsdoc -c .jsdoc.config.json --destination ./docs --template . node_modules/ramda/src",
     "less": "lessc --autoprefix --clean-css ./less/ramda.less ./style.css",
-    "make_release": "npm run jsdoc && node make_index_html.js && node copy_to_version_folder.js",
+    "make_release": "npm run jsdoc && npm run less && node make_index_html.js && node copy_to_version_folder.js",
     "server": "http-server"
   }
 }
