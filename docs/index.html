@@ -36,6 +36,7 @@
                    placeholder="Filter"
                    type="text"
                    data-bind="textInput: filter"
+		   autocomplete="false"
                    autofocus
             >
             <span class="form-control-feedback">
@@ -43,11 +44,18 @@
             </span>
         </div>
         <ul class="nav nav-pills nav-stacked toc">
-            <li class="func" data-name="__" data-category="Function">
-                <a href="#__">
-                    __
-                    <span data-category="Function" class="label label-category pull-right"
-                    >Function</span>
+            <li class="func" data-name="_keys" data-category="Object">
+                <a href="#_keys">
+                    _keys
+                    <span data-category="Object" class="label label-category pull-right"
+                    >Object</span>
+                </a>
+            </li>
+            <li class="func" data-name="_trim" data-category="String">
+                <a href="#_trim">
+                    _trim
+                    <span data-category="String" class="label label-category pull-right"
+                    >String</span>
                 </a>
             </li>
             <li class="func" data-name="add" data-category="Math">
@@ -743,13 +751,6 @@
                     >Function</span>
                 </a>
             </li>
-            <li class="func" data-name="keys" data-category="Object">
-                <a href="#keys">
-                    keys
-                    <span data-category="Object" class="label label-category pull-right"
-                    >Object</span>
-                </a>
-            </li>
             <li class="func" data-name="keysIn" data-category="Object">
                 <a href="#keysIn">
                     keysIn
@@ -986,6 +987,13 @@
                     minBy
                     <span data-category="Relation" class="label label-category pull-right"
                     >Relation</span>
+                </a>
+            </li>
+            <li class="func" data-name="module.exports" data-category="Function">
+                <a href="#module.exports">
+                    module.exports
+                    <span data-category="Function" class="label label-category pull-right"
+                    >Function</span>
                 </a>
             </li>
             <li class="func" data-name="modulo" data-category="Math">
@@ -1569,13 +1577,6 @@
                     >List</span>
                 </a>
             </li>
-            <li class="func" data-name="trim" data-category="String">
-                <a href="#trim">
-                    trim
-                    <span data-category="String" class="label label-category pull-right"
-                    >String</span>
-                </a>
-            </li>
             <li class="func" data-name="tryCatch" data-category="Function">
                 <a href="#tryCatch">
                     tryCatch
@@ -1768,44 +1769,102 @@
         </ul>
     </aside>
     <main class="container-fluid">
-        <div id="__" class="section-id"></div>
+        <div id="_keys" class="section-id"></div>
         <section class="card">
             <h2>
-                <a tabindex="2" class="name" href="#__">__</a>
+                <a tabindex="2" class="name" href="#_keys">_keys</a>
                 <span class="pull-right">
-                        <span class="label label-category">Function</span>
-                        <a target="_blank" title="View source on GitHub" href="https://github.com/ramda/ramda/tree/v0.25.0/source/__.js"><small class="glyphicon glyphicon-new-window"></small></a>
+                        <span class="label label-category">Object</span>
+                        <a target="_blank" title="View source on GitHub" href="https://github.com/ramda/ramda/tree/v0.25.0/source/_keys.js"><small class="glyphicon glyphicon-new-window"></small></a>
                 </span>
             </h2>
 
 
+            <div><code>{k: v} → [k]</code></div>
 
 
+            <div class="params" data-expanded="false">
+                <a href="#expand" class="toggle-params">Parameters</a>
+                <div class="details panel panel-default">
+                    <ul class="list-group">
+                        <li class="list-group-item">
+                            <span class="type">
+                            </span>
+                            <span class="name">obj</span>
+                            <span class="description"><p>The object to extract properties from</p>
+</span>
+                        </li>
+                    </ul>
+                    <div class="panel-body">
+                        <span class="returns">Returns</span>
+                        <span class="type">Array</span>
+                        <span class="description">An array of the object's own properties.</span>
+                    </div>
+                </div>
+            </div>
+
+            <p><small>Added in v0.1.0</small></p>
+
+            <div class="description"><p>Returns a list containing the names of all the enumerable own properties of
+the supplied object.
+Note that the order of the output array is not guaranteed to be consistent
+across different JS platforms.</p>
+</div>
+
+
+
+            <div class="see">
+                See also
+                <a href="#keysIn">keysIn</a>,
+                <a href="#values">values</a>.
+            </div>
+
+	    <pre><div class = "try-repl" ><button class = "send-repl" data-ramda-version="0.25.0">Open in REPL</button><button class = "run-here" data-ramda-version="0.25.0">Run it here</button></div><code class="hljs javascript">R.keys({<span class="hljs-attr">a</span>: <span class="hljs-number">1</span>, <span class="hljs-attr">b</span>: <span class="hljs-number">2</span>, <span class="hljs-attr">c</span>: <span class="hljs-number">3</span>}); <span class="hljs-comment">//=&gt; ['a', 'b', 'c']</span></code></pre>
+        </section>
+        <div id="_trim" class="section-id"></div>
+        <section class="card">
+            <h2>
+                <a tabindex="2" class="name" href="#_trim">_trim</a>
+                <span class="pull-right">
+                        <span class="label label-category">String</span>
+                        <a target="_blank" title="View source on GitHub" href="https://github.com/ramda/ramda/tree/v0.25.0/source/_trim.js"><small class="glyphicon glyphicon-new-window"></small></a>
+                </span>
+            </h2>
+
+
+            <div><code>String → String</code></div>
+
+
+            <div class="params" data-expanded="false">
+                <a href="#expand" class="toggle-params">Parameters</a>
+                <div class="details panel panel-default">
+                    <ul class="list-group">
+                        <li class="list-group-item">
+                            <span class="type">
+                            </span>
+                            <span class="name">str</span>
+                            <span class="description"><p>The string to trim.</p>
+</span>
+                        </li>
+                    </ul>
+                    <div class="panel-body">
+                        <span class="returns">Returns</span>
+                        <span class="type">String</span>
+                        <span class="description">Trimmed version of `str`.</span>
+                    </div>
+                </div>
+            </div>
 
             <p><small>Added in v0.6.0</small></p>
 
-            <div class="description"><p>A special placeholder value used to specify &quot;gaps&quot; within curried functions,
-allowing partial application of any combination of arguments, regardless of
-their positions.</p>
-<p>If <code>g</code> is a curried ternary function and <code>_</code> is <code>R.__</code>, the following are
-equivalent:</p>
-<ul>
-<li><code>g(1, 2, 3)</code></li>
-<li><code>g(_, 2, 3)(1)</code></li>
-<li><code>g(_, _, 3)(1)(2)</code></li>
-<li><code>g(_, _, 3)(1, 2)</code></li>
-<li><code>g(_, 2, _)(1, 3)</code></li>
-<li><code>g(_, 2)(1)(3)</code></li>
-<li><code>g(_, 2)(1, 3)</code></li>
-<li><code>g(_, 2)(_, 3)(1)</code></li>
-</ul>
+            <div class="description"><p>Removes (strips) whitespace from both ends of the string.</p>
 </div>
 
 
 
 
-	    <pre><div class = "try-repl" ><button class = "send-repl" data-ramda-version="0.25.0">Open in REPL</button><button class = "run-here" data-ramda-version="0.25.0">Run it here</button></div><code class="hljs javascript"><span class="hljs-keyword">var</span> greet = R.replace(<span class="hljs-string">'{name}'</span>, R.__, <span class="hljs-string">'Hello, {name}!'</span>);
-greet(<span class="hljs-string">'Alice'</span>); <span class="hljs-comment">//=&gt; 'Hello, Alice!'</span></code></pre>
+	    <pre><div class = "try-repl" ><button class = "send-repl" data-ramda-version="0.25.0">Open in REPL</button><button class = "run-here" data-ramda-version="0.25.0">Run it here</button></div><code class="hljs javascript">R.trim(<span class="hljs-string">'   xyz  '</span>); <span class="hljs-comment">//=&gt; 'xyz'</span>
+R.map(R.trim, R.split(<span class="hljs-string">','</span>, <span class="hljs-string">'x, y, z'</span>)); <span class="hljs-comment">//=&gt; ['x', 'y', 'z']</span></code></pre>
         </section>
         <div id="add" class="section-id"></div>
         <section class="card">
@@ -7708,58 +7767,6 @@ R.join(<span class="hljs-string">'|'</span>, [<span class="hljs-number">1</span>
 	    <pre><div class = "try-repl" ><button class = "send-repl" data-ramda-version="0.25.0">Open in REPL</button><button class = "run-here" data-ramda-version="0.25.0">Run it here</button></div><code class="hljs javascript"><span class="hljs-keyword">var</span> getRange = R.juxt([<span class="hljs-built_in">Math</span>.min, <span class="hljs-built_in">Math</span>.max]);
 getRange(<span class="hljs-number">3</span>, <span class="hljs-number">4</span>, <span class="hljs-number">9</span>, <span class="hljs-number">-3</span>); <span class="hljs-comment">//=&gt; [-3, 9]</span></code></pre>
         </section>
-        <div id="keys" class="section-id"></div>
-        <section class="card">
-            <h2>
-                <a tabindex="2" class="name" href="#keys">keys</a>
-                <span class="pull-right">
-                        <span class="label label-category">Object</span>
-                        <a target="_blank" title="View source on GitHub" href="https://github.com/ramda/ramda/tree/v0.25.0/source/keys.js"><small class="glyphicon glyphicon-new-window"></small></a>
-                </span>
-            </h2>
-
-
-            <div><code>{k: v} → [k]</code></div>
-
-
-            <div class="params" data-expanded="false">
-                <a href="#expand" class="toggle-params">Parameters</a>
-                <div class="details panel panel-default">
-                    <ul class="list-group">
-                        <li class="list-group-item">
-                            <span class="type">
-                            </span>
-                            <span class="name">obj</span>
-                            <span class="description"><p>The object to extract properties from</p>
-</span>
-                        </li>
-                    </ul>
-                    <div class="panel-body">
-                        <span class="returns">Returns</span>
-                        <span class="type">Array</span>
-                        <span class="description">An array of the object's own properties.</span>
-                    </div>
-                </div>
-            </div>
-
-            <p><small>Added in v0.1.0</small></p>
-
-            <div class="description"><p>Returns a list containing the names of all the enumerable own properties of
-the supplied object.
-Note that the order of the output array is not guaranteed to be consistent
-across different JS platforms.</p>
-</div>
-
-
-
-            <div class="see">
-                See also
-                <a href="#keysIn">keysIn</a>,
-                <a href="#values">values</a>.
-            </div>
-
-	    <pre><div class = "try-repl" ><button class = "send-repl" data-ramda-version="0.25.0">Open in REPL</button><button class = "run-here" data-ramda-version="0.25.0">Run it here</button></div><code class="hljs javascript">R.keys({<span class="hljs-attr">a</span>: <span class="hljs-number">1</span>, <span class="hljs-attr">b</span>: <span class="hljs-number">2</span>, <span class="hljs-attr">c</span>: <span class="hljs-number">3</span>}); <span class="hljs-comment">//=&gt; ['a', 'b', 'c']</span></code></pre>
-        </section>
         <div id="keysIn" class="section-id"></div>
         <section class="card">
             <h2>
@@ -8690,10 +8697,10 @@ arguments: <em>(value, key, obj)</em>. If only the value is significant, use
                 <a href="#map">map</a>.
             </div>
 
-	    <pre><div class = "try-repl" ><button class = "send-repl" data-ramda-version="0.25.0">Open in REPL</button><button class = "run-here" data-ramda-version="0.25.0">Run it here</button></div><code class="hljs javascript"><span class="hljs-keyword">var</span> vals = { <span class="hljs-attr">x</span>: <span class="hljs-number">1</span>, <span class="hljs-attr">y</span>: <span class="hljs-number">2</span>, <span class="hljs-attr">z</span>: <span class="hljs-number">3</span> };
+	    <pre><div class = "try-repl" ><button class = "send-repl" data-ramda-version="0.25.0">Open in REPL</button><button class = "run-here" data-ramda-version="0.25.0">Run it here</button></div><code class="hljs javascript"><span class="hljs-keyword">var</span> values = { <span class="hljs-attr">x</span>: <span class="hljs-number">1</span>, <span class="hljs-attr">y</span>: <span class="hljs-number">2</span>, <span class="hljs-attr">z</span>: <span class="hljs-number">3</span> };
 <span class="hljs-keyword">var</span> prependKeyAndDouble = <span class="hljs-function">(<span class="hljs-params">num, key, obj</span>) =&gt;</span> key + (num * <span class="hljs-number">2</span>);
 
-R.mapObjIndexed(prependKeyAndDouble, vals); <span class="hljs-comment">//=&gt; { x: 'x2', y: 'y4', z: 'z6' }</span></code></pre>
+R.mapObjIndexed(prependKeyAndDouble, values); <span class="hljs-comment">//=&gt; { x: 'x2', y: 'y4', z: 'z6' }</span></code></pre>
         </section>
         <div id="match" class="section-id"></div>
         <section class="card">
@@ -9815,6 +9822,45 @@ R.minBy(square, <span class="hljs-number">-3</span>, <span class="hljs-number">2
 
 R.reduce(R.minBy(square), <span class="hljs-literal">Infinity</span>, [<span class="hljs-number">3</span>, <span class="hljs-number">-5</span>, <span class="hljs-number">4</span>, <span class="hljs-number">1</span>, <span class="hljs-number">-2</span>]); <span class="hljs-comment">//=&gt; 1</span>
 R.reduce(R.minBy(square), <span class="hljs-literal">Infinity</span>, []); <span class="hljs-comment">//=&gt; Infinity</span></code></pre>
+        </section>
+        <div id="module.exports" class="section-id"></div>
+        <section class="card">
+            <h2>
+                <a tabindex="2" class="name" href="#module.exports">module.exports</a>
+                <span class="pull-right">
+                        <span class="label label-category">Function</span>
+                        <a target="_blank" title="View source on GitHub" href="https://github.com/ramda/ramda/tree/v0.25.0/source/module.exports.js"><small class="glyphicon glyphicon-new-window"></small></a>
+                </span>
+            </h2>
+
+
+
+
+
+            <p><small>Added in v0.6.0</small></p>
+
+            <div class="description"><p>A special placeholder value used to specify &quot;gaps&quot; within curried functions,
+allowing partial application of any combination of arguments, regardless of
+their positions.</p>
+<p>If <code>g</code> is a curried ternary function and <code>_</code> is <code>R.__</code>, the following are
+equivalent:</p>
+<ul>
+<li><code>g(1, 2, 3)</code></li>
+<li><code>g(_, 2, 3)(1)</code></li>
+<li><code>g(_, _, 3)(1)(2)</code></li>
+<li><code>g(_, _, 3)(1, 2)</code></li>
+<li><code>g(_, 2, _)(1, 3)</code></li>
+<li><code>g(_, 2)(1)(3)</code></li>
+<li><code>g(_, 2)(1, 3)</code></li>
+<li><code>g(_, 2)(_, 3)(1)</code></li>
+</ul>
+</div>
+
+
+
+
+	    <pre><div class = "try-repl" ><button class = "send-repl" data-ramda-version="0.25.0">Open in REPL</button><button class = "run-here" data-ramda-version="0.25.0">Run it here</button></div><code class="hljs javascript"><span class="hljs-keyword">var</span> greet = R.replace(<span class="hljs-string">'{name}'</span>, R.__, <span class="hljs-string">'Hello, {name}!'</span>);
+greet(<span class="hljs-string">'Alice'</span>); <span class="hljs-comment">//=&gt; 'Hello, Alice!'</span></code></pre>
         </section>
         <div id="modulo" class="section-id"></div>
         <section class="card">
@@ -14803,51 +14849,6 @@ safeDiv = <span class="hljs-function"><span class="hljs-params">n</span> =&gt;</
 
 R.traverse(Maybe.of, safeDiv(<span class="hljs-number">10</span>), [<span class="hljs-number">2</span>, <span class="hljs-number">4</span>, <span class="hljs-number">5</span>]); <span class="hljs-comment">//=&gt; Just([5, 2.5, 2])</span>
 R.traverse(Maybe.of, safeDiv(<span class="hljs-number">10</span>), [<span class="hljs-number">2</span>, <span class="hljs-number">0</span>, <span class="hljs-number">5</span>]); <span class="hljs-comment">//=&gt; Nothing</span></code></pre>
-        </section>
-        <div id="trim" class="section-id"></div>
-        <section class="card">
-            <h2>
-                <a tabindex="2" class="name" href="#trim">trim</a>
-                <span class="pull-right">
-                        <span class="label label-category">String</span>
-                        <a target="_blank" title="View source on GitHub" href="https://github.com/ramda/ramda/tree/v0.25.0/source/trim.js"><small class="glyphicon glyphicon-new-window"></small></a>
-                </span>
-            </h2>
-
-
-            <div><code>String → String</code></div>
-
-
-            <div class="params" data-expanded="false">
-                <a href="#expand" class="toggle-params">Parameters</a>
-                <div class="details panel panel-default">
-                    <ul class="list-group">
-                        <li class="list-group-item">
-                            <span class="type">
-                            </span>
-                            <span class="name">str</span>
-                            <span class="description"><p>The string to trim.</p>
-</span>
-                        </li>
-                    </ul>
-                    <div class="panel-body">
-                        <span class="returns">Returns</span>
-                        <span class="type">String</span>
-                        <span class="description">Trimmed version of `str`.</span>
-                    </div>
-                </div>
-            </div>
-
-            <p><small>Added in v0.6.0</small></p>
-
-            <div class="description"><p>Removes (strips) whitespace from both ends of the string.</p>
-</div>
-
-
-
-
-	    <pre><div class = "try-repl" ><button class = "send-repl" data-ramda-version="0.25.0">Open in REPL</button><button class = "run-here" data-ramda-version="0.25.0">Run it here</button></div><code class="hljs javascript">R.trim(<span class="hljs-string">'   xyz  '</span>); <span class="hljs-comment">//=&gt; 'xyz'</span>
-R.map(R.trim, R.split(<span class="hljs-string">','</span>, <span class="hljs-string">'x, y, z'</span>)); <span class="hljs-comment">//=&gt; ['x', 'y', 'z']</span></code></pre>
         </section>
         <div id="tryCatch" class="section-id"></div>
         <section class="card">
