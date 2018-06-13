@@ -1417,7 +1417,7 @@ var ascend = _curry3(function ascend(fn, a, b) {
  * @param {*} val The new value
  * @param {Object} obj The object to clone
  * @return {Object} A new object equivalent to the original except for the changed property.
- * @see R.dissoc
+ * @see R.dissoc, R.pick
  * @example
  *
  *      R.assoc('c', 3, {a: 1, b: 2}); //=> {a: 1, b: 2, c: 3}
@@ -3373,7 +3373,7 @@ var differenceWith = _curry3(function differenceWith(pred, first, second) {
  * @param {String} prop The name of the property to dissociate
  * @param {Object} obj The object to clone
  * @return {Object} A new object equivalent to the original but without the specified property
- * @see R.assoc
+ * @see R.assoc, R.omit
  * @example
  *
  *      R.dissoc('b', {a: 1, b: 2, c: 3}); //=> {a: 1, c: 3}
