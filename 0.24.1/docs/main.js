@@ -136,7 +136,7 @@
         nodeVersion: '*',
         preamble: 'var R = require("ramda' + ramdaVersion + '")',
         source: codeElement.textContent,
-        syntaxTheme: 'atom-dark-syntax',
+        theme: 'atom-dark',
         minHeight: "52px",
         onLoad: function(notebook) {
           parent.removeChild(codeElement);
