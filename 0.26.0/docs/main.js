@@ -134,7 +134,7 @@
     RunKit.createNotebook({
         element: container,
         nodeVersion: '*',
-        preamble: 'var R = require("ramda' + ramdaVersion + '")',
+        preamble: 'var { Maybe, Either } = require("ramda-fantasy");\nvar R = require("ramda' + ramdaVersion + '");',
         source: codeElement.textContent,
         theme: 'atom-dark',
         minHeight: "52px",
