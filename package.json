@@ -12,7 +12,7 @@
   },
   "license": "MIT",
   "devDependencies": {
-    "bootstrap": "3.3.x",
+    "bootstrap": "3.4.x",
     "gitbook-cli": "2.3.x",
     "handlebars": "4.x.x",
     "highlight.js": "9.x.x",
