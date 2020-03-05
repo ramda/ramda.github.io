@@ -11144,7 +11144,7 @@ inside function compositions.</p>
 
             <div class="see">
                 See also
-                <a href="#then">then</a>.
+                <a href="#andThen">andThen</a>.
             </div>
 
 	    <pre><div class = "try-repl" ><button class = "send-repl" data-ramda-version="0.27.0">Open in REPL</button><button class = "run-here" data-ramda-version="0.27.0">Run it here</button></div><code class="hljs javascript"><span class="hljs-keyword">var</span> failedFetch = <span class="hljs-function">(<span class="hljs-params">id</span>) =&gt;</span> <span class="hljs-built_in">Promise</span>.reject(<span class="hljs-string">'bad ID'</span>);
@@ -11154,7 +11154,7 @@ inside function compositions.</p>
 <span class="hljs-keyword">var</span> recoverFromFailure = R.pipe(
   failedFetch,
   R.otherwise(useDefault),
-  R.then(R.pick([<span class="hljs-string">'firstName'</span>, <span class="hljs-string">'lastName'</span>])),
+  R.andThen(R.pick([<span class="hljs-string">'firstName'</span>, <span class="hljs-string">'lastName'</span>])),
 );
 recoverFromFailure(<span class="hljs-number">12345</span>).then(<span class="hljs-built_in">console</span>.log)</code></pre>
         </section>
