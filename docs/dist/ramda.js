@@ -6232,7 +6232,9 @@ var merge = _curry2(function merge(l, r) {
 });
 
 /**
- * Merges a list of objects together into one object.
+ * Creates a new object with the own properties from a list of objects.
+ * If a key exists in more than one object, the value from the last object 
+ * it exists in will be used.
  *
  * @func
  * @memberOf R
