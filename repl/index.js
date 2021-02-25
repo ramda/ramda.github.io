@@ -52,7 +52,7 @@ document.addEventListener('DOMContentLoaded', function () {
       {
         exposeAs: 'S',
         global: 'sanctuary',
-        src: '//wzrd.in/standalone/sanctuary@latest'
+        src: '//cdn.jsdelivr.net/gh/sanctuary-js/sanctuary@latest/dist/bundle.js'
       },
       {
         expose: [
@@ -66,8 +66,8 @@ document.addEventListener('DOMContentLoaded', function () {
           'Reader',
           'Tuple'
         ],
-        global: 'ramdaFantasy',
-        src: '//wzrd.in/standalone/ramda-fantasy@latest'
+        global: 'RF',
+        src: '//cdn.jsdelivr.net/npm/ramda-fantasy@latest/dist/ramda-fantasy.min.js'
       }
     ]
   })
