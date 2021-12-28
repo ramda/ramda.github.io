@@ -13,11 +13,10 @@
   "license": "MIT",
   "devDependencies": {
     "bootstrap": "3.4.x",
-    "gitbook-cli": "2.3.x",
     "handlebars": "4.x.x",
     "highlight.js": "10.x.x",
     "http-server": "0.9.x",
-    "jsdoc": "3.4.x",
+    "jsdoc": "^3.6.7",
     "less": "2.7.x",
     "less-plugin-autoprefix": "1.5.x",
     "less-plugin-clean-css": "1.5.x",
@@ -28,10 +27,6 @@
     "walk": "2.3.x"
   },
   "scripts": {
-    "gitbook": "gitbook build manual",
-    "jsdoc": "jsdoc -c .jsdoc.config.json --destination ./docs --template . node_modules/ramda/src",
-    "less": "lessc --autoprefix --clean-css ./less/ramda.less ./style.css",
-    "make_release": "npm run jsdoc && node make_index_html.js && node copy_to_version_folder.js",
-    "server": "http-server"
+    "start": "http-server"
   }
 }

@@ -1,5 +1,3 @@
-var fs = require('fs')
-
 var get_ramda_file = require('./get_ramda_file')
 
 var marked = require('marked')
@@ -23,5 +21,5 @@ get_ramda_file('README.md')
     version: version
   })
 
-  fs.writeFileSync('index.html', html, {encoding: 'utf8'})
+  console.log(html)
 })

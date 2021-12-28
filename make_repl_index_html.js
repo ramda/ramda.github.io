@@ -1,5 +1,3 @@
-var fs = require('fs')
-
 var pug = require('pug')
 
 var version = require('./package.json').devDependencies.ramda
@@ -13,4 +11,4 @@ var html = make_html({
   version: version
 })
 
-fs.writeFileSync('repl/index.html', html, {encoding: 'utf8'})
+console.log(html)
