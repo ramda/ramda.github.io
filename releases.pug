@@ -1,8 +1,0 @@
-extends layout.pug
-
-block main
-	h1 Releases
-
-	ul
-		each release in releases
-			li: a(href = "/" + release + "/")= release

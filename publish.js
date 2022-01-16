@@ -1,80 +1,96 @@
 const fs = require('fs');
-const path = require('path');
+const Path = require('path');
 
-const R = require('ramda');
-
-const {defaultTo, map, pipe, prop} = R
+const {
+  applySpec,
+  chain,
+  defaultTo,
+  filter,
+  head,
+  join,
+  map,
+  path,
+  pipe,
+  prop,
+  propEq,
+  replace,
+  split,
+} = require('ramda');
 
 const handlebars = require('handlebars');
 const hljs = require('highlight.js');
 const helper = require('jsdoc/util/templateHelper');
 const marked = require('marked');
 
+const mardownToHtml = function(mdstr) {
+  return marked.parse(mdstr);
+}
+
 const version = require('./package.json').devDependencies.ramda
 
 
-const prettifyCode = R.pipe(
-  R.join('\n'),
-  R.replace(/^[ ]{5}/gm, ''),
+const prettifyCode = pipe(
+  join('\n'),
+  replace(/^[ ]{5}/gm, ''),
   s => hljs.highlight('javascript', s).value
 )
 
-const prettifySig = R.pipe(
-  R.replace(/[.][.][.]/g, '\u2026'),
-  R.replace(/->/g, '\u2192')
+const prettifySig = pipe(
+  replace(/[.][.][.]/g, '\u2026'),
+  replace(/->/g, '\u2192')
 )
 
 //  simplifySee :: Array String -> Array String
 //
 //  Handles any combination of comma-separated and multi-line @see annotations.
-const simplifySee = R.pipe(R.chain(R.split(/\s*,\s*/)), R.map(R.replace(/^R[.]/, '')))
+const simplifySee = pipe(chain(split(/\s*,\s*/)), map(replace(/^R[.]/, '')))
 
-const titleFilter = pipe(R.propEq('title'), R.filter)
+const titleFilter = pipe(propEq('title'), filter)
 
-const valueProp = R.chain(prop('value'))
+const valueProp = chain(prop('value'))
 
-const simplifyData = R.applySpec({
+const simplifyData = applySpec({
     aka: pipe(
       prop('tags'),
       titleFilter('aka'),
       valueProp,
-      R.chain(R.split(/,\s*/))
+      chain(split(/,\s*/))
     ),
     category: pipe(
       prop('tags'),
       titleFilter('category'),
       valueProp,
-      R.head,
+      head,
       defaultTo('')
     ),
     deprecated: pipe(prop('deprecated'), defaultTo('')),
     description: pipe(
       prop('description'),
-      R.defaultTo(''),
-      marked
+      defaultTo(''),
+      mardownToHtml
     ),
     example: pipe(
       prop('examples'),
-      R.defaultTo(''),
+      defaultTo(''),
       prettifyCode
     ),
     name: pipe(prop('name'), defaultTo('')),
     params: pipe(
       prop('params'),
       defaultTo([]),
-      map(R.applySpec({
+      map(applySpec({
         description: pipe(
           prop('description'),
           defaultTo(''),
-          marked
+          mardownToHtml
         ),
         name: pipe(prop('name'), defaultTo('')),
-        type: pipe(R.path(['type', 'names', 0]), defaultTo(''))
+        type: pipe(path(['type', 'names', 0]), defaultTo(''))
       }))
     ),
     returns: {
-      description: pipe(R.path(['returns', 0, 'description']), defaultTo('')),
-      type: pipe(R.path(['returns', 0, 'type', 'names', 0]), defaultTo(''))
+      description: pipe(path(['returns', 0, 'description']), defaultTo('')),
+      type: pipe(path(['returns', 0, 'type', 'names', 0]), defaultTo(''))
     },
     see: pipe(
       prop('see'),
@@ -97,7 +113,7 @@ const simplifyData = R.applySpec({
 })
 
 exports.publish = (data, opts) => {
-  const templateFile = path.resolve(opts.destination, 'index.html.handlebars')
+  const templateFile = Path.resolve(opts.destination, 'index.html.handlebars')
 
   const templateContent = fs.readFileSync(templateFile, {encoding: 'utf8'})
 
@@ -115,7 +131,7 @@ exports.publish = (data, opts) => {
 
   const outputContent = handlebars.compile(templateContent)(context)
 
-  const outputFile = path.resolve(opts.destination, 'index.html')
+  const outputFile = Path.resolve(opts.destination, 'index.html')
 
   fs.writeFileSync(outputFile, outputContent, {encoding: 'utf8'});
 }
