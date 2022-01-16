@@ -1024,13 +1024,6 @@
                     >Object</span>
                 </a>
             </li>
-            <li class="func" data-name="module.exports" data-category="Function">
-                <a href="#module.exports">
-                    module.exports
-                    <span data-category="Function" class="label label-category pull-right"
-                    >Function</span>
-                </a>
-            </li>
             <li class="func" data-name="modulo" data-category="Math">
                 <a href="#modulo">
                     modulo
@@ -1167,6 +1160,13 @@
             <li class="func" data-name="partial" data-category="Function">
                 <a href="#partial">
                     partial
+                    <span data-category="Function" class="label label-category pull-right"
+                    >Function</span>
+                </a>
+            </li>
+            <li class="func" data-name="partialObject" data-category="Function">
+                <a href="#partialObject">
+                    partialObject
                     <span data-category="Function" class="label label-category pull-right"
                     >Function</span>
                 </a>
@@ -10318,73 +10318,6 @@ R.modifyPath([<span class="hljs-string">&#x27;address&#x27;</span>, <span class=
 <span class="hljs-keyword">const</span> person = {<span class="hljs-attr">name</span>: <span class="hljs-string">&#x27;James&#x27;</span>, <span class="hljs-attr">addresses</span>: [{ <span class="hljs-attr">zipCode</span>: <span class="hljs-string">&#x27;90216&#x27;</span> }]};
 R.modifyPath([<span class="hljs-string">&#x27;addresses&#x27;</span>, <span class="hljs-number">0</span>, <span class="hljs-string">&#x27;zipCode&#x27;</span>], R.reverse, person); <span class="hljs-comment">//=&gt; {name: &#x27;James&#x27;, addresses: [{ zipCode: &#x27;61209&#x27; }]}</span></code></pre>
         </section>
-        <div id="module.exports" class="section-id"></div>
-        <section class="card">
-            <h2>
-                <a tabindex="2" class="name" href="#module.exports">module.exports</a>
-                <span class="pull-right">
-                        <span class="label label-category">Function</span>
-                        <a target="_blank" title="View source on GitHub" href="https://github.com/ramda/ramda/tree/v0.28.0/source/module.exports.js"><small class="glyphicon glyphicon-new-window"></small></a>
-                </span>
-            </h2>
-
-
-            <div><code>(({ a, b, c, …, n }) → x) → { a, b, c, …} → ({ d, e, f, …, n } → x)</code></div>
-
-
-            <div class="params" data-expanded="false">
-                <a href="#expand" class="toggle-params">Parameters</a>
-                <div class="details panel panel-default">
-                    <ul class="list-group">
-                        <li class="list-group-item">
-                            <span class="type">
-                            </span>
-                            <span class="name">f</span>
-                            <span class="description"></span>
-                        </li>
-                        <li class="list-group-item">
-                            <span class="type">
-                            </span>
-                            <span class="name">props</span>
-                            <span class="description"></span>
-                        </li>
-                    </ul>
-                    <div class="panel-body">
-                        <span class="returns">Returns</span>
-                        <span class="type">function</span>
-                        <span class="description"></span>
-                    </div>
-                </div>
-            </div>
-
-            <p><small>Added in v0.28.0</small></p>
-
-            <div class="description"><p>Takes a function <code>f</code> and an object, and returns a function <code>g</code>.
-When applied, <code>g</code> returns the result of applying <code>f</code> to the object
-provided initially merged deeply (right) with the object provided as an argument to <code>g</code>.</p>
-</div>
-
-
-
-            <div class="see">
-                See also
-                <a href="#partial">partial</a>,
-                <a href="#partialRight">partialRight</a>,
-                <a href="#curry">curry</a>,
-                <a href="#mergeDeepRight">mergeDeepRight</a>.
-            </div>
-
-	    <pre><div class = "try-repl" ><button class = "send-repl" data-ramda-version="0.28.0">Open in REPL</button><button class = "run-here" data-ramda-version="0.28.0">Run it here</button></div><code class="hljs javascript"><span class="hljs-keyword">const</span> multiply2 = <span class="hljs-function">(<span class="hljs-params">{ a, b }</span>) =&gt;</span> a * b;
-<span class="hljs-keyword">const</span> double = R.partialObject(multiply2, { <span class="hljs-attr">a</span>: <span class="hljs-number">2</span> });
-double({ <span class="hljs-attr">b</span>: <span class="hljs-number">2</span> }); <span class="hljs-comment">//=&gt; 4</span>
-
-<span class="hljs-keyword">const</span> greet = <span class="hljs-function">(<span class="hljs-params">{ salutation, title, firstName, lastName }</span>) =&gt;</span>
-  salutation + <span class="hljs-string">&#x27;, &#x27;</span> + title + <span class="hljs-string">&#x27; &#x27;</span> + firstName + <span class="hljs-string">&#x27; &#x27;</span> + lastName + <span class="hljs-string">&#x27;!&#x27;</span>;
-
-<span class="hljs-keyword">const</span> sayHello = R.partialObject(greet, { <span class="hljs-attr">salutation</span>: <span class="hljs-string">&#x27;Hello&#x27;</span> });
-<span class="hljs-keyword">const</span> sayHelloToMs = R.partialObject(sayHello, { <span class="hljs-attr">title</span>: <span class="hljs-string">&#x27;Ms.&#x27;</span> });
-sayHelloToMs({ <span class="hljs-attr">firstName</span>: <span class="hljs-string">&#x27;Jane&#x27;</span>, <span class="hljs-attr">lastName</span>: <span class="hljs-string">&#x27;Jones&#x27;</span> }); <span class="hljs-comment">//=&gt; &#x27;Hello, Ms. Jane Jones!&#x27;</span></code></pre>
-        </section>
         <div id="modulo" class="section-id"></div>
         <section class="card">
             <h2>
@@ -11547,6 +11480,73 @@ double(<span class="hljs-number">3</span>); <span class="hljs-comment">//=&gt; 6
 <span class="hljs-keyword">const</span> sayHello = R.partial(greet, [<span class="hljs-string">&#x27;Hello&#x27;</span>]);
 <span class="hljs-keyword">const</span> sayHelloToMs = R.partial(sayHello, [<span class="hljs-string">&#x27;Ms.&#x27;</span>]);
 sayHelloToMs(<span class="hljs-string">&#x27;Jane&#x27;</span>, <span class="hljs-string">&#x27;Jones&#x27;</span>); <span class="hljs-comment">//=&gt; &#x27;Hello, Ms. Jane Jones!&#x27;</span></code></pre>
+        </section>
+        <div id="partialObject" class="section-id"></div>
+        <section class="card">
+            <h2>
+                <a tabindex="2" class="name" href="#partialObject">partialObject</a>
+                <span class="pull-right">
+                        <span class="label label-category">Function</span>
+                        <a target="_blank" title="View source on GitHub" href="https://github.com/ramda/ramda/tree/v0.28.0/source/partialObject.js"><small class="glyphicon glyphicon-new-window"></small></a>
+                </span>
+            </h2>
+
+
+            <div><code>(({ a, b, c, …, n }) → x) → { a, b, c, …} → ({ d, e, f, …, n } → x)</code></div>
+
+
+            <div class="params" data-expanded="false">
+                <a href="#expand" class="toggle-params">Parameters</a>
+                <div class="details panel panel-default">
+                    <ul class="list-group">
+                        <li class="list-group-item">
+                            <span class="type">
+                            </span>
+                            <span class="name">f</span>
+                            <span class="description"></span>
+                        </li>
+                        <li class="list-group-item">
+                            <span class="type">
+                            </span>
+                            <span class="name">props</span>
+                            <span class="description"></span>
+                        </li>
+                    </ul>
+                    <div class="panel-body">
+                        <span class="returns">Returns</span>
+                        <span class="type">function</span>
+                        <span class="description"></span>
+                    </div>
+                </div>
+            </div>
+
+            <p><small>Added in v0.28.0</small></p>
+
+            <div class="description"><p>Takes a function <code>f</code> and an object, and returns a function <code>g</code>.
+When applied, <code>g</code> returns the result of applying <code>f</code> to the object
+provided initially merged deeply (right) with the object provided as an argument to <code>g</code>.</p>
+</div>
+
+
+
+            <div class="see">
+                See also
+                <a href="#partial">partial</a>,
+                <a href="#partialRight">partialRight</a>,
+                <a href="#curry">curry</a>,
+                <a href="#mergeDeepRight">mergeDeepRight</a>.
+            </div>
+
+	    <pre><div class = "try-repl" ><button class = "send-repl" data-ramda-version="0.28.0">Open in REPL</button><button class = "run-here" data-ramda-version="0.28.0">Run it here</button></div><code class="hljs javascript"><span class="hljs-keyword">const</span> multiply2 = <span class="hljs-function">(<span class="hljs-params">{ a, b }</span>) =&gt;</span> a * b;
+<span class="hljs-keyword">const</span> double = R.partialObject(multiply2, { <span class="hljs-attr">a</span>: <span class="hljs-number">2</span> });
+double({ <span class="hljs-attr">b</span>: <span class="hljs-number">2</span> }); <span class="hljs-comment">//=&gt; 4</span>
+
+<span class="hljs-keyword">const</span> greet = <span class="hljs-function">(<span class="hljs-params">{ salutation, title, firstName, lastName }</span>) =&gt;</span>
+  salutation + <span class="hljs-string">&#x27;, &#x27;</span> + title + <span class="hljs-string">&#x27; &#x27;</span> + firstName + <span class="hljs-string">&#x27; &#x27;</span> + lastName + <span class="hljs-string">&#x27;!&#x27;</span>;
+
+<span class="hljs-keyword">const</span> sayHello = R.partialObject(greet, { <span class="hljs-attr">salutation</span>: <span class="hljs-string">&#x27;Hello&#x27;</span> });
+<span class="hljs-keyword">const</span> sayHelloToMs = R.partialObject(sayHello, { <span class="hljs-attr">title</span>: <span class="hljs-string">&#x27;Ms.&#x27;</span> });
+sayHelloToMs({ <span class="hljs-attr">firstName</span>: <span class="hljs-string">&#x27;Jane&#x27;</span>, <span class="hljs-attr">lastName</span>: <span class="hljs-string">&#x27;Jones&#x27;</span> }); <span class="hljs-comment">//=&gt; &#x27;Hello, Ms. Jane Jones!&#x27;</span></code></pre>
         </section>
         <div id="partialRight" class="section-id"></div>
         <section class="card">
