@@ -22,6 +22,10 @@ const hljs = require('highlight.js');
 const helper = require('jsdoc/util/templateHelper');
 const marked = require('marked');
 
+const mardownToHtml = function(mdstr) {
+  return marked.parse(mdstr);
+}
+
 const version = require('./package.json').devDependencies.ramda
 
 
@@ -63,7 +67,7 @@ const simplifyData = applySpec({
     description: pipe(
       prop('description'),
       defaultTo(''),
-      marked
+      mardownToHtml
     ),
     example: pipe(
       prop('examples'),
@@ -78,7 +82,7 @@ const simplifyData = applySpec({
         description: pipe(
           prop('description'),
           defaultTo(''),
-          marked
+          mardownToHtml
         ),
         name: pipe(prop('name'), defaultTo('')),
         type: pipe(path(['type', 'names', 0]), defaultTo(''))

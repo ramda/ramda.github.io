@@ -3,14 +3,14 @@
 <p><a href="https://github.com/ramda/ramda/actions?query=workflow%3ABuild"><img src="https://github.com/ramda/ramda/workflows/Build/badge.svg" alt="Build Status"></a>
 <a href="https://codeclimate.com/github/ramda/ramda/test_coverage"><img src="https://api.codeclimate.com/v1/badges/953a3c5ee423e5301d18/test_coverage" alt="Test Coverage"></a>
 <a href="https://www.npmjs.org/package/ramda"><img src="https://badge.fury.io/js/ramda.svg" alt="npm module"></a>
-<a href="https://deno.land/x/ramda@v0.27.2"><img src="http://img.shields.io/badge/available%20on-deno.land/x-lightgrey.svg?logo=deno&amp;labelColor=black" alt="deno land"></a>
+<a href="https://deno.land/x/ramda@v0.27.2"><img src="http://img.shields.io/badge/available%20on-deno.land/x-lightgrey.svg?logo=deno&labelColor=black" alt="deno land"></a>
 <a href="https://nest.land/package/ramda"><img src="https://nest.land/badge.svg" alt="nest badge"></a>
 <a href="https://gitter.im/ramda/ramda?utm_source=badge&amp;utm_medium=badge&amp;utm_campaign=pr-badge&amp;utm_content=badge"><img src="https://badges.gitter.im/Join_Chat.svg" alt="Gitter"></a></p>
-<h2 id="why-ramda-">Why Ramda?</h2>
+<h2 id="why-ramda">Why Ramda?</h2>
 <p><img src="https://ramdajs.com/ramdaFilled_200x235.png" 
      width="170" height="190" align="right" hspace="12" /></p>
 <p>There are already several excellent libraries with a functional flavor. Typically, they are meant to be general-purpose toolkits, suitable for working in multiple paradigms. Ramda has a more focused goal. We wanted a library designed specifically for a functional programming style, one that makes it easy to create functional pipelines, one that never mutates user data. </p>
-<h2 id="what-s-different-">What&#39;s Different?</h2>
+<h2 id="whats-different">What&#39;s Different?</h2>
 <p>The primary distinguishing features of Ramda are:</p>
 <ul>
 <li><p>Ramda emphasizes a purer functional style. Immutability and side-effect free functions 
@@ -53,28 +53,28 @@ cleaner API.</p>
 implementation wins over any notions of functional purity.</p>
 <h2 id="installation">Installation</h2>
 <p>To use with node:</p>
-<pre><code class="lang-bash">$ npm install ramda
+<pre><code class="language-bash">$ npm install ramda
 </code></pre>
 <p>Then in the console:</p>
-<pre><code class="lang-javascript">const R = require(&#39;ramda&#39;);
+<pre><code class="language-javascript">const R = require(&#39;ramda&#39;);
 </code></pre>
 <p>To use directly in <a href="https://deno.land">Deno</a>:</p>
-<pre><code class="lang-javascript">import * as R from &quot;https://deno.land/x/ramda@v0.27.2/mod.ts&quot;;
+<pre><code class="language-javascript">import * as R from &quot;https://deno.land/x/ramda@v0.27.2/mod.ts&quot;;
 </code></pre>
 <p>or using Nest.land:</p>
-<pre><code class="lang-javascript">import * as R from &quot;https://x.nest.land/ramda@0.27.2/mod.ts&quot;;
+<pre><code class="language-javascript">import * as R from &quot;https://x.nest.land/ramda@0.27.2/mod.ts&quot;;
 </code></pre>
 <p>To use directly in the browser:</p>
-<pre><code class="lang-html">&lt;script src=&quot;path/to/yourCopyOf/ramda.js&quot;&gt;&lt;/script&gt;
+<pre><code class="language-html">&lt;script src=&quot;path/to/yourCopyOf/ramda.js&quot;&gt;&lt;/script&gt;
 </code></pre>
 <p>or the minified version:</p>
-<pre><code class="lang-html">&lt;script src=&quot;path/to/yourCopyOf/ramda.min.js&quot;&gt;&lt;/script&gt;
+<pre><code class="language-html">&lt;script src=&quot;path/to/yourCopyOf/ramda.min.js&quot;&gt;&lt;/script&gt;
 </code></pre>
 <p>or from a CDN, either cdnjs:</p>
-<pre><code class="lang-html">&lt;script src=&quot;//cdnjs.cloudflare.com/ajax/libs/ramda/0.25.0/ramda.min.js&quot;&gt;&lt;/script&gt;
+<pre><code class="language-html">&lt;script src=&quot;//cdnjs.cloudflare.com/ajax/libs/ramda/0.25.0/ramda.min.js&quot;&gt;&lt;/script&gt;
 </code></pre>
 <p>or one of the below links from <a href="http://jsdelivr.com">jsDelivr</a>:</p>
-<pre><code class="lang-html">&lt;script src=&quot;//cdn.jsdelivr.net/npm/ramda@0.25.0/dist/ramda.min.js&quot;&gt;&lt;/script&gt;
+<pre><code class="language-html">&lt;script src=&quot;//cdn.jsdelivr.net/npm/ramda@0.25.0/dist/ramda.min.js&quot;&gt;&lt;/script&gt;
 &lt;script src=&quot;//cdn.jsdelivr.net/npm/ramda@0.25/dist/ramda.min.js&quot;&gt;&lt;/script&gt;
 &lt;script src=&quot;//cdn.jsdelivr.net/npm/ramda@latest/dist/ramda.min.js&quot;&gt;&lt;/script&gt;
 </code></pre>
@@ -92,7 +92,8 @@ In order to access to the ES6 module in browsers, one has to provide the content
 <h4 id="partial-builds">Partial Builds</h4>
 <p>It is possible to build Ramda with a subset of the functionality to reduce its file size. Ramda&#39;s build system supports this with command line flags. For example if you&#39;re using <code>R.compose</code>, <code>R.reduce</code>, and <code>R.filter</code> you can create a partial build with:</p>
 <pre><code>npm run --silent partial-build compose reduce filter &gt; dist/ramda.custom.js
-</code></pre><p>This requires having Node/io.js installed and ramda&#39;s dependencies installed (just use <code>npm install</code> before running partial build). </p>
+</code></pre>
+<p>This requires having Node/io.js installed and ramda&#39;s dependencies installed (just use <code>npm install</code> before running partial build). </p>
 <h3 id="install-specific-functions">Install specific functions</h3>
 <p><a href="https://bitsrc.io/ramda/ramda">Install individual functions</a> with bit, npm and yarn without installing the whole library.</p>
 <h2 id="documentation">Documentation</h2>
@@ -108,13 +109,17 @@ sheep.  So perhaps ramda is a grown-up lambda... but probably not.</p>
 <p><strong>Console:</strong></p>
 <p>To run the test suite from the console, you need to have <code>mocha</code> installed:</p>
 <pre><code>npm install -g mocha
-</code></pre><p>Then from the root of the project, you can just call</p>
+</code></pre>
+<p>Then from the root of the project, you can just call</p>
 <pre><code>mocha
-</code></pre><p>Alternately, if you&#39;ve installed the dependencies, via:</p>
+</code></pre>
+<p>Alternately, if you&#39;ve installed the dependencies, via:</p>
 <pre><code>npm install
-</code></pre><p>then you can run the tests (and get detailed output) by running:</p>
+</code></pre>
+<p>then you can run the tests (and get detailed output) by running:</p>
 <pre><code>npm test
-</code></pre><p><strong>Browser:</strong></p>
+</code></pre>
+<p><strong>Browser:</strong></p>
 <p>You can use <a href="https://github.com/airportyh/testem">testem</a> to
 test across different browsers (or even headlessly), with livereloading of
 tests. Install testem (<code>npm install -g testem</code>) and run <code>testem</code>. Open the
@@ -123,13 +128,13 @@ link provided in your browser and you will see the results in your terminal.</p>
 tests completely headlessly.</p>
 <h2 id="usage">Usage</h2>
 <p>For <code>v0.25</code> and up, import the whole library or pick ES modules directly from the library:</p>
-<pre><code class="lang-js">import * as R from &#39;ramda&#39;
+<pre><code class="language-js">import * as R from &#39;ramda&#39;
 
 const {identity} = R
 R.map(identity, [1, 2, 3])
 </code></pre>
 <p>Destructuring imports from ramda <em>does not necessarily prevent importing the entire library</em>. You can manually cherry-pick methods like the following, which would only grab the parts necessary for <code>identity</code> to work:</p>
-<pre><code class="lang-js">import identity from &#39;ramda/src/identity&#39;
+<pre><code class="language-js">import identity from &#39;ramda/src/identity&#39;
 
 identity()
 </code></pre>

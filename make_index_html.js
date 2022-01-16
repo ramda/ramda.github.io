@@ -10,7 +10,7 @@ var version = require('./package.json').devDependencies.ramda
 get_ramda_file('README.md')
 .catch((err) => console.error(err))
 .then((readme_md) => {
-  var readme_html = marked(readme_md)
+  var readme_html = marked.parse(readme_md)
 
   var make_html = pug.compileFile('index.pug')
 
