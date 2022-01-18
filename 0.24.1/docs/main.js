@@ -133,7 +133,7 @@
 
     RunKit.createNotebook({
         element: container,
-        nodeVersion: '*',
+        nodeVersion: '14.x.x',
         preamble: 'var R = require("ramda' + ramdaVersion + '")',
         source: codeElement.textContent,
         theme: 'atom-dark',
