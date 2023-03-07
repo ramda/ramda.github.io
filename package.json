@@ -15,7 +15,7 @@
     "bootstrap": "3.4.x",
     "handlebars": "4.x.x",
     "highlight.js": "10.x.x",
-    "http-server": "0.9.x",
+    "http-server": "14.1.x",
     "jsdoc": "^3.6.7",
     "less": "2.7.x",
     "less-plugin-autoprefix": "1.5.x",
