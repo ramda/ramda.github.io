@@ -15,6 +15,7 @@ const {
   propEq,
   replace,
   split,
+  __
 } = require('ramda');
 
 const handlebars = require('handlebars');
@@ -45,7 +46,7 @@ const prettifySig = pipe(
 //  Handles any combination of comma-separated and multi-line @see annotations.
 const simplifySee = pipe(chain(split(/\s*,\s*/)), map(replace(/^R[.]/, '')))
 
-const titleFilter = pipe(propEq('title'), filter)
+const titleFilter = pipe(propEq(__, 'title'), filter)
 
 const valueProp = chain(prop('value'))
 
