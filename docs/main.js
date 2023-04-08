@@ -14,9 +14,8 @@
 
   function filterToc() {
     var f = filterElement.bind(null, nameFilter.value);
-    funcs.forEach(f);
 
-    var filteredFuncs = R.compose(
+    var filteredAndSortedFuncs = R.compose(
       R.sort((a, b) => {
         var aName = R.toLower(a.dataset.name);
         var bName = R.toLower(b.dataset.name);
@@ -41,23 +40,20 @@
           }
         }
       }),
-      R.filter(function (f) {
-        return f.style.display !== 'none';
-      })
+      R.filter(f)
     )(funcs);
 
     toc.innerHTML = '';
-    for (var i = 0; i < filteredFuncs.length; i++) {
-      toc.appendChild(filteredFuncs[i]);
-    }
+    filteredAndSortedFuncs.forEach(function (elem) {
+      toc.appendChild(elem);
+    });
   }
 
   function filterElement(nameFilter, elem) {
-    elem.style.display =
+    return (
       strIn(nameFilter, elem.getAttribute('data-name')) ||
       R.toLower(nameFilter) === R.toLower(elem.getAttribute('data-category'))
-        ? ''
-        : 'none';
+    );
   }
 
   function gotoFirst(e) {
