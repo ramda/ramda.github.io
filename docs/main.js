@@ -19,24 +19,21 @@
       R.sort((a, b) => {
         var aName = R.toLower(a.dataset.name);
         var bName = R.toLower(b.dataset.name);
-        var nameFilterValue = R.toLower(nameFilter.value);
-        if (aName === nameFilterValue) {
+        var filterValue = R.toLower(nameFilter.value);
+
+        var startsWithFilterValue = R.startsWith(filterValue);
+
+        if (aName === filterValue) {
           return -1;
-        } else if (bName === nameFilterValue) {
+        } else if (bName === filterValue) {
           return 1;
         } else {
-          if (
-            R.startsWith(nameFilterValue, aName) &&
-            R.startsWith(nameFilterValue, bName)
-          ) {
+          if (R.all(startsWithFilterValue)([aName, bName])) {
             return R.gt(aName, bName) ? 1 : -1;
-          } else if (
-            !R.startsWith(nameFilterValue, aName) &&
-            !R.startsWith(nameFilterValue, bName)
-          ) {
+          } else if (R.none(startsWithFilterValue)([aName, bName])) {
             return R.gt(aName, bName) ? 1 : -1;
           } else {
-            return R.startsWith(nameFilterValue, aName) ? -1 : 1;
+            return R.startsWith(filterValue, aName) ? -1 : 1;
           }
         }
       }),
