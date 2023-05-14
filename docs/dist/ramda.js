@@ -1839,8 +1839,8 @@
    * @see R.anyPass, R.both
    * @example
    *
-   *      const isQueen = R.propEq('rank', 'Q');
-   *      const isSpade = R.propEq('suit', '♠︎');
+   *      const isQueen = R.propEq('Q', 'rank');
+   *      const isSpade = R.propEq('♠︎', 'suit');
    *      const isQueenOfSpades = R.allPass([isQueen, isSpade]);
    *
    *      isQueenOfSpades({rank: 'Q', suit: '♣︎'}); //=> false
@@ -2004,8 +2004,8 @@
    * @see R.allPass, R.either
    * @example
    *
-   *      const isClub = R.propEq('suit', '♣');
-   *      const isSpade = R.propEq('suit', '♠');
+   *      const isClub = R.propEq('♣', 'suit');
+   *      const isSpade = R.propEq('♠', 'suit');
    *      const isBlackCard = R.anyPass([isClub, isSpade]);
    *
    *      isBlackCard({rank: '10', suit: '♣'}); //=> true
@@ -5280,8 +5280,8 @@
    * @example
    *
    *      const xs = [{a: 1}, {a: 2}, {a: 3}];
-   *      R.find(R.propEq('a', 2))(xs); //=> {a: 2}
-   *      R.find(R.propEq('a', 4))(xs); //=> undefined
+   *      R.find(R.propEq(2, 'a'))(xs); //=> {a: 2}
+   *      R.find(R.propEq(4, 'a'))(xs); //=> undefined
    */
 
   var find = _curry2(_dispatchable(['find'], _xfind, function find(fn, list) {
@@ -5350,8 +5350,8 @@
    * @example
    *
    *      const xs = [{a: 1}, {a: 2}, {a: 3}];
-   *      R.findIndex(R.propEq('a', 2))(xs); //=> 1
-   *      R.findIndex(R.propEq('a', 4))(xs); //=> -1
+   *      R.findIndex(R.propEq(2, 'a'))(xs); //=> 1
+   *      R.findIndex(R.propEq(4, 'a'))(xs); //=> -1
    */
 
   var findIndex = _curry2(_dispatchable([], _xfindIndex, function findIndex(fn, list) {
@@ -5413,8 +5413,8 @@
    * @example
    *
    *      const xs = [{a: 1, b: 0}, {a:1, b: 1}];
-   *      R.findLast(R.propEq('a', 1))(xs); //=> {a: 1, b: 1}
-   *      R.findLast(R.propEq('a', 4))(xs); //=> undefined
+   *      R.findLast(R.propEq(1, 'a'))(xs); //=> {a: 1, b: 1}
+   *      R.findLast(R.propEq(4, 'a'))(xs); //=> undefined
    */
 
   var findLast = _curry2(_dispatchable([], _xfindLast, function findLast(fn, list) {
@@ -5477,8 +5477,8 @@
    * @example
    *
    *      const xs = [{a: 1, b: 0}, {a:1, b: 1}];
-   *      R.findLastIndex(R.propEq('a', 1))(xs); //=> 1
-   *      R.findLastIndex(R.propEq('a', 4))(xs); //=> -1
+   *      R.findLastIndex(R.propEq(1, 'a'))(xs); //=> 1
+   *      R.findLastIndex(R.propEq(4, 'a'))(xs); //=> -1
    */
 
   var findLastIndex = _curry2(_dispatchable([], _xfindLastIndex, function findLastIndex(fn, list) {
@@ -7900,8 +7900,12 @@
    */
 
   var modifyPath = _curry3(function modifyPath(path, fn, object) {
-    if (!_isObject(object) && !_isArray(object) || path.length === 0) {
+    if (!_isObject(object) && !_isArray(object)) {
       return object;
+    }
+
+    if (path.length === 0) {
+      return fn(object);
     }
 
     var idx = path[0];
@@ -9762,8 +9766,8 @@
    * @example
    *
    *      R.swap(0, 2, ['a', 'b', 'c', 'd', 'e', 'f']); //=> ['c', 'b', 'a', 'd', 'e', 'f']
-   *      R.swap(-1, 0, ['a', 'b', 'c', 'd', 'e', 'f']); //=> ['f', 'b', 'c', 'd', 'e', 'a'] list rotation
-   *      R.swap('a', 'b', {a: 1, b: 2}); //=> {a: 2, b: 2}
+   *      R.swap(-1, 0, ['a', 'b', 'c', 'd', 'e', 'f']); //=> ['f', 'b', 'c', 'd', 'e', 'a']
+   *      R.swap('a', 'b', {a: 1, b: 2}); //=> {a: 2, b: 1}
    *      R.swap(0, 2, 'foo'); //=> 'oof'
    */
 
