@@ -1,4 +1,4 @@
-//  Ramda v0.29.0
+//  Ramda v0.29.1
 //  https://github.com/ramda/ramda
 //  (c) 2013-2023 Scott Sauyet, Michael Hurley, and David Chambers
 //  Ramda may be freely distributed under the MIT license.
@@ -282,6 +282,7 @@
       var argsIdx = 0;
       var left = length;
       var combinedIdx = 0;
+      var hasPlaceholder = false;
 
       while (combinedIdx < received.length || argsIdx < arguments.length) {
         var result;
@@ -297,12 +298,14 @@
 
         if (!_isPlaceholder(result)) {
           left -= 1;
+        } else {
+          hasPlaceholder = true;
         }
 
         combinedIdx += 1;
       }
 
-      return left <= 0 ? fn.apply(this, combined) : _arity(left, _curryN(length, combined, fn));
+      return !hasPlaceholder && left <= 0 ? fn.apply(this, combined) : _arity(Math.max(0, left), _curryN(length, combined, fn));
     };
   }
 
@@ -840,6 +843,7 @@
    *      R.type([]); //=> "Array"
    *      R.type(/[A-z]/); //=> "RegExp"
    *      R.type(() => {}); //=> "Function"
+   *      R.type(async () => {}); //=> "AsyncFunction"
    *      R.type(undefined); //=> "Undefined"
    */
 
@@ -3608,23 +3612,7 @@
    *   - `g(_, 2)(_, 3)(1)`
    *
    * Please note that default parameters don't count towards a [function arity](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/length)
-   * and therefore `curry` won't work well with those:
-   *
-   * ```
-   * const h = R.curry((a, b, c = 2) => a + b + c);
-   *
-   * h(40);
-   * //=> function (waits for `b`)
-   *
-   * h(39)(1);
-   * //=> 42
-   *
-   * h(1)(2, 3);
-   * //=> 6
-   *
-   * h(1)(2)(7);
-   * //=> Error! (`3` is not a function!)
-   * ```
+   * and therefore `curry` won't work well with those.
    *
    * @func
    * @memberOf R
@@ -3637,11 +3625,14 @@
    * @example
    *
    *      const addFourNumbers = (a, b, c, d) => a + b + c + d;
-   *
    *      const curriedAddFourNumbers = R.curry(addFourNumbers);
    *      const f = curriedAddFourNumbers(1, 2);
    *      const g = f(3);
    *      g(4); //=> 10
+   *
+   *      // R.curry not working well with default parameters
+   *      const h = R.curry((a, b, c = 2) => a + b + c);
+   *      h(1)(2)(7); //=> Error! (`3` is not a function!)
    */
 
   var curry = _curry1(function curry(fn) {
@@ -9742,7 +9733,7 @@
       return result;
     }
 
-    result = [].concat(result.slice(0, positiveMin)).concat(result[positiveMax]).concat(result.slice(positiveMin + 1, positiveMax)).concat(result[positiveMin]).concat(result.slice(positiveMax + 1, length));
+    result = [].concat(result.slice(0, positiveMin)).concat([result[positiveMax]]).concat(result.slice(positiveMin + 1, positiveMax)).concat([result[positiveMin]]).concat(result.slice(positiveMax + 1, length));
     return result;
   };
 
