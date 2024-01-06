@@ -40,7 +40,16 @@
 
             &:hover {
                 background: #e4e4e4;
+
+                @media (prefers-color-scheme: dark) {
+                    background-color: @dark-bg-200;
+                }
             }
+        }
+
+        @media (prefers-color-scheme: dark) {
+            background-color: @dark-bg-100;
+            border-top-color: @dark-bg-200;
         }
     }
 }
