@@ -22,7 +22,7 @@
     "less-plugin-clean-css": "1.5.x",
     "marked": "4.0.x",
     "pug": "^3.0.1",
-    "ramda": "0.29.1",
+    "ramda": "0.30.0",
     "semver-compare": "1.0.x",
     "walk": "2.3.x"
   },

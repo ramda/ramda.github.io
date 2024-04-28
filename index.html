@@ -1,4 +1,4 @@
-<!DOCTYPE html><html class="home-page"><head><meta charset="UTF-8"><meta content="width=device-width, initial-scale=1" name="viewport"><title>Ramda Documentation</title><link href="./style.css" rel="stylesheet" type="text/css"></head><body><input id="open-nav" type="checkbox"><header class="navbar navbar-fixed-top navbar-inverse container-fluid"><div class="container-fluid"><div class="navbar-header"><label class="open-nav" for="open-nav"></label><a class="navbar-brand" href="#"><strong>Ramda</strong><span class="version"> v0.29.1</span></a></div><ul class="nav navbar-nav navbar-left"><li class="active"><a href="./">Home</a></li><li><a href="./docs/">Documentation</a></li><li><a href="./repl/">Try Ramda</a></li></ul><ul class="nav navbar-nav navbar-right"><li><a href="https://github.com/ramda/ramda">GitHub</a></li><li><a href="https://gitter.im/ramda/ramda">Discuss</a></li></ul></div></header><main class="container"><article><h1 id="ramda">Ramda</h1>
+<!DOCTYPE html><html class="home-page"><head><meta charset="UTF-8"><meta content="width=device-width, initial-scale=1" name="viewport"><title>Ramda Documentation</title><link href="./style.css" rel="stylesheet" type="text/css"></head><body><input id="open-nav" type="checkbox"><header class="navbar navbar-fixed-top navbar-inverse container-fluid"><div class="container-fluid"><div class="navbar-header"><label class="open-nav" for="open-nav"></label><a class="navbar-brand" href="#"><strong>Ramda</strong><span class="version"> v0.30.0</span></a></div><ul class="nav navbar-nav navbar-left"><li class="active"><a href="./">Home</a></li><li><a href="./docs/">Documentation</a></li><li><a href="./repl/">Try Ramda</a></li></ul><ul class="nav navbar-nav navbar-right"><li><a href="https://github.com/ramda/ramda">GitHub</a></li><li><a href="https://gitter.im/ramda/ramda">Discuss</a></li></ul></div></header><main class="container"><article><h1 id="ramda">Ramda</h1>
 <p>A practical functional library for JavaScript programmers.</p>
 <p><a href="https://github.com/ramda/ramda/actions?query=workflow%3ABuild"><img src="https://github.com/ramda/ramda/workflows/Build/badge.svg" alt="Build Status"></a>
 <a href="https://www.npmjs.org/package/ramda"><img src="https://badge.fury.io/js/ramda.svg" alt="npm module"></a>
@@ -6,20 +6,20 @@
 <a href="https://nest.land/package/ramda"><img src="https://nest.land/badge.svg" alt="nest badge"></a>
 <a href="https://gitter.im/ramda/ramda?utm_source=badge&amp;utm_medium=badge&amp;utm_campaign=pr-badge&amp;utm_content=badge"><img src="https://badges.gitter.im/Join_Chat.svg" alt="Gitter"></a></p>
 <h2 id="why-ramda">Why Ramda?</h2>
-<p><img src="https://ramdajs.com/ramdaFilled_200x235.png"
+<p><img src="https://ramdajs.com/ramdaFilled_200x235.png" 
      width="170" height="190" align="right" hspace="12" /></p>
-<p>There are already several excellent libraries with a functional flavor. Typically, they are meant to be general-purpose toolkits, suitable for working in multiple paradigms. Ramda has a more focused goal. We wanted a library designed specifically for a functional programming style, one that makes it easy to create functional pipelines, one that never mutates user data.</p>
+<p>There are already several excellent libraries with a functional flavor. Typically, they are meant to be general-purpose toolkits, suitable for working in multiple paradigms. Ramda has a more focused goal. We wanted a library designed specifically for a functional programming style, one that makes it easy to create functional pipelines, one that never mutates user data. </p>
 <h2 id="whats-different">What&#39;s Different?</h2>
 <p>The primary distinguishing features of Ramda are:</p>
 <ul>
-<li><p>Ramda emphasizes a purer functional style. Immutability and side-effect free functions
-are at the heart of its design philosophy. This can help you get the job done with simple,
+<li><p>Ramda emphasizes a purer functional style. Immutability and side-effect free functions 
+are at the heart of its design philosophy. This can help you get the job done with simple, 
 elegant code.</p>
 </li>
-<li><p>Ramda functions are automatically curried. This allows you to easily build up new functions
+<li><p>Ramda functions are automatically curried. This allows you to easily build up new functions 
 from old ones simply by not supplying the final parameters.</p>
 </li>
-<li><p>The parameters to Ramda functions are arranged to make it convenient for currying. The data
+<li><p>The parameters to Ramda functions are arranged to make it convenient for currying. The data 
 to be operated on is generally supplied last.</p>
 </li>
 </ul>
@@ -36,13 +36,13 @@ to be operated on is generally supplied last.</p>
 <h2 id="philosophy">Philosophy</h2>
 <p>Using Ramda should feel much like just using JavaScript.
 It is practical, functional JavaScript. We&#39;re not introducing
-lambda expressions in strings, we&#39;re not borrowing consed
+lambda expressions in strings, we&#39;re not borrowing consed 
 lists, we&#39;re not porting over all of the Clojure functions.</p>
 <p>Our basic data structures are plain JavaScript objects, and our
 usual collections are JavaScript arrays. We also keep other
 native features of JavaScript, such as functions as objects
 with properties.</p>
-<p>Functional programming is in good part about immutable objects and
+<p>Functional programming is in good part about immutable objects and 
 side-effect free functions. While Ramda does not <em>enforce</em> this, it
 enables such style to be as frictionless as possible.</p>
 <p>We aim for an implementation both clean and elegant, but the API is king.
@@ -91,15 +91,15 @@ In order to access to the ES6 module in browsers, one has to provide the content
 <p>It is possible to build Ramda with a subset of the functionality to reduce its file size. Ramda&#39;s build system supports this with command line flags. For example if you&#39;re using <code>R.compose</code>, <code>R.reduce</code>, and <code>R.filter</code> you can create a partial build with:</p>
 <pre><code>npm run --silent partial-build compose reduce filter &gt; dist/ramda.custom.js
 </code></pre>
-<p>This requires having Node/io.js installed and ramda&#39;s dependencies installed (just use <code>npm install</code> before running partial build).</p>
+<p>This requires having Node/io.js installed and ramda&#39;s dependencies installed (just use <code>npm install</code> before running partial build). </p>
 <h2 id="documentation">Documentation</h2>
 <p>Please review the <a href="https://ramdajs.com/docs/">API documentation</a>.</p>
 <p>Also available is our <a href="https://github.com/ramda/ramda/wiki/Cookbook">Cookbook</a> of functions built from Ramda that you may find useful.</p>
 <h2 id="the-name">The Name</h2>
-<p>Ok, so we like sheep.  That&#39;s all.  It&#39;s a short name, not already
-taken.  It could as easily have been <code>eweda</code>, but then we would be
-forced to say <em>eweda lamb!</em>, and no one wants that.  For non-English
-speakers, lambs are baby sheep, ewes are female sheep, and rams are male
+<p>Ok, so we like sheep.  That&#39;s all.  It&#39;s a short name, not already 
+taken.  It could as easily have been <code>eweda</code>, but then we would be 
+forced to say <em>eweda lamb!</em>, and no one wants that.  For non-English 
+speakers, lambs are baby sheep, ewes are female sheep, and rams are male 
 sheep.  So perhaps ramda is a grown-up lambda... but probably not.</p>
 <h2 id="running-the-test-suite">Running The Test Suite</h2>
 <p><strong>Console:</strong></p>
@@ -157,7 +157,7 @@ identity()
 <p>If you wish to donate to Ramda please see our <a href="https://opencollective.com/ramda">Open Collective</a> page. Thank you!</p>
 <h2 id="acknowledgements">Acknowledgements</h2>
 <p>Thanks to <a href="http://www.jcphillipps.com">J. C. Phillipps</a> for the Ramda logo.
-Ramda logo artwork &copy; 2014 J. C. Phillipps. Licensed Creative Commons
+Ramda logo artwork &copy; 2014 J. C. Phillipps. Licensed Creative Commons 
 <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/">CC BY-NC-SA 3.0</a>.</p>
 </article></main><script>window.gitter = {
 	chat: {
