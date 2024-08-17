@@ -1,7 +1,6 @@
 /* global document, window, R */
 
-(function() {
-
+(function () {
   var findFirst = R.find(R.prop('offsetParent'));
 
   function toArray(xs) {
@@ -15,15 +14,43 @@
 
   function filterToc() {
     var f = filterElement.bind(null, nameFilter.value);
-    funcs.forEach(f);
+
+    var filteredAndSortedFuncs = R.compose(
+      R.sort((a, b) => {
+        var aName = R.toLower(a.dataset.name);
+        var bName = R.toLower(b.dataset.name);
+        var filterValue = R.toLower(nameFilter.value);
+
+        var startsWithFilterValue = R.startsWith(filterValue);
+
+        if (aName === filterValue) {
+          return -1;
+        } else if (bName === filterValue) {
+          return 1;
+        } else {
+          if (R.all(startsWithFilterValue)([aName, bName])) {
+            return R.gt(aName, bName) ? 1 : -1;
+          } else if (R.none(startsWithFilterValue)([aName, bName])) {
+            return R.gt(aName, bName) ? 1 : -1;
+          } else {
+            return R.startsWith(filterValue, aName) ? -1 : 1;
+          }
+        }
+      }),
+      R.filter(f)
+    )(funcs);
+
+    toc.innerHTML = '';
+    filteredAndSortedFuncs.forEach(function (elem) {
+      toc.appendChild(elem);
+    });
   }
 
   function filterElement(nameFilter, elem) {
-    elem.style.display =
+    return (
       strIn(nameFilter, elem.getAttribute('data-name')) ||
-      R.toLower(nameFilter) === R.toLower(elem.getAttribute('data-category')) ?
-        '' :
-        'none';
+      R.toLower(nameFilter) === R.toLower(elem.getAttribute('data-category'))
+    );
   }
 
   function gotoFirst(e) {
@@ -33,7 +60,7 @@
 
     var func = findFirst(funcs);
     if (func) {
-      var onHashChange = function() {
+      var onHashChange = function () {
         e.target.focus();
         window.removeEventListener('hashchange', onHashChange);
       };
@@ -84,15 +111,17 @@
 
   function keypress(e) {
     if (e.which === 13) {
-      e.target.dispatchEvent(new window.CustomEvent('enter', {
-        detail: e.target.value
-      }));
+      e.target.dispatchEvent(
+        new window.CustomEvent('enter', {
+          detail: e.target.value,
+        })
+      );
     }
   }
 
   // https://goo.gl/Zbejtc
-  function fixedEncodeURIComponent (str) {
-    return encodeURIComponent(str).replace(/[!'()*]/g, function(c) {
+  function fixedEncodeURIComponent(str) {
+    return encodeURIComponent(str).replace(/[!'()*]/g, function (c) {
       return '%' + c.charCodeAt(0).toString(16);
     });
   }
@@ -109,51 +138,56 @@
     var codeElement = target.parentNode.nextElementSibling;
 
     if (isREPL || !window.RunKit) {
-        var version = event.target.dataset && event.target.dataset.ramdaVersion;
-        var versionParam = version ? '?v=' + version : '';
-        var code = codeElement.textContent;
-        var encoded = fixedEncodeURIComponent(code);
+      var version = event.target.dataset && event.target.dataset.ramdaVersion;
+      var versionParam = version ? '?v=' + version : '';
+      var code = codeElement.textContent;
+      var encoded = fixedEncodeURIComponent(code);
 
-        return window.open(location.origin + '/repl/' +
-          versionParam + '#;' + encoded);
+      return window.open(
+        location.origin + '/repl/' + versionParam + '#;' + encoded
+      );
     }
 
     var parent = target.parentNode.parentNode;
-    var ramdaVersion = target.dataset && "@" + target.dataset.ramdaVersion || "";
+    var ramdaVersion =
+      (target.dataset && '@' + target.dataset.ramdaVersion) || '';
 
-    parent.style.background = "transparent";
-    parent.style.overflow = "hidden";
-    
-    var container = document.createElement("div");
+    parent.style.background = 'transparent';
+    parent.style.overflow = 'hidden';
 
-    container.style.width = "1px";
-    container.style.height = "1px";
-    
+    var container = document.createElement('div');
+
+    container.style.width = '1px';
+    container.style.height = '1px';
+
     parent.appendChild(container);
 
     RunKit.createNotebook({
-        element: container,
-        nodeVersion: '14.x.x',
-        preamble: 'var { Maybe, Either } = require("ramda-fantasy");\nvar R = require("ramda' + ramdaVersion + '");',
-        source: codeElement.textContent,
-        theme: 'atom-dark',
-        minHeight: "52px",
-        onLoad: function(notebook) {
-          parent.removeChild(codeElement);
-          parent.removeChild(target.parentNode);
+      element: container,
+      nodeVersion: '14.x.x',
+      preamble:
+        'var { Maybe, Either } = require("ramda-fantasy");\nvar R = require("ramda' +
+        ramdaVersion +
+        '");',
+      source: codeElement.textContent,
+      theme: 'atom-dark',
+      minHeight: '52px',
+      onLoad: function (notebook) {
+        parent.removeChild(codeElement);
+        parent.removeChild(target.parentNode);
 
-          container.style.cssText = "";
+        container.style.cssText = '';
 
-          var iframe = container.lastElementChild;
-          iframe.style.cssText = 'height:' + iframe.style.height;
-          iframe.classList.add('repl-inline');
-          notebook.evaluate()
-        }
+        var iframe = container.lastElementChild;
+        iframe.style.cssText = 'height:' + iframe.style.height;
+        iframe.classList.add('repl-inline');
+        notebook.evaluate();
+      },
     });
   }
 
-
   var nameFilter = document.getElementById('name-filter');
+  var toc = document.querySelector('.toc');
   var funcs = toArray(document.querySelectorAll('.toc .func'));
   filterToc();
 
@@ -163,24 +197,30 @@
   nameFilter.addEventListener('enter', gotoFirst);
   document.body.addEventListener('click', tryInREPL);
 
-  document.body.addEventListener('keyup', function(event) {
-    if (191 == event.which)
-      document.getElementById('name-filter').focus()
+  document.body.addEventListener('keyup', function (event) {
+    if (191 == event.which) document.getElementById('name-filter').focus();
   });
 
-  document.body.addEventListener('click', function(event) {
-    if (event.target.className.split(' ').indexOf('toggle-params') >= 0) {
-      var expanded = event.target.parentNode.getAttribute('data-expanded');
-      event.target.parentNode.setAttribute(
-        'data-expanded',
-        expanded === 'true' ? 'false' : 'true'
-      );
-    }
-  }, false);
+  document.body.addEventListener(
+    'click',
+    function (event) {
+      if (event.target.className.split(' ').indexOf('toggle-params') >= 0) {
+        var expanded = event.target.parentNode.getAttribute('data-expanded');
+        event.target.parentNode.setAttribute(
+          'data-expanded',
+          expanded === 'true' ? 'false' : 'true'
+        );
+      }
+    },
+    false
+  );
 
   // back-button hack
-  window.addEventListener('hashchange', function() {
-    location.href = location.href;
-  }, false);
-
+  window.addEventListener(
+    'hashchange',
+    function () {
+      location.href = location.href;
+    },
+    false
+  );
 }.call(this));

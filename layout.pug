@@ -1,6 +1,6 @@
 doctype html
 html(class=html_class)
-	- base_link = ('home' == page ? '.' : '..')
+	- base_url = version == cur_version ? "/" : "/" + version + "/"
 
 	head
 		meta(charset="UTF-8")
@@ -11,9 +11,8 @@ html(class=html_class)
 
 		title Ramda Documentation
 
-		- href = base_link + "/style.css"
 		link(
-			href=href
+			href=page == "repl" ? "/style.css" : "style.css"
 			rel="stylesheet"
 			type="text/css"
 		)
@@ -28,22 +27,22 @@ html(class=html_class)
 			.container-fluid
 				.navbar-header
 					label.open-nav(for="open-nav")
-					a.navbar-brand(href="#")
+					span.navbar-brand
 						strong Ramda
-						span.version  v#{version}
+						span.version(data-version=`${version}`)
 
 				ul.nav.navbar-nav.navbar-left
 					- active = ('home' == page) ? 'active' : ''
-					- href = base_link + "/"
-					li(class=active): a(href=href) Home
+					- href = base_url
+					li(class=active): a.home-link(href=href) Home
 
 					- active = ('docs' == page) ? 'active' : ''
-					- href = base_link + "/docs/"
-					li(class=active): a(href=href) Documentation
+					- href = base_url + "docs"
+					li(class=active): a.docs-link(href=href) Documentation
 
 					- active = ('repl' == page) ? 'active' : ''
-					- href = base_link + "/repl/"
-					li(class=active): a(href=href) Try Ramda
+					- href = "/repl/?v=" + version
+					li(class=active): a.repl-link(href=href) Try Ramda
 
 				ul.nav.navbar-nav.navbar-right
 					li: a(href="https://github.com/ramda/ramda") GitHub

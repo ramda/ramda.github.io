@@ -1,0 +1,25 @@
+#!/bin/bash
+
+version="$1"
+if [[ -z "$version" ]]; then
+  echo "usage: $0 <version>"
+  exit 1
+fi
+
+set -ex
+
+npm i --save --save-exact ramda@$version
+
+./bin/write-versions-json $version
+
+touch docs/index.html.handlebars
+touch make_index_html.js
+touch make_repl_index_html.js
+make
+
+mkdir -p $version
+cp ./index.html $version/
+cp ./style.css $version/
+cp -r docs $version/
+cp -r fonts $version/
+
