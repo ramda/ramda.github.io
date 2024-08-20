@@ -1,0 +1,26 @@
+#!/usr/bin/env node
+
+let FS = require('fs');
+let Process = require('process');
+let semver_cmp = require('semver-compare');
+
+let read_versions_from_fs = () => {
+  return (
+    FS.readdirSync('.')
+      .filter(x => /^(\d+)(\.\d+)*\w*$/.test(x))
+  );
+};
+
+let write_versions = (versions, new_version) => {
+  let all_versions = new Set([...versions, ...(new_version ? [new_version] : [])]);
+  let sorted = [...all_versions].sort(semver_cmp).reverse();
+  FS.writeFileSync('./versions.json', JSON.stringify(sorted, null, 2));
+};
+
+let main = () => {
+  let new_version = Process.argv[2];
+  write_versions(read_versions_from_fs(), new_version);
+};
+
+main();
+

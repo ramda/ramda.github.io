@@ -1,14 +1,14 @@
-<!DOCTYPE html><html class="home-page"><head><meta charset="UTF-8"><meta content="width=device-width, initial-scale=1" name="viewport"><title>Ramda Documentation</title><link href="./style.css" rel="stylesheet" type="text/css"></head><body><input id="open-nav" type="checkbox"><header class="navbar navbar-fixed-top navbar-inverse container-fluid"><div class="container-fluid"><div class="navbar-header"><label class="open-nav" for="open-nav"></label><a class="navbar-brand" href="#"><strong>Ramda</strong><span class="version"> v0.26.0</span></a></div><ul class="nav navbar-nav navbar-left"><li class="active"><a href="./">Home</a></li><li><a href="./docs/">Documentation</a></li><li><a href="./repl/">Try Ramda</a></li></ul><ul class="nav navbar-nav navbar-right"><li><a href="https://github.com/ramda/ramda">GitHub</a></li><li><a href="https://gitter.im/ramda/ramda">Discuss</a></li></ul></div></header><main class="container"><article><h1 id="ramda">Ramda</h1>
+<!DOCTYPE html><html class="home-page"><head><meta charset="UTF-8"><meta content="width=device-width, initial-scale=1" name="viewport"><title>Ramda Documentation</title><link href="style.css" rel="stylesheet" type="text/css"><script src="/js/javascript.js"></script></head><body><input id="open-nav" type="checkbox"><header class="navbar navbar-fixed-top navbar-inverse container-fluid"><div class="container-fluid"><div class="navbar-header"><label class="open-nav" for="open-nav"></label><span class="navbar-brand"><strong>Ramda</strong><span class="version" data-version="0.26.0"></span></span></div><ul class="nav navbar-nav navbar-left"><li class="active"><a class="home-link" href="/0.26.0/">Home</a></li><li><a class="docs-link" href="/0.26.0/docs">Documentation</a></li><li><a class="repl-link" href="/repl/?v=0.26.0">Try Ramda</a></li></ul><ul class="nav navbar-nav navbar-right"><li><a href="https://github.com/ramda/ramda">GitHub</a></li><li><a href="https://gitter.im/ramda/ramda">Discuss</a></li></ul></div></header><main class="container"><article><h1 id="ramda">Ramda</h1>
 <p>A practical functional library for JavaScript programmers.</p>
 <p><a href="https://travis-ci.org/ramda/ramda"><img src="https://travis-ci.org/ramda/ramda.svg?branch=master" alt="Build Status"></a>
 <a href="https://www.npmjs.org/package/ramda"><img src="https://badge.fury.io/js/ramda.svg" alt="npm module"></a>
 <a href="https://david-dm.org/ramda/ramda"><img src="https://david-dm.org/ramda/ramda.svg" alt="dependencies"></a>
 <a href="https://gitter.im/ramda/ramda?utm_source=badge&amp;utm_medium=badge&amp;utm_campaign=pr-badge&amp;utm_content=badge"><img src="https://badges.gitter.im/Join_Chat.svg" alt="Gitter"></a></p>
-<h2 id="why-ramda-">Why Ramda?</h2>
+<h2 id="why-ramda">Why Ramda?</h2>
 <p><img src="https://ramdajs.com/ramdaFilled_200x235.png" 
      width="170" height="190" align="right" hspace="12" /></p>
 <p>There are already several excellent libraries with a functional flavor. Typically, they are meant to be general-purpose toolkits, suitable for working in multiple paradigms. Ramda has a more focused goal. We wanted a library designed specifically for a functional programming style, one that makes it easy to create functional pipelines, one that never mutates user data. </p>
-<h2 id="what-s-different-">What&#39;s Different?</h2>
+<h2 id="whats-different">What&#39;s Different?</h2>
 <p>The primary distinguishing features of Ramda are:</p>
 <ul>
 <li><p>Ramda emphasizes a purer functional style. Immutability and side-effect free functions 
@@ -51,22 +51,22 @@ cleaner API.</p>
 implementation wins over any notions of functional purity.</p>
 <h2 id="installation">Installation</h2>
 <p>To use with node:</p>
-<pre><code class="lang-bash">$ npm install ramda
+<pre><code class="language-bash">$ npm install ramda
 </code></pre>
 <p>Then in the console:</p>
-<pre><code class="lang-javascript">const R = require(&#39;ramda&#39;);
+<pre><code class="language-javascript">const R = require(&#39;ramda&#39;);
 </code></pre>
 <p>To use directly in the browser:</p>
-<pre><code class="lang-html">&lt;script src=&quot;path/to/yourCopyOf/ramda.js&quot;&gt;&lt;/script&gt;
+<pre><code class="language-html">&lt;script src=&quot;path/to/yourCopyOf/ramda.js&quot;&gt;&lt;/script&gt;
 </code></pre>
 <p>or the minified version:</p>
-<pre><code class="lang-html">&lt;script src=&quot;path/to/yourCopyOf/ramda.min.js&quot;&gt;&lt;/script&gt;
+<pre><code class="language-html">&lt;script src=&quot;path/to/yourCopyOf/ramda.min.js&quot;&gt;&lt;/script&gt;
 </code></pre>
 <p>or from a CDN, either cdnjs:</p>
-<pre><code class="lang-html">&lt;script src=&quot;//cdnjs.cloudflare.com/ajax/libs/ramda/0.25.0/ramda.min.js&quot;&gt;&lt;/script&gt;
+<pre><code class="language-html">&lt;script src=&quot;//cdnjs.cloudflare.com/ajax/libs/ramda/0.25.0/ramda.min.js&quot;&gt;&lt;/script&gt;
 </code></pre>
 <p>or one of the below links from <a href="http://jsdelivr.com">jsDelivr</a>:</p>
-<pre><code class="lang-html">&lt;script src=&quot;//cdn.jsdelivr.net/npm/ramda@0.25.0/dist/ramda.min.js&quot;&gt;&lt;/script&gt;
+<pre><code class="language-html">&lt;script src=&quot;//cdn.jsdelivr.net/npm/ramda@0.25.0/dist/ramda.min.js&quot;&gt;&lt;/script&gt;
 &lt;script src=&quot;//cdn.jsdelivr.net/npm/ramda@0.25/dist/ramda.min.js&quot;&gt;&lt;/script&gt;
 &lt;script src=&quot;//cdn.jsdelivr.net/npm/ramda@latest/dist/ramda.min.js&quot;&gt;&lt;/script&gt;
 </code></pre>
@@ -82,7 +82,8 @@ Or better yet, import only the required functions via <code>import { functionNam
 <h4 id="partial-builds">Partial Builds</h4>
 <p>It is possible to build Ramda with a subset of the functionality to reduce its file size. Ramda&#39;s build system supports this with command line flags. For example if you&#39;re using <code>R.compose</code>, <code>R.reduce</code>, and <code>R.filter</code> you can create a partial build with:</p>
 <pre><code>npm run --silent partial-build compose reduce filter &gt; dist/ramda.custom.js
-</code></pre><p>This requires having Node/io.js installed and ramda&#39;s dependencies installed (just use <code>npm install</code> before running partial build). </p>
+</code></pre>
+<p>This requires having Node/io.js installed and ramda&#39;s dependencies installed (just use <code>npm install</code> before running partial build). </p>
 <h2 id="documentation">Documentation</h2>
 <p>Please review the <a href="https://ramdajs.com/docs/">API documentation</a>.</p>
 <p>Also available is our <a href="https://github.com/ramda/ramda/wiki/Cookbook">Cookbook</a> of functions built from Ramda that you may find useful.</p>
@@ -96,13 +97,17 @@ sheep.  So perhaps ramda is a grown-up lambda... but probably not.</p>
 <p><strong>Console:</strong></p>
 <p>To run the test suite from the console, you need to have <code>mocha</code> installed:</p>
 <pre><code>npm install -g mocha
-</code></pre><p>Then from the root of the project, you can just call</p>
+</code></pre>
+<p>Then from the root of the project, you can just call</p>
 <pre><code>mocha
-</code></pre><p>Alternately, if you&#39;ve installed the dependencies, via:</p>
+</code></pre>
+<p>Alternately, if you&#39;ve installed the dependencies, via:</p>
 <pre><code>npm install
-</code></pre><p>then you can run the tests (and get detailed output) by running:</p>
+</code></pre>
+<p>then you can run the tests (and get detailed output) by running:</p>
 <pre><code>npm test
-</code></pre><p><strong>Browser:</strong></p>
+</code></pre>
+<p><strong>Browser:</strong></p>
 <p>You can use <a href="https://github.com/airportyh/testem">testem</a> to
 test across different browsers (or even headlessly), with livereloading of
 tests. Install testem (<code>npm install -g testem</code>) and run <code>testem</code>. Open the
@@ -111,13 +116,13 @@ link provided in your browser and you will see the results in your terminal.</p>
 tests completely headlessly.</p>
 <h2 id="usage">Usage</h2>
 <p>For <code>v0.25</code> and up, import the whole library or pick ES modules directly from the library:</p>
-<pre><code class="lang-js">import * as R from &#39;ramda&#39;
+<pre><code class="language-js">import * as R from &#39;ramda&#39;
 
 const {identity} = R
 R.map(identity, [1, 2, 3])
 </code></pre>
 <p>Destructuring imports from ramda <em>does not necessarily prevent importing the entire library</em>. You can manually cherry-pick methods like the following, which would only grab the parts necessary for <code>identity</code> to work:</p>
-<pre><code class="lang-js">import identity from &#39;ramda/src/identity&#39;
+<pre><code class="language-js">import identity from &#39;ramda/src/identity&#39;
 
 identity()
 </code></pre>

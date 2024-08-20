@@ -1,0 +1,169 @@
+<!DOCTYPE html><html class="home-page"><head><meta charset="UTF-8"><meta content="width=device-width, initial-scale=1" name="viewport"><title>Ramda Documentation</title><link href="style.css" rel="stylesheet" type="text/css"><script src="/js/javascript.js"></script></head><body><input id="open-nav" type="checkbox"><header class="navbar navbar-fixed-top navbar-inverse container-fluid"><div class="container-fluid"><div class="navbar-header"><label class="open-nav" for="open-nav"></label><span class="navbar-brand"><strong>Ramda</strong><span class="version" data-version="0.29.1"></span></span></div><ul class="nav navbar-nav navbar-left"><li class="active"><a class="home-link" href="/0.29.1/">Home</a></li><li><a class="docs-link" href="/0.29.1/docs">Documentation</a></li><li><a class="repl-link" href="/repl/?v=0.29.1">Try Ramda</a></li></ul><ul class="nav navbar-nav navbar-right"><li><a href="https://github.com/ramda/ramda">GitHub</a></li><li><a href="https://gitter.im/ramda/ramda">Discuss</a></li></ul></div></header><main class="container"><article><h1 id="ramda">Ramda</h1>
+<p>A practical functional library for JavaScript programmers.</p>
+<p><a href="https://github.com/ramda/ramda/actions?query=workflow%3ABuild"><img src="https://github.com/ramda/ramda/workflows/Build/badge.svg" alt="Build Status"></a>
+<a href="https://www.npmjs.org/package/ramda"><img src="https://badge.fury.io/js/ramda.svg" alt="npm module"></a>
+<a href="https://deno.land/x/ramda@v0.27.2"><img src="http://img.shields.io/badge/available%20on-deno.land/x-lightgrey.svg?logo=deno&labelColor=black" alt="deno land"></a>
+<a href="https://nest.land/package/ramda"><img src="https://nest.land/badge.svg" alt="nest badge"></a>
+<a href="https://gitter.im/ramda/ramda?utm_source=badge&amp;utm_medium=badge&amp;utm_campaign=pr-badge&amp;utm_content=badge"><img src="https://badges.gitter.im/Join_Chat.svg" alt="Gitter"></a></p>
+<h2 id="why-ramda">Why Ramda?</h2>
+<p><img src="https://ramdajs.com/ramdaFilled_200x235.png" 
+     width="170" height="190" align="right" hspace="12" /></p>
+<p>There are already several excellent libraries with a functional flavor. Typically, they are meant to be general-purpose toolkits, suitable for working in multiple paradigms. Ramda has a more focused goal. We wanted a library designed specifically for a functional programming style, one that makes it easy to create functional pipelines, one that never mutates user data. </p>
+<h2 id="whats-different">What&#39;s Different?</h2>
+<p>The primary distinguishing features of Ramda are:</p>
+<ul>
+<li><p>Ramda emphasizes a purer functional style. Immutability and side-effect free functions 
+are at the heart of its design philosophy. This can help you get the job done with simple, 
+elegant code.</p>
+</li>
+<li><p>Ramda functions are automatically curried. This allows you to easily build up new functions 
+from old ones simply by not supplying the final parameters.</p>
+</li>
+<li><p>The parameters to Ramda functions are arranged to make it convenient for currying. The data 
+to be operated on is generally supplied last.</p>
+</li>
+</ul>
+<p>The last two points together make it very easy to build functions as sequences of simpler functions, each of which transforms the data and passes it along to the next. Ramda is designed to support this style of coding.</p>
+<h2 id="introductions">Introductions</h2>
+<ul>
+<li><a href="http://buzzdecafe.github.io/code/2014/05/16/introducing-ramda">Introducing Ramda</a> by Buzz de Cafe</li>
+<li><a href="http://fr.umio.us/why-ramda/">Why Ramda?</a> by Scott Sauyet</li>
+<li><a href="http://fr.umio.us/favoring-curry/">Favoring Curry</a> by Scott Sauyet</li>
+<li><a href="https://hughfdjackson.com/javascript/why-curry-helps/">Why Curry Helps</a> by Hugh Jackson</li>
+<li><a href="https://www.youtube.com/watch?v=m3svKOdZijA&amp;app=desktop">Hey Underscore, You&#39;re Doing It Wrong!</a> by Brian Lonsdorf</li>
+<li><a href="https://randycoulman.com/blog/categories/thinking-in-ramda">Thinking in Ramda</a> by Randy Coulman</li>
+</ul>
+<h2 id="philosophy">Philosophy</h2>
+<p>Using Ramda should feel much like just using JavaScript.
+It is practical, functional JavaScript. We&#39;re not introducing
+lambda expressions in strings, we&#39;re not borrowing consed 
+lists, we&#39;re not porting over all of the Clojure functions.</p>
+<p>Our basic data structures are plain JavaScript objects, and our
+usual collections are JavaScript arrays. We also keep other
+native features of JavaScript, such as functions as objects
+with properties.</p>
+<p>Functional programming is in good part about immutable objects and 
+side-effect free functions. While Ramda does not <em>enforce</em> this, it
+enables such style to be as frictionless as possible.</p>
+<p>We aim for an implementation both clean and elegant, but the API is king.
+We sacrifice a great deal of implementation elegance for even a slightly
+cleaner API.</p>
+<p>Last but not least, Ramda strives for performance. A reliable and quick
+implementation wins over any notions of functional purity.</p>
+<h2 id="installation">Installation</h2>
+<p>To use with node:</p>
+<pre><code class="language-bash">$ npm install ramda
+</code></pre>
+<p>Then in the console:</p>
+<pre><code class="language-javascript">const R = require(&#39;ramda&#39;);
+</code></pre>
+<p>To use directly in <a href="https://deno.land">Deno</a>:</p>
+<pre><code class="language-javascript">import * as R from &quot;https://deno.land/x/ramda@v0.27.2/mod.ts&quot;;
+</code></pre>
+<p>or using Nest.land:</p>
+<pre><code class="language-javascript">import * as R from &quot;https://x.nest.land/ramda@0.27.2/mod.ts&quot;;
+</code></pre>
+<p>To use directly in the browser:</p>
+<pre><code class="language-html">&lt;script src=&quot;path/to/yourCopyOf/ramda.js&quot;&gt;&lt;/script&gt;
+</code></pre>
+<p>or the minified version:</p>
+<pre><code class="language-html">&lt;script src=&quot;path/to/yourCopyOf/ramda.min.js&quot;&gt;&lt;/script&gt;
+</code></pre>
+<p>or from a CDN, either cdnjs:</p>
+<pre><code class="language-html">&lt;script src=&quot;//cdnjs.cloudflare.com/ajax/libs/ramda/0.29.0/ramda.min.js&quot;&gt;&lt;/script&gt;
+</code></pre>
+<p>or one of the below links from <a href="http://jsdelivr.com">jsDelivr</a>:</p>
+<pre><code class="language-html">&lt;script src=&quot;//cdn.jsdelivr.net/npm/ramda@0.29.0/dist/ramda.min.js&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;//cdn.jsdelivr.net/npm/ramda@latest/dist/ramda.min.js&quot;&gt;&lt;/script&gt;
+</code></pre>
+<p>(note that using <code>latest</code> is taking a significant risk that ramda API changes could break your code.)</p>
+<p>These script tags add the variable <code>R</code> on the browser&#39;s global scope.</p>
+<p>Or you can inject ramda into virtually any unsuspecting website using <a href="https://github.com/ramda/ramda/blob/master/BOOKMARKLET.md">the bookmarklet</a>.</p>
+<p><strong>Note for versions &gt; 0.25</strong>
+Ramda versions &gt; 0.25 don&#39;t have a default export.
+So instead of <code>import R from &#39;ramda&#39;;</code>, one has to use <code>import * as R from &#39;ramda&#39;;</code>
+Or better yet, import only the required functions via <code>import { functionName } from &#39;ramda&#39;;</code></p>
+<p><strong>Note for ES6 module and browsers</strong>
+In order to access to the ES6 module in browsers, one has to provide the content of  the <strong>es</strong> directory (see below for the build instructions) and use <code>import * as R from &#39;./node_modules/ramda/es/index.js&#39;;</code></p>
+<h3 id="build">Build</h3>
+<p><code>npm run build</code> creates <code>es</code>, <code>src</code> directories and updates both <strong>dist/ramda.js</strong> and <strong>dist/ramda.min.js</strong></p>
+<h4 id="partial-builds">Partial Builds</h4>
+<p>It is possible to build Ramda with a subset of the functionality to reduce its file size. Ramda&#39;s build system supports this with command line flags. For example if you&#39;re using <code>R.compose</code>, <code>R.reduce</code>, and <code>R.filter</code> you can create a partial build with:</p>
+<pre><code>npm run --silent partial-build compose reduce filter &gt; dist/ramda.custom.js
+</code></pre>
+<p>This requires having Node/io.js installed and ramda&#39;s dependencies installed (just use <code>npm install</code> before running partial build). </p>
+<h2 id="documentation">Documentation</h2>
+<p>Please review the <a href="https://ramdajs.com/docs/">API documentation</a>.</p>
+<p>Also available is our <a href="https://github.com/ramda/ramda/wiki/Cookbook">Cookbook</a> of functions built from Ramda that you may find useful.</p>
+<h2 id="the-name">The Name</h2>
+<p>Ok, so we like sheep.  That&#39;s all.  It&#39;s a short name, not already 
+taken.  It could as easily have been <code>eweda</code>, but then we would be 
+forced to say <em>eweda lamb!</em>, and no one wants that.  For non-English 
+speakers, lambs are baby sheep, ewes are female sheep, and rams are male 
+sheep.  So perhaps ramda is a grown-up lambda... but probably not.</p>
+<h2 id="running-the-test-suite">Running The Test Suite</h2>
+<p><strong>Console:</strong></p>
+<p>To run the test suite from the console, you need to have <code>mocha</code> installed:</p>
+<pre><code>npm install -g mocha
+</code></pre>
+<p>Then from the root of the project, you can just call</p>
+<pre><code>mocha
+</code></pre>
+<p>Alternately, if you&#39;ve installed the dependencies, via:</p>
+<pre><code>npm install
+</code></pre>
+<p>then you can run the tests (and get detailed output) by running:</p>
+<pre><code>npm test
+</code></pre>
+<p><strong>Browser:</strong></p>
+<p>You can use <a href="https://github.com/airportyh/testem">testem</a> to
+test across different browsers (or even headlessly), with livereloading of
+tests. Install testem (<code>npm install -g testem</code>) and run <code>testem</code>. Open the
+link provided in your browser and you will see the results in your terminal.</p>
+<p>If you have <em>PhantomJS</em> installed, you can run <code>testem -l phantomjs</code> to run the
+tests completely headlessly.</p>
+<h2 id="usage">Usage</h2>
+<p>For <code>v0.25</code> and up, import the whole library or pick ES modules directly from the library:</p>
+<pre><code class="language-js">import * as R from &#39;ramda&#39;
+
+const {identity} = R
+R.map(identity, [1, 2, 3])
+</code></pre>
+<p>Destructuring imports from ramda <em>does not necessarily prevent importing the entire library</em>. You can manually cherry-pick methods like the following, which would only grab the parts necessary for <code>identity</code> to work:</p>
+<pre><code class="language-js">import identity from &#39;ramda/src/identity&#39;
+
+identity()
+</code></pre>
+<p>Manually cherry picking methods is cumbersome, however. Most bundlers like Webpack and Rollup offer tree-shaking as a way to drop unused Ramda code and reduce bundle size, but their performance varies, discussed <a href="https://github.com/scabbiaza/ramda-webpack-tree-shaking-examples">here</a>. Here is a summary of the optimal setup based on what technology you are using:</p>
+<ol>
+<li>Webpack + Babel - use <a href="https://github.com/megawac/babel-plugin-ramda"><code>babel-plugin-ramda</code></a> to automatically cherry pick methods. Discussion <a href="https://www.andrewsouthpaw.com/ramda-webpack-and-tree-shaking/">here</a>, example <a href="https://github.com/AndrewSouthpaw/ramda-webpack-tree-shaking-examples/blob/master/07-webpack-babel-plugin-ramda/package.json">here</a></li>
+<li>Webpack only - use <code>UglifyJS</code> plugin for treeshaking along with the <code>ModuleConcatenationPlugin</code>. Discussion <a href="https://github.com/ramda/ramda/issues/2355">here</a>, with an example setup <a href="https://github.com/scabbiaza/ramda-webpack-tree-shaking-examples/blob/master/06-webpack-scope-hoisted/webpack.config.js">here</a></li>
+<li>Rollup - does a fine job properly treeshaking, no special work needed; example <a href="https://github.com/scabbiaza/ramda-webpack-tree-shaking-examples/blob/master/07-rollup-ramda-tree-shaking/rollup.config.js">here</a></li>
+</ol>
+<h2 id="typings">Typings</h2>
+<ul>
+<li><a href="https://www.npmjs.com/package/@types/ramda">TypeScript</a></li>
+<li><a href="https://github.com/flowtype/flow-typed/tree/master/definitions/npm/ramda_v0.x.x">Flow</a></li>
+</ul>
+<h2 id="translations">Translations</h2>
+<ul>
+<li><a href="http://ramda.cn/">Chinese(中文)</a></li>
+<li><a href="https://github.com/ivanzusko/ramda">Ukrainian(Українська)</a></li>
+<li><a href="https://github.com/renansj/ramda">Portuguese(BR)</a></li>
+<li><a href="https://github.com/Guck111/ramda">Russian(Русский)</a></li>
+<li><a href="https://github.com/wirecobweb/ramda">Spanish(ES)</a></li>
+</ul>
+<h2 id="funding">Funding</h2>
+<p>If you wish to donate to Ramda please see our <a href="https://opencollective.com/ramda">Open Collective</a> page. Thank you!</p>
+<h2 id="acknowledgements">Acknowledgements</h2>
+<p>Thanks to <a href="http://www.jcphillipps.com">J. C. Phillipps</a> for the Ramda logo.
+Ramda logo artwork &copy; 2014 J. C. Phillipps. Licensed Creative Commons 
+<a href="http://creativecommons.org/licenses/by-nc-sa/3.0/">CC BY-NC-SA 3.0</a>.</p>
+</article></main><script>window.gitter = {
+	chat: {
+		options: {
+			room: 'ramda/ramda'
+		}
+	}
+}
+</script><script async defer src="https://sidecar.gitter.im/dist/sidecar.v1.js"></script></body></html>
