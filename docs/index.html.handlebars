@@ -117,25 +117,6 @@
 
             <div class="description">{{{description}}}</div>
 
-            {{#if symb}}
-            <table class="table table-sm">
-                <thead>
-                    <tr>
-                        <th>Input</th>
-                        <th>Output</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {{#each symb}}
-                    <tr>
-                        <td><pre class="symbol">{{input}}</pre></td>
-                        <td><pre class="symbol">{{output}}</pre></td>
-                    </tr>
-                    {{/each}}
-                </tbody>
-            </table>
-            {{/if}}
-
             {{#if aka}}
             <div class="aka">
                 Known in other languages or libraries as
