@@ -1,66 +1,67 @@
 doctype html
 html(class=html_class)
-	- base_url = version == cur_version ? "/" : "/" + version + "/"
+    - base_url = version == cur_version ? "/" : "/" + version + "/"
 
-	head
-		meta(charset="UTF-8")
-		meta(
-			content="width=device-width, initial-scale=1"
-			name="viewport"
-		)
+    head
+        meta(charset="UTF-8")
+        meta(
+            content="width=device-width, initial-scale=1"
+            name="viewport"
+        )
 
-		title Ramda Documentation
+        title Ramda Documentation
 
-		link(
-			href=page == "repl" ? "/style.css" : "style.css"
-			rel="stylesheet"
-			type="text/css"
-		)
+        link(
+            href=page == "repl" ? "/style.css" : "style.css"
+        rel="stylesheet"
+            type="text/css"
+        )
 
-		block styles
+        block styles
 
-		block scripts
+        block scripts
 
-	body
-		input#open-nav(type="checkbox")
-		header.navbar.navbar-fixed-top.navbar-inverse.container-fluid
-			.container-fluid
-				.navbar-header
-					label.open-nav(for="open-nav")
-					span.navbar-brand
-						strong Ramda
-						span.version(data-version=`${version}`)
+    body(class="light")
+        input#open-nav(type="checkbox")
+        header.navbar.navbar-fixed-top.navbar-inverse.container-fluid
+            .container-fluid
+                .navbar-header
+                    label.open-nav(for="open-nav")
+                    span.navbar-brand
+                        strong Ramda
+                        span.version(data-version=`${version}`)
 
-				ul.nav.navbar-nav.navbar-left
-					- active = ('home' == page) ? 'active' : ''
-					- href = base_url
-					li(class=active): a.home-link(href=href) Home
+                ul.nav.navbar-nav.navbar-left
+                    - active = ('home' == page) ? 'active' : ''
+                    - href = base_url
+                    li(class=active): a.home-link(href=href) Home
 
-					- active = ('docs' == page) ? 'active' : ''
-					- href = base_url + "docs"
-					li(class=active): a.docs-link(href=href) Documentation
+                    - active = ('docs' == page) ? 'active' : ''
+                    - href = base_url + "docs"
+                    li(class=active): a.docs-link(href=href) Documentation
 
-					- active = ('repl' == page) ? 'active' : ''
-					- href = "/repl/?v=" + version
-					li(class=active): a.repl-link(href=href) Try Ramda
+                    - active = ('repl' == page) ? 'active' : ''
+                    - href = "/repl/?v=" + version
+                    li(class=active): a.repl-link(href=href) Try Ramda
 
-				ul.nav.navbar-nav.navbar-right
-					li: a(href="https://github.com/ramda/ramda") GitHub
-					li: a(href="https://gitter.im/ramda/ramda") Discuss
+                ul.nav.navbar-nav.navbar-right
+                    li: a(href="#" class="theme-toggle" id="theme-toggle" title="Theme")
+                    li: a(href="https://github.com/ramda/ramda") GitHub
+                    li: a(href="https://gitter.im/ramda/ramda") Discuss
 
-		block main
+        block main
 
-		script.
-			window.gitter = {
-				chat: {
-					options: {
-						room: 'ramda/ramda'
-					}
-				}
-			}
+        script.
+            window.gitter = {
+                chat: {
+                    options: {
+                        room: 'ramda/ramda'
+                    }
+                }
+            }
 
-		script(
-			async
-			defer
-			src="https://sidecar.gitter.im/dist/sidecar.v1.js"
-		)
+        script(
+            async
+            defer
+            src="https://sidecar.gitter.im/dist/sidecar.v1.js"
+        )

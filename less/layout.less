@@ -45,33 +45,35 @@ html.home-page {
         .main-content();
         position: relative;
         left: 0;
-        background: #eee;
+        //background: #eee;
         margin: @padding;
         // margin-top: 0;
         padding-top: @navbar-height;
 
-        @media (prefers-color-scheme: dark) {
-            background-color: @dark-bg-100;
-        }
+        background-color: --var(--background-color);
+        //@media (prefers-color-scheme: dark) {
+        //    background-color: @dark-bg-100;
+        //}
     }
 
     main {
-        background: #fff;
+        //background: #fff;
         border: 1px solid white;
         box-shadow: 0 0 0 1px #ccc;
         border-radius: @border-radius-base;
 
-        @media (prefers-color-scheme: dark) {
-            color: white;
-            background-color: @dark-bg-100;
-            border-color: @dark-bg-200;
-            box-shadow: 0 0 0 1px @dark-bg-200;
-
-            :not(pre) > code {
-                color: white;
-                background-color: @dark-bg-200;
-            }
-        }
+        background-color: --var(--background-color);
+        //@media (prefers-color-scheme: dark) {
+        //    color: white;
+        //    background-color: @dark-bg-100;
+        //    border-color: @dark-bg-200;
+        //    box-shadow: 0 0 0 1px @dark-bg-200;
+        //
+        //    :not(pre) > code {
+        //        color: white;
+        //        background-color: @dark-bg-200;
+        //    }
+        //}
     }
 }
 
@@ -86,7 +88,7 @@ html.docs-page {
     header .navbar-left {
         transform: translateX(-@sidebar-width);
     }
-    
+
     header .navbar-left,
     aside, main {
         transition: transform 100ms ease-in;
@@ -100,24 +102,26 @@ html.docs-page {
         width: @sidebar-width;
         transform: translateX(-@sidebar-width);
 
-        @media (prefers-color-scheme: dark) {
-            color: white;
-            background-color: @dark-bg-100;
-        }
+        background-color: --var(--background-color);
+        //@media (prefers-color-scheme: dark) {
+        //    color: white;
+        //    background-color: @dark-bg-100;
+        //}
     }
 
     main {
         .main-content();
         min-width: 320px;
     }
-    
+
     body {
-        background: #eee;
+        //background: #eee;
         overflow-x: hidden; /* 1 */
 
-         @media (prefers-color-scheme: dark) {
-            background-color: @dark-bg-100;
-        }
+        background-color: --var(--background-color);
+        // @media (prefers-color-scheme: dark) {
+        //    background-color: @dark-bg-100;
+        //}
     }
 
     #open-nav:checked ~ header .navbar-left,
@@ -139,12 +143,12 @@ html.docs-page {
             position: fixed;
             transform: translateX(0);
         }
-        
+
         header .navbar-left,
         #open-nav:checked ~ header .navbar-left {
             transform: translateX(0);
         }
-        
+
         main,
         #open-nav:checked ~ main {
             transform: translateX(0);
@@ -160,23 +164,23 @@ html.docs-page {
         aside {
             display: none;
         }
-        
+
         a[title="View source on GitHub"] {
             display: none;
         }
-        
+
         .try-repl {
             display: none;
         }
-        
+
         h2 {
             font-size: 20px;
         }
-        
+
         .params a {
             display: none;
         }
-        
+
         .card div code {
             padding: 0;
         }

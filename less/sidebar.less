@@ -2,7 +2,8 @@
 
 /* 1. Add momentum scrolling for iOS Safari */
 .sidebar {
-    background: #f4f4f4;
+    //background: #f4f4f4;
+    background-color: --var(--background-color);
     border-right: @border;
     font-family: @font-family-monospace;
 
@@ -20,7 +21,8 @@
         width: 100%;
         bottom: 0;
         top: 60px;
-        background: #f8f8f8;
+        //background: #f8f8f8;
+        background-color: --var(--background-color);
         border-top: @border;
         position: absolute;
 
@@ -39,17 +41,17 @@
             border-radius: 0;
 
             &:hover {
-                background: #e4e4e4;
-
-                @media (prefers-color-scheme: dark) {
-                    background-color: @dark-bg-200;
-                }
+                background-color: --var(--background-color);
+                //@media (prefers-color-scheme: dark) {
+                //    background-color: @dark-bg-200;
+                //}
             }
         }
 
-        @media (prefers-color-scheme: dark) {
-            background-color: @dark-bg-100;
-            border-top-color: @dark-bg-200;
-        }
+        background-color: --var(--background-color);
+        //@media (prefers-color-scheme: dark) {
+        //    background-color: @dark-bg-100;
+        //    border-top-color: @dark-bg-200;
+        //}
     }
 }
