@@ -8,7 +8,7 @@
     border: 1px solid #fff;
     box-shadow: 0 0 0 1px #ccc;
     padding: @padding;
-    background: #fff;
+    //background: #fff;
     border-radius: @radius;
 
     pre {
@@ -64,14 +64,6 @@
 
     .details {
         margin-top: @padding-base-vertical;
-
-        @media (prefers-color-scheme: dark) {
-            background-color: @dark-bg-100;
-
-            .list-group-item {
-                background-color: transparent;
-            }
-        }
     }
 
     .type {
@@ -82,15 +74,5 @@
         color: @deprecated-color;
     }
 
-    @media (prefers-color-scheme: dark) {
-        color: white;
-        background-color: @dark-bg-100;
-        border-color: @dark-bg-200;
-        box-shadow: 0 0 0 1px @dark-bg-200;
-
-        :not(pre) > code {
-            color: white;
-            background: @dark-bg-200;
-        }
-    }
+    background-color: --var(--background-color);
 }

@@ -36,7 +36,7 @@ let mk_option = (selected) => (opt) => {
 
 let mk_select = (opts, selected) => {
   return `
-    <select onchange="handle_version_change(event, '${opts[0]}')" style="color:black">
+    <select onchange="handle_version_change(event, '${opts[0]}')">
       ${opts.map(mk_option(selected)).join("")}
     </select>
   `;

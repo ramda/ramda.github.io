@@ -1,0 +1,86 @@
+/*
+ * Color Scheme/Theme options
+*/
+
+:root {
+  color-scheme: light dark;
+  --background-color: white;
+  --font-color: @code-color;
+  --primary-color: @brand-primary;
+}
+
+body {
+  background: var(--background-color);
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+input,
+select,
+pre,
+code,
+label {
+  color: var(--font-color);
+}
+button,
+input,
+select {
+  background-color: var(--background-color);
+}
+button {
+  background-color: var(--primary-color);
+}
+
+body.dark {
+  --background-color: @dark-bg-100;
+  --font-color: @code-bg;
+  --primary-color: @brand-primary;
+
+  .theme-toggle::after {
+    content: "☾";
+  }
+
+  .card {
+    color: --var(--font-color);
+    background-color: --var(--background-color);
+    border-color: @dark-bg-200;
+    box-shadow: 0 0 0 1px @dark-bg-200;
+
+    :not(pre) > code {
+      color: --var(--font-color);
+      background: @dark-bg-200;
+    }
+
+    .details.details {
+      border-color: @dark-bg-200;
+      background-color: --var(--background-color) !important;
+      .list-group-item {
+        background-color: --var(--background-color) !important;
+      }
+    }
+
+    .see {
+      color: white;
+    }
+  }
+}
+
+body.light {
+  --background-color: white;
+  --font-color: @code-color;
+  --primary-color: @brand-primary;
+
+  .theme-toggle::after {
+    content: "☀";
+  }
+}
+
+.theme-toggle {
+  font-size: 2rem;
+  padding-top: 12px;
+  color: --var(--font-color);
+}
