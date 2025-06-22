@@ -7,6 +7,7 @@ const {
   defaultTo,
   filter,
   head,
+  is,
   join,
   map,
   path,
@@ -15,6 +16,7 @@ const {
   propEq,
   replace,
   split,
+  unless,
   __
 } = require('ramda');
 
@@ -31,9 +33,9 @@ const version = require('./package.json').devDependencies.ramda
 
 
 const prettifyCode = pipe(
-  join('\n'),
+  unless(is(String), join("\n")),
   replace(/^[ ]{5}/gm, ''),
-  s => hljs.highlight('javascript', s).value
+  s => hljs.highlight('javascript', s).value,
 )
 
 const prettifySig = pipe(
