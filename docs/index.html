@@ -7228,11 +7228,13 @@ this function is named <code>first</code>.</p>
                 <a href="#last">last</a>.
             </div>
 
-	    <pre><div class = "try-repl" ><button class = "send-repl" data-ramda-version="0.31.3">Open in REPL</button><button class = "run-here" data-ramda-version="0.31.3">Run it here</button></div><code class="hljs javascript">R.head([<span class="hljs-string">&#x27;fi&#x27;</span>, <span class="hljs-string">&#x27;fo&#x27;</span>, <span class="hljs-string">&#x27;fum&#x27;</span>]); <span class="hljs-comment">//=&gt; &#x27;fi&#x27;</span>
-R.head([]); <span class="hljs-comment">//=&gt; undefined</span>
+	    <pre><div class = "try-repl" ><button class = "send-repl" data-ramda-version="0.31.3">Open in REPL</button><button class = "run-here" data-ramda-version="0.31.3">Run it here</button></div><code class="hljs javascript">R.head([<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>]);  <span class="hljs-comment">//=&gt; 1</span>
+R.head([<span class="hljs-number">1</span>]);        <span class="hljs-comment">//=&gt; 1</span>
+R.head([]);         <span class="hljs-comment">//=&gt; undefined</span>
 
-R.head(<span class="hljs-string">&#x27;abc&#x27;</span>); <span class="hljs-comment">//=&gt; &#x27;a&#x27;</span>
-R.head(<span class="hljs-string">&#x27;&#x27;</span>); <span class="hljs-comment">//=&gt; undefined</span></code></pre>
+R.head(<span class="hljs-string">&#x27;abc&#x27;</span>);  <span class="hljs-comment">//=&gt; &#x27;a&#x27;</span>
+R.head(<span class="hljs-string">&#x27;a&#x27;</span>);    <span class="hljs-comment">//=&gt; &#x27;a&#x27;</span>
+R.head(<span class="hljs-string">&#x27;&#x27;</span>);     <span class="hljs-comment">//=&gt; undefined</span></code></pre>
         </section>
         <div id="identical" class="section-id"></div>
         <section class="card">
@@ -8807,11 +8809,13 @@ R.keysIn(f); <span class="hljs-comment">//=&gt; [&#x27;x&#x27;, &#x27;y&#x27;]</
                 <a href="#tail">tail</a>.
             </div>
 
-	    <pre><div class = "try-repl" ><button class = "send-repl" data-ramda-version="0.31.3">Open in REPL</button><button class = "run-here" data-ramda-version="0.31.3">Run it here</button></div><code class="hljs javascript">R.last([<span class="hljs-string">&#x27;fi&#x27;</span>, <span class="hljs-string">&#x27;fo&#x27;</span>, <span class="hljs-string">&#x27;fum&#x27;</span>]); <span class="hljs-comment">//=&gt; &#x27;fum&#x27;</span>
-R.last([]); <span class="hljs-comment">//=&gt; undefined</span>
+	    <pre><div class = "try-repl" ><button class = "send-repl" data-ramda-version="0.31.3">Open in REPL</button><button class = "run-here" data-ramda-version="0.31.3">Run it here</button></div><code class="hljs javascript">R.last([<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>]);  <span class="hljs-comment">//=&gt; 3</span>
+R.last([<span class="hljs-number">1</span>]);        <span class="hljs-comment">//=&gt; 1</span>
+R.last([]);         <span class="hljs-comment">//=&gt; undefined</span>
 
-R.last(<span class="hljs-string">&#x27;abc&#x27;</span>); <span class="hljs-comment">//=&gt; &#x27;c&#x27;</span>
-R.last(<span class="hljs-string">&#x27;&#x27;</span>); <span class="hljs-comment">//=&gt; undefined</span></code></pre>
+R.last(<span class="hljs-string">&#x27;abc&#x27;</span>);  <span class="hljs-comment">//=&gt; &#x27;c&#x27;</span>
+R.last(<span class="hljs-string">&#x27;a&#x27;</span>);    <span class="hljs-comment">//=&gt; &#x27;a&#x27;</span>
+R.last(<span class="hljs-string">&#x27;&#x27;</span>);     <span class="hljs-comment">//=&gt; undefined</span></code></pre>
         </section>
         <div id="lastIndexOf" class="section-id"></div>
         <section class="card">
